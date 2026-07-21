@@ -1,0 +1,67 @@
+SAR = {
+  value = 125
+}
+leader = {
+  name = "德卡尔伯马滕"  # de Kalbermatten
+  date = 1815.1.1
+  type = land
+  personality = tactful
+  background = exranker
+  prestige = 0.2
+}
+leader = {
+  name = "亨利 迪富尔"  # Henri Dufour
+  date = 1831.1.1
+  type = land
+  personality = intelligent
+  background = cartographer
+  prestige = 0.1
+}
+army = {
+  name = "第一国民军"  # Landwehr I
+  location = 603
+  regiment = {
+    name = "第1旅"  # 1.Brigade
+    type = infantry
+    home = 603
+  }
+  regiment = {
+    name = "第2旅"  # 2.Brigade
+    type = infantry
+    home = 604
+  }
+  regiment = {
+    name = "第3旅"  # 3.Brigade
+    type = infantry
+    home = 605
+  }
+  regiment = {
+    name = "第4旅"  # 4.Brigade
+    type = infantry
+    home = 606
+  }
+}
+army = {
+  name = "第二国民军"  # Landwehr II
+  location = 607
+  regiment = {
+    name = "第5旅"  # 5.Brigade
+    type = infantry
+    home = 607
+  }
+  regiment = {
+    name = "第6旅"  # 6.Brigade
+    type = infantry
+    home = 2568
+  }
+  regiment = {
+    name = "第7旅"  # 7.Brigade
+    type = infantry
+    home = 609
+  }
+  regiment = {
+    name = "第8旅"  # 8.Brigade
+    type = infantry
+    home = 611
+  }
+}

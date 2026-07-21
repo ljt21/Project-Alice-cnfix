@@ -1,0 +1,47 @@
+army = {
+  name = "贝都因军队"  # Bedouin Army
+  location = 1159
+  regiment = {
+    name = "沙马里"  # 1.Shammari
+    type = irregular
+    home = 1159
+  }
+  regiment = {
+    name = "沙马里"  # 2.Shammari
+    type = irregular
+    home = 1161
+  }
+}
+army = {
+  name = "伊本·沙特的军队"  # Ibn Saud's Army
+  location = 1157
+  regiment = {
+    name = "沙特"  # 1.Saudi
+    type = cavalry
+    home = 1157
+  }
+  regiment = {
+    name = "沙特"  # 2.Saudi
+    type = irregular
+    home = 1157
+  }
+  regiment = {
+    name = "沙特"  # 3.Saudi
+    type = irregular
+    home = 1164
+  }
+}
+army = {
+  name = "伊本·拉希德的军队"  # Ibn Rashid's Army
+  location = 1158
+  regiment = {
+    name = "阿特巴"  # 1.'Ateba
+    type = cavalry
+    home = 1158
+  }
+  regiment = {
+    name = "阿特巴"  # 2.'Ateba
+    type = irregular
+    home = 1163
+  }
+}

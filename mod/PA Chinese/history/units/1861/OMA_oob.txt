@@ -1,0 +1,34 @@
+army = {
+  name = "阿曼皇家陆军"  # Royal Army of Oman
+  location = 1166
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1166
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1169
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1170
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1171
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1172
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1174
+  }
+}

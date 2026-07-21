@@ -1,0 +1,19 @@
+army = {
+  name = "厄瓜多尔陆军"  # Ej茅rcito de Ecuador
+  location = 2279
+  regiment = {
+    name = "第1步兵旅"  # 1.Brigada de Infanter铆a
+    type = infantry
+    home = 2279
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infanter铆a
+    type = infantry
+    home = 2279
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infanter铆a
+    type = infantry
+    home = 2283
+  }
+}

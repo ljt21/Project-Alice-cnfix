@@ -1,0 +1,9 @@
+army = {
+  name = "荷尔斯泰因军队"  # Holsteinische Armee
+  location = 369
+  regiment = {
+    name = "石荷州民兵旅"  # 1.Schleswig-Hols.Landwehrbrigade
+    type = infantry
+    home = 369
+  }
+}

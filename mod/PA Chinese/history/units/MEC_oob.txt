@@ -1,0 +1,9 @@
+army = {
+  name = "梅克伦堡军队"  # Mecklenburgische Armee
+  location = 545
+  regiment = {
+    name = "梅克伦堡步兵旅"  # 1.Mecklenburgische Infanterie-Brigade
+    type = infantry
+    home = 545
+  }
+}

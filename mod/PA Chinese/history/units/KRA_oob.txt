@@ -1,0 +1,9 @@
+army = {
+  name = "克拉科夫军团"  # Armia Krak贸wiej
+  location = 703
+  regiment = {
+    name = "第1旅"  # 1.Brygada
+    type = infantry
+    home = 703
+  }
+}

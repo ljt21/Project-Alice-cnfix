@@ -1,0 +1,19 @@
+army = {
+  name = "阿瓦德纳瓦布的军队"  # Army of the Nawab of Awadh
+  location = 1242
+  regiment = {
+    name = "第1加瓦尔步兵"  # 1.Garhwali Infantry
+    type = irregular
+    home = 1242
+  }
+  regiment = {
+    name = "第2加瓦尔步兵"  # 2.Garhwali Infantry
+    type = irregular
+    home = 1242
+  }
+  regiment = {
+    name = "第3加瓦尔步兵"  # 3.Garhwali Infantry
+    type = irregular
+    home = 1244
+  }
+}

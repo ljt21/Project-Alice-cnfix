@@ -1,0 +1,49 @@
+army = {
+  name = "阮朝御林军"  # Imperial Nguyen Army
+  location = 1375
+  regiment = {
+    name = "第1旅"  # 1.Brigade
+    type = irregular
+    home = 1375
+  }
+  regiment = {
+    name = "第2旅"  # 2.Brigade
+    type = irregular
+    home = 1369
+  }
+  regiment = {
+    name = "第3旅"  # 3.Brigade
+    type = irregular
+    home = 1380
+  }
+  regiment = {
+    name = "第4旅"  # 4.Brigade
+    type = irregular
+    home = 1370
+  }
+  regiment = {
+    name = "第5旅"  # 5.Brigade
+    type = irregular
+    home = 1371
+  }
+  regiment = {
+    name = "第6旅"  # 6.Brigade
+    type = irregular
+    home = 1372
+  }
+  regiment = {
+    name = "第7旅"  # 7.Brigade
+    type = irregular
+    home = 1373
+  }
+  regiment = {
+    name = "第8旅"  # 8.Brigade
+    type = irregular
+    home = 1376
+  }
+  regiment = {
+    name = "第9旅"  # 9.Brigade
+    type = irregular
+    home = 1377
+  }
+}

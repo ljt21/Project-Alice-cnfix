@@ -1,0 +1,27 @@
+leader = {
+  name = "雅各布斯 韦佩纳"  # Jacobus Wepener
+  date = 1852.1.1
+  type = land
+  personality = ballsy
+  background = unfit
+  prestige = 0.2
+}
+army = {
+  name = "奥兰治军团"  # Oranje Army
+  location = 2103
+  regiment = {
+    name = "布隆方丹突击队"  # Bloemfontein Commando
+    type = dragoon
+    home = 2101
+  }
+  regiment = {
+    name = "温堡突击队"  # Winburg Commando
+    type = dragoon
+    home = 2102
+  }
+  regiment = {
+    name = "菲利波利斯突击队"  # Philippolis Commando
+    type = dragoon
+    home = 2103
+  }
+}

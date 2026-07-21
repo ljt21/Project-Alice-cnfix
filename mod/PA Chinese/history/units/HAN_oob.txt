@@ -1,0 +1,65 @@
+leader = {
+  name = "冯 阿尔滕"  # von Alten
+  date = 1810.1.1
+  type = land
+  personality = stout
+  background = gifted_administrator
+  prestige = 0.3
+}
+leader = {
+  name = "维克多 冯 普罗特"  # Victor von Prott
+  date = 1815.1.1
+  type = land
+  personality = intelligent
+  background = engineer
+  prestige = 0.3
+}
+leader = {
+  name = "尤利乌斯 冯 哈特曼"  # Julius von Hartmann
+  date = 1825.1.1
+  type = land
+  personality = spirited
+  background = artillerist
+  prestige = 0.2
+}
+leader = {
+  name = "休 哈尔克特"  # Hugh Halkett
+  date = 1834.1.1
+  type = land
+  personality = heroic
+  background = school_of_offense
+  prestige = 0.1
+}
+army = {
+  name = "汉诺威军队"  # Hann枚versche Heer
+  location = 534
+  regiment = {
+    name = "汉诺威步兵旅"  # 1.Hann枚versche Infanteriebrigade
+    type = infantry
+    home = 534
+  }
+  regiment = {
+    name = "汉诺威步兵旅"  # 2.Hann枚versche Infanteriebrigade
+    type = infantry
+    home = 535
+  }
+  regiment = {
+    name = "汉诺威步兵旅"  # 3.Hann枚versche Infanteriebrigade
+    type = infantry
+    home = 531
+  }
+  regiment = {
+    name = "汉诺威炮兵旅"  # 1.Hann枚versche Artilleriebrigade
+    type = artillery
+    home = 532
+  }
+}
+army = {
+  name = "哥廷根军团"  # Korps G枚ttingen
+  location = 537
+  regiment = {
+    name = "汉诺威步兵旅"  # 4.Hann枚versche Infanteriebrigade
+    type = infantry
+    home = 537
+  }
+}

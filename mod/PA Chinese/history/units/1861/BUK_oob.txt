@@ -1,0 +1,58 @@
+army = {
+  name = "布哈拉军团"  # Army of Bukkhara
+  location = 1198
+  regiment = {
+    name = "乌兹别克族"  # 1.Uzbek
+    type = cavalry
+    home = 1198
+  }
+  regiment = {
+    name = "乌兹别克族"  # 2.Uzbek
+    type = irregular
+    home = 1198
+  }
+  regiment = {
+    name = "乌兹别克族"  # 3.Uzbek
+    type = irregular
+    home = 1198
+  }
+  regiment = {
+    name = "乌兹别克族"  # 4.Uzbek
+    type = irregular
+    home = 1198
+  }
+  regiment = {
+    name = "乌兹别克族"  # 5.Uzbek
+    type = irregular
+    home = 1198
+  }
+}
+army = {
+  name = "撒马尔罕军团"  # Army of Samarkand
+  location = 1199
+  regiment = {
+    name = "乌兹别克族"  # 6.Uzbek
+    type = cavalry
+    home = 1199
+  }
+  regiment = {
+    name = "乌兹别克族"  # 7.Uzbek
+    type = cavalry
+    home = 1199
+  }
+  regiment = {
+    name = "乌兹别克族"  # 8.Uzbek
+    type = irregular
+    home = 1197
+  }
+  regiment = {
+    name = "乌兹别克族"  # 9.Uzbek
+    type = irregular
+    home = 1200
+  }
+  regiment = {
+    name = "塔吉克族"  # 1.Tajik
+    type = irregular
+    home = 1207
+  }
+}

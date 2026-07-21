@@ -1,0 +1,19 @@
+army = {
+  name = "博帕尔女王的军队"  # Army of the Begum of Bhopal
+  location = 1272
+  regiment = {
+    name = "博帕尔军队"  # 1.Bhopal
+    type = irregular
+    home = 1272
+  }
+  regiment = {
+    name = "博帕尔军队"  # 2.Bhopal
+    type = irregular
+    home = 1272
+  }
+  regiment = {
+    name = "博帕尔军队"  # 3.Bhopal
+    type = irregular
+    home = 1272
+  }
+}

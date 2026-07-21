@@ -1,0 +1,9 @@
+army = {
+  name = "奥兰治自由邦军队"  # Army of Oranje Vrij Staat
+  location = 2101
+  regiment = {
+    name = "奥兰治突击队"  # 1.Oranje Commando
+    type = infantry
+    home = 2102
+  }
+}

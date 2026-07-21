@@ -1,0 +1,36 @@
+army = {
+  name = "教皇军"  # Esercito Pontificio
+  leader = {
+    name = "菲利波 雷斯塔"  # Filippo Resta
+    date = 1815.1.1
+    type = land
+    personality = doughty
+    background = old_school
+    prestige = 0.5
+  }
+  location = 749
+  regiment = {
+    name = "教皇朱阿夫兵"  # 1.Zuavi Pontifici
+    type = infantry
+    home = 749
+  }
+  regiment = {
+    name = "教皇朱阿夫兵 - 圣帕特里克团"  # 2.Zuavi Pontifici - Sancti Patricii
+    type = infantry
+    home = 750
+  }
+  regiment = {
+    name = "教皇朱阿夫兵"  # 4.Zuavi Pontifici
+    type = artillery
+    home = 751
+  }
+}
+army = {
+  name = "罗马涅军"  # Esercito di Romagna
+  location = 741
+  regiment = {
+    name = "教皇朱阿夫兵 - 圣保罗团"  # 3.Zuavi Pontifici - Sancti Pauli
+    type = infantry
+    home = 741
+  }
+}

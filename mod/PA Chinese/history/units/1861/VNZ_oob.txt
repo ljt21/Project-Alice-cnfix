@@ -1,0 +1,50 @@
+leader = {
+  name = "莱昂 科尔德罗"  # Leon Cordero
+  date = 1850.1.1
+  type = land
+  personality = resourceful
+  background = professor
+  prestige = 0.2
+}
+leader = {
+  name = "胡安 法尔孔"  # Juan Falc贸n
+  date = 1857.1.1
+  type = land
+  personality = balanced_p
+  background = corrupt
+  prestige = 0.1
+}
+army = {
+  name = "委内瑞拉军队"  # Ej茅rcito de Venezuela
+  location = 2264
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2264
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2267
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2268
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2269
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2270
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2271
+  }
+}

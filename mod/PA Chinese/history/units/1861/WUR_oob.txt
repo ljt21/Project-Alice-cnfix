@@ -1,0 +1,49 @@
+leader = {
+  name = "冯 奈佩格"  # von Neipperg
+  date = 1840.1.1
+  type = land
+  personality = arrogant
+  background = powerful_friends
+  prestige = 0.2
+}
+leader = {
+  name = "赫尔曼 范 萨克森-魏玛亲王"  # Prinz Hermann van Saksen-Weimar
+  date = 1859.1.1
+  type = land
+  personality = harsh
+  background = cavalry_school
+  prestige = 0.1
+}
+army = {
+  name = "师"  # 1.Division
+  location = 589
+  regiment = {
+    name = "卡尔国王骑兵团"  # 1.Reiter-Regiment K枚nig Karl
+    type = cavalry
+    home = 589
+  }
+  regiment = {
+    name = "奥尔加女王步兵团"  # 1.Infanterie-Regiment K枚nigin Olga
+    type = infantry
+    home = 589
+  }
+  regiment = {
+    name = "步兵团"  # 2.Infanterie-Regiment
+    type = cuirassier
+    home = 589
+  }
+}
+army = {
+  name = "师"  # 2.Division
+  location = 593
+  regiment = {
+    name = "步兵团"  # 7.Infanterie-Regiment
+    type = infantry
+    home = 593
+  }
+  regiment = {
+    name = "野战炮兵营"  # 1.Bataillon Fu脽Artillerie
+    type = artillery
+    home = 593
+  }
+}

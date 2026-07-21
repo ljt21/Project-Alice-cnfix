@@ -1,0 +1,24 @@
+leader = {
+  name = "格奥尔格亲王"  # Prince Georg
+  date = 1820.1.1
+  type = land
+  personality = mediocre
+  background = old_school
+  prestige = 0.2
+}
+leader = {
+  name = "卡尔亲王"  # Prince Karl
+  date = 1836.1.1
+  type = land
+  personality = indifferent
+  background = aristocrat
+}
+army = {
+  name = "大公国陆军"  # Gro脽herzogliche Armee
+  location = 2560
+  regiment = {
+    name = "大公国步兵"  # 1.Gro脽herzogliche Infanterie
+    type = infantry
+    home = 2560
+  }
+}

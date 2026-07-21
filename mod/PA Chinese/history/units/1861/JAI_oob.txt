@@ -1,0 +1,19 @@
+army = {
+  name = "斋浦尔邦军队"  # Jaipur State Troops
+  location = 1268
+  regiment = {
+    name = "斋浦尔特遣队"  # 1.Jaipur Contingent
+    type = irregular
+    home = 1268
+  }
+  regiment = {
+    name = "斋浦尔特遣队"  # 2.Jaipur Contingent
+    type = irregular
+    home = 1268
+  }
+  regiment = {
+    name = "斋浦尔特遣队"  # 3.Jaipur Contingent
+    type = cavalry
+    home = 1268
+  }
+}

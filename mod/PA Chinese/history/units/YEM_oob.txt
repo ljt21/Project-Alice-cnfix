@@ -1,0 +1,42 @@
+army = {
+  name = "栽德派伊玛目军团"  # Army of the Zaidi Imams
+  location = 1178
+  regiment = {
+    name = "哈希德部族"  # 1.Hashid
+    type = irregular
+    home = 1178
+  }
+  regiment = {
+    name = "哈希德部族"  # 2.Hashid
+    type = irregular
+    home = 1179
+  }
+  regiment = {
+    name = "巴基尔部族"  # 1.Bakil
+    type = irregular
+    home = 1178
+  }
+  regiment = {
+    name = "巴基尔部族"  # 2.Bakil
+    type = irregular
+    home = 1180
+  }
+}
+army = {
+  name = "亚丁酋长联军"  # Armies of the Sheikhs of Aden
+  location = 1412
+  regiment = {
+    name = "阿卜达利部族"  # 1.Abdali
+    type = irregular
+    home = 1412
+  }
+}
+army = {
+  name = "穆卡拉酋长军团"  # Army of the Sheikhs of Mukalla
+  location = 1173
+  regiment = {
+    name = "阿卜达利部族"  # 2.Abdali
+    type = irregular
+    home = 1173
+  }
+}

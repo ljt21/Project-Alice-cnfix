@@ -1,0 +1,19 @@
+army = {
+  name = "拉达克乔格亚尔之军"  # Army of the Chogyal of Ladakh
+  location = 1226
+  regiment = {
+    name = "格亚尔军"
+    type = irregular
+    home = 1226
+  }
+  regiment = {
+    name = "格亚尔军"
+    type = irregular
+    home = 1226
+  }
+  regiment = {
+    name = "格亚尔军"
+    type = irregular
+    home = 1226
+  }
+}

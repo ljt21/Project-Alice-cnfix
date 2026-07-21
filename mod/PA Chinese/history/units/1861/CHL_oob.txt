@@ -1,0 +1,62 @@
+leader = {
+  name = "胡斯托 阿尔特亚加"  # Justo Arteaga
+  date = 1851.1.1
+  type = land
+  personality = careful
+  background = elderly
+  prestige = 0.2
+}
+army = {
+  name = "智利陆军" 
+  location = 2322
+  regiment = {
+    name = "ra 军团"
+    type = infantry
+    home = 2305
+  }
+  regiment = {
+    name = "陆军军团"
+    type = infantry
+    home = 2323
+  }
+  regiment = {
+    name = "陆军军团"
+    type = infantry
+    home = 2324
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2325
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2326
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2328
+  }
+}
+navy = {
+  name = "智利舰队"  # Chilean Fleet
+  location = 2325
+  ship = {
+    name = "埃斯梅拉达号"  # Esmeralda
+    type = commerce_raider
+  }
+  ship = {
+    name = "迈普号"  # Maipu
+    type = steam_transport
+  }
+}
+navy = {
+  name = "第一运输中队"  # 1st Transport Squadron
+  location = 2325
+  ship = {
+    name = "第一运输支队"  # 1st Transport Flotilla
+    type = clipper_transport
+  }
+}

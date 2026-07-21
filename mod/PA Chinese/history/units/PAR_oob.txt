@@ -1,0 +1,17 @@
+army = {
+  name = "帕尔马军队"  # Esercito di Parma
+  leader = {
+    name = "威廉 阿尔布雷希特"  # Wilhelm Albrecht
+    date = 1836.1.1
+    type = land
+    personality = indifferent
+    background = uncommonly_young
+    prestige = 0.5
+  }
+  location = 738
+  regiment = {
+    name = "线性步兵"  # 1.Fanteria di Linea
+    type = infantry
+    home = 738
+  }
+}

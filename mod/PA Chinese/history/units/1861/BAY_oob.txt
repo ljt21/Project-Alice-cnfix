@@ -1,0 +1,83 @@
+army = {
+  name = "第一军团"  # I.Korps
+  location = 599
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 599
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 599
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 599
+  }
+  regiment = {
+    name = "步兵军团"
+    type = artillery
+    home = 599
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 599
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 599
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 599
+  }
+  regiment = {
+    name = "步兵军团"
+    type = cuirassier
+    home = 599
+  }
+}
+army = {
+  name = "第二军团"  # II.Korps
+  location = 595
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 595
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 595
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 595
+  }
+  regiment = {
+    name = "步兵军团"
+    type = cuirassier
+    home = 595
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 595
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 595
+  }
+  regiment = {
+    name = "步兵军团"
+    type = infantry
+    home = 595
+  }
+}

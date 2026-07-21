@@ -1,0 +1,21 @@
+leader = {
+  name = "亚历山大亲王"  # Prince Aleksandar
+  type = land
+  date = "1836.1.1"
+  personality = openminded
+  background = gifted_administrator
+}
+army = {
+  name = "塞尔维亚公国军队"  # Army of the Principality of Serbia
+  location = 794
+  regiment = {
+    name = "塞尔维亚第一步兵团"  # 1st Serbian Infantry
+    type = infantry
+    home = 794
+  }
+  regiment = {
+    name = "塞尔维亚第二步兵团"  # 2nd Serbian Infantry
+    type = infantry
+    home = 795
+  }
+}

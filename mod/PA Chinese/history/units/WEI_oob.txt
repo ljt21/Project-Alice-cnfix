@@ -1,0 +1,9 @@
+army = {
+  name = "萨克森军队"  # S盲chsische Armee
+  location = 561
+  regiment = {
+    name = "线列步兵"  # 1.Linieninfanteri
+    type = infantry
+    home = 561
+  }
+}

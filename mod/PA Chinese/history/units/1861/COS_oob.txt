@@ -1,0 +1,14 @@
+army = {
+  name = "第1集团军"  # 1st Army
+  location = 2201
+  regiment = {
+    name = "第1步兵师"  # 1st Infantry
+    type = infantry
+    home = 2201
+  }
+  regiment = {
+    name = "第2步兵师"  # 2nd Infantry
+    type = infantry
+    home = 2201
+  }
+}

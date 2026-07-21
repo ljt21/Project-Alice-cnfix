@@ -1,0 +1,44 @@
+army = {
+  name = "秘鲁陆军"  # Ej茅rcito del Per煤
+  location = 2295
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2295
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2295
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2298
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2302
+  }
+}
+navy = {
+  name = "秘鲁舰队"  # Peruvian Fleet
+  location = 2295
+  ship = {
+    name = "亚马孙号"  # Amazonas
+    type = commerce_raider
+  }
+  ship = {
+    name = "阿普里马克号"  # Ap煤rimac
+    type = commerce_raider
+  }
+  ship = {
+    name = "莱尔松迪将军号"  # General Lerzundi
+    type = steam_transport
+  }
+  ship = {
+    name = "乌卡亚利号"  # Ucayali
+    type = steam_transport
+  }
+}

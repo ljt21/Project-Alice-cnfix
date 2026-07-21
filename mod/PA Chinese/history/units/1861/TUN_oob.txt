@@ -1,0 +1,64 @@
+army = {
+  name = "皇家陆军"  # Royal Army
+  location = 1726
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 1726
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 1726
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 1726
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1730
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1730
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1730
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1728
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1728
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1728
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 1729
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 1729
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 1729
+  }
+}

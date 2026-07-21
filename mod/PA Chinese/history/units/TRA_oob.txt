@@ -1,0 +1,19 @@
+army = {
+  name = "特拉凡哥尔大君的军队"  # Army of the Maharaja of Travancore
+  location = 1319
+  regiment = {
+    name = "喀拉拉邦师"  # 1.Kerala Division
+    type = irregular
+    home = 1319
+  }
+  regiment = {
+    name = "喀拉拉邦师"  # 2.Kerala Division
+    type = irregular
+    home = 1319
+  }
+  regiment = {
+    name = "喀拉拉邦师"  # 3.Kerala Division
+    type = irregular
+    home = 1319
+  }
+}

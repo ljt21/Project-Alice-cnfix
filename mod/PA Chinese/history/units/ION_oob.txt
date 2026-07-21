@@ -1,0 +1,9 @@
+army = {
+  name = "斯特拉托斯·约尼亚斯·内西亚斯"  # Strat贸s Ionias Nesias
+  location = 826
+  regiment = {
+    name = "第1步兵旅"  # 1.Taxiarchia Pezikou
+    type = infantry
+    home = 826
+  }
+}

@@ -1,0 +1,58 @@
+leader = {
+  name = "乌尔基萨"  # de Urquiza
+  date = 1837.1.1
+  type = land
+  personality = inefficient
+  background = powerful_friends
+  prestige = 0.2
+}
+leader = {
+  name = "巴托洛梅 米特雷"  # Bartolom茅 Mitre
+  date = 1853.1.1
+  type = land
+  personality = efficient
+  background = politician
+  prestige = 0.2
+}
+leader = {
+  name = "胡利奥 罗卡"  # Julio Roca
+  date = 1861.1.1
+  type = land
+  personality = brilliant
+  background = war_college
+  prestige = 0.2
+}
+army = {
+  name = "国民军" 
+  location = 2360
+  regiment = {
+    name = "国民军"
+    type = infantry
+    home = 2348
+  }
+  regiment = {
+    name = "国民军"
+    type = infantry
+    home = 2349
+  }
+  regiment = {
+    name = "国民军"
+    type = infantry
+    home = 2373
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2348
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2349
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 2379
+  }
+}

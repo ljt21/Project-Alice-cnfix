@@ -1,0 +1,19 @@
+army = {
+  name = "迈索尔瓦迪亚尔王朝军队"  # Army of the Wadiyar of Mysore
+  location = 1314
+  regiment = {
+    name = "迈索尔分遣队"  # 1.Mysore Contingent
+    type = irregular
+    home = 1314
+  }
+  regiment = {
+    name = "迈索尔分遣队"  # 2.Mysore Contingent
+    type = irregular
+    home = 1313
+  }
+  regiment = {
+    name = "迈索尔分遣队"  # 3.Mysore Contingent
+    type = irregular
+    home = 1315
+  }
+}

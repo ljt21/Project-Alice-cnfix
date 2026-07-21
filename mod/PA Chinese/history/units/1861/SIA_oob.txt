@@ -1,0 +1,125 @@
+USA = {
+  value = 10
+}
+BUR = {
+  value = -200
+}
+ENG = {
+  value = 75
+}
+army = {
+  name = "暹罗陆军"  # Army of Siam
+  location = 1346
+  regiment = {
+    name = "陆军旅"  # 1.Brigade
+    type = irregular
+    home = 1346
+  }
+  regiment = {
+    name = "陆军旅"  # 2.Brigade
+    type = irregular
+    home = 1346
+  }
+  regiment = {
+    name = "陆军旅"  # 3.Brigade
+    type = irregular
+    home = 1346
+  }
+  regiment = {
+    name = "陆军旅"  # 4.Brigade
+    type = irregular
+    home = 1347
+  }
+  regiment = {
+    name = "陆军旅"  # 5.Brigade
+    type = irregular
+    home = 1353
+  }
+}
+army = {
+  name = "南方军团"  # Southern Army
+  location = 1392
+  regiment = {
+    name = "陆军旅"  # 6.Brigade
+    type = irregular
+    home = 1392
+  }
+  regiment = {
+    name = "陆军旅"  # 7.Brigade
+    type = irregular
+    home = 1389
+  }
+  regiment = {
+    name = "陆军旅"  # 8.Brigade
+    type = irregular
+    home = 1391
+  }
+  regiment = {
+    name = "陆军旅"  # 9.Brigade
+    type = irregular
+    home = 1354
+  }
+  regiment = {
+    name = "陆军旅"  # 10.Brigade
+    type = irregular
+    home = 1352
+  }
+}
+army = {
+  name = "北方军团"  # Northern Army
+  location = 2572
+  regiment = {
+    name = "陆军旅"  # 11.Brigade
+    type = irregular
+    home = 2572
+  }
+  regiment = {
+    name = "陆军旅"  # 12.Brigade
+    type = irregular
+    home = 1355
+  }
+  regiment = {
+    name = "陆军旅"  # 13.Brigade
+    type = irregular
+    home = 1355
+  }
+  regiment = {
+    name = "陆军旅"  # 14.Brigade
+    type = irregular
+    home = 1349
+  }
+  regiment = {
+    name = "陆军旅"  # 15.Brigade
+    type = irregular
+    home = 1348
+  }
+}
+army = {
+  name = "东方军团"  # Eastern Army
+  location = 1358
+  regiment = {
+    name = "陆军旅"  # 16.Brigade
+    type = irregular
+    home = 1358
+  }
+  regiment = {
+    name = "陆军旅"  # 17.Brigade
+    type = irregular
+    home = 1358
+  }
+  regiment = {
+    name = "陆军旅"  # 18.Brigade
+    type = irregular
+    home = 1359
+  }
+  regiment = {
+    name = "陆军旅"  # 19.Brigade
+    type = irregular
+    home = 1350
+  }
+  regiment = {
+    name = "陆军旅"  # 20.Brigade
+    type = irregular
+    home = 1351
+  }
+}

@@ -1,0 +1,145 @@
+army = {
+  name = "太平军"  # Army of Taiping
+  location = 2221
+  regiment = {
+    name = "太平第一旅"  # 1.Taiping 1st Banner
+    type = infantry
+    home = 1477
+  }
+  regiment = {
+    name = "太平第一旅"  # 2.Taiping 1st Banner
+    type = infantry
+    home = 1477
+  }
+  regiment = {
+    name = "太平第一旅"  # 3.Taiping 1st Banner
+    type = infantry
+    home = 2221
+  }
+  regiment = {
+    name = "太平第一旅"  # 4.Taiping 1st Banner
+    type = infantry
+    home = 2221
+  }
+  regiment = {
+    name = "太平第一旅"  # 5.Taiping 1st Banner
+    type = infantry
+    home = 1475
+  }
+}
+army = {
+  name = "北王军"  # Army of the North King
+  location = 1470
+  regiment = {
+    name = "北王军旅"  # 1.North King Banner
+    type = infantry
+    home = 1474
+  }
+  regiment = {
+    name = "北王军旅"  # 2.North King Banner
+    type = infantry
+    home = 1474
+  }
+  regiment = {
+    name = "北王军旅"  # 3.North King  Banner
+    type = infantry
+    home = 1471
+  }
+  regiment = {
+    name = "北王军旅"  # 4.North King  Banner
+    type = infantry
+    home = 1471
+  }
+  regiment = {
+    name = "北王军旅"  # 5.North King  Banner
+    type = infantry
+    home = 1473
+  }
+}
+army = {
+  name = "西王军"  # Army of the West King
+  location = 1474
+  regiment = {
+    name = "西王军旅"  # 1.West King Banner
+    type = infantry
+    home = 1470
+  }
+  regiment = {
+    name = "西王军旅"  # 2.West King Banner
+    type = infantry
+    home = 1470
+  }
+  regiment = {
+    name = "西王军旅"  # 3.West King Banner
+    type = infantry
+    home = 1470
+  }
+  regiment = {
+    name = "西王军旅"  # 4.West King Banner
+    type = infantry
+    home = 1470
+  }
+  regiment = {
+    name = "西王军旅"  # 5.West King Banner
+    type = infantry
+    home = 1537
+  }
+}
+army = {
+  name = "东王军"  # Army of the East King
+  location = 1537
+  regiment = {
+    name = "东王军旅"  # 1.East King Banner
+    type = infantry
+    home = 1537
+  }
+  regiment = {
+    name = "东王军旅"  # 2.East King Banner
+    type = infantry
+    home = 1537
+  }
+  regiment = {
+    name = "东王军旅"  # 3.East King Banner
+    type = infantry
+    home = 1544
+  }
+  regiment = {
+    name = "东王军旅"  # 4.East King Banner
+    type = infantry
+    home = 1539
+  }
+  regiment = {
+    name = "东王军旅"  # 5.East King Banner
+    type = infantry
+    home = 1539
+  }
+}
+army = {
+  name = "南王军"  # Army of the South King
+  location = 1537
+  regiment = {
+    name = "南王军旅"  # 1.South King Banner
+    type = infantry
+    home = 1609
+  }
+  regiment = {
+    name = "南王军旅"  # 2.South King Banner
+    type = infantry
+    home = 1609
+  }
+  regiment = {
+    name = "南王军旅"  # 3.South King Banner
+    type = infantry
+    home = 1607
+  }
+  regiment = {
+    name = "南王军旅"  # 4.South King Banner
+    type = infantry
+    home = 1607
+  }
+  regiment = {
+    name = "南王军旅"  # 5.South King Banner
+    type = infantry
+    home = 1610
+  }
+}

@@ -1,0 +1,84 @@
+leader = {
+  name = "特沃德罗斯 卡萨"  # Tewoderos Kasa
+  type = land
+  date = 1836.1.1
+  background = school_of_offense
+  personality = bold
+}
+army = {
+  name = "皇帝军"  # Army of the Emperor
+  location = 1854
+  regiment = {
+    name = "第一「加拉」师"  # 1st 'Galla' Division
+    type = irregular
+    home = 1854
+  }
+  regiment = {
+    name = "第二「加拉」师"  # 2nd 'Galla' Division
+    type = irregular
+    home = 1854
+  }
+  regiment = {
+    name = "第三「加拉」师"  # 3rd 'Galla' Division
+    type = irregular
+    home = 1852
+  }
+  regiment = {
+    name = "第四「加拉」师"  # 4th 'Galla' Division
+    type = irregular
+    home = 1855
+  }
+  regiment = {
+    name = "第五「加拉」师"  # 5th 'Galla' Division
+    type = irregular
+    home = 1855
+  }
+}
+army = {
+  name = "提格雷大公军"  # Army of the Ras of Tigre
+  location = 1853
+  regiment = {
+    name = "第一沃拉师"  # 1st 'Wolla' Division
+    type = irregular
+    home = 1853
+  }
+  regiment = {
+    name = "第二沃拉师"  # 2nd 'Wolla' Division
+    type = irregular
+    home = 1857
+  }
+  regiment = {
+    name = "第三沃拉师"  # 3rd 'Wolla' Division
+    type = irregular
+    home = 1856
+  }
+  regiment = {
+    name = "第四沃拉师"  # 4th 'Wolla' Division
+    type = irregular
+    home = 1859
+  }
+}
+army = {
+  name = "绍阿王公军"  # Army of the Ras of Shoa
+  location = 1861
+  regiment = {
+    name = "第一「绍阿」师"  # 1st 'Shoa' Division
+    type = irregular
+    home = 1859
+  }
+  regiment = {
+    name = "第二「绍阿」师"  # 2nd 'Shoa' Division
+    type = irregular
+    home = 1859
+  }
+  regiment = {
+    name = "第三「绍阿」师"  # 3rd 'Shoa' Division
+    type = irregular
+    home = 1860
+  }
+  regiment = {
+    name = "第四「绍阿」师"  # 4th 'Shoa' Division
+    type = irregular
+    home = 1861
+  }
+}

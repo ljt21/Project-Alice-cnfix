@@ -1,0 +1,106 @@
+navy = {
+  name = "丹麦北海舰队"  # Danish Northsea Fleet
+  location = 372
+  ship = {
+    name = "丹尼布罗格号"  # Dannebrog
+    type = ironclad
+  }
+  ship = {
+    name = "玛丽王后号"  # Dronning Marie
+    type = manowar
+  }
+  ship = {
+    name = "弗雷德里克六世号"  # Frederik den sjette
+    type = manowar
+  }
+  ship = {
+    name = "贝罗娜号"  # Bellona
+    type = frigate
+  }
+  ship = {
+    name = "海仙女号"  # Havfruen
+    type = frigate
+  }
+  ship = {
+    name = "JYLLAND"
+    type = frigate
+  }
+  ship = {
+    name = "尼尔斯·尤尔号"  # Niels Juel
+    type = frigate
+  }
+}
+army = {
+  name = "丹麦绅士号"  # Danske Heeren
+  location = 372
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = artillery
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = engineer
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = cavalry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = cavalry
+    home = 372
+  }
+  regiment = {
+    name = "丹麦绅士军团"
+    type = cavalry
+    home = 372
+  }
+}

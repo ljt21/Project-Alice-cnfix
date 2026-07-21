@@ -1,0 +1,14 @@
+army = {
+  name = "锡金国王军"  # Army of the Chogyal of Sikkim
+  location = 1328
+  regiment = {
+    name = "第一廓尔喀兵团"  # 1st Gurkha
+    type = irregular
+    home = 1328
+  }
+  regiment = {
+    name = "第二廓尔喀兵团"  # 2nd Gurkha
+    type = irregular
+    home = 1328
+  }
+}

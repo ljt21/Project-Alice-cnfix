@@ -1,0 +1,58 @@
+leader = {
+  name = "冯 拉本霍斯特"  # von Rabenhorst
+  date = 1849.1.1
+  type = land
+  personality = skilled
+  background = gifted_administrator
+  prestige = 0.2
+}
+leader = {
+  name = "阿尔贝特王储"  # Kronprinz Albert
+  date = 1851.1.1
+  type = land
+  personality = competent
+  background = drillmaster
+  prestige = 0.2
+}
+leader = {
+  name = "萨克森-科堡-哥达的奥古斯特"  # Auguste von S-C-G
+  date = 1861.1.1
+  type = land
+  personality = calm
+  background = aristocrat
+  prestige = 0.3
+}
+army = {
+  name = "第一军"  # I.Korps
+  location = 558
+  regiment = {
+    name = "萨克森师"  # 1.S盲chsische Division
+    type = infantry
+    home = 558
+  }
+  regiment = {
+    name = "萨克森师"  # 2.S盲chsische Division
+    type = infantry
+    home = 559
+  }
+  regiment = {
+    name = "萨克森师"  # 3.S盲chsische Division
+    type = infantry
+    home = 560
+  }
+  regiment = {
+    name = "萨克森师"  # 4.S盲chsische Division
+    type = cuirassier
+    home = 559
+  }
+  regiment = {
+    name = "萨克森师"  # 5.S盲chsische Division
+    type = artillery
+    home = 558
+  }
+  regiment = {
+    name = "萨克森师"  # 6.S盲chsische Division
+    type = infantry
+    home = 558
+  }
+}

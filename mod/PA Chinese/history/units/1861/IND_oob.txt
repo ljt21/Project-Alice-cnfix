@@ -1,0 +1,19 @@
+army = {
+  name = "印多尔王公麾下军队"  # Army of the Rao of Indore
+  location = 1271
+  regiment = {
+    name = "印多尔特遣部队"  # 1.Indore Contingent
+    type = irregular
+    home = 1271
+  }
+  regiment = {
+    name = "印多尔特遣部队"  # 2.Indore Contingent
+    type = irregular
+    home = 1271
+  }
+  regiment = {
+    name = "印多尔特遣部队"  # 3.Indore Contingent
+    type = cavalry
+    home = 1271
+  }
+}

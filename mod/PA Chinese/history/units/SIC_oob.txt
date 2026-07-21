@@ -1,0 +1,164 @@
+leader = {
+  name = "卡洛 菲兰杰里"  # Carlo Filangieri
+  date = 1831.1.1
+  type = land
+  personality = harsh
+  background = generals_aide
+  prestige = 0.2
+}
+leader = {
+  name = "拉法埃拉 德科萨"  # Rafaella de Cosa
+  date = 1836.1.1
+  type = sea
+  personality = gallant
+  background = war_college
+}
+leader = {
+  name = "弗朗切斯科 门多萨"  # Francesco Mendoza
+  date = 1830.1.1
+  type = land
+  personality = arrogant
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "莱奥波尔多 迪波旁"  # Leopoldo di Borbone
+  date = 1809.1.1
+  type = land
+  personality = calm
+  background = aristocrat
+  prestige = 0.3
+}
+leader = {
+  name = "保罗 鲁福"  # Paolo Ruffo
+  date = 1836.1.1
+  type = land
+  personality = diplomatic
+  background = generals_aide
+}
+leader = {
+  name = "斐迪南二世"  # Ferdinando II
+  date = 1820.1.1
+  type = land
+  personality = bigoted
+  background = gifted_administrator
+  prestige = 0.5
+}
+army = {
+  name = "两西西里王国陆军"  # Esercito delle Due Sicilia
+  location = 754
+  regiment = {
+    name = "列线步兵 - 国王与王后团"  # 1.Fanteria di Linea - Re e Regina
+    type = infantry
+    home = 754
+  }
+  regiment = {
+    name = "列线步兵 - 卡拉布里亚公爵团"  # 2.Fanteria di Linea - Duca di Calabria
+    type = infantry
+    home = 757
+  }
+  regiment = {
+    name = "列线步兵 - 诺托公爵团"  # 3.Fanteria di Linea - Duca di Noto
+    type = infantry
+    home = 755
+  }
+  regiment = {
+    name = "列线步兵"  # 4.Fanteria di Linea
+    type = artillery
+    home = 2567
+  }
+  regiment = {
+    name = "列线骑兵"  # 1.Cavalleria di Linea
+    type = cuirassier
+    home = 754
+  }
+  regiment = {
+    name = "列线骑兵"  # 2.Cavalleria di Linea
+    type = cuirassier
+    home = 753
+  }
+  regiment = {
+    name = "列线骑兵"  # 3.Cavalleria di Linea
+    type = cuirassier
+    home = 756
+  }
+}
+army = {
+  name = "皇家近卫军"  # Guardia Reale
+  location = 762
+  regiment = {
+    name = "皇家近卫军"  # 1.Guardia Reale
+    type = guard
+    home = 762
+  }
+  regiment = {
+    name = "皇家近卫军"  # 2.Guardia Reale
+    type = guard
+    home = 764
+  }
+  regiment = {
+    name = "皇家近卫军"  # 3.Guardia Reale
+    type = guard
+    home = 759
+  }
+  regiment = {
+    name = "瑞士雇佣兵团"  # 1.Truppe Svizzere
+    type = infantry
+    home = 760
+  }
+  regiment = {
+    name = "瑞士雇佣兵团"  # 2.Truppe Svizzere
+    type = infantry
+    home = 761
+  }
+  regiment = {
+    name = "瑞士雇佣兵团"  # 3.Truppe Svizzere
+    type = infantry
+    home = 758
+  }
+  regiment = {
+    name = "瑞士雇佣兵团"  # 4.Truppe Svizzere
+    type = artillery
+    home = 763
+  }
+}
+navy = {
+  name = "两西西里皇家海军"  # Real Marina delle Due Sicilie
+  location = 754
+  ship = {
+    name = "斐迪南二世号"  # Ferdinando II
+    type = commerce_raider
+  }
+  ship = {
+    name = "克里斯蒂娜号"  # Christina
+    type = frigate
+  }
+  ship = {
+    name = "伊莎贝拉王后号"  # Regina Isabella
+    type = frigate
+  }
+  ship = {
+    name = "卡洛亲王号"  # Principe Carlo
+    type = frigate
+  }
+  ship = {
+    name = "帕尔忒诺珀号"  # Partenope
+    type = frigate
+  }
+  ship = {
+    name = "卡拉乔洛号"  # Caracciolo
+    type = frigate
+  }
+  ship = {
+    name = "第一运输中队"  # 1a Squadrone Transporti
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二运输中队"  # 2a Squadrone Transporti
+    type = clipper_transport
+  }
+  ship = {
+    name = "第三运输中队"  # 3a Squadrone Transporti
+    type = clipper_transport
+  }
+}

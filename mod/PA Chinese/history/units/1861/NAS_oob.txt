@@ -1,0 +1,9 @@
+army = {
+  name = "拿骚陆军"  # Nassauische Armee
+  location = 565
+  regiment = {
+    name = "拿骚步兵旅"  # Nassauische Infanterie-Brigade
+    type = infantry
+    home = 565
+  }
+}

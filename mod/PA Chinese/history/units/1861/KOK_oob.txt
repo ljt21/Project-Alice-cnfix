@@ -1,0 +1,53 @@
+army = {
+  name = "浩罕第一军团"  # 1st Army of Kokand
+  location = 1195
+  regiment = {
+    name = "乌兹别克族"  # 3.Uzbek
+    type = cavalry
+    home = 1195
+  }
+  regiment = {
+    name = "塔吉克族"  # 1.Tajik
+    type = irregular
+    home = 1208
+  }
+  regiment = {
+    name = "乌兹别克族"  # 4.Uzbek
+    type = irregular
+    home = 1201
+  }
+  regiment = {
+    name = "吉尔吉斯族"  # 3.Kirghiz
+    type = irregular
+    home = 1189
+  }
+  regiment = {
+    name = "吉尔吉斯族"  # 4.Kirghiz
+    type = irregular
+    home = 1189
+  }
+}
+army = {
+  name = "浩罕第二军团"  # 2nd Army of Kokand
+  location = 1202
+  regiment = {
+    name = "乌兹别克族"  # 1.Uzbek
+    type = cavalry
+    home = 1202
+  }
+  regiment = {
+    name = "乌兹别克族"  # 2.Uzbek
+    type = irregular
+    home = 1202
+  }
+  regiment = {
+    name = "吉尔吉斯族"  # 1.Kirghiz
+    type = irregular
+    home = 1190
+  }
+  regiment = {
+    name = "吉尔吉斯族"  # 2.Kirghiz
+    type = irregular
+    home = 1203
+  }
+}

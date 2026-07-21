@@ -1,0 +1,19 @@
+army = {
+  name = "西姆拉王公的军队"  # Army of the Raj of Shimla
+  location = 1235
+  regiment = {
+    name = "第1王公军"
+    type = irregular
+    home = 1235
+  }
+  regiment = {
+    name = "第2王公军"
+    type = irregular
+    home = 1235
+  }
+  regiment = {
+    name = "第3王公军"
+    type = irregular
+    home = 1235
+  }
+}

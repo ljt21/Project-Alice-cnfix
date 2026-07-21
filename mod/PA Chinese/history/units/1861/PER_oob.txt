@@ -1,0 +1,137 @@
+leader = {
+  name = "汗扎勒 米尔扎"  # Khanzler Mirza
+  date = 1845.1.1
+  type = land
+  personality = glory_hound
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "纳西尔 丁"  # Nasir ad-Din
+  date = 1861.1.1
+  type = land
+  personality = intelligent
+  background = immoral
+  prestige = 0.5
+}
+army = {
+  name = "波斯陆军"  # Army of Persia
+  location = 1120
+  regiment = {
+    name = "骑兵旅"  # 1.Cavalry Brigade
+    type = cavalry
+    home = 1121
+  }
+  regiment = {
+    name = "骑兵旅"  # 2.Cavalry Brigade
+    type = cavalry
+    home = 1147
+  }
+  regiment = {
+    name = "骑兵旅"  # 3.Cavalry Brigade
+    type = cavalry
+    home = 1125
+  }
+  regiment = {
+    name = "步兵师"  # 1.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1127
+  }
+  regiment = {
+    name = "步兵师"  # 2.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1135
+  }
+  regiment = {
+    name = "步兵师"  # 3.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1137
+  }
+}
+army = {
+  location = 1146
+  name = "波斯东部军团"  # Eastern Army of Persia
+  regiment = {
+    name = "步兵师"  # 4.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1117
+  }
+  regiment = {
+    name = "步兵师"  # 5.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1124
+  }
+  regiment = {
+    name = "步兵师"  # 6.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1130
+  }
+  regiment = {
+    name = "步兵师"  # 7.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1122
+  }
+  regiment = {
+    name = "步兵师"  # 8.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1129
+  }
+  regiment = {
+    name = "步兵师"  # 9.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1120
+  }
+}
+army = {
+  name = "波斯北部军团"  # Northern Army of Persia
+  location = 1112
+  regiment = {
+    name = "步兵师"  # 10.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1108
+  }
+  regiment = {
+    name = "步兵师"  # 11.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1112
+  }
+  regiment = {
+    name = "步兵师"  # 12.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1111
+  }
+  regiment = {
+    name = "步兵师"  # 13.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1113
+  }
+  regiment = {
+    name = "步兵师"  # 14.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1116
+  }
+  regiment = {
+    name = "第15步兵师"  # 15 Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1148
+  }
+}
+army = {
+  name = "波斯南部军团"  # Southern Army of Persia
+  location = 1142
+  regiment = {
+    name = "步兵师"  # 16.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1142
+  }
+  regiment = {
+    name = "步兵师"  # 17.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1141
+  }
+  regiment = {
+    name = "步兵师"  # 18.Bakhsh-i Piyadenizam
+    type = infantry
+    home = 1145
+  }
+}

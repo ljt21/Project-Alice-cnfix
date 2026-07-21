@@ -1,0 +1,49 @@
+army = {
+  name = "亚齐国苏丹军队"  # Army of the Sultan of Atjeh
+  location = 1405
+  regiment = {
+    name = "亚齐国国家部队"  # 1.Atjeh State Troops
+    type = infantry
+    home = 1405
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 2.Atjeh State Troops
+    type = infantry
+    home = 1406
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 3.Atjeh State Troops
+    type = irregular
+    home = 1405
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 4.Atjeh State Troops
+    type = irregular
+    home = 1406
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 5.Atjeh State Troops
+    type = irregular
+    home = 1407
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 6.Atjeh State Troops
+    type = irregular
+    home = 1407
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 7.Atjeh State Troops
+    type = irregular
+    home = 1409
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 8.Atjeh State Troops
+    type = irregular
+    home = 1409
+  }
+  regiment = {
+    name = "亚齐国国家部队"  # 9.Atjeh State Troops
+    type = irregular
+    home = 1409
+  }
+}

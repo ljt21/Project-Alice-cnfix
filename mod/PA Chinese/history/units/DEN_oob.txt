@@ -1,0 +1,96 @@
+ENG = {
+  value = 0
+}
+PRU = {
+  value = 49
+}
+leader = {
+  name = "黑麦"  # Rye
+  date = 1836.1.1
+  type = land
+  personality = daring
+  background = adventurer
+}
+army = {
+  name = "丹麦陆军"  # Danske Haeren
+  location = 372
+  regiment = {
+    name = "第1步兵师"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "第2步兵师"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "第3步兵师"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "第4步兵师"
+    type = infantry
+    home = 366
+  }
+  regiment = {
+    name = "第5步兵师"
+    type = infantry
+    home = 366
+  }
+  regiment = {
+    name = "第6步兵师"
+    type = infantry
+    home = 366
+  }
+  regiment = {
+    name = "第1骑兵师"
+    type = dragoon
+    home = 373
+  }
+}
+navy = {
+  name = "皇家海军"  # Royal Navy
+  location = 372
+  ship = {
+    name = "丹麦号"  # Danmark
+    type = manowar
+  }
+  ship = {
+    name = "玛丽女王号"  # Dronning Marie
+    type = manowar
+  }
+  ship = {
+    name = "弗雷德里克六世号"  # Frederik den sjette
+    type = manowar
+  }
+  ship = {
+    name = "贝罗娜号"  # Bellona
+    type = frigate
+  }
+  ship = {
+    name = "戴安娜号"  # Diana
+    type = frigate
+  }
+  ship = {
+    name = "弗蕾亚号"  # Freja
+    type = frigate
+  }
+  ship = {
+    name = "菲拉号"  # Fylla
+    type = frigate
+  }
+  ship = {
+    name = "第1运输舰队"  # 1st Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第2运输舰队"  # 2nd Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第3运输舰队"  # 3rd Transport Flotilla
+    type = clipper_transport
+  }
+}

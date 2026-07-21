@@ -1,0 +1,470 @@
+PER = {
+  value = 75
+  level = 2
+  influence_value = 25
+}
+EGY = {
+  value = 0
+  level = 1
+  influence_value = 25
+}
+GRE = {
+  value = -25
+  level = 0
+  influence_value = 25
+}
+TUN = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+SER = {
+  value = 75
+  level = 5
+  influence_value = 25
+}
+HDJ = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+MOL = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+WAL = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+leader = {
+  name = "雷希德 穆罕默德帕夏"  # Resid Mehmed Pasha
+  date = 1809.1.1
+  type = land
+  personality = inefficient
+  background = elderly
+  prestige = 0.2
+}
+leader = {
+  name = "沃伊切赫 赫扎诺夫斯基"  # Wojciech Chrzanowski
+  date = 1836.1.1
+  type = land
+  personality = romantic
+  background = cartographer
+  prestige = 0.1
+}
+leader = {
+  name = "赫尔穆特 冯 毛奇"  # Helmuth von Moltke
+  date = 1833.1.1
+  type = land
+  personality = calm
+  background = debutante
+  prestige = 0.0
+}
+leader = {
+  name = "阿卜迪帕夏"  # Abdi Pasha
+  date = 1836.1.1
+  type = land
+  personality = merciless
+  background = old_school
+  prestige = 0.0
+}
+leader = {
+  name = "哈菲兹 奥斯曼帕夏"  # Hafiz Osman Pasha
+  date = 1836.1.1
+  type = land
+  personality = inept
+  background = yesman
+  prestige = 0.0
+}
+leader = {
+  name = "纳米克帕夏"  # Namik Pasha
+  date = 1836.1.1
+  type = land
+  personality = expert
+  background = diplomat
+  prestige = 0.0
+}
+leader = {
+  name = "阿卜杜勒凯里姆帕夏"  # Abd眉lkerim Pasha
+  date = 1836.1.1
+  type = land
+  personality = active_p
+  background = war_college
+  prestige = 0.0
+}
+leader = {
+  name = "亚韦尔帕夏"  # Yaver Pasha
+  date = 1836.1.1
+  type = sea
+  personality = diplomatic
+  background = gifted_administrator
+  prestige = 0.1
+}
+army = {
+  name = "帝国近卫军"  # Imperial Guards
+  location = 860
+  regiment = {
+    name = "皇家御园兵团"  # 1.Bostancy-yy Hassa
+    type = guard
+    home = 860
+  }
+  regiment = {
+    name = "皇家御园兵团"  # 2.Bostancy-yy Hassa
+    type = guard
+    home = 828
+  }
+  regiment = {
+    name = "皇家御园兵团"  # 3.Bostancy-yy Hassa
+    type = guard
+    home = 859
+  }
+  regiment = {
+    name = "皇家御园兵团"  # 4.Bostancy-yy Hassa
+    type = artillery
+    home = 861
+  }
+}
+army = {
+  name = "多瑙河军团"  # Army of the Danube
+  location = 810
+  regiment = {
+    name = "西帕希骑兵"  # 1.Sipahis
+    type = cuirassier
+    home = 798
+  }
+  regiment = {
+    name = "西帕希骑兵"  # 2.Sipahis
+    type = cuirassier
+    home = 799
+  }
+  regiment = {
+    name = "西帕希骑兵"  # 3.Sipahis
+    type = cuirassier
+    home = 802
+  }
+  regiment = {
+    name = "步兵师"  # 1.Piyade T眉meni
+    type = infantry
+    home = 802
+  }
+  regiment = {
+    name = "步兵师"  # 2.Piyade T眉meni
+    type = infantry
+    home = 803
+  }
+  regiment = {
+    name = "步兵师"  # 3.Piyade T眉meni
+    type = infantry
+    home = 803
+  }
+  regiment = {
+    name = "步兵师"  # 4.Piyade T眉meni
+    type = artillery
+    home = 804
+  }
+  regiment = {
+    name = "伊兹密尔预备役"  # 1.Redif Izmir
+    type = irregular
+    home = 806
+  }
+  regiment = {
+    name = "伊兹密尔预备役"  # 2.Redif Izmir
+    type = irregular
+    home = 807
+  }
+  regiment = {
+    name = "伊兹密尔预备役"  # 3.Redif Izmir
+    type = irregular
+    home = 807
+  }
+}
+army = {
+  name = "布尔萨预备役"  # Redif Bursa
+  location = 849
+  regiment = {
+    name = "布尔萨预备役"  # 1.Redif Bursa
+    type = irregular
+    home = 849
+  }
+  regiment = {
+    name = "布尔萨预备役"  # 2.Redif Bursa
+    type = irregular
+    home = 850
+  }
+  regiment = {
+    name = "布尔萨预备役"  # 3.Redif Bursa
+    type = irregular
+    home = 851
+  }
+}
+army = {
+  name = "安纳托利亚军团"  # Army of Anatolia
+  location = 878
+  regiment = {
+    name = "步兵师"  # 5.Piyade T眉meni
+    type = infantry
+    home = 882
+  }
+  regiment = {
+    name = "步兵师"  # 6.Piyade T眉meni
+    type = infantry
+    home = 884
+  }
+  regiment = {
+    name = "步兵师"  # 7.Piyade T眉meni
+    type = infantry
+    home = 879
+  }
+  regiment = {
+    name = "步兵师"  # 8.Piyade T眉meni
+    type = artillery
+    home = 888
+  }
+  regiment = {
+    name = "卡尔斯预备役"  # 1.Redif Kars
+    type = irregular
+    home = 888
+  }
+  regiment = {
+    name = "卡尔斯预备役"  # 2.Redif Kars
+    type = irregular
+    home = 887
+  }
+  regiment = {
+    name = "卡尔斯预备役"  # 3.Redif Kars
+    type = irregular
+    home = 887
+  }
+  regiment = {
+    name = "特拉布宗预备役"  # 1.Redif Trabzon
+    type = irregular
+    home = 876
+  }
+  regiment = {
+    name = "特拉布宗预备役"  # 2.Redif Trabzon
+    type = irregular
+    home = 883
+  }
+  regiment = {
+    name = "特拉布宗预备役"  # 3.Redif Trabzon
+    type = irregular
+    home = 869
+  }
+}
+army = {
+  name = "锡利斯特拉军团"  # Army of Silistria
+  location = 818
+  regiment = {
+    name = "西帕希骑兵"  # 4.Sipahis
+    type = cuirassier
+    home = 810
+  }
+  regiment = {
+    name = "西帕希骑兵"  # 5.Sipahis
+    type = cuirassier
+    home = 811
+  }
+  regiment = {
+    name = "西帕希骑兵"  # 6.Sipahis
+    type = cuirassier
+    home = 812
+  }
+  regiment = {
+    name = "步兵师"  # 9.Piyade T眉meni
+    type = infantry
+    home = 813
+  }
+  regiment = {
+    name = "步兵师"  # 10.Piyade T眉meni
+    type = infantry
+    home = 818
+  }
+  regiment = {
+    name = "步兵师"  # 11.Piyade T眉meni
+    type = infantry
+    home = 674
+  }
+  regiment = {
+    name = "迪亚巴克尔预备役"  # 1.Redif Diyarbakir
+    type = irregular
+    home = 675
+  }
+  regiment = {
+    name = "迪亚巴克尔预备役"  # 2.Redif Diyarbakir
+    type = irregular
+    home = 809
+  }
+  regiment = {
+    name = "迪亚巴克尔预备役"  # 3.Redif Diyarbakir
+    type = irregular
+    home = 814
+  }
+}
+army = {
+  name = "阿拉伯军团"  # Army of Arabia
+  location = 925
+  regiment = {
+    name = "步兵师"  # 12.Piyade T眉meni
+    type = infantry
+    home = 925
+  }
+  regiment = {
+    name = "步兵师"  # 13.Piyade T眉meni
+    type = infantry
+    home = 925
+  }
+  regiment = {
+    name = "步兵师"  # 14.Piyade T眉meni
+    type = infantry
+    home = 926
+  }
+  regiment = {
+    name = "阿勒颇预备役"  # 1.Redif Halab
+    type = irregular
+    home = 923
+  }
+  regiment = {
+    name = "阿勒颇预备役"  # 2.Redif Halab
+    type = irregular
+    home = 923
+  }
+  regiment = {
+    name = "阿勒颇预备役"  # 3.Redif Halab
+    type = irregular
+    home = 923
+  }
+}
+army = {
+  name = "的黎波里帕夏军团"  # Army of the Bashaw of Tripoli
+  location = 1733
+  regiment = {
+    name = "西帕希骑兵"  # 7.Sipahis
+    type = cavalry
+    home = 1733
+  }
+  regiment = {
+    name = "西帕希骑兵"  # 8.Sipahis
+    type = cavalry
+    home = 1731
+  }
+}
+army = {
+  name = "班加西贝伊军团"  # Army of the Bey of Benghazi
+  location = 1735
+  regiment = {
+    name = "阿斯凯里军团"  # 1.Ask盲ris
+    type = irregular
+    home = 1735
+  }
+  regiment = {
+    name = "阿斯凯里军团"  # 2.Ask盲ris
+    type = irregular
+    home = 1734
+  }
+}
+navy = {
+  name = "奥斯曼海军"  # Ottoman Navy
+  location = 860
+  ship = {
+    name = "马苏迪耶号"  # Masudiya
+    type = manowar
+  }
+  ship = {
+    name = "萨德·巴赫里号"  # Sadd al Bahri
+    type = manowar
+  }
+  ship = {
+    name = "安卡伊·巴赫里号"  # Ankay i Barhi
+    type = manowar
+  }
+  ship = {
+    name = "陶斯·巴赫里号"  # Taus i Barhi
+    type = manowar
+  }
+  ship = {
+    name = "特夫菲克·纽玛号"  # Tevfik Nyuma
+    type = manowar
+  }
+  ship = {
+    name = "比沙雷特·纽玛号"  # Bisharet Nyuma
+    type = manowar
+  }
+  ship = {
+    name = "基利德·巴赫里号"  # Killid i Barhi
+    type = manowar
+  }
+  ship = {
+    name = "海贝滕达兹号"  # Heybetendaz
+    type = manowar
+  }
+  ship = {
+    name = "马利克·巴赫里号"  # Melek i Barhi
+    type = manowar
+  }
+  ship = {
+    name = "萨亚德·巴赫里号"  # Sayyad i Barhi
+    type = manowar
+  }
+  ship = {
+    name = "古尔邦·努斯雷特号"  # Gulbang i Nusret
+    type = manowar
+  }
+  ship = {
+    name = "杰贝勒·安达兹号"  # Jebel Andaz
+    type = manowar
+  }
+  ship = {
+    name = "伊斯肯德里耶号"  # Iskenderiya
+    type = frigate
+  }
+  ship = {
+    name = "巴德雷·扎法尔号"  # Badere i Zaffar
+    type = frigate
+  }
+  ship = {
+    name = "马胡贝·苏巴姆号"  # Mahubey Subham
+    type = frigate
+  }
+  ship = {
+    name = "梅特林号"  # Metelin
+    type = frigate
+  }
+  ship = {
+    name = "德尼乌韦特号"  # Denyuvet
+    type = frigate
+  }
+  ship = {
+    name = "世界领袖号"  # Rahbar i Alam
+    type = frigate
+  }
+  ship = {
+    name = "天佑骑兵号"  # Malbaik Nesuret
+    type = frigate
+  }
+  ship = {
+    name = "胜利满月号"  # Bedr i Zafar
+    type = frigate
+  }
+  ship = {
+    name = "圣战贫民号"  # Meskeni Ghazi
+    type = frigate
+  }
+  ship = {
+    name = "胜利哲人号"  # Fakim i Zafar
+    type = frigate
+  }
+  ship = {
+    name = "第一运输舰队"  # 1st Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二运输舰队"  # 2nd Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第三运输舰队"  # 3rd Transport Flotilla
+    type = clipper_transport
+  }
+}

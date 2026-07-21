@@ -1,0 +1,22 @@
+army = {
+  name = "巴登军队"  # Badische Armee
+  leader = {
+    name = "巴登的利奥波德"  # Leopold of Baden
+    date = 1830.1.1
+    type = land
+    personality = mediocre
+    background = aristocrat
+    prestige = 0.3
+  }
+  location = 586
+  regiment = {
+    name = "第1巴登步兵旅"  # 1.Badische Infanterie-Brigade
+    type = infantry
+    home = 586
+  }
+  regiment = {
+    name = "第2巴登步兵旅"  # 2.Badische Infanterie-Brigade
+    type = infantry
+    home = 587
+  }
+}

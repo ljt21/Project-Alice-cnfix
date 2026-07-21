@@ -1,0 +1,19 @@
+army = {
+  name = "瓜廖尔军团"  # Army of Gwalior
+  location = 1270
+  regiment = {
+    name = "瓜廖尔特遣队"  # 1.Gwailor Contingent
+    type = irregular
+    home = 1270
+  }
+  regiment = {
+    name = "瓜廖尔特遣队"  # 2.Gwailor Contingent
+    type = irregular
+    home = 1270
+  }
+  regiment = {
+    name = "瓜廖尔特遣队"  # 3.Gwailor Contingent
+    type = cavalry
+    home = 1270
+  }
+}

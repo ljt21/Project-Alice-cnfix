@@ -1,0 +1,241 @@
+leader = {
+  name = "冯 霍恩豪森"  # von Hohenhausen
+  date = 1842.1.1
+  type = land
+  personality = glory_hound
+  background = school_of_defense
+  prestige = 0.2
+}
+leader = {
+  name = "冯 埃森"  # von Essen
+  date = 1842.1.1
+  type = land
+  personality = cautious
+  background = professor
+  prestige = 0.2
+}
+leader = {
+  name = "奥斯卡王子"  # Prins Oscar
+  date = 1850.1.1
+  type = sea
+  personality = imperious
+  background = clueless
+  prestige = 0.1
+}
+leader = {
+  name = "埃内马克"  # Ehnemark
+  date = 1853.1.1
+  type = sea
+  personality = competent
+  background = disgraced
+  prestige = 0.2
+}
+leader = {
+  name = "K 阿道夫 维尔京"  # K.Adolf Virgin
+  date = 1854.1.1
+  type = sea
+  personality = diplomatic
+  background = adventurer
+  prestige = 0.2
+}
+leader = {
+  name = "卡尔 比约恩谢纳"  # Carl Bj枚rnstjerna
+  date = 1858.1.1
+  type = land
+  personality = calm
+  background = cavalry_school
+  prestige = 0.1
+}
+leader = {
+  name = "J 比约恩谢纳"  # J.Bj枚rnstjerna
+  date = 1858.1.1
+  type = land
+  personality = strange
+  background = warmonger
+  prestige = 0.1
+}
+leader = {
+  name = "迪德里克 比尔特"  # Didrik Bildt
+  date = 1861.1.1
+  type = land
+  personality = diplomatic
+  background = politician
+  prestige = 0.1
+}
+leader = {
+  name = "路透谢尔德"  # Reuterski枚ld
+  date = 1860.1.1
+  type = land
+  personality = skilled
+  background = politician
+  prestige = 0.1
+}
+leader = {
+  name = "卡尔 马格努斯 图尔斯特鲁普"  # Karl Magnus Thulstrup
+  date = 1861.1.1
+  type = land
+  personality = openminded
+  background = professor
+}
+army = {
+  name = "瑞典陆军"  # Swedish Army
+  location = 322
+  regiment = {
+    name = "斯韦亚近卫团"  # Svea Livgarde
+    type = guard
+    home = 322
+  }
+  regiment = {
+    name = "炮兵旅"  # 1.Artilleribrigaden
+    type = artillery
+    home = 324
+  }
+  regiment = {
+    name = "步兵旅"  # 1.Infanteribrigaden
+    type = infantry
+    home = 322
+  }
+  regiment = {
+    name = "步兵旅"  # 2.Infanteribrigaden
+    type = infantry
+    home = 332
+  }
+  regiment = {
+    name = "步兵旅"  # 3.Infanteribrigaden
+    type = infantry
+    home = 329
+  }
+  regiment = {
+    name = "步兵旅"  # 4.Infanteribrigaden
+    type = infantry
+    home = 323
+  }
+  regiment = {
+    name = "步兵旅"  # 5.Infanteribrigaden
+    type = engineer
+    home = 330
+  }
+  regiment = {
+    name = "龙骑兵旅"  # 1.Dragonenbrigaden
+    type = dragoon
+    home = 317
+  }
+  regiment = {
+    name = "骠骑兵旅"  # 1.Husarbrigaden
+    type = hussar
+    home = 326
+  }
+  regiment = {
+    name = "龙骑兵旅"  # 2.Dragonenbrigaden
+    type = dragoon
+    home = 334
+  }
+}
+army = {
+  name = "挪威陆军"  # Norwegian Army
+  location = 313
+  regiment = {
+    name = "步兵旅"  # 1.Infanteribrigade
+    type = infantry
+    home = 305
+  }
+  regiment = {
+    name = "步兵旅"  # 2.Infanteribrigade
+    type = infantry
+    home = 310
+  }
+  regiment = {
+    name = "步兵旅"  # 3.Infanteribrigade
+    type = infantry
+    home = 309
+  }
+  regiment = {
+    name = "炮兵旅"  # 1.Artileribrigade
+    type = artillery
+    home = 313
+  }
+}
+navy = {
+  name = "瑞典舰队"  # Swedish Fleet
+  location = 322
+  ship = {
+    name = "卡尔十四世·约翰"  # Karl XIV Johan
+    type = manowar
+  }
+  ship = {
+    name = "斯德哥尔摩"  # Stockholm
+    type = manowar
+  }
+  ship = {
+    name = "祖国号"  # F盲derneslandet
+    type = manowar
+  }
+  ship = {
+    name = "谨慎号"  # F枚rsiktigheten
+    type = manowar
+  }
+  ship = {
+    name = "卡尔十三世"  # Karl XIII
+    type = manowar
+  }
+  ship = {
+    name = "男子气概号"  # Manligheten
+    type = manowar
+  }
+  ship = {
+    name = "奥斯卡王子"  # Prins Oskar
+    type = manowar
+  }
+  ship = {
+    name = "斯堪的纳维亚号"  # Skandinavien
+    type = manowar
+  }
+  ship = {
+    name = "德西蕾号"  # Desir茅e
+    type = frigate
+  }
+  ship = {
+    name = "哥德堡"  # G枚teborg
+    type = frigate
+  }
+  ship = {
+    name = "约瑟芬号"  # Josephine
+    type = frigate
+  }
+  ship = {
+    name = "诺尔雪平"  # N枚rrk枚ping
+    type = frigate
+  }
+}
+navy = {
+  name = "第一运输中队"  # 1st Transport Squadron
+  location = 322
+  ship = {
+    name = "第一运输中队"  # 1st Transport Squadron
+    type = steam_transport
+  }
+  ship = {
+    name = "第二运输中队"  # 2nd Transport Squadron
+    type = clipper_transport
+  }
+  ship = {
+    name = "第三运输中队"  # 3rd Transport Squadron
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "挪威舰队"  # Norwegian Fleet
+  location = 312
+  ship = {
+    name = "圣奥拉夫号"  # St Olaf
+    type = frigate
+  }
+  ship = {
+    name = "小凤凰号"  # Lilla Phoenix
+    type = frigate
+  }
+  ship = {
+    name = "古斯塔夫·邦德男爵号"  # Baron Gustaf Bonde
+    type = frigate
+  }
+}

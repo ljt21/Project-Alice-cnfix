@@ -1,0 +1,136 @@
+CHI = {
+  value = 125
+}
+leader = {
+  name = "努涅斯 维迪加尔"  # Nunes Vidigal
+  date = 1808.1.1
+  type = land
+  personality = aggressive
+  background = hated
+  prestige = 0.2
+}
+leader = {
+  name = "路易斯 巴雷托"  # Lu铆s Barreto
+  date = 1824.1.1
+  type = land
+  personality = resolute
+  background = gifted_administrator
+  prestige = 0.2
+}
+leader = {
+  name = "维森特 德梅斯基塔"  # Vicente de Mesquita
+  date = 1808.1.1
+  type = land
+  personality = dauntless
+  background = madman
+  prestige = 0.0
+}
+army = {
+  name = "葡萄牙陆军"  # Ex茅rcito Portugu锚s
+  location = 521
+  regiment = {
+    name = "第1步兵旅"  # 1.Brigada de Infantaria
+    type = infantry
+    home = 521
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infantaria
+    type = infantry
+    home = 524
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infantaria
+    type = infantry
+    home = 518
+  }
+  regiment = {
+    name = "第4步兵旅"  # 4.Brigada de Infantaria
+    type = infantry
+    home = 520
+  }
+  regiment = {
+    name = "第5步兵旅"  # 5.Brigada de Infantaria
+    type = infantry
+    home = 522
+  }
+  regiment = {
+    name = "骑兵旅"  # 1.Brigada de Caballaria
+    type = cuirassier
+    home = 519
+  }
+}
+army = {
+  name = "西非陆军"  # Ex茅rcito do Africa Ocidental
+  location = 1999
+  regiment = {
+    name = "殖民师"  # 1.Divis茫o Colonial
+    type = infantry
+    home = 525
+  }
+}
+army = {
+  name = "东非陆军"  # Ex茅rcito do Africa Oriental
+  location = 2057
+  regiment = {
+    name = "殖民师"  # 2.Divis茫o Colonial
+    type = infantry
+    home = 2134
+  }
+}
+army = {
+  name = "印度陆军"  # Ex茅rcito da 脥ndia
+  location = 1303
+  regiment = {
+    name = "殖民师"  # 3.Divis茫o Colonial
+    type = infantry
+    home = 1303
+  }
+}
+navy = {
+  name = "葡萄牙皇家海军"  # Portugese Royal Navy
+  location = 524
+  ship = {
+    name = "葡萄牙女王号 "  # Rainha de Portugal 
+    type = manowar
+  }
+  ship = {
+    name = "若昂六世陛下号 "  # Dom Jo茫o VI 
+    type = manowar
+  }
+  ship = {
+    name = "康塞桑圣母号号"  # Nossa Senhora da Concei莽茫o
+    type = manowar
+  }
+  ship = {
+    name = "圣塞巴斯蒂安号"  # S茫o Sebasti茫o
+    type = manowar
+  }
+  ship = {
+    name = "亚马逊号"  # Amaz么nia
+    type = manowar
+  }
+  ship = {
+    name = "卡洛塔公主号"  # Princesa Carlota
+    type = manowar
+  }
+  ship = {
+    name = "特蕾莎号"  # Teresa
+    type = manowar
+  }
+  ship = {
+    name = "巴西亲王号"  # Pr铆ncipe do Brasil
+    type = manowar
+  }
+  ship = {
+    name = "第一运输舰"  # 1o Navios de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二运输舰"  # 2o Navios de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第三运输舰"  # 3o Navios de Transporte
+    type = clipper_transport
+  }
+}

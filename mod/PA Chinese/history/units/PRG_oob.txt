@@ -1,0 +1,14 @@
+army = {
+  name = "巴拉圭军队"  # Ej茅rcito del Paraguay
+  location = 2339
+  regiment = {
+    name = "巴拉圭军"
+    type = infantry
+    home = 2339
+  }
+  regiment = {
+    name = "巴拉圭军"
+    type = infantry
+    home = 2341
+  }
+}

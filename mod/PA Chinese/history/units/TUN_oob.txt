@@ -1,0 +1,38 @@
+army = {
+  name = "突尼斯贝伊的军队"  # Army of the Bey of Tunis
+  location = 1725
+  regiment = {
+    name = "阿斯凯里斯"  # 1.Ask盲ris
+    type = infantry
+    home = 1725
+  }
+  regiment = {
+    name = "阿斯凯里斯"  # 2.Ask盲ris
+    type = infantry
+    home = 1725
+  }
+  regiment = {
+    name = "阿斯凯里斯"  # 3.Ask盲ris
+    type = infantry
+    home = 1726
+  }
+}
+army = {
+  name = "伊弗里基亚军队"  # Army of Ifriqiya
+  location = 1730
+  regiment = {
+    name = "克鲁米尔"  # 1.Kroumir
+    type = irregular
+    home = 1727
+  }
+  regiment = {
+    name = "克鲁米尔"  # 2.Kroumir
+    type = irregular
+    home = 1728
+  }
+  regiment = {
+    name = "克鲁米尔"  # 3.Kroumir
+    type = irregular
+    home = 1730
+  }
+}

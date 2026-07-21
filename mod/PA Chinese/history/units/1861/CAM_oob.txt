@@ -1,0 +1,38 @@
+army = {
+  name = "第一高棉军"  # 1st Khmer Army
+  location = 1364
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1364
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1364
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1367
+  }
+}
+army = {
+  name = "第二高棉军"  # 2nd Khmer Army
+  location = 1368
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1367
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1364
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1368
+  }
+}

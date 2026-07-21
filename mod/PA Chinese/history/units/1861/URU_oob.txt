@@ -1,0 +1,27 @@
+leader = {
+  name = "贝南西奥 弗洛雷斯"  # Venancio Flores
+  date = 1854.1.1
+  type = land
+  personality = brash
+  background = hated
+  prestige = 0.2
+}
+army = {
+  name = "乌拉圭军队"  # Ej茅rcito de Uruguay
+  location = 2344
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2344
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2347
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2345
+  }
+}

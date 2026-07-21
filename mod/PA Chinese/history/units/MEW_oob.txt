@@ -1,0 +1,19 @@
+army = {
+  name = "梅瓦尔土邦主的军队"  # Army of the Maharana of Mewar
+  location = 1269
+  regiment = {
+    name = "梅瓦尔分遣队"  # 1.Mewar Contingent
+    type = irregular
+    home = 1269
+  }
+  regiment = {
+    name = "梅瓦尔分遣队"  # 2.Mewar Contingent
+    type = irregular
+    home = 1269
+  }
+  regiment = {
+    name = "梅瓦尔分遣队"  # 3.Mewar Contingent
+    type = irregular
+    home = 1269
+  }
+}

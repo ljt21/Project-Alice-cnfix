@@ -1,0 +1,27 @@
+leader = {
+  name = "瓦伦西亚 梅尔加雷霍"  # Valencia Melgarejo
+  date = 1860.1.1
+  type = land
+  personality = bastard
+  background = corrupt
+  prestige = 0.1
+}
+army = {
+  name = "玻利维亚陆军"  # Ej茅rcito de Bolivia
+  location = 2310
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2310
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2310
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2313
+  }
+}

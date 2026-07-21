@@ -1,0 +1,9 @@
+army = {
+  name = "不丹省军"  # Provincial Army of Bhutan
+  location = 1329
+  regiment = {
+    name = "通萨民兵"  # 1.Tongsa Militia
+    type = irregular
+    home = 1329
+  }
+}

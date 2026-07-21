@@ -1,0 +1,656 @@
+POR = {
+  value = 125
+}
+army = {
+  name = "禁卫八旗军"  # Army of Forbidden Banners
+  location = 1612
+  regiment = {
+    name = "满洲镶黄旗"  # 1.Manchu Yellow Banner
+    type = infantry
+    home = 1612
+  }
+  regiment = {
+    name = "满洲镶黄旗"  # 2.Manchu Yellow Banner
+    type = infantry
+    home = 1479
+  }
+  regiment = {
+    name = "满洲镶黄旗"  # 3.Manchu Yellow Banner
+    type = infantry
+    home = 1480
+  }
+}
+army = {
+  name = "满洲正黄旗部队"  # Army of The Manchu Bordered Yellow Banner
+  location = 1552
+  regiment = {
+    name = "满洲正黄旗"  # 1.Manchu Bordered Yellow Banner
+    type = infantry
+    home = 1612
+  }
+  regiment = {
+    name = "满洲正黄旗"  # 2.Manchu Bordered Yellow Banner
+    type = infantry
+    home = 1552
+  }
+  regiment = {
+    name = "满洲正黄旗"  # 3.Manchu Bordered Yellow Banner
+    type = infantry
+    home = 1553
+  }
+}
+army = {
+  name = "满洲正白旗部队"  # Army of The Manchu White Banner
+  location = 1554
+  regiment = {
+    name = "满洲正白旗"  # 1.Manchu White Banner
+    type = infantry
+    home = 1554
+  }
+  regiment = {
+    name = "满洲正白旗"  # 2.Manchu White Banner
+    type = infantry
+    home = 1555
+  }
+  regiment = {
+    name = "满洲正白旗"  # 3.Manchu White Banner
+    type = infantry
+    home = 1002
+  }
+}
+army = {
+  name = "满洲正红旗部队"  # Army of The Manchu Red Banner
+  location = 1479
+  regiment = {
+    name = "满洲正红旗"  # 1.Manchu Red Banner
+    type = infantry
+    home = 1612
+  }
+  regiment = {
+    name = "满洲正红旗"  # 2.Manchu Red Banner
+    type = infantry
+    home = 1479
+  }
+  regiment = {
+    name = "满洲正红旗"  # 3.Manchu Red Banner
+    type = infantry
+    home = 1552
+  }
+}
+army = {
+  name = "满洲正蓝旗部队"  # Army of The Manchu Blue Banner
+  location = 1612
+  regiment = {
+    name = "满洲正蓝旗"  # 1.Manchu Blue Banner
+    type = infantry
+    home = 1612
+  }
+  regiment = {
+    name = "满洲正蓝旗"  # 2.Manchu Blue Banner
+    type = infantry
+    home = 1479
+  }
+  regiment = {
+    name = "满洲正蓝旗"  # 3.Manchu Blue Banner
+    type = infantry
+    home = 1552
+  }
+}
+army = {
+  name = "蒙古八旗"  # Army of The Steppe
+  location = 1612
+  regiment = {
+    name = "鞑靼骑兵"  # 1.Tatar Cavalry
+    type = cavalry
+    home = 1488
+  }
+  regiment = {
+    name = "鞑靼骑兵"  # 2.Tatar Cavalry
+    type = cavalry
+    home = 1490
+  }
+  regiment = {
+    name = "鞑靼骑兵"  # 3.Tatar Cavalry
+    type = cavalry
+    home = 1532
+  }
+  regiment = {
+    name = "鞑靼骑兵"  # 4.Tatar Cavalry
+    type = cavalry
+    home = 1535
+  }
+  regiment = {
+    name = "鞑靼骑兵"  # 5.Tatar Cavalry
+    type = cavalry
+    home = 1534
+  }
+  regiment = {
+    name = "鞑靼骑兵"  # 6.Tatar Cavalry
+    type = cavalry
+    home = 1533
+  }
+}
+army = {
+  name = "第一绿营军"  # 1st Green Standard Army
+  location = 1575
+  regiment = {
+    name = "第一绿营军"  # 1st Green Standard
+    type = irregular
+    home = 1470
+  }
+  regiment = {
+    name = "第二绿营军"  # 2nd Green Standard
+    type = irregular
+    home = 1510
+  }
+  regiment = {
+    name = "第三绿营军"  # 3rd Green Standard
+    type = irregular
+    home = 1547
+  }
+  regiment = {
+    name = "第四绿营军"  # 4th Green Standard
+    type = irregular
+    home = 1471
+  }
+  regiment = {
+    name = "第五绿营军"  # 5th Green Standard
+    type = irregular
+    home = 1511
+  }
+  regiment = {
+    name = "第六绿营军"  # 6th Green Standard
+    type = irregular
+    home = 1548
+  }
+  regiment = {
+    name = "第七绿营军"  # 7th Green Standard
+    type = irregular
+    home = 1472
+  }
+  regiment = {
+    name = "第八绿营军"  # 8th Green Standard
+    type = irregular
+    home = 1512
+  }
+  regiment = {
+    name = "第九绿营军"  # 9th Green Standard
+    type = irregular
+    home = 1549
+  }
+}
+army = {
+  name = "第二绿营兵"  # 2nd Green Standard Army
+  location = 1583
+  regiment = {
+    name = "第十绿营军"  # 10th Green Standard
+    type = irregular
+    home = 1473
+  }
+  regiment = {
+    name = "第十一绿营军"  # 11th Green Standard
+    type = irregular
+    home = 1513
+  }
+  regiment = {
+    name = "第十二绿营军"  # 12th Green Standard
+    type = irregular
+    home = 1550
+  }
+  regiment = {
+    name = "第十三绿营军"  # 13th Green Standard
+    type = irregular
+    home = 1474
+  }
+  regiment = {
+    name = "第十四绿营军"  # 14th Green Standard
+    type = irregular
+    home = 1514
+  }
+  regiment = {
+    name = "第十五绿营军"  # 15th Green Standard
+    type = irregular
+    home = 1551
+  }
+  regiment = {
+    name = "第十六绿营军"  # 16th Green Standard
+    type = irregular
+    home = 1475
+  }
+  regiment = {
+    name = "第十七绿营军"  # 17th Green Standard
+    type = irregular
+    home = 1515
+  }
+  regiment = {
+    name = "第十八绿营军"  # 18th Green Standard
+    type = irregular
+    home = 1559
+  }
+}
+army = {
+  name = "第三绿营兵"  # 3rd Green Standard Army
+  location = 1525
+  regiment = {
+    name = "第十九绿营军"  # 19th Green Standard
+    type = irregular
+    home = 1476
+  }
+  regiment = {
+    name = "第二十绿营军"  # 20th Green Standard
+    type = irregular
+    home = 1516
+  }
+  regiment = {
+    name = "第二十一绿营军"  # 21st Green Standard
+    type = irregular
+    home = 1561
+  }
+  regiment = {
+    name = "第二十二绿营军"  # 22nd Green Standard
+    type = irregular
+    home = 1477
+  }
+  regiment = {
+    name = "第二十三绿营军"  # 23rd Green Standard
+    type = irregular
+    home = 1517
+  }
+  regiment = {
+    name = "第二十四绿营军"  # 24th Green Standard
+    type = irregular
+    home = 1562
+  }
+  regiment = {
+    name = "第二十五绿营军"  # 25th Green Standard
+    type = irregular
+    home = 1478
+  }
+  regiment = {
+    name = "第二十六绿营军"  # 26th Green Standard
+    type = irregular
+    home = 1518
+  }
+  regiment = {
+    name = "第二十七绿营军"  # 27th Green Standard
+    type = irregular
+    home = 2062
+  }
+}
+army = {
+  name = "第四绿营兵"  # 4th Green Standard Army
+  location = 1576
+  regiment = {
+    name = "第二十八绿营军"  # 28th Green Standard
+    type = irregular
+    home = 1482
+  }
+  regiment = {
+    name = "第二十九绿营军"  # 29th Green Standard
+    type = irregular
+    home = 1519
+  }
+  regiment = {
+    name = "第三十绿营军"  # 30th Green Standard
+    type = irregular
+    home = 1563
+  }
+  regiment = {
+    name = "第三十一绿营军"  # 31st Green Standard
+    type = irregular
+    home = 1483
+  }
+  regiment = {
+    name = "第三十二绿营军"  # 32nd Green Standard
+    type = irregular
+    home = 1520
+  }
+  regiment = {
+    name = "第三十三绿营军"  # 33rd.Green Standard
+    type = irregular
+    home = 1564
+  }
+  regiment = {
+    name = "第三十四绿营军"  # 34th Green Standard
+    type = irregular
+    home = 1484
+  }
+  regiment = {
+    name = "第三十五绿营军"  # 35th Green Standard
+    type = irregular
+    home = 1521
+  }
+  regiment = {
+    name = "第三十六绿营军"  # 36th Green Standard
+    type = irregular
+    home = 1565
+  }
+}
+army = {
+  name = "第五绿营兵"  # 5th Green Standard Army
+  location = 1602
+  regiment = {
+    name = "第三十七绿营军"  # 37th Green Standard
+    type = irregular
+    home = 1486
+  }
+  regiment = {
+    name = "第三十八绿营军"  # 38th Green Standard
+    type = irregular
+    home = 1522
+  }
+  regiment = {
+    name = "第三十九绿营军"  # 39th Green Standard
+    type = irregular
+    home = 1567
+  }
+  regiment = {
+    name = "第四十绿营军"  # 40th Green Standard
+    type = irregular
+    home = 1487
+  }
+  regiment = {
+    name = "第四十一绿营军"  # 41st Green Standard
+    type = irregular
+    home = 1523
+  }
+  regiment = {
+    name = "第四十二绿营军"  # 42nd Green Standard
+    type = irregular
+    home = 1568
+  }
+  regiment = {
+    name = "第四十三绿营军"  # 43rd Green Standard
+    type = irregular
+    home = 1488
+  }
+  regiment = {
+    name = "第四十四绿营军"  # 44th Green Standard
+    type = irregular
+    home = 1524
+  }
+  regiment = {
+    name = "第四十五绿营军"  # 45th Green Standard
+    type = irregular
+    home = 1570
+  }
+}
+army = {
+  name = "第六绿营兵"  # 6th Green Standard Army
+  location = 1502
+  regiment = {
+    name = "第四十六绿营军"  # 46th Green Standard
+    type = irregular
+    home = 1489
+  }
+  regiment = {
+    name = "第四十七绿营军"  # 47th Green Standard
+    type = irregular
+    home = 1525
+  }
+  regiment = {
+    name = "第四十八绿营军"  # 48th Green Standard
+    type = irregular
+    home = 1571
+  }
+  regiment = {
+    name = "第四十九绿营军"  # 49th Green Standard
+    type = irregular
+    home = 1490
+  }
+  regiment = {
+    name = "第五十绿营军"  # 50th Green Standard
+    type = irregular
+    home = 1526
+  }
+  regiment = {
+    name = "第五十一绿营军"  # 51st Green Standard
+    type = irregular
+    home = 1572
+  }
+  regiment = {
+    name = "第五十二绿营军"  # 52nd Green Standard
+    type = irregular
+    home = 1493
+  }
+  regiment = {
+    name = "第五十三绿营军"  # 53rd Green Standard
+    type = irregular
+    home = 1527
+  }
+  regiment = {
+    name = "第五十四绿营军"  # 54th Green Standard
+    type = irregular
+    home = 1573
+  }
+}
+army = {
+  name = "第七绿营兵"  # 7th Green Standard Army
+  location = 1487
+  regiment = {
+    name = "第五十五绿营军"  # 55th Green Standard
+    type = irregular
+    home = 1494
+  }
+  regiment = {
+    name = "第五十六绿营军"  # 56th Green Standard
+    type = irregular
+    home = 1528
+  }
+  regiment = {
+    name = "第五十七绿营军"  # 57th Green Standard
+    type = irregular
+    home = 1574
+  }
+  regiment = {
+    name = "第五十八绿营军"  # 58th Green Standard
+    type = irregular
+    home = 1614
+  }
+  regiment = {
+    name = "第五十九绿营军"  # 59th Green Standard
+    type = irregular
+    home = 1529
+  }
+  regiment = {
+    name = "第六十绿营军"  # 60th Green Standard
+    type = irregular
+    home = 1575
+  }
+  regiment = {
+    name = "第六十一绿营军"  # 61st Green Standard
+    type = irregular
+    home = 1497
+  }
+  regiment = {
+    name = "第六十二绿营军"  # 62nd Green Standard
+    type = irregular
+    home = 1530
+  }
+  regiment = {
+    name = "第六十三绿营军"  # 63rd Green Standard
+    type = irregular
+    home = 1577
+  }
+}
+army = {
+  name = "第八绿营军"  # 8th Green Standard Army
+  location = 1482
+  regiment = {
+    name = "第六十四绿营军"  # 64th Green Standard
+    type = irregular
+    home = 1499
+  }
+  regiment = {
+    name = "第六十五绿营军"  # 65th Green Standard
+    type = irregular
+    home = 1536
+  }
+  regiment = {
+    name = "第六十六绿营军"  # 66th Green Standard
+    type = irregular
+    home = 1578
+  }
+  regiment = {
+    name = "第六十七绿营军"  # 67th Green Standard
+    type = irregular
+    home = 1615
+  }
+  regiment = {
+    name = "第六十八绿营军"  # 68th Green Standard
+    type = irregular
+    home = 2221
+  }
+  regiment = {
+    name = "第六十九绿营军"  # 69th Green Standard
+    type = irregular
+    home = 1579
+  }
+  regiment = {
+    name = "第七十绿营军"  # 70th Green Standard
+    type = irregular
+    home = 1501
+  }
+  regiment = {
+    name = "第七十一绿营军"  # 71st Green Standard
+    type = irregular
+    home = 1537
+  }
+  regiment = {
+    name = "第七十二绿营军"  # 72nd Green Standard
+    type = irregular
+    home = 1580
+  }
+}
+army = {
+  name = "第九绿营兵"  # 9th Green Standard Army
+  location = 1536
+  regiment = {
+    name = "第七十三绿营军"  # 73rd Green Standard
+    type = irregular
+    home = 1616
+  }
+  regiment = {
+    name = "第七十四绿营军"  # 74th Green Standard
+    type = irregular
+    home = 1539
+  }
+  regiment = {
+    name = "第七十五绿营军"  # 75th Green Standard
+    type = irregular
+    home = 1581
+  }
+  regiment = {
+    name = "第七十六绿营军"  # 76th Green Standard
+    type = irregular
+    home = 1617
+  }
+  regiment = {
+    name = "第七十七绿营军"  # 77th Green Standard
+    type = irregular
+    home = 1540
+  }
+  regiment = {
+    name = "第七十八绿营军"  # 78th Green Standard
+    type = irregular
+    home = 1582
+  }
+  regiment = {
+    name = "第七十九绿营军"  # 79th Green Standard
+    type = irregular
+    home = 1618
+  }
+  regiment = {
+    name = "第八十绿营军"  # 80th Green Standard
+    type = irregular
+    home = 1541
+  }
+  regiment = {
+    name = "第八十一绿营军"  # 81st Green Standard
+    type = irregular
+    home = 1583
+  }
+}
+army = {
+  name = "第十绿营军"  # 10th Green Standard Army
+  location = 1613
+  regiment = {
+    name = "第八十二绿营军"  # 82nd Green Standard
+    type = irregular
+    home = 1505
+  }
+  regiment = {
+    name = "第八十三绿营军"  # 83rd Green Standard
+    type = irregular
+    home = 1542
+  }
+  regiment = {
+    name = "第八十四绿营军"  # 84th Green Standard
+    type = irregular
+    home = 1584
+  }
+  regiment = {
+    name = "第八十五绿营军"  # 85th Green Standard
+    type = irregular
+    home = 1506
+  }
+  regiment = {
+    name = "第八十六绿营军"  # 86th Green Standard
+    type = irregular
+    home = 1543
+  }
+  regiment = {
+    name = "第八十七绿营军"  # 87th Green Standard
+    type = irregular
+    home = 1585
+  }
+  regiment = {
+    name = "第八十八绿营军"  # 88th Green Standard
+    type = irregular
+    home = 1507
+  }
+  regiment = {
+    name = "第八十九绿营军"  # 89th Green Standard
+    type = irregular
+    home = 1544
+  }
+  regiment = {
+    name = "第九十绿营军"  # 90th Green Standard
+    type = irregular
+    home = 1586
+  }
+}
+army = {
+  name = "第十绿营军"  # 10th Green Standard Army
+  location = 1082
+  regiment = {
+    name = "第九十一绿营军"  # 91st Green Standard
+    type = irregular
+    home = 1508
+  }
+  regiment = {
+    name = "第九十二绿营军"  # 92nd Green Standard
+    type = irregular
+    home = 1545
+  }
+  regiment = {
+    name = "第九十三绿营军"  # 93rd Green Standard
+    type = irregular
+    home = 1612
+  }
+  regiment = {
+    name = "第九十四绿营军"  # 94th Green Standard
+    type = irregular
+    home = 1509
+  }
+  regiment = {
+    name = "第九十五绿营军"  # 95th Green Standard
+    type = irregular
+    home = 1546
+  }
+  regiment = {
+    name = "第九十六绿营军"  # 96th Green Standard
+    type = irregular
+    home = 1613
+  }
+}

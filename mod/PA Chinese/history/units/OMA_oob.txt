@@ -1,0 +1,43 @@
+army = {
+  name = "马斯喀特苏丹军队"  # Army of the Sultan of Muscat
+  location = 1166
+  regiment = {
+    name = "第1旅"  # 1.Brigade
+    type = irregular
+    home = 1166
+  }
+}
+army = {
+  name = "桑给巴尔总督军队"  # Army of the Wali of Zanzibar
+  location = 2048
+  regiment = {
+    name = "阿斯卡里士兵"  # 1.Askaris
+    type = irregular
+    home = 2048
+  }
+}
+army = {
+  name = "蒙巴萨总督军队"  # Army of the Wali of Mombasa
+  location = 2029
+  regiment = {
+    name = "阿斯卡里士兵"  # 2.Askaris
+    type = irregular
+    home = 2029
+  }
+}
+navy = {
+  name = "红海舰队"  # Red Sea Fleet
+  location = 1166
+  ship = {
+    name = "运输船队"  # Transport Flotilla
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "印度舰队"  # Indian Fleet
+  location = 2048
+  ship = {
+    name = "运输船队"  # Transport Flotilla
+    type = clipper_transport
+  }
+}

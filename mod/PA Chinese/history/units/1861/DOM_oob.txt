@@ -1,0 +1,14 @@
+army = {
+  name = "多米尼加陆军"  # Dominican Army
+  location = 2214
+  regiment = {
+    name = "陆军旅"  # 1.Brigada
+    type = infantry
+    home = 2214
+  }
+  regiment = {
+    name = "陆军旅"  # 2.Brigada
+    type = infantry
+    home = 2216
+  }
+}

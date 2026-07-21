@@ -1,0 +1,9 @@
+army = {
+  name = "利珀军队"  # Lippische Armee
+  location = 585
+  regiment = {
+    name = "利珀步兵旅"  # Lippische Infanterie-Brigade
+    type = infantry
+    home = 585
+  }
+}

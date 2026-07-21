@@ -1,0 +1,22 @@
+army = {
+  name = "摩德纳军队"  # Esercito di Modena
+  leader = {
+    name = "弗朗切斯科四世"  # Francesco IV
+    date = 1815.1.1
+    type = land
+    personality = arrogant
+    background = hated
+    prestige = 0.5
+  }
+  location = 739
+  regiment = {
+    name = "线列步兵"  # 1.Fanteria di Linea
+    type = infantry
+    home = 739
+  }
+  regiment = {
+    name = "线列步兵"  # 2.Fanteria di Linea
+    type = infantry
+    home = 740
+  }
+}

@@ -1,0 +1,9 @@
+army = {
+  name = "科堡国民警卫队"  # Coburgische Landwehr
+  location = 562
+  regiment = {
+    name = "线性步兵旅"  # 1.Linieninfanteriebrigade
+    type = infantry
+    home = 562
+  }
+}

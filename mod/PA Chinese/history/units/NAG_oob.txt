@@ -1,0 +1,19 @@
+army = {
+  name = "那格浦尔军团"  # Army of Nagpur
+  location = 1277
+  regiment = {
+    name = "那格浦尔分遣队"  # 1.Nagpur Contingent
+    type = irregular
+    home = 1277
+  }
+  regiment = {
+    name = "那格浦尔分遣队"  # 2.Nagpur Contingent
+    type = irregular
+    home = 1280
+  }
+  regiment = {
+    name = "那格浦尔分遣队"  # 3.Nagpur Contingent
+    type = irregular
+    home = 1281
+  }
+}

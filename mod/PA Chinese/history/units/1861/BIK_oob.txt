@@ -1,0 +1,34 @@
+army = {
+  name = "比卡内尔大君军队"  # Army of the Maharajah of Bikaner
+  location = 1267
+  regiment = {
+    name = "邓加尔骑兵团"  # 1.Dungar Cavalry
+    type = cavalry
+    home = 1267
+  }
+  regiment = {
+    name = "邓加尔骑兵团"  # 2.Dungar Cavalry
+    type = cavalry
+    home = 1267
+  }
+  regiment = {
+    name = "邓加尔骑兵团"  # 3.Dungar Cavalry
+    type = cavalry
+    home = 1267
+  }
+  regiment = {
+    name = "比卡内尔萨杜尔步兵团"  # 1.Bikaner Sadul Infantry
+    type = irregular
+    home = 1267
+  }
+  regiment = {
+    name = "比卡内尔萨杜尔步兵团"  # 2.Bikaner Sadul Infantry
+    type = irregular
+    home = 1267
+  }
+  regiment = {
+    name = "比卡内尔萨杜尔步兵团"  # 3.Bikaner Sadul Infantry
+    type = irregular
+    home = 1267
+  }
+}

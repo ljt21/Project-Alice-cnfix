@@ -1,0 +1,9 @@
+army = {
+  name = "乌拉圭陆军"  # Ej茅rcito del Uruguay
+  location = 2344
+  regiment = {
+    name = "步兵师"  # 1.Divisi贸n de Infanter铆a
+    type = irregular
+    home = 2344
+  }
+}

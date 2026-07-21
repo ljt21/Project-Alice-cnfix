@@ -1,0 +1,19 @@
+army = {
+  name = "库奇大君的军队"  # Army of the Maharao of Kutch
+  location = 1293
+  regiment = {
+    name = "库奇旅"  # 1.Kutch
+    type = irregular
+    home = 1293
+  }
+  regiment = {
+    name = "库奇旅"  # 2.Kutch
+    type = irregular
+    home = 1293
+  }
+  regiment = {
+    name = "库奇旅"  # 3.Kutch
+    type = irregular
+    home = 1293
+  }
+}

@@ -1,0 +1,12 @@
+PRU = {
+  value = 125
+}
+army = {
+  name = "安哈尔特军队"  # Anhaltische Armee
+  location = 555
+  regiment = {
+    name = "安哈尔特步兵旅"  # 1.Anhaltische Infanterie-Brigade
+    type = infantry
+    home = 555
+  }
+}

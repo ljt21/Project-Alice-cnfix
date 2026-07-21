@@ -1,0 +1,9 @@
+army = {
+  name = "汉堡军团"  # Hamburgische Armee
+  location = 528
+  regiment = {
+    name = "汉堡步兵旅"  # Hamburgische Infanterie-Brigade
+    type = infantry
+    home = 528
+  }
+}

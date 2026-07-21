@@ -1,0 +1,9 @@
+army = {
+  name = "不伦瑞克军队"  # Braunschweigische Armee
+  location = 536
+  regiment = {
+    name = "不伦瑞克步兵旅"  # 1.Braunschweigische Infanterie-Brigade
+    type = infantry
+    home = 536
+  }
+}

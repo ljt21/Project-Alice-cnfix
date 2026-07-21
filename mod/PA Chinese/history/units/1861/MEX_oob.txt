@@ -1,0 +1,59 @@
+leader = {
+  name = "胡安 阿尔瓦雷斯"  # Juan 脕lvarez
+  type = land
+  date = "1836.1.1"
+  personality = skilled
+  background = elderly
+  prestige = 0.3
+}
+leader = {
+  name = "米格尔 米拉蒙"  # Miguel Mir谩mon
+  type = land
+  date = "1858.1.1"
+  personality = fanatic
+  background = uncommonly_young
+  prestige = 0.1
+}
+army = {
+  name = "墨西哥城军团"  # Ej茅rcito de Ciudad de M茅xico
+  location = 2172
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2172
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2172
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2176
+  }
+  regiment = {
+    name = "步兵旅"
+    type = hussar
+    home = 2172
+  }
+}
+army = {
+  name = "北方军团"  # Ej茅rcito del Norte
+  location = 2159
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2146
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2159
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2158
+  }
+}

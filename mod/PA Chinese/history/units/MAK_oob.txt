@@ -1,0 +1,9 @@
+army = {
+  name = "马克兰土邦军队"  # Army of the Nawab of Makran
+  location = 1222
+  regiment = {
+    name = "俾路支人"  # 1.Baluchye
+    type = cavalry
+    home = 1222
+  }
+}

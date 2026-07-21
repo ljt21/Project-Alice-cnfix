@@ -1,0 +1,38 @@
+leader = {
+  name = "尼古拉斯 杰弗拉德"  # Nicholas Geffrard
+  date = 1855.1.1
+  type = land
+  personality = unsound
+  background = elderly
+  prestige = 0.1
+}
+leader = {
+  name = "里维耶尔-埃拉德"  # Rivi脙篓re-H脙漏rard
+  date = 1848.1.1
+  type = land
+  personality = mediocre
+  background = generals_aide
+  prestige = 0.2
+}
+army = {
+  name = "海地陆军"  # Haitian Army
+  location = 2213
+  regiment = {
+    name = "海地旅"  # 1.Brigade
+    type = infantry
+    home = 2213
+  }
+  regiment = {
+    name = "海地旅"  # 2.Brigade
+    type = infantry
+    home = 2215
+  }
+}
+navy = {
+  name = "海地海军"  # Haitian Navy
+  location = 2213
+  ship = {
+    name = "海地海军"  # Haiti
+    type = frigate
+  }
+}

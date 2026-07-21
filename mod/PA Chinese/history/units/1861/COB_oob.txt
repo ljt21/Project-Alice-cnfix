@@ -1,0 +1,9 @@
+army = {
+  name = "科堡军团"  # Coburgische Armee
+  location = 562
+  regiment = {
+    name = "科堡步兵旅"  # Coburgische Infanterie-Brigade
+    type = infantry
+    home = 562
+  }
+}

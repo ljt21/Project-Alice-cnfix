@@ -1,0 +1,149 @@
+army = {
+  name = "伊洛林埃米尔军队"  # Army of the Emir of Ilorin
+  location = 1927
+  regiment = {
+    name = "约鲁巴族"  # 1.Yoruba
+    type = cavalry
+    home = 1927
+  }
+  regiment = {
+    name = "约鲁巴族"  # 2.Yoruba
+    type = irregular
+    home = 1927
+  }
+  regiment = {
+    name = "部落战士"  # 1.Tribal Warriors
+    type = irregular
+    home = 1930
+  }
+}
+army = {
+  name = "关杜埃米尔军队"  # Army of the Emir of Gwandu
+  location = 1946
+  regiment = {
+    name = "豪萨族"  # 7.Hausa
+    type = irregular
+    home = 1946
+  }
+  regiment = {
+    name = "豪萨族"  # 8.Hausa
+    type = irregular
+    home = 1946
+  }
+  regiment = {
+    name = "富拉尼族"  # 2.Fulbe
+    type = cavalry
+    home = 1946
+  }
+}
+army = {
+  name = "卡诺埃米尔军队"  # Army of the Emir of Kano
+  location = 1945
+  regiment = {
+    name = "豪萨族"  # 9.Hausa
+    type = irregular
+    home = 1945
+  }
+  regiment = {
+    name = "豪萨族"  # 10.Hausa
+    type = irregular
+    home = 1945
+  }
+  regiment = {
+    name = "富拉尼族"  # 3.Fulbe
+    type = cavalry
+    home = 1945
+  }
+  regiment = {
+    name = "富拉尼族"  # 4.Fulbe
+    type = cavalry
+    home = 1949
+  }
+  regiment = {
+    name = "豪萨族"  # 11.Hausa
+    type = irregular
+    home = 1949
+  }
+}
+army = {
+  name = "扎里亚埃米尔军队"  # Army of the Emir of Zaria
+  location = 1939
+  regiment = {
+    name = "豪萨族"  # 12.Hausa
+    type = irregular
+    home = 1939
+  }
+  regiment = {
+    name = "富拉尼族"  # 5.Fulbe
+    type = irregular
+    home = 1939
+  }
+  regiment = {
+    name = "部落战士"  # 2.Tribal Warriors
+    type = irregular
+    home = 1936
+  }
+}
+army = {
+  name = "阿达马瓦埃米尔军队"  # Army of the Emir of Adamawa
+  location = 1950
+  regiment = {
+    name = "富拉尼族"  # 6.Fulbe
+    type = cavalry
+    home = 1950
+  }
+  regiment = {
+    name = "豪萨族"  # 13.Hausa
+    type = irregular
+    home = 1942
+  }
+  regiment = {
+    name = "富拉尼族"  # 7.Fulbe
+    type = irregular
+    home = 1942
+  }
+  regiment = {
+    name = "部落战士"  # 3.Tribal Warriors
+    type = irregular
+    home = 1937
+  }
+}
+army = {
+  name = "索科托哈里发军队"  # Army of the Caliph of Sokoto
+  location = 1948
+  regiment = {
+    name = "豪萨族"  # 1.Hausa
+    type = cavalry
+    home = 1948
+  }
+  regiment = {
+    name = "豪萨族"  # 2.Hausa
+    type = irregular
+    home = 1948
+  }
+  regiment = {
+    name = "豪萨族"  # 3.Hausa
+    type = irregular
+    home = 1948
+  }
+  regiment = {
+    name = "富拉尼族"  # 1.Fulbe
+    type = cavalry
+    home = 1948
+  }
+  regiment = {
+    name = "豪萨族"  # 4.Hausa
+    type = irregular
+    home = 1940
+  }
+  regiment = {
+    name = "豪萨族"  # 5.Hausa
+    type = irregular
+    home = 1947
+  }
+  regiment = {
+    name = "豪萨族"  # 6.Hausa
+    type = irregular
+    home = 1947
+  }
+}

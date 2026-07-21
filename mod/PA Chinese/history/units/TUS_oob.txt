@@ -1,0 +1,32 @@
+army = {
+  name = "托斯卡纳军队"  # Esercito Toscano
+  leader = {
+    name = "利奥波德二世"  # Leopoldo II
+    date = 1824.1.1
+    type = land
+    personality = soft
+    background = gifted_administrator
+    prestige = 0.5
+  }
+  location = 744
+  regiment = {
+    name = "列兵步兵团"  # 1.Fanteria di Linea
+    type = infantry
+    home = 744
+  }
+  regiment = {
+    name = "列兵步兵团"  # 2.Fanteria di Linea
+    type = infantry
+    home = 745
+  }
+  regiment = {
+    name = "列兵步兵团"  # 3.Fanteria di Linea
+    type = infantry
+    home = 748
+  }
+  regiment = {
+    name = "国民警卫队"  # 1.Guardia Civica
+    type = infantry
+    home = 747
+  }
+}

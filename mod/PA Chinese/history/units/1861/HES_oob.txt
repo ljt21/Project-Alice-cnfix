@@ -1,0 +1,30 @@
+leader = {
+  name = "卡尔 冯 H-D亲王"  # Prinz Karl von H-D
+  date = 1861.1.1
+  type = land
+  personality = indifferent
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "路德维希四世"  # Ludwig IV
+  date = 1861.1.1
+  type = land
+  personality = openminded
+  background = aristocrat
+  prestige = 0.5
+}
+army = {
+  name = "大公国陆军"  # Gro脽herzogliche Armee
+  location = 2560
+  regiment = {
+    name = "大公国步兵旅"  # 1.Gro脽herzogliche Infanterie-Brigade
+    type = infantry
+    home = 2560
+  }
+  regiment = {
+    name = "大公国步兵旅"  # 2.Gro脽herzogliche Infanterie-Brigade
+    type = infantry
+    home = 567
+  }
+}

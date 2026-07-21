@@ -1,0 +1,79 @@
+USA = {
+  value = 75
+}
+army = {
+  name = "摩洛哥苏丹陆军"  # Army of the Sultan of Morocco
+  location = 1681
+  regiment = {
+    name = "“阿斯卡里亚”步兵旅"  # 1.Infantry Brigade 'Ask盲ria'
+    type = irregular
+    home = 1680
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Infantry Brigade
+    type = irregular
+    home = 1681
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Infantry Brigade
+    type = irregular
+    home = 1682
+  }
+}
+army = {
+  name = "阿特拉斯陆军"  # Army of the Atlas
+  location = 1684
+  regiment = {
+    name = "“艾特阿塔”步兵旅"  # 4.Infantry Brigade 'Ait 'Atta'
+    type = irregular
+    home = 1683
+  }
+  regiment = {
+    name = "第5步兵旅"  # 5.Infantry Brigade
+    type = irregular
+    home = 1688
+  }
+  regiment = {
+    name = "“艾特姆纳德”步兵旅"  # 6.Infantry Brigade 'Ait Mnad'
+    type = irregular
+    home = 1694
+  }
+}
+army = {
+  name = "撒哈拉陆军"  # Army of Sahara
+  location = 1698
+  regiment = {
+    name = "“达维马尼”步兵旅"  # 7.Infantry Brigade 'Dawi Mani'
+    type = irregular
+    home = 1690
+  }
+  regiment = {
+    name = "“撒哈拉威”步兵旅"  # 8.Infantry Brigade 'Sahrawi'
+    type = irregular
+    home = 2563
+  }
+  regiment = {
+    name = "第9步兵旅"  # 9.Infantry Brigade
+    type = irregular
+    home = 1691
+  }
+}
+army = {
+  name = "里夫陆军"  # Army of the Rif
+  location = 1686
+  regiment = {
+    name = "第10步兵旅"  # 10.Infantry Brigade
+    type = irregular
+    home = 1686
+  }
+  regiment = {
+    name = "第11步兵旅"  # 11.Infantry Brigade
+    type = irregular
+    home = 1687
+  }
+  regiment = {
+    name = "第12步兵旅"  # 12.Infantry Brigade
+    type = irregular
+    home = 1685
+  }
+}

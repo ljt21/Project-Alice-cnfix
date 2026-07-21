@@ -1,0 +1,34 @@
+army = {
+  name = "希瓦汗国的军队"  # Army of the Khanate of Khiva
+  location = 1191
+  regiment = {
+    name = "尧穆德人"  # 1.Yomud
+    type = cavalry
+    home = 1191
+  }
+  regiment = {
+    name = "尧穆德人"  # 2.Yomud
+    type = cavalry
+    home = 1191
+  }
+  regiment = {
+    name = "尧穆德人"  # 3.Yomud
+    type = cavalry
+    home = 1192
+  }
+  regiment = {
+    name = "吉尔吉斯人"  # 1.Kirgiz
+    type = cavalry
+    home = 1192
+  }
+  regiment = {
+    name = "吉尔吉斯人"  # 2.Kirgiz
+    type = cavalry
+    home = 1196
+  }
+  regiment = {
+    name = "吉尔吉斯人"  # 3.Kirgiz
+    type = cavalry
+    home = 1196
+  }
+}

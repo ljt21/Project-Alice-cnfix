@@ -1,0 +1,58 @@
+USA = {
+  value = 10
+}
+BUR = {
+  value = -200
+}
+ENG = {
+  value = 75
+}
+army = {
+  name = "第暹罗皇家陆军"  # Royal Siamese Army
+  location = 1346
+  regiment = {
+    name = "第1旅"  # 1.Brigade
+    type = irregular
+    home = 1346
+  }
+  regiment = {
+    name = "第2旅"  # 2.Brigade
+    type = irregular
+    home = 1347
+  }
+  regiment = {
+    name = "第3旅"  # 3.Brigade
+    type = irregular
+    home = 1348
+  }
+  regiment = {
+    name = "第4旅"  # 4.Brigade
+    type = irregular
+    home = 1349
+  }
+  regiment = {
+    name = "第5旅"  # 5.Brigade
+    type = irregular
+    home = 1350
+  }
+  regiment = {
+    name = "第6旅"  # 6.Brigade
+    type = irregular
+    home = 1351
+  }
+  regiment = {
+    name = "第7旅"  # 7.Brigade
+    type = irregular
+    home = 1352
+  }
+  regiment = {
+    name = "第8旅"  # 8.Brigade
+    type = irregular
+    home = 1353
+  }
+  regiment = {
+    name = "第9旅"  # 9.Brigade
+    type = irregular
+    home = 1354
+  }
+}

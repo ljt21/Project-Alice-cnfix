@@ -1,0 +1,132 @@
+leader = {
+  name = "卡尔亲王"  # Prinz Karl
+  date = 1825.1.1
+  type = land
+  personality = mediocre
+  background = aristocrat
+  prestige = 0.3
+}
+leader = {
+  name = "冯 霍亨豪森"  # von Hohenausen
+  date = 1845.1.1
+  type = land
+  personality = able
+  background = gifted_administrator
+  prestige = 0.2
+}
+leader = {
+  name = "雅各布 冯 哈特曼"  # Jakob von Hartmann
+  date = 1849.1.1
+  type = land
+  personality = skilled
+  background = war_college
+  prestige = 0.2
+}
+leader = {
+  name = "卢伊特波尔德亲王"  # Prinz Luitpold
+  date = 1851.1.1
+  type = land
+  personality = soft
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "冯 德 坦恩"  # von der Tann
+  date = 1861.1.1
+  type = land
+  personality = soldierly
+  background = natural_born_leader
+  prestige = 0.2
+}
+army = {
+  name = "第一军"  # I.Korps
+  location = 599
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 1.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 599
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 2.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 600
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 3.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 601
+  }
+  regiment = {
+    name = "巴伐利亚皇家炮兵旅"  # 1.Kgl.Bayer.Artilleriebrigade
+    type = artillery
+    home = 599
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 4.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 598
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 5.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 602
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 6.Kgl.Bayer.Infanteriebrigade
+    type = engineer
+    home = 597
+  }
+  regiment = {
+    name = "巴伐利亚皇家胸甲骑兵旅"  # 1.Kgl.Bayer.K眉rassierbrigade
+    type = cuirassier
+    home = 599
+  }
+}
+army = {
+  name = "第二军"  # II.Korps
+  location = 595
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 7.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 595
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 8.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 595
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 9.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 592
+  }
+  regiment = {
+    name = "巴伐利亚皇家胸甲骑兵旅"  # 2.Kgl.Bayer.K眉rassierbrigade
+    type = cuirassier
+    home = 592
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 10.Kgl.Bayer.Infanteriebrigade
+    type = engineer
+    home = 596
+  }
+  regiment = {
+    name = "巴伐利亚皇家炮兵旅"  # 2.Kgl.Bayer.Artilleriebrigade
+    type = artillery
+    home = 598
+  }
+}
+army = {
+  name = "第三军"  # III.Korps
+  location = 571
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 11.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 571
+  }
+  regiment = {
+    name = "巴伐利亚皇家步兵旅"  # 12.Kgl.Bayer.Infanteriebrigade
+    type = infantry
+    home = 571
+  }
+}

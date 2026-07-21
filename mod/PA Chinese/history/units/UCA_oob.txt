@@ -1,0 +1,26 @@
+leader = {
+  name = "弗朗西斯科 莫拉桑"  # Francisco Moraz谩n
+  type = land
+  date = 1836.1.1
+  personality = stout
+  background = generals_aide
+}
+army = {
+  name = "联邦陆军"  # Ej茅rcito Federal
+  location = 2187
+  regiment = {
+    name = "步兵师"  # 1.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2187
+  }
+  regiment = {
+    name = "步兵师"  # 2.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2191
+  }
+  regiment = {
+    name = "步兵师"  # 3.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2186
+  }
+}

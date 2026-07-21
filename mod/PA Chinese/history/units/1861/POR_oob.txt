@@ -1,0 +1,108 @@
+leader = {
+  name = "维森特·德·梅斯基塔"  # Vicente de Mesquita
+  date = 1840.1.1
+  type = land
+  personality = dauntless
+  background = madman
+  prestige = 0.3
+}
+army = {
+  name = "维森特"  # Ex茅rcito Portugu锚s
+  location = 524
+  regiment = {
+    name = "步兵师"  # 1.Brigada de Infantaria
+    type = infantry
+    home = 521
+  }
+  regiment = {
+    name = "步兵师"  # 2.Brigada de Infantaria
+    type = infantry
+    home = 522
+  }
+  regiment = {
+    name = "步兵师"  # 3.Brigada de Infantaria
+    type = infantry
+    home = 524
+  }
+  regiment = {
+    name = "步兵师"  # 4.Brigada de Infantaria
+    type = infantry
+    home = 525
+  }
+  regiment = {
+    name = "步兵师"  # 5.Brigada de Infantaria
+    type = infantry
+    home = 523
+  }
+  regiment = {
+    name = "步兵师"  # 6.Brigada de Infantaria
+    type = infantry
+    home = 2135
+  }
+  regiment = {
+    name = "步兵师"  # 7.Brigada de Infantaria
+    type = infantry
+    home = 2134
+  }
+  regiment = {
+    name = "步兵师"  # 8.Brigada de Infantaria
+    type = infantry
+    home = 527
+  }
+  regiment = {
+    name = "炮兵旅"  # 1.Brigada de Artilharia
+    type = artillery
+    home = 518
+  }
+  regiment = {
+    name = "军队"  # 1.Brigada Hussar
+    type = hussar
+    home = 521
+  }
+}
+army = {
+  name = "步兵师"  # Ex茅rcito da 脕frica
+  location = 1999
+  regiment = {
+    name = "步兵师"  # 1.Brigada Colonial
+    type = infantry
+    home = 1999
+  }
+  regiment = {
+    name = "步兵师"  # 2.Brigada Colonial
+    type = infantry
+    home = 2003
+  }
+}
+navy = {
+  name = "海军"  # Marinha Portuguesa
+  location = 521
+  ship = {
+    name = "海军舰船"  # Vasco da Gama
+    type = manowar
+  }
+  ship = {
+    name = "海军舰船"  # Dom Fernando II e Gloria
+    type = frigate
+  }
+  ship = {
+    name = "海军舰船"  # Bartholomeu Daiz
+    type = commerce_raider
+  }
+}
+navy = {
+  location = 521
+  name = "海军舰船"  # Esquadr茫o de Navio
+  ship = {
+    name = "海军舰船"  # 1.Transporte Flotilha
+    type = steam_transport
+  }
+  ship = {
+    name = "海军舰船"  # 2.Transporte Flotilha
+    type = steam_transport
+  }
+  ship = {
+    name = "海军舰船"  # 3.Transporte Flotilha
+    type = steam_transport
+  }
+}

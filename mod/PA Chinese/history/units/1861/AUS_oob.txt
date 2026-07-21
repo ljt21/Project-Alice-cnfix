@@ -1,0 +1,745 @@
+HAN = {
+  value = 50
+  level = 3
+  influence_value = 10
+}
+BAD = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+BAV = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+WUR = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+SAX = {
+  value = 75
+  level = 3
+  influence_value = 5
+}
+SER = {
+  value = 75
+  level = 2
+  influence_value = 25
+}
+PAP = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+SWI = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+DEN = {
+  value = 155
+}
+PRU = {
+  value = -50
+}
+RUS = {
+  value = 80
+}
+leader = {
+  name = "埃策尔霍格 阿尔布雷希特"  # Erzerhog Albrecht
+  date = 1861.1.1
+  type = land
+  personality = intelligent
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "爱德华 冯 克拉姆-加拉斯"  # Eduard von Clam-Gallas
+  date = 1852.1.1
+  type = land
+  personality = calm
+  background = cavalry_school
+  prestige = 0.2
+}
+leader = {
+  name = "路德维希 冯 贝内德克"  # Ludwig von Benedek
+  date = 1849.1.1
+  type = land
+  personality = steadfast
+  background = unqualified
+  prestige = 0.2
+}
+leader = {
+  name = "冯 加布伦茨"  # von Gablenz
+  date = 1854.1.1
+  type = land
+  personality = bold
+  background = cavalry_school
+  prestige = 0.2
+}
+leader = {
+  name = "拉明 冯 里德基兴"  # Ramming von Riedkirchen
+  date = 1854.1.1
+  type = land
+  personality = brash
+  background = unfit
+  prestige = 0.2
+}
+leader = {
+  name = "约瑟夫 菲利波维奇"  # Joseph Philippovic
+  date = 1859.1.1
+  type = land
+  personality = relentless
+  background = school_of_offense
+  prestige = 0.1
+}
+leader = {
+  name = "弗朗茨 冯 约翰"  # Franz von John
+  date = 1861.1.1
+  type = land
+  personality = competent
+  background = generals_aide
+}
+leader = {
+  name = "库恩 冯 库南费尔德"  # Kuhn von Khunenfeld
+  date = 1861.1.1
+  type = land
+  personality = arrogant
+  background = professor
+}
+leader = {
+  name = "冯 特格特霍夫"  # von Tegethoff
+  date = 1861.1.1
+  type = sea
+  personality = daring
+  background = school_of_offense
+}
+army = {
+  name = "斯拉沃尼亚边防部队"  # Grenztruppen Slavonien
+  location = 771
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 648
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 704
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 705
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 702
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 952
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 641
+  }
+}
+army = {
+  name = "瓦拉几亚边防部队"  # Grenztruppen Wallachei
+  location = 659
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 647
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 647
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 651
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 646
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 646
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 950
+  }
+}
+army = {
+  name = "克罗地亚边防部队"  # Grenztruppen Kroatien
+  location = 772
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 771
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 773
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 768
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 768
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 767
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 621
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 621
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 950
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 950
+  }
+}
+army = {
+  name = "塞尔维亚边防部队"  # Grenztruppen Serbien
+  location = 653
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 652
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 652
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 652
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 650
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 649
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 649
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 649
+  }
+  regiment = {
+    name = "边防部队"
+    type = infantry
+    home = 714
+  }
+}
+army = {
+  name = "第一军"  # I.Armeekorps
+  location = 619
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = artillery
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 619
+  }
+  regiment = {
+    name = "第一军"
+    type = engineer
+    home = 620
+  }
+}
+army = {
+  name = "第二军"  # II.Armeekorps
+  location = 613
+  regiment = {
+    name = "第二军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第二军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第二军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第二军"
+    type = artillery
+    home = 625
+  }
+  regiment = {
+    name = "第二军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第二军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第二军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第二军"
+    type = engineer
+    home = 625
+  }
+}
+army = {
+  name = "第四军"  # IV.Armeekorps
+  location = 617
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 614
+  }
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 612
+  }
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 735
+  }
+  regiment = {
+    name = "第四军"
+    type = artillery
+    home = 734
+  }
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 641
+  }
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 613
+  }
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 617
+  }
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 618
+  }
+  regiment = {
+    name = "第四军"
+    type = infantry
+    home = 622
+  }
+  regiment = {
+    name = "第四军"
+    type = engineer
+    home = 622
+  }
+}
+army = {
+  name = "第五军"  # V.Armeekorps
+  location = 734
+  regiment = {
+    name = "第五军"
+    type = infantry
+    home = 689
+  }
+  regiment = {
+    name = "第五军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第五军"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第五军"
+    type = artillery
+    home = 644
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 644
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 637
+  }
+  regiment = {
+    name = "第一军"
+    type = infantry
+    home = 637
+  }
+  regiment = {
+    name = "第五军"
+    type = infantry
+    home = 703
+  }
+  regiment = {
+    name = "第五军"
+    type = infantry
+    home = 616
+  }
+  regiment = {
+    name = "第五军"
+    type = engineer
+    home = 640
+  }
+}
+army = {
+  name = "第十一军"  # XI.Armeekorps
+  location = 729
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 630
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 630
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 630
+  }
+  regiment = {
+    name = "第十一军"
+    type = engineer
+    home = 631
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 631
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 632
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 632
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 632
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 641
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 641
+  }
+  regiment = {
+    name = "第十一军"
+    type = infantry
+    home = 643
+  }
+  regiment = {
+    name = "第十一军"
+    type = artillery
+    home = 643
+  }
+}
+army = {
+  name = "第八军"  # VIII.Armeekorps
+  location = 628
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 628
+  }
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 628
+  }
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 627
+  }
+  regiment = {
+    name = "第八军"
+    type = artillery
+    home = 627
+  }
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 627
+  }
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 626
+  }
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 626
+  }
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 626
+  }
+  regiment = {
+    name = "第八军"
+    type = infantry
+    home = 629
+  }
+  regiment = {
+    name = "第八军"
+    type = engineer
+    home = 629
+  }
+}
+army = {
+  name = "第一骑兵军"  # I.Kavalleriekorps
+  location = 624
+  regiment = {
+    name = "骑兵师"
+    type = hussar
+    home = 624
+  }
+  regiment = {
+    name = "骑兵师"
+    type = hussar
+    home = 624
+  }
+  regiment = {
+    name = "骑兵师"
+    type = hussar
+    home = 629
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 622
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 631
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 631
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 633
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 633
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 641
+  }
+}
+army = {
+  name = "第二骑兵军"  # II.Kavalleriekorps
+  location = 641
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 623
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 639
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 639
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 639
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 642
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 642
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 688
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 634
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 635
+  }
+}
+navy = {
+  name = "帝国与皇家战争舰队"  # K & K Kriegsflotte
+  location = 736
+  ship = {
+    name = "费迪南德·马克斯号战舰"  # SMS Ferdinand Max
+    type = manowar
+  }
+  ship = {
+    name = "施瓦岑贝格号战舰"  # SMS Schwarzenberg
+    type = frigate
+  }
+  ship = {
+    name = "奥罗拉号战舰"  # SMS Aurora
+    type = frigate
+  }
+  ship = {
+    name = "多瑙河号战舰"  # SMS Donau
+    type = frigate
+  }
+  ship = {
+    name = "贝罗娜号战舰"  # SMS Bellona
+    type = frigate
+  }
+  ship = {
+    name = "诺瓦拉号战舰"  # SMS Novara
+    type = frigate
+  }
+  ship = {
+    name = "拉德茨基号战舰"  # SMS Radetsky
+    type = frigate
+  }
+  ship = {
+    name = "凯撒号战舰"  # SMS Kaiser
+    type = commerce_raider
+  }
+  ship = {
+    name = "黑尔戈兰号战舰"  # SMS Helgoland
+    type = commerce_raider
+  }
+  ship = {
+    name = "弗伦茨贝格号战舰"  # SMS Frundsberg
+    type = commerce_raider
+  }
+}

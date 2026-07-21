@@ -1,0 +1,59 @@
+-- GENERATED FILE: DO NOT EDIT --
+--   PROVIDES FFI DECLARATIONS --
+local ffi = require("ffi")
+
+ffi.cdef[[
+bool alice_province_ownership_is_valid(int32_t api_arg_0_id);
+uint32_t alice_province_ownership_size();
+void alice_province_ownership_resize(uint32_t api_arg_0_value);
+int32_t alice_province_ownership_get_province(int32_t api_arg_0_id);
+void alice_province_ownership_set_province(int32_t api_arg_0_id, int32_t api_arg_1_id);
+void alice_province_ownership_try_set_province(int32_t api_arg_0_id, int32_t api_arg_1_id);
+int32_t alice_province_ownership_get_nation(int32_t api_arg_0_id);
+void alice_province_ownership_set_nation(int32_t api_arg_0_id, int32_t api_arg_1_id);
+void alice_province_ownership_try_set_nation(int32_t api_arg_0_id, int32_t api_arg_1_id);
+]]
+PROVINCE_OWNERSHIP = {}
+---@param id province_ownership_id
+---@return number
+function PROVINCE_OWNERSHIP.is_valid(id)
+	return ffi.C.alice_province_ownership_is_valid(id)
+end
+---@return number
+function PROVINCE_OWNERSHIP.size()
+	return ffi.C.alice_province_ownership_size()
+end
+---@param value number
+function PROVINCE_OWNERSHIP.resize(value)
+	return ffi.C.alice_province_ownership_resize(value)
+end
+---@param id province_ownership_id
+---@return province_id
+function PROVINCE_OWNERSHIP.get_province(id)
+	return ffi.C.alice_province_ownership_get_province(id)
+end
+---@param id province_ownership_id
+---@param linked_id province_id
+function PROVINCE_OWNERSHIP.set_province(id, linked_id)
+	return ffi.C.alice_province_ownership_set_province(id, linked_id)
+end
+---@param id province_ownership_id
+---@param linked_id province_id
+function PROVINCE_OWNERSHIP.try_set_province(id, linked_id)
+	return ffi.C.alice_province_ownership_try_set_province(id, linked_id)
+end
+---@param id province_ownership_id
+---@return nation_id
+function PROVINCE_OWNERSHIP.get_nation(id)
+	return ffi.C.alice_province_ownership_get_nation(id)
+end
+---@param id province_ownership_id
+---@param linked_id nation_id
+function PROVINCE_OWNERSHIP.set_nation(id, linked_id)
+	return ffi.C.alice_province_ownership_set_nation(id, linked_id)
+end
+---@param id province_ownership_id
+---@param linked_id nation_id
+function PROVINCE_OWNERSHIP.try_set_nation(id, linked_id)
+	return ffi.C.alice_province_ownership_try_set_nation(id, linked_id)
+end

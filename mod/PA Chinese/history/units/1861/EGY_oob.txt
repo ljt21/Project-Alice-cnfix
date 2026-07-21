@@ -1,0 +1,148 @@
+leader = {
+  name = "祖拜尔帕夏"  # Zubayr Pasha
+  date = 1855.1.1
+  type = land
+  personality = charismatic
+  background = immoral
+  prestige = 0.1
+}
+navy = {
+  name = "埃及海军"  # Egyptian Navy
+  location = 1751
+  ship = {
+    name = "开罗号"  # Al Qahira
+    type = frigate
+  }
+}
+army = {
+  name = "埃及陆军"  # Army of Egypt
+  location = 1751
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1750
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1746
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1745
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1745
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1751
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 2559
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1764
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1746
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1748
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1749
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1747
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1746
+  }
+}
+army = {
+  name = "开罗卫戍部队"  # Garrison of Cairo
+  location = 1745
+  regiment = {
+    name = "卫戍部队"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "卫戍部队"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "卫戍部队"
+    type = cavalry
+    home = 1750
+  }
+}
+army = {
+  name = "上尼罗河军团"  # Army of the Upper Nile
+  location = 1829
+  regiment = {
+    name = "上尼罗河军团"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "上尼罗河军团"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "上尼罗河军团"
+    type = cavalry
+    home = 1751
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1765
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1762
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1831
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1829
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1828
+  }
+  regiment = {
+    name = "步兵师"
+    type = irregular
+    home = 1827
+  }
+}

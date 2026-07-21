@@ -1,0 +1,24 @@
+army = {
+  name = "布宜诺斯艾利斯军"  # Ej茅rcito de Buenos Aires
+  location = 2349
+  regiment = {
+    name = "第1步兵师"  # 1.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2348
+  }
+  regiment = {
+    name = "第2步兵师"  # 2.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2348
+  }
+  regiment = {
+    name = "第3步兵师"  # 3.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2348
+  }
+  regiment = {
+    name = "第4步兵师"  # 4.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2349
+  }
+}

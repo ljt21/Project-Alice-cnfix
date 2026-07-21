@@ -1,0 +1,76 @@
+leader = {
+  name = "托马斯 德 莫斯克拉"  # Tomas de Mosquera
+  date = 1840.1.1
+  type = land
+  personality = resourceful
+  background = politician
+  prestige = 0.2
+}
+army = {
+  name = "南方军"  # Ej茅rcito del Sur
+  location = 2247
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2247
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2247
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 2247
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2248
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2248
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2250
+  }
+}
+army = {
+  name = "北方军" 
+  location = 2255
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2255
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2255
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2255
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2254
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2254
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 2254
+  }
+}

@@ -1,0 +1,39 @@
+army = {
+  name = "海得拉巴尼扎姆军队"  # Army of the Nizam of Hyderabad
+  location = 1283
+  regiment = {
+    name = "非正规骑兵"  # 1.Irregular Horse
+    type = cavalry
+    home = 1283
+  }
+  regiment = {
+    name = "非正规骑兵"  # 2.Irregular Horse
+    type = cavalry
+    home = 1278
+  }
+  regiment = {
+    name = "非正规骑兵"  # 3.Irregular Horse
+    type = cavalry
+    home = 1284
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 1.Hyderabad Contingent
+    type = infantry
+    home = 1283
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 2.Hyderabad Contingent
+    type = infantry
+    home = 1285
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 3.Hyderabad Contingent
+    type = infantry
+    home = 1287
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 4.Hyderabad Contingent
+    type = artillery
+    home = 1283
+  }
+}

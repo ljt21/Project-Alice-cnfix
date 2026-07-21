@@ -1,0 +1,34 @@
+army = {
+  name = "特拉凡科尔大君之军队"  # Army of the Maharaja of Travancore
+  location = 1319
+  regiment = {
+    name = "喀拉拉师团"  # 1.Kerala Division
+    type = irregular
+    home = 1319
+  }
+  regiment = {
+    name = "喀拉拉师团"  # 2.Kerala Division
+    type = irregular
+    home = 1319
+  }
+  regiment = {
+    name = "喀拉拉师团"  # 3.Kerala Division
+    type = irregular
+    home = 1319
+  }
+  regiment = {
+    name = "喀拉拉师团"  # 4.Kerala Division
+    type = irregular
+    home = 1318
+  }
+  regiment = {
+    name = "喀拉拉师团"  # 5.Kerala Division
+    type = irregular
+    home = 1318
+  }
+  regiment = {
+    name = "喀拉拉师团"  # 6.Kerala Division
+    type = cavalry
+    home = 1318
+  }
+}

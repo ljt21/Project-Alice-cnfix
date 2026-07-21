@@ -1,0 +1,44 @@
+army = {
+  name = "希瓦军团"  # Army of Khiva
+  location = 1191
+  regiment = {
+    name = "乌兹别克族"  # 1.Uzbek
+    type = irregular
+    home = 1191
+  }
+  regiment = {
+    name = "乌兹别克族"  # 2.Uzbek
+    type = irregular
+    home = 1191
+  }
+  regiment = {
+    name = "乌兹别克族"  # 3.Uzbek
+    type = irregular
+    home = 1191
+  }
+  regiment = {
+    name = "乌兹别克族"  # 4.Uzbek
+    type = irregular
+    home = 1192
+  }
+  regiment = {
+    name = "乌兹别克族"  # 5.Uzbek
+    type = irregular
+    home = 1192
+  }
+  regiment = {
+    name = "土库曼族"  # 3.Turkmen
+    type = irregular
+    home = 1196
+  }
+  regiment = {
+    name = "土库曼族"  # 1.Turkmen
+    type = cavalry
+    home = 1206
+  }
+  regiment = {
+    name = "土库曼族"  # 2.Turkmen
+    type = cavalry
+    home = 1206
+  }
+}

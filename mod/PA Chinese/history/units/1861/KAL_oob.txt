@@ -1,0 +1,19 @@
+army = {
+  name = "卡拉特军队"  # Army of Kalat
+  location = 1221
+  regiment = {
+    name = "吉尔吉耶"  # 1.Ghilzye
+    type = irregular
+    home = 1221
+  }
+  regiment = {
+    name = "吉尔吉耶"  # 2.Ghilzye
+    type = irregular
+    home = 1221
+  }
+  regiment = {
+    name = "吉尔吉耶"  # 3.Ghilzye
+    type = cavalry
+    home = 1221
+  }
+}

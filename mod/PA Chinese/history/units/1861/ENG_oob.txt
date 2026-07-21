@@ -1,0 +1,1278 @@
+EGY = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+PER = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+AFG = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+BUR = {
+  value = -25
+  level = 1
+  influence_value = 25
+}
+JOH = {
+  value = -25
+}
+SIA = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+YEM = {
+  value = 75
+  level = 4
+  influence_value = 50
+}
+NET = {
+  value = 75
+  level = 2
+  influence_value = 25
+}
+DEN = {
+  value = 5
+  level = 2
+  influence_value = 5
+}
+SWE = {
+  value = 125
+  level = 3
+  influence_value = 30
+}
+VNZ = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+ARG = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+BEL = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+ION = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+GRE = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+AWA = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+BAS = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+BER = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+BIK = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+BHO = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+BUN = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+GWA = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+HYD = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+IND = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+JAI = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+JAS = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+JOD = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+KAS = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+MEW = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+MYS = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+NAG = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+ORI = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+TRA = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+SIK = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+NEP = {
+  value = 125
+  influence_value = 25
+}
+BHU = {
+  value = 125
+  influence_value = 25
+}
+YNN = {
+  value = 75
+  influence_value = 25
+}
+GXI = {
+  value = 75
+  influence_value = 25
+}
+leader = {
+  name = "约翰 福克斯 伯戈因"  # John Fox Burgoyne
+  date = 1838.1.1
+  type = land
+  personality = able
+  background = engineer
+  prestige = 0.3
+}
+leader = {
+  name = "乔治 布朗"  # George Brown
+  date = 1840.1.1
+  type = land
+  personality = harsh
+  background = cavalry_school
+  prestige = 0.2
+}
+leader = {
+  name = "詹姆斯 邓达斯爵士"  # Sir James Dundas
+  date = 1841.1.1
+  type = sea
+  personality = cautious
+  background = elderly
+  prestige = 0.2
+}
+leader = {
+  name = "詹姆斯 格兰特"  # James Grant
+  date = 1842.1.1
+  type = land
+  personality = brilliant
+  background = cavalry_school
+  prestige = 0.2
+}
+leader = {
+  name = "科林 坎贝尔"  # Colin Campbell
+  date = 1849.1.1
+  type = land
+  personality = meticulous
+  background = school_of_firepower
+  prestige = 0.2
+}
+leader = {
+  name = "费尔法克斯 莫尔斯比爵士"  # Sir Fairfax Moresby
+  date = 1849.1.1
+  type = sea
+  personality = able
+  background = cartographer
+  prestige = 0.2
+}
+leader = {
+  name = "约翰 英格利斯"  # John Inglis
+  date = 1852.1.1
+  type = land
+  personality = heroic
+  background = school_of_defense
+  prestige = 0.2
+}
+leader = {
+  name = "乔治亲王"  # Prince George
+  date = 1854.1.1
+  type = land
+  personality = arrogant
+  background = old_school
+  prestige = 0.1
+}
+leader = {
+  name = "罗伯特 内皮尔"  # Robert Napier
+  date = 1855.1.1
+  type = land
+  personality = skilled
+  background = colonial_b
+  prestige = 0.1
+}
+leader = {
+  name = "W F 威廉姆斯"  # W.F.Williams
+  date = 1856.1.1
+  type = land
+  personality = steadfast
+  background = artillerist
+  prestige = 0.1
+}
+leader = {
+  name = "乔治 R 芒迪爵士"  # Sir George R.Mundy
+  date = 1857.1.1
+  type = sea
+  personality = bigoted
+  background = elderly
+  prestige = 0.1
+}
+leader = {
+  name = "詹姆斯 霍普爵士"  # Sir James Hope
+  date = 1859.1.1
+  type = sea
+  personality = indifferent
+  background = old_school
+  prestige = 0.1
+}
+leader = {
+  name = "亨利 凯佩尔爵士"  # Sir Henry Keppel
+  date = 1859.1.1
+  type = sea
+  personality = ballsy
+  background = aristocrat
+  prestige = 0.1
+}
+leader = {
+  name = "弗雷德里克 西摩"  # Frederick Seymour
+  date = 1860.1.1
+  type = sea
+  personality = gallant
+  background = old_school
+  prestige = 0.1
+}
+leader = {
+  name = "A C 凯"  # A.C.Key
+  date = 1861.1.1
+  type = sea
+  personality = competent
+  background = gifted_administrator
+}
+army = {
+  name = "皇家陆军"  # Royal Army
+  location = 300
+  regiment = {
+    name = "皇家近卫师"  # 1.Royal Guards Division
+    type = guard
+    home = 300
+  }
+  regiment = {
+    name = "皇家近卫师"  # 2.Royal Guards Division
+    type = guard
+    home = 269
+  }
+  regiment = {
+    name = "皇家近卫师"  # 3.Royal Guards Division
+    type = guard
+    home = 263
+  }
+  regiment = {
+    name = "皇家近卫骑兵师"  # 1.Royal Guards Cavalry Division
+    type = hussar
+    home = 300
+  }
+  regiment = {
+    name = "皇家近卫骑兵师"  # 2.Royal Guards Cavalry Division
+    type = hussar
+    home = 271
+  }
+  regiment = {
+    name = "皇家近卫骑兵师"  # 3.Royal Guards Cavalry Division
+    type = hussar
+    home = 293
+  }
+}
+army = {
+  name = "本土陆军"  # Home Army
+  location = 293
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 278
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 277
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 284
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 291
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 292
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 295
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 287
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 294
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 300
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 271
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 270
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 280
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 282
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 283
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 281
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 289
+  }
+  regiment = {
+    name = "本土陆军"
+    type = engineer
+    home = 288
+  }
+  regiment = {
+    name = "本土陆军"
+    type = artillery
+    home = 290
+  }
+}
+army = {
+  name = "皇家爱尔兰陆军"  # Royal Irish Army
+  location = 263
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 300
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 255
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 259
+  }
+}
+army = {
+  name = "第一印度陆军"  # 1st Indian Army
+  location = 1239
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 303
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 284
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 273
+  }
+  regiment = {
+    name = "本土陆军"
+    type = infantry
+    home = 266
+  }
+  regiment = {
+    name = "本土陆军"
+    type = engineer
+    home = 267
+  }
+  regiment = {
+    name = "本土陆军"
+    type = artillery
+    home = 268
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1251
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1254
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1257
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1227
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1233
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1228
+  }
+  regiment = {
+    name = "印度骑兵师"
+    type = dragoon
+    home = 1239
+  }
+}
+army = {
+  name = "第二印度陆军"  # 2nd Indian Army
+  location = 1304
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 296
+  }
+  regiment = {
+    name = "印度陆军"
+    type = engineer
+    home = 286
+  }
+  regiment = {
+    name = "印度陆军"
+    type = artillery
+    home = 274
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1304
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1310
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1307
+  }
+  regiment = {
+    name = "印度骑兵师"
+    type = dragoon
+    home = 1240
+  }
+}
+army = {
+  name = "第三印度陆军"  # 3rd Indian Army
+  location = 1297
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 299
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 298
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 297
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 278
+  }
+  regiment = {
+    name = "印度陆军"
+    type = engineer
+    home = 277
+  }
+  regiment = {
+    name = "印度陆军"
+    type = artillery
+    home = 285
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1297
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1296
+  }
+  regiment = {
+    name = "印度陆军"
+    type = infantry
+    home = 1299
+  }
+  regiment = {
+    name = "印度骑兵师"
+    type = dragoon
+    home = 1236
+  }
+}
+army = {
+  name = "皇家澳大利亚陆军"  # Royal Australian Army
+  location = 2468
+  regiment = {
+    name = "澳大利亚陆军"
+    type = infantry
+    home = 2468
+  }
+  regiment = {
+    name = "澳大利亚陆军"
+    type = infantry
+    home = 2482
+  }
+  regiment = {
+    name = "澳大利亚陆军"
+    type = infantry
+    home = 302
+  }
+}
+army = {
+  name = "皇家加拿大陆军"  # Royal Canadian Army
+  location = 57
+  regiment = {
+    name = "加拿大陆军"
+    type = infantry
+    home = 46
+  }
+  regiment = {
+    name = "加拿大陆军"
+    type = infantry
+    home = 56
+  }
+  regiment = {
+    name = "加拿大陆军"
+    type = infantry
+    home = 301
+  }
+}
+navy = {
+  name = "海峡舰队"  # Channel Fleet
+  location = 303
+  ship = {
+    name = "勇士号"  # HMS Warrior
+    type = ironclad
+  }
+  ship = {
+    name = "阿布基尔号"  # HMS Aboukir
+    type = manowar
+  }
+  ship = {
+    name = "百夫长号"  # HMS Centurion
+    type = manowar
+  }
+  ship = {
+    name = "征服者号"  # HMS Conqueror
+    type = manowar
+  }
+  ship = {
+    name = "多尼戈尔号"  # HMS Donegal
+    type = manowar
+  }
+  ship = {
+    name = "埃德加号"  # HMS Edgar
+    type = manowar
+  }
+  ship = {
+    name = "弗雷德里克·威廉号"  # HMS Frederick William
+    type = manowar
+  }
+  ship = {
+    name = "英雄号"  # HMS Hero
+    type = manowar
+  }
+  ship = {
+    name = "复仇号"  # HMS Revenge
+    type = manowar
+  }
+  ship = {
+    name = "特拉法加号"  # HMS Trafalgar
+    type = manowar
+  }
+  ship = {
+    name = "凯撒号"  # HMS Caesar
+    type = manowar
+  }
+  ship = {
+    name = "阿里阿德涅号"  # HMS Ariadne
+    type = commerce_raider
+  }
+  ship = {
+    name = "王冠号"  # HMS Diadem
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "特别勤务中队"  # Particular Service Squadron
+  location = 260
+  ship = {
+    name = "无匹号"  # HMS Sans Pareil
+    type = manowar
+  }
+  ship = {
+    name = "翡翠号"  # HMS Emerald
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "第一预备中队"  # 1st Reserve Squadron
+  location = 303
+  ship = {
+    name = "威灵顿公爵号"  # HMS Duke of Wellington
+    type = manowar
+  }
+  ship = {
+    name = "温莎城堡号"  # HMS Windsor Castle
+    type = manowar
+  }
+  ship = {
+    name = "纳尔逊号"  # HMS Nelson
+    type = manowar
+  }
+  ship = {
+    name = "罗德尼号"  # HMS Rodney
+    type = manowar
+  }
+  ship = {
+    name = "维多利亚号"  # HMS Victoria
+    type = manowar
+  }
+  ship = {
+    name = "邓肯号"  # HMS Duncan
+    type = manowar
+  }
+  ship = {
+    name = "雷霆号"  # HMS Thunderer
+    type = manowar
+  }
+  ship = {
+    name = "香农号"  # HMS Shannon
+    type = commerce_raider
+  }
+  ship = {
+    name = "欧亚卢斯号"  # HMS Euryalus
+    type = commerce_raider
+  }
+  ship = {
+    name = "奥克塔维亚号"  # HMS Octavia
+    type = commerce_raider
+  }
+  ship = {
+    name = "萨特莱杰号"  # HMS Sutlej
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "第二预备中队"  # 2nd Reserve Squadron
+  location = 299
+  ship = {
+    name = "豪号"  # HMS Howe
+    type = manowar
+  }
+  ship = {
+    name = "不伦瑞克号"  # HMS Brunswick
+    type = manowar
+  }
+  ship = {
+    name = "直布罗陀号"  # HMS Gibraltar
+    type = manowar
+  }
+  ship = {
+    name = "皇家公主号"  # HMS Princess Royal
+    type = manowar
+  }
+  ship = {
+    name = "皇家君主号"  # HMS Royal Sovereign
+    type = manowar
+  }
+  ship = {
+    name = "皇家阿尔伯特号"  # HMS Royal Albert
+    type = manowar
+  }
+  ship = {
+    name = "雄狮号"  # HMS Lion
+    type = manowar
+  }
+  ship = {
+    name = "法厄同号"  # HMS Phaeton
+    type = commerce_raider
+  }
+  ship = {
+    name = "西比尔号"  # HMS Sybille
+    type = frigate
+  }
+  ship = {
+    name = "坎布里安号"  # HMS Cambrian
+    type = frigate
+  }
+}
+navy = {
+  name = "第三预备中队"  # 3rd Reserve Squadron
+  location = 299
+  ship = {
+    name = "孟买号"  # HMS Bombay
+    type = manowar
+  }
+  ship = {
+    name = "君主号"  # HMS Monarch
+    type = manowar
+  }
+  ship = {
+    name = "印度斯坦号"  # HMS Hindostan
+    type = manowar
+  }
+  ship = {
+    name = "皇家威廉号"  # HMS Royal William
+    type = manowar
+  }
+  ship = {
+    name = "皇家阿德莱德号"  # HMS Royal Adelaide
+    type = manowar
+  }
+  ship = {
+    name = "威尔士亲王号"  # HMS Prince of Wales
+    type = manowar
+  }
+  ship = {
+    name = "阿尔比恩号"  # HMS Albion
+    type = manowar
+  }
+  ship = {
+    name = "塞文号"  # HMS Severn
+    type = frigate
+  }
+  ship = {
+    name = "不屈号"  # HMS Indefatigable
+    type = frigate
+  }
+  ship = {
+    name = "康斯坦斯号"  # HMS Constance
+    type = frigate
+  }
+}
+navy = {
+  name = "第四预备中队"  # 4th Reserve Squadron
+  location = 292
+  ship = {
+    name = "可畏号"  # HMS Formidable
+    type = manowar
+  }
+  ship = {
+    name = "壮丽号"  # HMS Superb
+    type = manowar
+  }
+  ship = {
+    name = "皇家乔治号"  # HMS Royal George
+    type = manowar
+  }
+  ship = {
+    name = "科林伍德号"  # HMS Collingwood
+    type = manowar
+  }
+  ship = {
+    name = "歌利亚号"  # HMS Goliath
+    type = manowar
+  }
+  ship = {
+    name = "滑铁卢号"  # HMS Waterloo
+    type = manowar
+  }
+  ship = {
+    name = "胡德号"  # HMS Hood
+    type = manowar
+  }
+  ship = {
+    name = "米尼号"  # HMS Meeanee
+    type = manowar
+  }
+  ship = {
+    name = "利安得号"  # HMS Leander
+    type = commerce_raider
+  }
+  ship = {
+    name = "阿瑞图萨号"  # HMS Arethusa
+    type = frigate
+  }
+  ship = {
+    name = "南京号"  # HMS Nankin
+    type = frigate
+  }
+  ship = {
+    name = "奇切斯特号"  # HMS Chichester
+    type = frigate
+  }
+}
+navy = {
+  name = "地中海舰队"  # Mediterranean Fleet
+  location = 854
+  ship = {
+    name = "阿伽门农号"  # HMS Agamemnon
+    type = manowar
+  }
+  ship = {
+    name = "阿尔及尔号"  # HMS Algiers
+    type = manowar
+  }
+  ship = {
+    name = "汉尼拔号"  # HMS Hannibal
+    type = manowar
+  }
+  ship = {
+    name = "詹姆斯·瓦特号"  # HMS James Watt
+    type = manowar
+  }
+  ship = {
+    name = "维托里奥·埃马努埃莱号"  # HMS Victor Emmanuel
+    type = manowar
+  }
+  ship = {
+    name = "海王星号"  # HMS Neptune
+    type = manowar
+  }
+  ship = {
+    name = "伦敦号"  # HMS London
+    type = manowar
+  }
+  ship = {
+    name = "马尔伯勒号"  # HMS Marlborough
+    type = manowar
+  }
+  ship = {
+    name = "名望号"  # HMS Renown
+    type = manowar
+  }
+  ship = {
+    name = "埃克斯茅斯号"  # HMS Exmouth
+    type = manowar
+  }
+  ship = {
+    name = "战神号"  # HMS Mars
+    type = manowar
+  }
+  ship = {
+    name = "猎户座号"  # HMS Orion
+    type = manowar
+  }
+  ship = {
+    name = "女王号"  # HMS Queen
+    type = manowar
+  }
+  ship = {
+    name = "希伯尼亚号"  # HMS Hibernia
+    type = manowar
+  }
+  ship = {
+    name = "克雷西号"  # HMS Cressy
+    type = manowar
+  }
+  ship = {
+    name = "圣让达克号"  # HMS St Jean d'Acre
+    type = manowar
+  }
+  ship = {
+    name = "安菲翁号"  # HMS Amphion
+    type = commerce_raider
+  }
+  ship = {
+    name = "菲比号"  # HMS Phoebe
+    type = commerce_raider
+  }
+  ship = {
+    name = "利菲号"  # HMS Liffey
+    type = commerce_raider
+  }
+  ship = {
+    name = "多丽丝号"  # HMS Doris
+    type = commerce_raider
+  }
+  ship = {
+    name = "墨尔波墨涅号"  # HMS Melpomene
+    type = commerce_raider
+  }
+  ship = {
+    name = "不朽号"  # HMS Immortalit茅
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "北美站"  # North America Station
+  location = 71
+  ship = {
+    name = "尼罗河号"  # HMS Nile
+    type = manowar
+  }
+  ship = {
+    name = "圣乔治号"  # HMS St.George
+    type = manowar
+  }
+  ship = {
+    name = "库拉索号"  # HMS Curacoa
+    type = frigate
+  }
+  ship = {
+    name = "奥兰多号"  # HMS Orlando
+    type = commerce_raider
+  }
+  ship = {
+    name = "默西号"  # HMS Mersey
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "南美站"  # South America Station
+  location = 2131
+  ship = {
+    name = "堡垒号"  # HMS Forte
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "西非站"  # West Africa Station
+  location = 1884
+  ship = {
+    name = "英国皇家海军“傲慢号”"  # HMS Arrogant
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "好望角基地"  # Cape of Good Hope Station
+  location = 2087
+  ship = {
+    name = "英国皇家海军“博斯卡文号”"  # HMS Boscawen
+    type = manowar
+  }
+  ship = {
+    name = "英国皇家海军“纳西索斯号”"  # HMS Narcissus
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "东印度群岛基地"  # East Indies Station
+  location = 1324
+  ship = {
+    name = "英国皇家海军“加尔各答号”"  # HMS Calcutta
+    type = manowar
+  }
+  ship = {
+    name = "英国皇家海军“英佩里厄斯号”"  # HMS Imp茅rieuse
+    type = commerce_raider
+  }
+  ship = {
+    name = "英国皇家海军“切萨皮克号”"  # HMS Chesapeake
+    type = commerce_raider
+  }
+  ship = {
+    name = "英国皇家海军“活跃号”"  # HMS Active
+    type = frigate
+  }
+  ship = {
+    name = "英国皇家海军“皮克号”"  # HMS Pique
+    type = frigate
+  }
+}
+navy = {
+  name = "澳大利亚基地"  # Australia Station
+  location = 2468
+  ship = {
+    name = "英国皇家海军“彩虹女神号”"  # HMS Iris
+    type = frigate
+  }
+}
+navy = {
+  name = "太平洋基地"  # Pacific Station
+  location = 14
+  ship = {
+    name = "英国皇家海军“恒河号”"  # HMS Ganges
+    type = manowar
+  }
+  ship = {
+    name = "英国皇家海军“暴风女神号”"  # HMS Termagent
+    type = commerce_raider
+  }
+  ship = {
+    name = "英国皇家海军“酒神女祭司号”"  # HMS Bacchante
+    type = commerce_raider
+  }
+  ship = {
+    name = "英国皇家海军“黄玉号”"  # HMS Topaze
+    type = commerce_raider
+  }
+  ship = {
+    name = "英国皇家海军“论坛号”"  # HMS Tribune
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "利物浦海岸警卫队"  # Coast Guard Liverpool
+  location = 277
+  ship = {
+    name = "英国皇家海军“威严号”"  # HMS Majestic
+    type = manowar
+  }
+}
+navy = {
+  name = "金斯敦海岸警卫队"  # Coast Guard Kingstown
+  location = 263
+  ship = {
+    name = "英国皇家海军“先锋号”"  # HMS Vanguard
+    type = manowar
+  }
+}
+navy = {
+  name = "南安普顿海岸警卫队"  # Coast Guard Southampton
+  location = 303
+  ship = {
+    name = "英国皇家海军“无敌号”"  # HMS Irresistable
+    type = manowar
+  }
+  ship = {
+    name = "英国皇家海军“无畏号”"  # HMS Dauntless
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "波特兰海岸警卫队"  # Coast Guard Portland
+  location = 297
+  ship = {
+    name = "英国皇家海军“巨像号”"  # HMS Colossus
+    type = manowar
+  }
+}
+navy = {
+  name = "第一运输中队"  # 1st Transport Squadron
+  location = 303
+  ship = {
+    name = "第一运输支队"  # 1st Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二运输支队"  # 2nd Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第三运输支队"  # 3rd Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第四运输支队"  # 4th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第五运输支队"  # 5th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第六运输支队"  # 6th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第七运输支队"  # 7th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第八运输支队"  # 8th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第九运输支队"  # 9th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十运输支队"  # 10th Transport Flotilla
+    type = steam_transport
+  }
+}
+navy = {
+  name = "第二运输中队"  # 2nd Transport Squadron
+  location = 277
+  ship = {
+    name = "第十一运输支队"  # 11th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十二运输支队"  # 12th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十三运输支队"  # 13th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十四运输支队"  # 14th Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第十五运输支队"  # 15th Transport Flotilla
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "第三运输中队"  # 3rd Transport Squadron
+  location = 854
+  ship = {
+    name = "第十六运输支队"  # 16th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十七运输支队"  # 17th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十八运输支队"  # 18th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十九运输支队"  # 19th Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二十运输支队"  # 20th Transport Flotilla
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "第四运输中队"  # 4th Transport Squadron
+  location = 1297
+  ship = {
+    name = "第二十一运输支队"  # 21st Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二十二运输支队"  # 22nd Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二十三运输支队"  # 23rd Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二十四运输支队"  # 24th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二十五运输支队"  # 25th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二十六运输支队"  # 26th Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二十七运输支队"  # 27th Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二十八运输支队"  # 28th Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二十九运输支队"  # 29th Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第三十运输支队"  # 30th Transport Flotilla
+    type = clipper_transport
+  }
+}
