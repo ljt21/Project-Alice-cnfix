@@ -934,23 +934,12 @@ void state::render() { // called to render the frame may (and should) delay retu
 	auto tooltip_probe = root_elm->impl_probe_mouse(*this, int32_t(mouse_x_position / user_settings.ui_scale),
 		int32_t(mouse_y_position / user_settings.ui_scale), ui::mouse_probe_type::tooltip);
 
-	if(!mouse_probe.under_mouse && map_state.get_zoom() > map::zoom_close) {
+	bool recalculate_probes = !mouse_probe.under_mouse && map_state.get_zoom() > map::zoom_close;
+	if(recalculate_probes) {
 		mouse_probe = current_scene.recalculate_mouse_probe(*this, mouse_probe, tooltip_probe);
-		tooltip_probe = current_scene.recalculate_tooltip_probe(*this, mouse_probe, tooltip_probe);
 	}
-
-	ui::urect tooltip_bounds;
-	int32_t tooltip_sub_index = -1;
-	if(tooltip_probe.under_mouse) {
-		tooltip_probe.under_mouse->tooltip_position(
-			*this,
-			tooltip_probe.relative_location.x,
-			tooltip_probe.relative_location.y,
-			tooltip_sub_index,
-			tooltip_bounds
-		);
-	}
-
+	
+	bool update_tooltip = false;
 	if(game_state_was_updated) {
 		if(!ui_state.tech_queue.empty()) {
 			if(!world.nation_get_current_research(local_player_nation)) {
@@ -988,10 +977,27 @@ void state::render() { // called to render the frame may (and should) delay retu
 
 		current_scene.on_game_state_update_update_ui(*this);
 
-		ui_state.update_tooltip(*this, tooltip_probe, tooltip_sub_index, int16_t(root_elm->base_data.size.y - 20));
-		
+		update_tooltip = true;
 	} // END game state was updated
 
+
+	ui::urect tooltip_bounds;
+	int32_t tooltip_sub_index = -1;
+	if(recalculate_probes) {
+		tooltip_probe = current_scene.recalculate_tooltip_probe(*this, mouse_probe, tooltip_probe);
+	}
+	if(tooltip_probe.under_mouse) {
+		tooltip_probe.under_mouse->tooltip_position(
+			*this,
+			tooltip_probe.relative_location.x,
+			tooltip_probe.relative_location.y,
+			tooltip_sub_index,
+			tooltip_bounds
+		);
+	}
+	if(update_tooltip) {
+		ui_state.update_tooltip(*this, tooltip_probe, tooltip_sub_index, int16_t(root_elm->base_data.size.y - 20));
+	}
 	ui_state.populate_tooltip(*this, tooltip_probe, tooltip_sub_index, int16_t(root_elm->base_data.size.y - 20));
 	ui_state.reposition_tooltip(tooltip_bounds, root_elm->base_data.size.y, root_elm->base_data.size.x);
 
@@ -1433,11 +1439,10 @@ dcon::unit_name_id state::add_unit_name(std::string_view text) {
 	if(text.empty())
 		return dcon::unit_name_id();
 
-	// input is already UTF-8 (parser passes raw bytes from data files);
-	// we no longer treat the input as Windows-1250 -- doing so would shred
-	// any CJK / extended characters into 2-3 mojibake characters because
-	// UTF-8 continuation bytes (>= 0x80) would be looked up one-by-one in
-	// the win1250 table and re-encoded as bogus code points.
+	// 输入已经是 UTF - 8（解析器直接传递数据文件的原始字节）；
+	// 我们不再将输入视为 Windows - 1250 —— 如果这样做，会破坏任何 CJK / 扩展字符，
+	// 因为 UTF - 8 续字节会被逐字节地按 win1250 表查找并重新编码成虚假的码点。
+
 	auto start = unit_names.size();
 	unit_names.resize(start + text.length() + 1, char(0));
 	std::copy_n(text.data(), text.length(), unit_names.data() + start);

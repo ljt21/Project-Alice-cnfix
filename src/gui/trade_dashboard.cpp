@@ -1404,7 +1404,7 @@ struct trade_dashboard_commodity_selector_name_t : public ui::element_base {
 	// ✅ 添加：工具提示内容（使用 cid，不访问 parent）
 	void update_tooltip(sys::state& state, int32_t x, int32_t y, text::columnar_layout& contents) noexcept override {
 		if(cid) {
-			// 第一行：商品名称
+			// 商品名称
 			auto box = text::open_layout_box(contents);
 			text::add_to_layout_box(state, contents, box,
 				text::produce_simple_string(state, state.world.commodity_get_name(cid)));
