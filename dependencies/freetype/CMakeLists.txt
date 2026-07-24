@@ -9,7 +9,7 @@ set(SKIP_INSTALL_ALL ON)
 
 FetchContent_Declare(
 	freetype
-	GIT_REPOSITORY https://github.com/freetype/freetype.git
+	GIT_REPOSITORY https://gitee.com/ljt21/freetype.git
 	GIT_TAG VER-2-14-1
 	GIT_SHALLOW 1
 	GIT_PROGRESS TRUE
@@ -44,7 +44,7 @@ set(HB_BUILD_SUBSET OFF)
 set(HB_HAVE_FREETYPE ON)
 FetchContent_Declare(
 	harfbuzz
-	GIT_REPOSITORY https://github.com/harfbuzz/harfbuzz
+	GIT_REPOSITORY https://gitee.com/ljt21/harfbuzz
 	GIT_TAG 8.5.0
 	GIT_SHALLOW 1
 	GIT_PROGRESS TRUE

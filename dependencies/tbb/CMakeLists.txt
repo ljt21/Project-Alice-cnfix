@@ -22,7 +22,7 @@ set(TBB_ENABLE_IPO OFF)
 set(TBB_STRICT OFF)
 
 FetchContent_Declare(tbb
-	GIT_REPOSITORY "https://github.com/oneapi-src/oneTBB"
+	GIT_REPOSITORY "https://gitee.com/ljt21/oneTBB"
 	GIT_TAG v2021.12.0
 	GIT_SHALLOW 1
 	GIT_PROGRESS TRUE

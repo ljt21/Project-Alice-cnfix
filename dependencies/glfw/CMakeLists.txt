@@ -8,7 +8,7 @@ set(GLFW_BUILD_WAYLAND OFF)
 
 FetchContent_Declare(
     glfw
-    GIT_REPOSITORY https://github.com/glfw/glfw
+    GIT_REPOSITORY https://gitee.com/ljt21/glfw
     GIT_TAG 3.4
     GIT_SHALLOW 1
     GIT_PROGRESS TRUE

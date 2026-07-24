@@ -2,7 +2,7 @@ message(STATUS "Fetching DataContainer...")
 
 FetchContent_Declare(
 	DataContainer
-	GIT_REPOSITORY https://github.com/schombert/DataContainer
+	GIT_REPOSITORY https://gitee.com/ljt21/DataContainer
 	GIT_TAG master
 	GIT_SHALLOW 1
 	GIT_PROGRESS TRUE

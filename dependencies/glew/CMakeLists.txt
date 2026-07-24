@@ -8,7 +8,7 @@ message(STATUS "Fetching GLEW ...")
 include(FetchContent)
 FetchContent_Declare(
 	glew
-	GIT_REPOSITORY https://github.com/Perlmint/glew-cmake.git
+	GIT_REPOSITORY https://gitee.com/ljt21/glew-cmake.git
 	GIT_TAG d06782b910213d675925e6e51a69ad0fd1fe1f23
 	GIT_PROGRESS TRUE
 )
