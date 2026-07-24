@@ -998,8 +998,8 @@ fab_finish_date;伪造宣战理由将在 $date$ 完成
 fab_is_paused;伪造宣战理由暂停中
 macro_builder;部队模板
 macro_total_desc;单位总计：
-macro_switch_type_land;组建陆军
-macro_switch_type_naval;组建海军
+macro_switch_type_land;组建陆军macro
+macro_switch_type_naval;组建海军macro
 macro_warn_overseas;?R无法在海外省份组建此单位!?!
 macro_warn_culture;?R只能使用主体民族人群组建！?!
 macro_warn_unlocked;?R此单位尚未解锁!?!
@@ -2024,3 +2024,4 @@ private_education_demand_1;公立教育需求 ?Y$val$?!
 private_education_demand_2;私立教育需求 ?Y$val$?!
 private_education_size_public;公立教育规模 ?Y$val$?!
 private_education_size_private;私立教育规模 ?Y$val$?!
+alice_avg_control_label;平均控制率:
