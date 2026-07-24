@@ -26,6 +26,7 @@ extern "C" {
 	DCON_LUADLL_API void remove_battle_end(const char function_name[]);
 
 	DCON_LUADLL_API void set_text(const char text[]);
+	DCON_LUADLL_API const char* get_localised_text(const char key[]);
 
 	DCON_LUADLL_API int32_t local_player_nation();
 
@@ -117,7 +118,7 @@ ui::message_result lua_scripted_element::test_mouse(sys::state& state, int32_t x
 void lua_scripted_element::update_tooltip(sys::state& state, int32_t x, int32_t y, text::columnar_layout& contents) noexcept  {
 
 }
-void lua_scripted_element::on_update(sys::state& state) noexcept  {
+void lua_scripted_element::on_update(sys::state& state) noexcept {
 	state.current_lua_element = this;
 	auto start = lua_gettop(alice_state_ptr->lua_ui_environment);
 	lua_rawgeti(alice_state_ptr->lua_ui_environment, LUA_REGISTRYINDEX, on_update_lref);
@@ -131,11 +132,21 @@ void lua_scripted_element::on_update(sys::state& state) noexcept  {
 		lua_settop(alice_state_ptr->lua_ui_environment, 0);
 	}
 	assert(lua_gettop(alice_state_ptr->lua_ui_environment) == start);
+	// 平均控制率文本：layout 数据将颜色设为 gold(橙色)显示不清，此处强制改为黑色
+	if(on_update_lname == "update_control_element") {
+		text_color = text::text_color::dark_blue;
+	}
 }
 }
 
 void set_text(const char text[]) {
 	alice_state_ptr->current_lua_element->set_text(*alice_state_ptr, text);
+}
+
+const char* get_localised_text(const char key[]) {
+	static thread_local std::string result;
+	result = text::produce_simple_string(*alice_state_ptr, key);
+	return result.c_str();
 }
 
 bool alice_at_war(int32_t nation_a, int32_t nation_b) {

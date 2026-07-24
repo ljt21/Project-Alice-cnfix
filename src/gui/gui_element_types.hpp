@@ -151,6 +151,7 @@ protected:
 	text::layout internal_layout;
 	std::string cached_text;
 	bool black_text = true;
+	bool text_override = false;
 
 public:
 	button_element_base() {
