@@ -1,0 +1,94 @@
+leader = {
+  name = "皮埃尔 拉巴图"  # Pierre Labatut
+  date = 1824.1.1
+  type = land
+  personality = arrogant
+  background = adventurer
+  prestige = 0.1
+}
+leader = {
+  name = "利马 席尔瓦"  # Lima e Silva
+  date = 1824.1.1
+  type = land
+  personality = chivalrous
+  background = gifted_administrator
+  prestige = 0.1
+}
+leader = {
+  name = "塞巴斯蒂昂 平托"  # Sebasti茫o Pinto
+  date = 1825.1.1
+  type = land
+  personality = perverse
+  background = unfit
+  prestige = 0.0
+}
+leader = {
+  name = "特拉曼达伊男爵"  # Bar茫o de Tramanda铆
+  date = 1830.1.1
+  type = land
+  personality = cautious
+  background = politician
+  prestige = 0.0
+}
+leader = {
+  name = "德拉赫斯"  # de Lajes
+  date = 1830.1.1
+  type = land
+  personality = romantic
+  background = politician
+  prestige = 0.0
+}
+leader = {
+  name = "贝勒加德"  # Bellegarde
+  date = 1833.1.1
+  type = land
+  personality = reserved
+  background = professor
+  prestige = 0.0
+}
+leader = {
+  name = "约翰 格伦费尔"  # John Grenfell
+  date = 1822.1.1
+  type = sea
+  personality = brash
+  background = butcher
+  prestige = 0.1
+}
+army = {
+  name = "第一军团"  # I Corpo do ex茅rcito
+  location = 2447
+  regiment = {
+    name = "第1步兵旅"  # 1.Brigada de Infantaria
+    type = infantry
+    home = 2447
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infantaria
+    type = infantry
+    home = 2450
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infantaria
+    type = infantry
+    home = 2436
+  }
+  regiment = {
+    name = "第1骑兵旅"  # 1.Brigada de Cavalaria
+    type = cuirassier
+    home = 2429
+  }
+}
+army = {
+  name = "第二军团"  # II Corpo do ex茅rcito
+  location = 2463
+  regiment = {
+    name = "第4步兵旅"  # 4.Brigada de Infantaria
+    type = infantry
+    home = 2463
+  }
+  regiment = {
+    name = "第5步兵旅"  # 5.Brigada de Infantaria
+    type = infantry
+    home = 2457
+  }
+}

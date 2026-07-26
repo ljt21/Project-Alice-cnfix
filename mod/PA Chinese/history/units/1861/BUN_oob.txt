@@ -1,0 +1,34 @@
+army = {
+  name = "邦德尔坎德军团"  # Army of Bundelkhand
+  location = 1282
+  regiment = {
+    name = "邦德尔坎德军团"  # 1.Bundelkhand Legion
+    type = irregular
+    home = 1282
+  }
+  regiment = {
+    name = "邦德尔坎德军团"  # 2.Bundelkhand Legion
+    type = irregular
+    home = 1282
+  }
+  regiment = {
+    name = "邦德尔坎德军团"  # 3.Bundelkhand Legion
+    type = irregular
+    home = 1273
+  }
+  regiment = {
+    name = "邦德尔坎德军团"  # 4.Bundelkhand Legion
+    type = irregular
+    home = 1273
+  }
+  regiment = {
+    name = "邦德尔坎德军团"  # 5.Bundelkhand Legion
+    type = irregular
+    home = 1274
+  }
+  regiment = {
+    name = "邦德尔坎德军团"  # 6.Bundelkhand Legion
+    type = cavalry
+    home = 1274
+  }
+}

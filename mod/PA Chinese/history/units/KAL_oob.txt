@@ -1,0 +1,56 @@
+leader = {
+  name = "迈赫雷布汗"  # Mehreb Khan
+  date = 1836.1.1
+  type = land
+  personality = clever
+  background = poet
+}
+army = {
+  name = "迈赫雷布汗的军队"  # Army of Mehred Khan
+  location = 1221
+  regiment = {
+    name = "吉尔扎伊"  # 1.Ghilzye
+    type = irregular
+    home = 1221
+  }
+  regiment = {
+    name = "吉尔扎伊"  # 2.Ghilzye
+    type = irregular
+    home = 1221
+  }
+  regiment = {
+    name = "吉尔扎伊"  # 3.Ghilzye
+    type = irregular
+    home = 1221
+  }
+  regiment = {
+    name = "俾路支"  # 1.Baluchye
+    type = irregular
+    home = 1220
+  }
+  regiment = {
+    name = "俾路支"  # 2.Baluchye
+    type = irregular
+    home = 1220
+  }
+  regiment = {
+    name = "俾路支"  # 3.Baluchye
+    type = irregular
+    home = 1220
+  }
+  regiment = {
+    name = "阿夫里迪"  # 1.Afridye
+    type = irregular
+    home = 1219
+  }
+  regiment = {
+    name = "阿夫里迪"  # 2.Afridye
+    type = irregular
+    home = 1219
+  }
+  regiment = {
+    name = "阿夫里迪"  # 3.Afridye
+    type = irregular
+    home = 1219
+  }
+}

@@ -1,0 +1,969 @@
+SWE = {
+  value = 125
+  level = 3
+  influence_value = 40
+}
+SER = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+GRE = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+ROM = {
+  value = 175
+  level = 5
+  influence_value = 25
+  military_access = yes
+}
+MCK = {
+  value = 0
+  level = 3
+  influence_value = 25
+}
+CHI = {
+  value = 75
+}
+PRU = {
+  value = 80
+}
+AUS = {
+  value = 80
+}
+PER = {
+  value = 125
+  level = 1
+  influence_value = 45
+}
+USA = {
+  value = 150
+}
+leader = {
+  name = "A E 拉姆齐"  # A.E.Ramsay
+  date = 1828.1.1
+  type = land
+  personality = steadfast
+  background = uncommonly_young
+  prestige = 0.3
+}
+leader = {
+  name = "费多尔 冯 贝格"  # Fedor von Berg
+  date = 1828.1.1
+  type = land
+  personality = sharp
+  background = cartographer
+  prestige = 0.3
+}
+leader = {
+  name = "费迪南德 弗兰格尔"  # Ferdinand Wrangel
+  date = 1836.1.1
+  type = sea
+  personality = active_p
+  background = cartographer
+  prestige = 0.3
+}
+leader = {
+  name = "帕维尔 格拉贝"  # Pavel Grabbe
+  date = 1838.1.1
+  type = land
+  personality = keen
+  background = school_of_firepower
+  prestige = 0.3
+}
+leader = {
+  name = "米哈伊尔大公"  # Grand Duke Mikhail
+  date = 1852.1.1
+  type = land
+  personality = able
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "伊万 布拉兰贝格"  # Ivan Blaramberg
+  date = 1852.1.1
+  type = land
+  personality = openminded
+  background = cartographer
+  prestige = 0.2
+}
+leader = {
+  name = "卡尔 贝尔加德"  # Karl Belgard
+  date = 1852.1.1
+  type = land
+  personality = able
+  background = drillmaster
+  prestige = 0.2
+}
+leader = {
+  name = "雅科夫 巴克拉诺夫"  # Yakov Baklanov
+  date = 1852.1.1
+  type = land
+  personality = merciless
+  background = expert_raider
+  prestige = 0.2
+}
+leader = {
+  name = "爱德华 托特列本"  # Eduard Totleben
+  date = 1854.1.1
+  type = land
+  personality = clever
+  background = engineer
+  prestige = 0.2
+}
+leader = {
+  name = "格里戈里 布塔科夫"  # Grigory Butakov
+  date = 1855.1.1
+  type = sea
+  personality = efficient
+  background = innovative_tactician
+  prestige = 0.1
+}
+leader = {
+  name = "德米特里 米柳京"  # Dimitry Milyutin
+  date = 1861.1.1
+  type = land
+  personality = openminded
+  background = gifted_administrator
+  prestige = 0.1
+}
+leader = {
+  name = "尼古拉大公"  # Grand Duke Nikolay
+  date = 1856.1.1
+  type = land
+  personality = lackluster
+  background = womanizer
+  prestige = 0.2
+}
+leader = {
+  name = "冯 考夫曼"  # von Kaufman
+  date = 1861.1.1
+  type = land
+  personality = charismatic
+  background = expert_raider
+  prestige = 0.2
+}
+leader = {
+  name = "伊万 拉扎列夫"  # Ivan Lazarev
+  date = 1860.1.1
+  type = land
+  personality = clever
+  background = exranker
+  prestige = 0.1
+}
+leader = {
+  name = "安德烈 波波夫"  # Andrey Popov
+  date = 1861.1.1
+  type = sea
+  personality = strange
+  background = armchair_general
+}
+leader = {
+  name = "科尔帕科夫斯基"  # Kolpakovsky
+  date = 1861.1.1
+  type = land
+  personality = soldierly
+  background = exranker
+}
+army = {
+  name = "线列兵团"  # 1.Line Corps
+  location = 1049
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 994
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 994
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 994
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 994
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1049
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1051
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1050
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1047
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1040
+  }
+}
+army = {
+  name = "线列兵团"  # 2.Line Corps
+  location = 948
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 948
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 957
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 955
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 712
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 711
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 937
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 718
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 946
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1006
+  }
+}
+army = {
+  name = "线列兵团"  # 3.Line Corps
+  location = 999
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1009
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 998
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1001
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 989
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 991
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1022
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1020
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1028
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1031
+  }
+}
+army = {
+  name = "线列兵团"  # 4.Line Corps
+  location = 354
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 706
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 361
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 940
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 956
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 997
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1003
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 945
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 999
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1014
+  }
+}
+army = {
+  name = "线列兵团"  # 5.Line Corps
+  location = 943
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 943
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1017
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1017
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1017
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1017
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1017
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1017
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 963
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1011
+  }
+}
+army = {
+  name = "线列兵团"  # 6.Line Corps
+  location = 958
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 958
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 968
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 969
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 960
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 954
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 954
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 954
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 954
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 954
+  }
+}
+army = {
+  name = "近卫军兵团"  # Army Corps of the Guard
+  location = 994
+  regiment = {
+    name = "普列奥布拉任斯基近卫师"  # 1.Preobrazhenski Guards Division
+    type = guard
+    home = 949
+  }
+  regiment = {
+    name = "普列奥布拉任斯基近卫师"  # 2.Preobrazhenski Guards Division
+    type = guard
+    home = 1018
+  }
+  regiment = {
+    name = "普列奥布拉任斯基近卫师"  # 3.Preobrazhenski Guards Division
+    type = guard
+    home = 1019
+  }
+  regiment = {
+    name = "普列奥布拉任斯基近卫师"  # 4.Preobrazhenski Guards Division
+    type = guard
+    home = 1019
+  }
+  regiment = {
+    name = "谢苗诺夫近卫师"  # 1.Semenov Guards Division
+    type = guard
+    home = 1019
+  }
+  regiment = {
+    name = "谢苗诺夫近卫师"  # 2.Semenov Guards Division
+    type = guard
+    home = 1019
+  }
+  regiment = {
+    name = "谢苗诺夫近卫师"  # 3.Semenov Guards Division
+    type = guard
+    home = 1012
+  }
+  regiment = {
+    name = "谢苗诺夫近卫师"  # 4.Semenov Guards Division
+    type = guard
+    home = 1025
+  }
+  regiment = {
+    name = "伊兹迈洛沃近卫师"  # 1.Izmailova Guards Division
+    type = guard
+    home = 1021
+  }
+  regiment = {
+    name = "伊兹迈洛沃近卫师"  # 2.Izmailova Guards Division
+    type = guard
+    home = 980
+  }
+  regiment = {
+    name = "伊兹迈洛沃近卫师"  # 3.Izmailova Guards Division
+    type = guard
+    home = 979
+  }
+  regiment = {
+    name = "伊兹迈洛沃近卫师"  # 4.Izmailova Guards Division
+    type = guard
+    home = 964
+  }
+}
+army = {
+  name = "掷弹兵兵团"  # Grenadier Corps
+  location = 1008
+  regiment = {
+    name = "圣保罗师"  # 1.St.Pauls Division
+    type = infantry
+    home = 1008
+  }
+  regiment = {
+    name = "圣保罗师"  # 2.St.Pauls Division
+    type = infantry
+    home = 1008
+  }
+  regiment = {
+    name = "圣保罗师"  # 3.St.Pauls Division
+    type = infantry
+    home = 1008
+  }
+  regiment = {
+    name = "圣保罗师"  # 4.St.Pauls Division
+    type = artillery
+    home = 1008
+  }
+  regiment = {
+    name = "猎兵师"  # 1.Jaeger Division
+    type = infantry
+    home = 1008
+  }
+  regiment = {
+    name = "猎兵师"  # 2.Jaeger Division
+    type = infantry
+    home = 1008
+  }
+  regiment = {
+    name = "猎兵师"  # 3.Jaeger Division
+    type = infantry
+    home = 1008
+  }
+  regiment = {
+    name = "猎兵师"  # 4.Jaeger Division
+    type = engineer
+    home = 1008
+  }
+  regiment = {
+    name = "莫斯科师"  # 1.Moskva Division
+    type = infantry
+    home = 1035
+  }
+  regiment = {
+    name = "莫斯科师"  # 2.Moskva Division
+    type = infantry
+    home = 1037
+  }
+  regiment = {
+    name = "莫斯科师"  # 3.Moskva Division
+    type = infantry
+    home = 1039
+  }
+  regiment = {
+    name = "莫斯科师"  # 4.Moskva Division
+    type = artillery
+    home = 1045
+  }
+}
+army = {
+  name = "高加索特别兵团 "  # Caucasian Special Corps 
+  location = 1098
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 978
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 979
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1047
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 1050
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1090
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 346
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 345
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 349
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 954
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1029
+  }
+}
+army = {
+  name = "芬兰特别兵团 "  # Finish Special Corps 
+  location = 343
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 343
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 343
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 343
+  }
+}
+army = {
+  name = "西伯利亚特别兵团 "  # Siberian Special Corps 
+  location = 1075
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1075
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1058
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1026
+  }
+}
+army = {
+  name = "近卫骑兵兵团"  # Guards Cavalry Corps
+  location = 955
+  regiment = {
+    name = "骑士近卫师"  # 1.Chevalier Guards Division
+    type = hussar
+    home = 355
+  }
+  regiment = {
+    name = "骑士近卫师"  # 2.Chevalier Guards Division
+    type = hussar
+    home = 360
+  }
+  regiment = {
+    name = "骑士近卫师"  # 3.Chevalier Guards Division
+    type = hussar
+    home = 1042
+  }
+  regiment = {
+    name = "骑士近卫师"  # 4.Chevalier Guards Division
+    type = hussar
+    home = 1034
+  }
+  regiment = {
+    name = "骑兵师"
+    type = hussar
+    home = 1060
+  }
+  regiment = {
+    name = "骑兵师"
+    type = hussar
+    home = 1064
+  }
+  regiment = {
+    name = "骑兵师"
+    type = hussar
+    home = 1063
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 954
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 954
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 954
+  }
+}
+army = {
+  name = "预备骑兵兵团"  # Reserve Cavalry Corps
+  location = 1009
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 1016
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 962
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 977
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 977
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 1018
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 1018
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 1018
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 1018
+  }
+  regiment = {
+    name = "骑兵师"
+    type = cuirassier
+    home = 1018
+  }
+}
+army = {
+  name = "奥伦堡特别兵团 "  # Orenburg Special Corps 
+  location = 1044
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1044
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1019
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 1019
+  }
+}
+navy = {
+  name = "波罗的海舰队"  # Baltic Fleet
+  location = 994
+  ship = {
+    name = "尼古拉一世皇帝号"  # Imperator Nikolai I
+    type = manowar
+  }
+  ship = {
+    name = "锡诺普号"  # Sinop
+    type = manowar
+  }
+  ship = {
+    name = "皇太子号"  # Tsesarevich
+    type = manowar
+  }
+  ship = {
+    name = "彼得一世皇帝号"  # Imperator Pyotr I
+    type = manowar
+  }
+  ship = {
+    name = "维堡号"  # Vyborg
+    type = manowar
+  }
+  ship = {
+    name = "奥廖尔号"  # Oryol
+    type = manowar
+  }
+  ship = {
+    name = "列特维赞号"  # Retvisan
+    type = manowar
+  }
+  ship = {
+    name = "克拉斯诺伊号"  # Krasnoi
+    type = manowar
+  }
+  ship = {
+    name = "康斯坦丁号"  # Konstantin
+    type = manowar
+  }
+  ship = {
+    name = "沃拉号"  # Vola
+    type = manowar
+  }
+  ship = {
+    name = "亚速纪念号"  # Pamiat Azova
+    type = manowar
+  }
+  ship = {
+    name = "勿触我号"  # Ne Tron Menia
+    type = manowar
+  }
+  ship = {
+    name = "亚历山德拉皇后号"  # Imperatritsa Aleksandra
+    type = manowar
+  }
+  ship = {
+    name = "汉古特号"  # Gangut
+    type = manowar
+  }
+  ship = {
+    name = "纳尔瓦号"  # Narva
+    type = frigate
+  }
+  ship = {
+    name = "博罗金诺号"  # Borodino
+    type = frigate
+  }
+  ship = {
+    name = "维拉戈什号"  # Vilagosh
+    type = frigate
+  }
+  ship = {
+    name = "大西索伊号"  # Sysoi Velikiy
+    type = frigate
+  }
+  ship = {
+    name = "卡斯托尔号"  # Kastor
+    type = frigate
+  }
+  ship = {
+    name = "曙光号"  # Aurora
+    type = frigate
+  }
+  ship = {
+    name = "波尔坎号"  # Polkan
+    type = commerce_raider
+  }
+  ship = {
+    name = "阿斯科尔德号"  # Askold
+    type = commerce_raider
+  }
+  ship = {
+    name = "伊利亚·穆罗梅茨号"  # Ilya Muromets
+    type = commerce_raider
+  }
+  ship = {
+    name = "雷霆之子号"  # Gromoboy
+    type = commerce_raider
+  }
+  ship = {
+    name = "海军上将号"  # General Admiral
+    type = commerce_raider
+  }
+  ship = {
+    name = "斯韦特兰娜号"  # Svetlana
+    type = commerce_raider
+  }
+  ship = {
+    name = "奥斯利亚比亚号"  # Oslyabya
+    type = commerce_raider
+  }
+  ship = {
+    name = "奥列格号"  # Oleg
+    type = commerce_raider
+  }
+  ship = {
+    name = "佩列斯韦特号"  # Peresvet
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "第一运输中队"  # 1st Transport Squadron
+  location = 994
+  ship = {
+    name = "第一运输舰队"  # 1st Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二运输舰队"  # 2nd Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第三运输舰队"  # 3rd Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第四运输舰队"  # 4th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第五运输舰队"  # 5th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第六运输舰队"  # 6th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第七运输舰队"  # 7th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第八运输舰队"  # 8th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第九运输舰队"  # 9th Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第十运输舰队"  # 10th Transport Flotilla
+    type = steam_transport
+  }
+}

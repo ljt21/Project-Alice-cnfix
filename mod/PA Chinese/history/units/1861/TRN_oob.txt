@@ -1,0 +1,32 @@
+leader = {
+  name = "保罗 克鲁格"  # Paul Kruger
+  date = 1848.1.1
+  type = land
+  personality = competent
+  background = diplomat
+  prestige = 0.5
+}
+army = {
+  name = "志愿军"  # Volunteer Army
+  location = 2105
+  regiment = {
+    name = "比勒陀利亚突击队"  # Pretoria Commando
+    type = dragoon
+    home = 2105
+  }
+  regiment = {
+    name = "约翰内斯堡突击队"  # Johannesburg Commando
+    type = dragoon
+    home = 2106
+  }
+  regiment = {
+    name = "克莱克斯多普突击队"  # Klerksdorp Commando
+    type = dragoon
+    home = 2107
+  }
+  regiment = {
+    name = "莱登堡突击队"  # Lydenburg Commando
+    type = dragoon
+    home = 2109
+  }
+}

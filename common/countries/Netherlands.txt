@@ -1,0 +1,209 @@
+color = { 220  138  57 }
+graphical_culture = EuropeanGC
+
+party = {
+	name = "HOL_conservative"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = pro_military
+}
+
+party = {
+	name = "HOL_liberal"
+	start_date = 1830.1.1
+	end_date = 1886.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HOL_liberal_2"
+	start_date = 1886.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HOL_liberal_3"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HOL_anarcho_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = anarcho_liberal
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = full_citizenship
+	war_policy = jingoism
+}
+
+party = {
+	name = "HOL_communist"
+	start_date = 1881.1.1
+	end_date = 2000.1.1
+
+	ideology = communist
+
+	economic_policy = planned_economy
+	trade_policy = protectionism
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HOL_socialist"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "HOL_liberal_4"
+	start_date = 1897.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HOL_liberal_5"
+	start_date = 1897.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "HOL_reactionary"
+	start_date = 1820.1.1
+	end_date = 2000.1.1
+
+	ideology = reactionary
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "HOL_communist_2"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = communist
+
+	economic_policy = planned_economy
+	trade_policy = protectionism
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "HOL_fascist"
+	start_date = 1905.1.1
+	end_date = 2000.1.1
+
+	ideology = fascist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+unit_names = {
+	dreadnought = {
+		"德·勒伊特号" "Tromp" "七省号" "Evertsen" "Kortenaer" "皮特·海因号" "Witte de With" "Jacob van Heemskerk" 
+	}
+	battleship = {
+		Buffel "七省号" Evertsen Guinea "亨德里克公爵号" "雅各布·范·海姆斯凯尔克号" "Koning der Nederlanden" "摄政女王号" Kortenaer "Maarten Harpetsz. Tromp" "皮特·海因号" "德·勒伊特号" Schorpioen Stier
+	}
+	ironclad = {
+		"亨德里克公爵号" "Koning der Nederlanden" "摄政女王号" "Koning Willem" "Prins Hendrik" 
+	}
+	cruiser = {
+		"Java" "Banckert" "Callenburgh" "Isaac Sweers" "Van Ghent" "Aert van Nes" "Tjerk Hiddes" "范·加伦号" "Abraham van der Hulst" "Van Speijck" "Adolf Hertog van Nassau" 
+"Anna Paulowna" "Zoutman" "Johan Willem Friso" "Van Kinsbergen" 
+"Pieter Florisz" "Philips van Almonde" 
+ "Bloys van Treslong" "Jan van Brakel" "Van Amstel" "Willem van der Zaan" 
+	}
+	frigate = {
+		"Wolf" "Fret" "Hermelijn" "Vos" "Panter" "Jaguar" "Lynx" "Leeuw" "Jakhals"  
+	}
+	monitor = {
+		"Buffel" "Guinea" "Schorpioen" "Stier" 
+	}
+	manowar = {
+		"Admiraal Generaal" "Beschermer" "Brederode" "Campen" "Eendracht" "Eenhoorn" "Frederik Hendrik" "Gouden Leeuw" 
+"Graaf Willem" "Groote Liefde" "Jozua" "Kameel" "Kapitein Generaal" "Landman" "Louisa Hendrika" "Overwinnaer" "Prinses Amalia" 
+"Prinses Roijaal" "Prins Friso" "Prins Willem" "Rosenkrans" "Salamander" "Vergulde Maen" "Verwachting" "Unie" "Vrede" "Vrijheid" "Witte Lam" 
+	}
+	commerce_raider = {
+		"Atjeh" "Brabant" "Curacao" "Holland" "Friesland" "Gelderland" "格罗宁根号" "Limburg" "Overijssel" "Suriname" "乌得勒支号" "Zeeland" 
+		
+	}
+	clipper_transport = {
+		"阿姆斯特丹号" "Assendelft" "Batavia" "Delfland" "多德雷赫特号" "Gouda" "哈勒姆号" "Hoorn" "Leyden" "Medemblick" "Middelburg" "鹿特丹号" "Soerabaja" "乌得勒支号" "Veere" "Vlissingen" "Willemstad" "Zierikzee" 
+	}
+	steam_transport = {
+		"Castor" "Jupiter" "Maan" "Mars" "Mercurius" "Neptunes" "Pollux" "Poolster" "Venus" "Zon" "Zuiderkruis"
+	}
+}

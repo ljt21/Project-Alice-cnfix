@@ -1,0 +1,9 @@
+army = {
+  name = "不来梅军团"  # Bremer Armee
+  location = 539
+  regiment = {
+    name = "不来梅步兵旅"  # Bremer Infanterie-Brigade
+    type = infantry
+    home = 539
+  }
+}

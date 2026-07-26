@@ -1,0 +1,19 @@
+army = {
+  name = "瓦拉几亚公国陆军"  # Army of the Principality of Wallachia
+  location = 669
+  regiment = {
+    name = "瓦拉几亚第一步兵团"  # 1st Wallachia Infantry
+    type = infantry
+    home = 664
+  }
+  regiment = {
+    name = "瓦拉几亚第二步兵团"  # 2nd Wallachia Infantry
+    type = infantry
+    home = 668
+  }
+  regiment = {
+    name = "瓦拉几亚第三步兵团"  # 3rd Wallachia Infantry
+    type = infantry
+    home = 669
+  }
+}

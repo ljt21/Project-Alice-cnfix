@@ -1,0 +1,72 @@
+army = {
+  name = "大韩帝国军"  # Korean Imperial Army
+  location = 1624
+  regiment = {
+    name = "禁卫军"  # 1.篓Royal Guard
+    type = irregular
+    home = 1624
+  }
+  regiment = {
+    name = "禁卫军"  # 2.Royal Guard
+    type = irregular
+    home = 1636
+  }
+  regiment = {
+    name = "禁卫军"  # 3.Royal Guard
+    type = irregular
+    home = 1628
+  }
+  regiment = {
+    name = "步兵旅"  # 1.Infantry
+    type = irregular
+    home = 1633
+  }
+  regiment = {
+    name = "步兵旅"  # 2.Infantry
+    type = irregular
+    home = 1629
+  }
+  regiment = {
+    name = "步兵旅"  # 3.Infantry
+    type = irregular
+    home = 1627
+  }
+}
+army = {
+  name = "北方军"  # Northern Army
+  location = 1623
+  regiment = {
+    name = "步兵旅"  # 4.Infantry
+    type = irregular
+    home = 1619
+  }
+  regiment = {
+    name = "步兵旅"  # 5.Infantry
+    type = irregular
+    home = 1620
+  }
+  regiment = {
+    name = "步兵旅"  # 6.Infantry
+    type = irregular
+    home = 1622
+  }
+}
+army = {
+  name = "南方军"  # Southern Army
+  location = 1634
+  regiment = {
+    name = "步兵旅"  # 7.Infantry
+    type = irregular
+    home = 1632
+  }
+  regiment = {
+    name = "步兵旅"  # 8.Infantry
+    type = irregular
+    home = 1635
+  }
+  regiment = {
+    name = "步兵旅"  # 9.Infantry
+    type = irregular
+    home = 1634
+  }
+}

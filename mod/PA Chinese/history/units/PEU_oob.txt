@@ -1,0 +1,38 @@
+leader = {
+  name = "安德烈斯 德 圣克鲁斯"  # Andres de Santa Cruz
+  type = land
+  date = 1836.1.1
+  personality = arrogant
+  background = old_school
+}
+navy = {
+  name = "秘鲁海军"  # Marina de Guerra del Peru
+  location = 2295
+  ship = {
+    name = "蒙特亚古多号"  # Monteagudo
+    type = frigate
+  }
+  ship = {
+    name = "圣克鲁斯号"  # Santa Cruz
+    type = frigate
+  }
+}
+army = {
+  name = "秘鲁陆军"  # Ej茅rcito del Per煤
+  location = 2295
+  regiment = {
+    name = "第1步兵旅"  # 1.Brigada de Infanter铆a
+    type = infantry
+    home = 2295
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infanter铆a
+    type = infantry
+    home = 2295
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infanter铆a
+    type = infantry
+    home = 2302
+  }
+}

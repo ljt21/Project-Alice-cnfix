@@ -1,0 +1,9 @@
+army = {
+  name = "魏玛军队"  # Weimarische Armee
+  location = 561
+  regiment = {
+    name = "魏玛步兵旅"  # Weimarische Infanterie-Brigade
+    type = infantry
+    home = 561
+  }
+}

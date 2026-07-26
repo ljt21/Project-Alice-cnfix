@@ -1,0 +1,102 @@
+army = {
+  name = "东京军"  # Tonkin Army
+  location = 1369
+  regiment = {
+    name = "东京旅"  # 1.Brigade
+    type = irregular
+    home = 1369
+  }
+  regiment = {
+    name = "东京旅"  # 2.Brigade
+    type = irregular
+    home = 1369
+  }
+  regiment = {
+    name = "东京旅"  # 3.Brigade
+    type = irregular
+    home = 1370
+  }
+  regiment = {
+    name = "东京旅"  # 4.Brigade
+    type = irregular
+    home = 1370
+  }
+  regiment = {
+    name = "东京旅"  # 5.Brigade
+    type = irregular
+    home = 1371
+  }
+  regiment = {
+    name = "东京旅"  # 6.Brigade
+    type = irregular
+    home = 1372
+  }
+}
+army = {
+  name = "安南军"  # Annam Army
+  location = 1375
+  regiment = {
+    name = "安南军"  # 7.Brigade
+    type = irregular
+    home = 1375
+  }
+  regiment = {
+    name = "安南军"  # 8.Brigade
+    type = irregular
+    home = 1375
+  }
+  regiment = {
+    name = "安南军"  # 9.Brigade
+    type = irregular
+    home = 1373
+  }
+  regiment = {
+    name = "安南军"  # 10.Brigade
+    type = irregular
+    home = 1374
+  }
+  regiment = {
+    name = "安南军"  # 11.Brigade
+    type = irregular
+    home = 1376
+  }
+  regiment = {
+    name = "安南军"  # 12.Brigade
+    type = irregular
+    home = 1376
+  }
+}
+army = {
+  name = "交趾支那军"  # Cochin Army
+  location = 1381
+  regiment = {
+    name = "交趾旅"  # 13.Brigade
+    type = irregular
+    home = 1377
+  }
+  regiment = {
+    name = "交趾旅"  # 14.Brigade
+    type = irregular
+    home = 1377
+  }
+  regiment = {
+    name = "交趾旅"  # 15.Brigade
+    type = irregular
+    home = 1378
+  }
+  regiment = {
+    name = "交趾旅"  # 16.Brigade
+    type = irregular
+    home = 1381
+  }
+  regiment = {
+    name = "交趾旅"  # 17.Brigade
+    type = irregular
+    home = 1382
+  }
+  regiment = {
+    name = "交趾旅"  # 18.Brigade
+    type = irregular
+    home = 1383
+  }
+}

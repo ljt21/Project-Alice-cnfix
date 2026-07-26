@@ -1,0 +1,49 @@
+army = {
+  name = "祖鲁兵团"  # Impi of the Zulu
+  location = 2113
+  regiment = {
+    name = "法辛巴"  # 1.Fasimba
+    type = irregular
+    home = 2113
+  }
+  regiment = {
+    name = "法辛巴"  # 2.Fasimba
+    type = irregular
+    home = 2113
+  }
+  regiment = {
+    name = "法辛巴"  # 3.Fasimba
+    type = irregular
+    home = 2113
+  }
+  regiment = {
+    name = "图瓦纳"  # 1.Thulwana
+    type = irregular
+    home = 2113
+  }
+  regiment = {
+    name = "图瓦纳"  # 2.Thulwana
+    type = irregular
+    home = 2113
+  }
+  regiment = {
+    name = "图瓦纳"  # 3.Thulwana
+    type = irregular
+    home = 2113
+  }
+  regiment = {
+    name = "戈巴马科西"  # 1.Gobamakhosi
+    type = irregular
+    home = 2112
+  }
+  regiment = {
+    name = "戈巴马科西"  # 2.Gobamakhosi
+    type = irregular
+    home = 2112
+  }
+  regiment = {
+    name = "戈巴马科西"  # 3.Gobamakhosi
+    type = irregular
+    home = 2112
+  }
+}

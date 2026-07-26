@@ -1,0 +1,43 @@
+army = {
+  name = "桑给巴尔苏丹军队"  # Army of the Sultan of Zanzibar
+  location = 2048
+  regiment = {
+    name = "斯瓦希里语"  # 1.Swahili
+    type = irregular
+    home = 2048
+  }
+  regiment = {
+    name = "斯瓦希里语"  # 2.Swahili
+    type = irregular
+    home = 2048
+  }
+  regiment = {
+    name = "斯瓦希里语"  # 3.Swahili
+    type = irregular
+    home = 1868
+  }
+  regiment = {
+    name = "斯瓦希里语"  # 4.Swahili
+    type = irregular
+    home = 2036
+  }
+}
+army = {
+  name = "斯瓦希里海岸军队"  # Army of the Swahili Coast
+  location = 2037
+  regiment = {
+    name = "斯瓦希里语"  # 5.Swahili
+    type = irregular
+    home = 2037
+  }
+  regiment = {
+    name = "斯瓦希里语"  # 6.Swahili
+    type = irregular
+    home = 2038
+  }
+  regiment = {
+    name = "斯瓦希里语"  # 7.Swahili
+    type = irregular
+    home = 2039
+  }
+}

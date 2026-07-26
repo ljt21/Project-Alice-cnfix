@@ -1,0 +1,51 @@
+leader = {
+  name = "米利沃耶 布拉兹纳瓦茨"  # Milivoje Blaznavac
+  date = 1861.1.1
+  type = land
+  personality = openminded
+  background = artillerist
+}
+army = {
+  name = "塞尔维亚陆军"  # Serbian Army
+  location = 794
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 794
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 794
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 795
+  }
+  regiment = {
+    name = "步兵旅"
+    type = cuirassier
+    home = 794
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 795
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 796
+  }
+  regiment = {
+    name = "步兵旅"
+    type = infantry
+    home = 796
+  }
+  regiment = {
+    name = "步兵旅"
+    type = engineer
+    home = 797
+  }
+}

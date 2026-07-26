@@ -1,0 +1,17 @@
+army = {
+  name = "采邑主教的军队"  # Army of the Prince-Bishop
+  leader = {
+    name = "米尔科 彼得罗维奇"  # Mirko Petrovic
+    type = land
+    date = "1830.1.1"
+    personality = au_fait
+    background = poet
+    prestige = 0.2
+  }
+  location = 2583
+  regiment = {
+    name = "第1黑山步兵团"  # 1st Montenegrin Infantry
+    type = irregular
+    home = 2583
+  }
+}

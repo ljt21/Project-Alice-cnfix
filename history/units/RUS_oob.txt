@@ -1,0 +1,1070 @@
+#Sphere of Influence
+
+SWE = {
+
+	value = 125
+	level = 3 	
+	influence_value = 40
+}
+
+SER = {
+	
+	value = 125
+	level = 4
+	influence_value = 25
+}
+
+GRE = {
+	
+	value = 125
+	level = 4
+	influence_value = 25
+}
+
+KRA = {
+	
+	value = 125
+	level = 4
+	influence_value = 25
+}
+
+CHI = {
+	value = 75
+}
+
+PRU = {
+	value = 125
+}
+
+AUS = {
+	value = 100
+}
+
+ENG = {
+	value = 0
+}
+
+FRA = {
+	value = -75
+}
+
+TUR = {
+	value = 25
+}
+
+SPA = {
+	value = 0
+}
+
+USA = {
+	value = 0
+}
+
+PER = {
+	value = 125
+	level = 4
+	influence_value = 45
+}
+
+DEN = {
+	
+	value = 125
+}
+
+leader = {
+	name = "瓦西里奇科夫亲王"
+	date = 1801.1.1
+	type = land
+	personality = competent
+	background = powerful_friends
+	prestige = 0.4
+}
+
+leader = {
+	name = "米哈伊尔·沃龙佐夫亲王"
+	date = 1814.1.1
+	type = land
+	personality = daring
+	background = gifted_administrator
+	prestige = 0.3
+}
+
+leader = {
+	name = "彼得·奇切林"
+	date = 1835.1.1
+	type = land
+	personality = earnest
+	background = cavalry_school
+	prestige = 0.1
+}
+
+leader = {
+	name = "亚历山大·切尔尼绍夫"
+	date = 1821.1.1
+	type = land
+	personality = intelligent
+	background = diplomat
+	prestige = 0.1
+}
+
+leader = {
+	name = "缅希科夫亲王"
+	date = 1833.1.1
+	type = sea
+	personality = lackluster
+	background = clueless
+	prestige = 0.1
+}
+
+leader = {
+	name = "伊万·帕斯凯维奇"
+	date = 1812.1.1
+	type = land
+	personality = merciless
+	background = school_of_offense
+	prestige = 0.3
+}
+
+leader = {
+	name = "马特维·赫拉波维茨基"
+	date = 1835.1.1
+	type = land
+	personality = able
+	background = war_college
+	prestige = 0.1
+}
+
+leader = {
+	name = "米哈伊尔·拉扎列夫"
+	date = 1827.1.1
+	type = sea
+	personality = au_fait
+	background = innovative_tactician
+	prestige = 0.2
+}
+
+leader = {
+	name = "穆拉维约夫-卡尔斯基"
+	date = 1832.1.1
+	type = land
+	personality = defiant
+	background = natural_born_leader
+	prestige = 0.1
+}
+
+leader = {
+	name = "彼得·沃尔康斯基"
+	date = 1812.1.1
+	type = land
+	personality = intelligent
+	background = elderly
+	prestige = 0.3
+}
+
+leader = {
+	name = "帕维尔·格拉贝"
+	date = 1836.1.1
+	type = land
+	personality = keen
+	background = school_of_firepower
+	prestige = 0.0
+}
+
+leader = {
+	name = "瓦西里·别布托夫"
+	date = 1825.1.1
+	type = land
+	personality = stout
+	background = generals_aide
+	prestige = 0.1
+}
+
+leader = {
+	name = "费多尔·冯·伯格"
+	date = 1836.1.1
+	type = land
+	personality = sharp
+	background = cartographer
+	prestige = 0.1
+}
+
+leader = {
+	name = "费迪南德·弗兰格尔"
+	date = 1836.1.1
+	type = sea
+	personality = active_p
+	background = cartographer
+	prestige = 0.0
+}
+
+army = {
+	name = "近卫军"
+	location = 354
+	regiment = {
+		name= "近卫步兵第一师第一团"
+		type = infantry
+		home = 994
+	}
+
+	regiment = {
+		name= "近卫步兵第一师第二团"
+		type = infantry
+		home = 946
+	}
+
+	regiment = {
+		name= "近卫步兵第一师第三团"
+		type = infantry
+		home = 1006
+	}
+
+	regiment = {
+		name= "近卫步兵第二师第一团"
+		type = infantry
+		home = 1008
+	}
+
+	regiment = {
+		name= "近卫步兵第二师第二团"
+		type = infantry
+		home = 343
+	}
+
+	regiment = {
+		name= "近卫步兵第二师第三团"
+		type = artillery
+		home = 718
+	}
+
+	regiment = {
+		name= "近卫步兵第三师第一团"
+		type = infantry
+		home = 360
+	}
+
+	regiment = {
+		name= "近卫步兵第三师第二团"
+		type = infantry
+		home = 994
+	}
+
+	regiment = {
+		name= "近卫步兵第三师第三团"
+		type = infantry
+		home = 1012
+	}
+
+}
+
+army = {
+	name = "近卫骑兵军"
+	location = 343
+	regiment = {
+		name= "近卫骑兵第一师第一团"
+		type = dragoon
+		home = 994
+	}
+
+	regiment = {
+		name= "近卫骑兵第一师第二团"
+		type = dragoon
+		home = 999
+	}
+
+	regiment = {
+		name= "近卫骑兵第一师第三团"
+		type = dragoon
+		home = 1016
+	}
+
+	regiment = {
+		name= "近卫骑兵第一师第四团"
+		type = cuirassier
+		home = 978
+	}
+
+	regiment = {
+		name= "近卫骑兵第二师第一团"
+		type = cuirassier
+		home = 1008
+	}
+
+	regiment = {
+		name= "近卫骑兵第二师第二团"
+		type = cuirassier
+		home = 968
+	}
+
+	regiment = {
+		name= "近卫骑兵第二师第三团"
+		type = cuirassier
+		home = 994
+	}
+}
+
+army = {
+	name = "掷弹兵军"
+	location = 994
+	regiment = {
+		name= "掷弹兵第一师第一团"
+		type = infantry
+		home = 1058
+	}
+
+	regiment = {
+		name= "掷弹兵第一师第二团"
+		type = infantry
+		home = 979
+	}
+
+	regiment = {
+		name= "掷弹兵第一师第三团"
+		type = artillery
+		home = 962
+	}
+
+	regiment = {
+		name= "掷弹兵第二师第一团"
+		type = infantry
+		home = 958
+	}
+
+	regiment = {
+		name= "掷弹兵第二师第二团"
+		type = infantry
+		home = 1008
+	}
+
+	regiment = {
+		name= "掷弹兵第二师第三团"
+		type = infantry
+		home = 989
+	}
+
+	regiment = {
+		name= "掷弹兵第三师第一团"
+		type = infantry
+		home = 1013
+	}
+
+	regiment = {
+		name= "掷弹兵第三师第二团"
+		type = infantry
+		home = 1044
+	}
+
+	regiment = {
+		name= "掷弹兵第三师第三团"
+		type = artillery
+		home = 997
+	}
+	
+	regiment = {
+		name= "骑兵第一师第一团"
+		type = dragoon
+		home = 977
+	}
+
+	regiment = {
+		name= "骑兵第二师第二团"
+		type = dragoon
+		home = 1001
+	}
+
+	regiment = {
+		name= "骑兵第一师第三团"
+		type = dragoon
+		home = 1017
+	}
+
+
+}
+
+
+army = {
+	name = "第一线列军"
+	location = 713
+	regiment = {
+		name= "线列步兵第一师第一团"
+		type = infantry
+		home = 943
+	}
+
+	regiment = {
+		name= "线列步兵第一师第二团"
+		type = infantry
+		home = 1090
+	}
+
+	regiment = {
+		name= "线列步兵第一师第三团"
+		type = artillery
+		home = 1018
+	}
+
+	regiment = {
+		name= "线列步兵第二师第一团"
+		type = infantry
+		home = 1010
+	}
+
+	regiment = {
+		name= "线列步兵第二师第二团"
+		type = infantry
+		home = 349
+	}
+
+	regiment = {
+		name= "线列步兵第二师第三团"
+		type = artillery
+		home = 706
+	}
+
+	regiment = {
+		name= "线列步兵第三师第一团"
+		type = infantry
+		home = 963
+	}
+
+	regiment = {
+		name= "线列步兵第三师第二团"
+		type = infantry
+		home = 940
+	}
+
+	regiment = {
+		name= "线列步兵第三师第三团"
+		type = infantry
+		home = 712
+	}
+
+}
+
+army = {
+	name = "预备骑兵军"
+	location = 706
+	regiment = {
+		name= "骑兵第二师第一团"
+		type = cuirassier
+		home = 1037
+	}
+
+	regiment = {
+		name= "骑兵第二师第二团"
+		type = cuirassier
+		home = 1064
+	}
+
+	regiment = {
+		name= "骑兵第二师第三团"
+		type = cuirassier
+		home = 1025
+	}
+
+	regiment = {
+		name= "骑兵第三师第一团"
+		type = cuirassier
+		home = 1034
+	}
+
+	regiment = {
+		name= "骑兵第三师第二团"
+		type = cuirassier
+		home = 361
+	}
+
+	regiment = {
+		name= "骑兵第三师第三团"
+		type = cuirassier
+		home = 964
+	}
+
+	regiment = {
+		name= "骑兵第四师第一团"
+		type = cuirassier
+		home = 948
+	}
+
+	regiment = {
+		name= "骑兵第四师第二团"
+		type = cuirassier
+		home = 956
+	}
+
+	regiment = {
+		name= "骑兵第四师第三团"
+		type = cuirassier
+		home = 345
+	}
+
+}
+
+army = {
+	name = "第二线列军"
+	location = 958
+	regiment = {
+		name= "线列步兵第四师第一团"
+		type = infantry
+		home = 937
+	}
+
+	regiment = {
+		name= "线列步兵第四师第二团"
+		type = infantry
+		home = 957
+	}
+
+	regiment = {
+		name= "线列步兵第四师第三团"
+		type = artillery
+		home = 949
+	}
+
+	regiment = {
+		name= "线列步兵第五师第一团"
+		type = infantry
+		home = 1003
+	}
+
+	regiment = {
+		name= "线列步兵第五师第二团"
+		type = infantry
+		home = 1060
+	}
+
+	regiment = {
+		name= "线列步兵第五师第三团"
+		type = infantry
+		home = 1042
+	}
+
+	regiment = {
+		name= "线列步兵第六师第一团"
+		type = infantry
+		home = 1020
+	}
+
+	regiment = {
+		name= "线列步兵第六师第二团"
+		type = infantry
+		home = 1026
+	}
+
+	regiment = {
+		name= "线列步兵第六师第三团"
+		type = infantry
+		home = 1063
+	}
+}
+
+army = {
+	name = "亚速哥萨克"
+	location = 1047
+	regiment = {
+		name= "亚速哥萨克第一团"
+		type = cavalry
+		home = 1047
+	}
+
+	regiment = {
+		name= "亚速哥萨克第二团"
+		type = cavalry
+		home = 1047
+	}
+
+	regiment = {
+		name= "亚速哥萨克第三团"
+		type = cavalry
+		home = 979
+	}
+
+}
+
+army = {
+	name = "黑海哥萨克"
+	location = 967
+	regiment = {
+		name= "黑海哥萨克第一团"
+		type = cavalry
+		home = 1049
+	}
+
+	regiment = {
+		name= "黑海哥萨克第二团"
+		type = cavalry
+		home = 1050
+	}
+
+	regiment = {
+		name= "黑海哥萨克第三团"
+		type = cavalry
+		home = 1050
+	}
+
+}
+
+army = {
+	name = "第一顿河哥萨克"
+	location = 979
+	regiment = {
+		name= "顿河哥萨克第一军第一团"
+		type = cavalry
+		home = 1039
+	}
+
+	regiment = {
+		name= "顿河哥萨克第一军第二团"
+		type = cavalry
+		home = 1019
+	}
+
+	regiment = {
+		name= "顿河哥萨克第一军第三团"
+		type = cavalry
+		home = 1045
+	}
+
+}
+
+army = {
+	name = "第二顿河哥萨克"
+	location = 959
+	regiment = {
+		name= "顿河哥萨克第二军第一团"
+		type = cavalry
+		home = 1039
+	}
+
+	regiment = {
+		name= "顿河哥萨克第二军第二团"
+		type = cavalry
+		home = 1019
+	}
+
+	regiment = {
+		name= "顿河哥萨克第二军第三团"
+		type = cavalry
+		home = 1040
+	}
+
+}
+
+army = {
+	name = "第七步兵师"
+	location = 1075
+	
+	regiment = {
+		name = "第一·第七步兵师"
+		home = 1075
+		type = infantry
+	}
+
+	regiment = {
+		name= "第七步兵师第二团"
+		type = engineer
+		home = 1021
+	}
+	
+	regiment = {
+		name = "第三·第七步兵师"
+		home = 346
+		type = infantry
+	}
+}
+
+
+navy = {
+	name = "帝国黑海舰队"
+	location = 967
+	ship = {
+		name= "北方之鹰号"
+		type = manowar
+	}
+
+	ship = {
+		name= "古斯塔夫亲王号"
+		type = manowar
+	}
+
+	ship = {
+		name= "勿碰我号"
+		type = manowar
+	}
+
+	ship = {
+		name= "斯维亚托斯拉夫号"
+		type = manowar
+	}
+
+	ship = {
+		name= "勇敢号"
+		type = manowar
+	}
+
+	ship = {
+		name= "敏捷号"
+		type = manowar
+	}
+
+	ship = {
+		name= "三圣徒号"
+		type = manowar
+	}
+
+	ship = {
+		name= "朱庇特号"
+		type = manowar
+	}
+
+	ship = {
+		name= "切什梅号"
+		type = manowar
+	}
+
+	ship = {
+		name= "持香膏者号"
+		type = manowar
+	}
+
+	ship = {
+		name= "亚洲号"
+		type = manowar
+	}
+
+	ship = {
+		name= "亚速号"
+		type = manowar
+	}
+
+	ship = {
+		name= "俄罗斯号"
+		type = manowar
+	}
+
+	ship = {
+		name= "萨拉托夫号"
+		type = manowar
+	}
+
+	ship = {
+		name= "恩典号"
+		type = manowar
+	}
+
+	ship = {
+		name= "圣保罗号"
+		type = manowar
+	}
+
+	ship = {
+		name= "敏捷号"
+		type = manowar
+	}
+
+	ship = {
+		name= "统帅加百列号"
+		type = manowar
+	}
+
+	ship = {
+		name= "叶夫萨维耶号"
+		type = manowar
+	}
+
+	ship = {
+		name= "勇敢号"
+		type = manowar
+	}
+
+	ship = {
+		name= "莫斯科号"
+		type = manowar
+	}
+
+	ship = {
+		name= "博列斯拉夫号"
+		type = manowar
+	}
+
+	ship = {
+		name= "格列布号"
+		type = manowar
+	}
+
+	ship = {
+		name= "北极星号"
+		type = manowar
+	}
+
+	ship = {
+		name= "北风之神号"
+		type = manowar
+	}
+
+	ship = {
+		name= "鹰号"
+		type = manowar
+	}
+
+	ship = {
+		name= "雅努阿里乌斯号"
+		type = manowar
+	}
+
+	ship = {
+		name= "约翰号"
+		type = manowar
+	}
+
+	ship = {
+		name= "勿碰我号"
+		type = manowar
+	}
+
+	ship = {
+		name= "潘捷列伊蒙号"
+		type = manowar
+	}
+
+	ship = {
+		name= "米哈伊尔号"
+		type = manowar
+	}
+
+	ship = {
+		name= "圣费奥多尔·斯特拉季拉特号"
+		type = frigate
+	}
+
+	ship = {
+		name= "神学家约翰号"
+		type = frigate
+	}
+
+	ship = {
+		name= "喀山圣母号"
+		type = frigate
+	}
+
+	ship = {
+		name= "主内海军统领号"
+		type = frigate
+	}
+
+	ship = {
+		name= "圣灵降临号"
+		type = frigate
+	}
+
+	ship = {
+		name= "使徒彼得号"
+		type = frigate
+	}
+
+	ship = {
+		name= "康斯坦丁沙皇号"
+		type = frigate
+	}
+
+	ship = {
+		name= "群岛号"
+		type = frigate
+	}
+
+	ship = {
+		name= "季赫温圣母号"
+		type = frigate
+	}
+
+	ship = {
+		name= "托斯曼卡号"
+		type = frigate
+	}
+
+	ship = {
+		name= "拿撒勒号"
+		type = frigate
+	}
+
+	ship = {
+		name= "喀琅施塔得号"
+		type = frigate
+	}
+
+	ship = {
+		name= "格托伊号"
+		type = frigate
+	}
+
+	ship = {
+		name= "维纳斯号"
+		type = frigate
+	}
+
+	ship = {
+		name= "快速号"
+		type = frigate
+	}
+
+	ship = {
+		name= "阿耳戈斯号"
+		type = frigate
+	}
+
+	ship = {
+		name= "托泰姆的费奥多西号"
+		type = frigate
+	}
+
+	ship = {
+		name= "幸福号"
+		type = frigate
+	}
+
+	ship = {
+		name= "第一运输船队"
+		type = clipper_transport
+	}
+
+	ship = {
+		name= "第二运输船队"
+		type = clipper_transport
+	}
+
+}
+
+navy = {
+	name = "帝国北方舰队"
+	location = 994
+	ship = {
+		name= "十二使徒号"
+		type = manowar
+	}
+
+	ship = {
+		name= "波尔塔瓦号"
+		type = manowar
+	}
+
+	ship = {
+		name= "尚武号"
+		type = manowar
+	}
+
+	ship = {
+		name= "哈古迪尔号"
+		type = manowar
+	}
+
+	ship = {
+		name= "甘古特号"
+		type = manowar
+	}
+
+	ship = {
+		name= "以西结号"
+		type = manowar
+	}
+
+	ship = {
+		name= "康斯坦丁沙皇号"
+		type = manowar
+	}
+
+	ship = {
+		name= "雅罗斯拉夫号"
+		type = manowar
+	}
+
+	ship = {
+		name= "伊贾斯拉夫号"
+		type = manowar
+	}
+
+	ship = {
+		name= "右舷号"
+		type = manowar
+	}
+
+	ship = {
+		name= "伊西多尔号"
+		type = manowar
+	}
+
+	ship = {
+		name= "阿纳帕号"
+		type = manowar
+	}
+
+	ship = {
+		name= "玛丽亚号"
+		type = manowar
+	}
+
+	ship = {
+		name= "德米特里·顿斯科伊号"
+		type = manowar
+	}
+
+	ship = {
+		name= "帕拉斯克维亚号"
+		type = manowar
+	}
+
+	ship = {
+		name= "维托斯拉夫号"
+		type = manowar
+	}
+
+	ship = {
+		name= "迅捷号"
+		type = frigate
+	}
+
+	ship = {
+		name= "纳尔瓦号"
+		type = frigate
+	}
+
+	ship = {
+		name= "普雷梅斯拉夫号"
+		type = frigate
+	}
+
+	ship = {
+		name= "里加号"
+		type = frigate
+	}
+
+	ship = {
+		name= "维亚切斯拉夫号"
+		type = frigate
+	}
+
+	ship = {
+		name= "以马内利号"
+		type = frigate
+	}
+
+	ship = {
+		name= "鲍里斯拉夫号"
+		type = frigate
+	}
+
+	ship = {
+		name= "轻盈号"
+		type = frigate
+	}
+
+	ship = {
+		name= "第三运输船队"
+		type = clipper_transport
+	}
+
+	ship = {
+		name= "第四运输船队"
+		type = clipper_transport
+	}
+
+}
+

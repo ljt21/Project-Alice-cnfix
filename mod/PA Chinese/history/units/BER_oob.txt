@@ -1,0 +1,34 @@
+army = {
+  name = "巴罗达大君的军队"  # Army of the Maharaja of Beroda
+  location = 1295
+  regiment = {
+    name = "巴罗达第1团"  # 1st Baroda
+    type = irregular
+    home = 1295
+  }
+  regiment = {
+    name = "巴罗达第2团"  # 2nd Baroda
+    type = irregular
+    home = 1295
+  }
+  regiment = {
+    name = "巴罗达第3团"  # 3rd Baroda
+    type = irregular
+    home = 1295
+  }
+  regiment = {
+    name = "帕坦第1团"  # 1st Patan
+    type = irregular
+    home = 1294
+  }
+  regiment = {
+    name = "帕坦第2团"  # 2nd Patan
+    type = irregular
+    home = 1294
+  }
+  regiment = {
+    name = "拉杰果德第1团"  # 1st Rajkot
+    type = irregular
+    home = 1292
+  }
+}

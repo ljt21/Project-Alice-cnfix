@@ -1,0 +1,113 @@
+leader = {
+  name = "安东尼奥 桑塔 安纳"  # Antonio Santa Ana
+  type = land
+  date = "1836.1.1"
+  personality = wrathful
+  background = warmonger
+  prestige = 0.2
+}
+leader = {
+  name = "马丁 德 科斯"  # Martin de Cos
+  type = land
+  date = "1836.1.1"
+  personality = impulsive
+  background = aristocrat
+  prestige = 0.1
+}
+leader = {
+  name = "尼古拉斯 布拉沃"  # Nicolas Bravo
+  type = land
+  date = "1836.1.1"
+  personality = heroic
+  background = politician
+}
+leader = {
+  name = "马里亚诺 阿里斯塔"  # Mariano Arista
+  type = land
+  date = "1836.1.1"
+  personality = skilled
+  background = war_college
+}
+leader = {
+  name = "胡安 阿尔瓦雷斯"  # Juan 脕lvarez
+  type = land
+  date = "1836.1.1"
+  personality = skilled
+  background = elderly
+}
+leader = {
+  name = "何塞 德 埃雷拉"  # Jos茅 de Herrera
+  type = land
+  date = "1836.1.1"
+  personality = soldierly
+  background = exranker
+}
+army = {
+  name = "北方军团"  # Ej茅rcito del Norte
+  location = 2146
+  regiment = {
+    name = "科斯师"  # 1.Division Cos
+    type = irregular
+    home = 2174
+  }
+  regiment = {
+    name = "科斯师"  # 2.Division Cos
+    type = irregular
+    home = 2174
+  }
+  regiment = {
+    name = "科斯师"  # 3.Division Cos
+    type = irregular
+    home = 2174
+  }
+}
+army = {
+  name = "瓦哈卡省现役部队"  # Activo Oajaca
+  location = 2177
+  regiment = {
+    name = "瓦哈卡及特拉斯卡拉师"  # 1.Oajaca y Tlaxcala
+    type = irregular
+    home = 2177
+  }
+  regiment = {
+    name = "瓦哈卡及特拉斯卡拉师"  # 2.Oajaca y Tlaxcala
+    type = irregular
+    home = 2177
+  }
+  regiment = {
+    name = "瓦哈卡及特拉斯卡拉师"  # 3.Oajaca y Tlaxcala
+    type = irregular
+    home = 2177
+  }
+}
+army = {
+  name = "墨西哥城军团"  # Ej茅rcito del Ciudad Mejico
+  location = 2172
+  regiment = {
+    name = "科蒙福特师"  # 1.Division Comonfort
+    type = infantry
+    home = 2176
+  }
+  regiment = {
+    name = "科蒙福特师"  # 2.Division Comonfort
+    type = irregular
+    home = 2176
+  }
+  regiment = {
+    name = "科蒙福特师"  # 3.Division Comonfort
+    type = irregular
+    home = 2176
+  }
+}
+navy = {
+  name = "墨西哥海军"  # Armada de Mexico
+  location = 2162
+  ship = {
+    name = "阿拉莫胜利者号"  # Vencedor del Alamo
+    type = frigate
+  }
+  ship = {
+    name = "玛蒂尔达号"  # Matilda
+    type = clipper_transport
+  }
+}

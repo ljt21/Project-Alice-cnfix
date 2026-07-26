@@ -1,0 +1,22 @@
+leader = {
+  name = "弗里德里希 弗朗茨二世"  # Friedrich Franz II
+  date = 1844.1.1
+  type = land
+  personality = soldierly
+  background = aristocrat
+  prestige = 0.5
+}
+army = {
+  name = "梅克伦堡军团"  # Mecklenburgische Armee
+  location = 544
+  regiment = {
+    name = "梅克伦堡步兵旅"  # 1.Mecklenburgische Infanterie-Brigade
+    type = infantry
+    home = 544
+  }
+  regiment = {
+    name = "梅克伦堡步兵旅"  # 2.Mecklenburgische Infanterie-Brigade
+    type = infantry
+    home = 545
+  }
+}

@@ -1,0 +1,101 @@
+army = {
+  name = "第第一卡洛斯军"  # 1st Carlist Army
+  location = 493
+  regiment = {
+    name = "第1团"  # 1.Regiment
+    type = infantry
+    home = 493
+  }
+  regiment = {
+    name = "第2团"  # 2.Regiment
+    type = infantry
+    home = 493
+  }
+  regiment = {
+    name = "第3团"  # 3.Regiment
+    type = infantry
+    home = 493
+  }
+  regiment = {
+    name = "第4团"  # 4.Regiment
+    type = infantry
+    home = 493
+  }
+  regiment = {
+    name = "第5团"  # 5.Regiment
+    type = irregular
+    home = 493
+  }
+  regiment = {
+    name = "第6团"  # 6.Regiment
+    type = irregular
+    home = 493
+  }
+  regiment = {
+    name = "第7团"  # 7.Regiment
+    type = irregular
+    home = 493
+  }
+}
+army = {
+  name = "第第二卡洛斯军"  # 2nd Carlist Army
+  location = 500
+  regiment = {
+    name = "第8团"  # 8.Regiment
+    type = infantry
+    home = 500
+  }
+  regiment = {
+    name = "第9团"  # 9.Regiment
+    type = infantry
+    home = 500
+  }
+  regiment = {
+    name = "第10团"  # 10.Regiment
+    type = irregular
+    home = 500
+  }
+  regiment = {
+    name = "第11团"  # 11.Regiment
+    type = irregular
+    home = 500
+  }
+}
+army = {
+  name = "第第三卡洛斯军"  # 3rd Carlist Army
+  location = 501
+  regiment = {
+    name = "第12团"  # 12.Regiment
+    type = infantry
+    home = 501
+  }
+  regiment = {
+    name = "第13团"  # 13.Regiment
+    type = infantry
+    home = 501
+  }
+  regiment = {
+    name = "第14团"  # 14.Regiment
+    type = irregular
+    home = 501
+  }
+  regiment = {
+    name = "第15团"  # 15.Regiment
+    type = irregular
+    home = 501
+  }
+}
+army = {
+  name = "第第四卡洛斯军"  # 4th Carlist Army
+  location = 499
+  regiment = {
+    name = "第16团"  # 16.Regiment
+    type = infantry
+    home = 499
+  }
+  regiment = {
+    name = "第17团"  # 17.Regiment
+    type = irregular
+    home = 499
+  }
+}

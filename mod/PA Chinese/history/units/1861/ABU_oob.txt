@@ -1,0 +1,9 @@
+army = {
+  name = "特鲁西尔诸国军"  # Army of the Trucial States
+  location = 1167
+  regiment = {
+    name = "特鲁西尔军"  # Trucial Army
+    type = irregular
+    home = 1167
+  }
+}

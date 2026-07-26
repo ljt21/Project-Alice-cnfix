@@ -1,0 +1,17 @@
+army = {
+  name = "卢卡军队"  # Esercito di Lucca
+  leader = {
+    name = "卡洛 德 波旁-帕尔马"  # Carlo di Borbone-Parma
+    date = 1815.1.1
+    type = land
+    personality = polite
+    background = cursed_luck
+    prestige = 0.5
+  }
+  location = 746
+  regiment = {
+    name = "线列步兵"  # 1.Fanteria di Linea
+    type = infantry
+    home = 746
+  }
+}

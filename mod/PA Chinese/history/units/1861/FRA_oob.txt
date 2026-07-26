@@ -1,0 +1,1121 @@
+BEL = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+LUX = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+PAP = {
+  value = 125
+  level = 5
+  influence_value = 25
+  military_access = yes
+}
+SWI = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+ITA = {
+  value = 125
+}
+ENG = {
+  value = 75
+}
+YNN = {
+  value = 75
+  influence_value = 25
+}
+GXI = {
+  value = 75
+  influence_value = 25
+}
+leader = {
+  name = "贝尔纳 皮埃尔 马尼昂"  # Bernard Pierre Magnan
+  date = 1835.1.1
+  type = land
+  personality = disorderly
+  background = bootlicker
+  prestige = 0.3
+}
+leader = {
+  name = "巴拉盖 迪利埃"  # Baraguey d'Hilliers
+  date = 1836.1.1
+  type = land
+  personality = active_p
+  background = drillmaster
+  prestige = 0.3
+}
+leader = {
+  name = "奥古斯特 勒尼奥"  # Auguste Regnaud
+  date = 1848.1.1
+  type = land
+  personality = manful
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "弗雷德里克 福雷"  # Fr茅d茅ric Forey
+  date = 1848.1.1
+  type = land
+  personality = choleric
+  background = warmonger
+  prestige = 0.2
+}
+leader = {
+  name = "保罗 德 拉德米劳"  # Paul de Ladmirault
+  date = 1858.1.1
+  type = land
+  personality = resolute
+  background = colonial_b
+  prestige = 0.2
+}
+leader = {
+  name = "德 康罗贝尔"  # de Canrobert
+  date = 1861.1.1
+  type = land
+  personality = dauntless
+  background = generals_aide
+  prestige = 0.2
+}
+leader = {
+  name = "帕利考伯爵"  # Comte de Palikao
+  date = 1851.1.1
+  type = land
+  personality = impulsive
+  background = cavalry_school
+  prestige = 0.2
+}
+leader = {
+  name = "帕特里斯 德 麦克马洪"  # Patrice de Mac-Mahon
+  date = 1852.1.1
+  type = land
+  personality = skilled
+  background = war_college
+  prestige = 0.2
+}
+leader = {
+  name = "阿道夫 尼埃尔"  # Adolphe Niel
+  date = 1852.1.1
+  type = land
+  personality = calm
+  background = engineer
+  prestige = 0.2
+}
+leader = {
+  name = "朱里安 德 拉格拉维埃"  # Jurien de la Gravi猫re
+  date = 1853.1.1
+  type = sea
+  personality = competent
+  background = drillmaster
+  prestige = 0.2
+}
+leader = {
+  name = "布埃 维洛梅兹"  # Bouet Willaumez
+  date = 1853.1.1
+  type = sea
+  personality = ballsy
+  background = adventurer
+  prestige = 0.2
+}
+leader = {
+  name = "阿希尔 巴赞"  # Achille Bazaine
+  date = 1854.1.1
+  type = land
+  personality = harsh
+  background = school_of_offense
+  prestige = 0.2
+}
+leader = {
+  name = "埃德蒙 勒伯夫"  # Edmond Lebouef
+  date = 1854.1.1
+  type = land
+  personality = vainglorious
+  background = artillerist
+  prestige = 0.2
+}
+leader = {
+  name = "里戈 德 热努伊"  # Rigault de Genouilly
+  date = 1854.1.1
+  type = sea
+  personality = brash
+  background = warmonger
+  prestige = 0.2
+}
+leader = {
+  name = "弗罗萨尔"  # Frossard
+  date = 1855.1.1
+  type = land
+  personality = clever
+  background = school_of_defense
+  prestige = 0.1
+}
+leader = {
+  name = "多雷尔 德 帕拉迪纳"  # d’Aurelle de Paladines
+  date = 1855.1.1
+  type = land
+  personality = indifferent
+  background = bureaucrat_speed
+  prestige = 0.1
+}
+leader = {
+  name = "夏尔 布尔巴基"  # Charles Bourbaki
+  date = 1859.1.1
+  type = land
+  personality = impetuous
+  background = adventurer
+  prestige = 0.1
+}
+army = {
+  name = "第一军"  # I.Corps
+  location = 420
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 420
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 421
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 421
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 422
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 422
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 424
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 423
+  }
+  regiment = {
+    name = "步兵师"
+    type = engineer
+    home = 418
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 417
+  }
+}
+army = {
+  name = "第二军"  # II.Corps
+  location = 404
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 404
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 404
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 404
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 405
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 405
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 405
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 403
+  }
+  regiment = {
+    name = "步兵师"
+    type = engineer
+    home = 403
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 403
+  }
+}
+army = {
+  name = "第四军"  # IV.Corps
+  location = 749
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 400
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 400
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 400
+  }
+}
+army = {
+  name = "第九军"  # IX.Corps
+  location = 433
+  regiment = {
+    name = "猎兵团"
+    type = infantry
+    home = 433
+  }
+  regiment = {
+    name = "猎兵团"
+    type = infantry
+    home = 432
+  }
+  regiment = {
+    name = "猎兵团"
+    type = infantry
+    home = 414
+  }
+  regiment = {
+    name = "猎兵团"
+    type = engineer
+    home = 411
+  }
+  regiment = {
+    name = "猎兵团"
+    type = infantry
+    home = 428
+  }
+  regiment = {
+    name = "猎兵团"
+    type = infantry
+    home = 431
+  }
+  regiment = {
+    name = "猎兵团"
+    type = infantry
+    home = 434
+  }
+  regiment = {
+    name = "猎兵团"
+    type = engineer
+    home = 439
+  }
+}
+army = {
+  name = "第五军"  # V.Corps
+  location = 409
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 409
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 409
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 409
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 413
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 410
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 412
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 412
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 412
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 412
+  }
+}
+army = {
+  name = "第六军"  # VI.Corps
+  location = 458
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 458
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 459
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 460
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 444
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 442
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 456
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 455
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 447
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 446
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 457
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 462
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 461
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 449
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 448
+  }
+  regiment = {
+    name = "步兵师"
+    type = engineer
+    home = 430
+  }
+}
+army = {
+  name = "第七军"  # VII.Corps
+  location = 472
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 451
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 452
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 453
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 454
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 465
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 466
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 467
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 470
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 473
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 472
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 463
+  }
+  regiment = {
+    name = "步兵师"
+    type = engineer
+    home = 416
+  }
+}
+army = {
+  name = "近卫军"  # Corps de la Garde
+  location = 426
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 425
+  }
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 425
+  }
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 427
+  }
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 426
+  }
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 436
+  }
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 440
+  }
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 438
+  }
+  regiment = {
+    name = "近卫师"
+    type = guard
+    home = 441
+  }
+}
+army = {
+  name = "骑兵军"  # Corps de Cavalerie
+  location = 425
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 408
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 408
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 408
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 406
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 406
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 406
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 407
+  }
+  regiment = {
+    name = "骑兵师"
+    type = dragoon
+    home = 407
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 407
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 429
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 414
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 414
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 417
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 2570
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 402
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 402
+  }
+  regiment = {
+    name = "轻骑兵师"
+    type = hussar
+    home = 402
+  }
+}
+army = {
+  name = "非洲部队"  # Troupes d'Afrique
+  location = 1706
+  regiment = {
+    name = "外籍军团"  # 1.La Legion Etranger
+    type = infantry
+    home = 415
+  }
+  regiment = {
+    name = "外籍军团"  # 2.La Legion Etranger
+    type = infantry
+    home = 415
+  }
+  regiment = {
+    name = "外籍军团"  # 3.La Legion Etranger
+    type = infantry
+    home = 416
+  }
+  regiment = {
+    name = "非洲军团"
+    type = infantry
+    home = 1700
+  }
+  regiment = {
+    name = "非洲军团"
+    type = infantry
+    home = 1709
+  }
+  regiment = {
+    name = "非洲军团"
+    type = infantry
+    home = 1705
+  }
+}
+army = {
+  name = "印度支那部队"  # Troupes d'Indochine
+  location = 1380
+  regiment = {
+    name = "1步兵师"
+    type = infantry
+    home = 399
+  }
+  regiment = {
+    name = "1步兵师"
+    type = infantry
+    home = 399
+  }
+  regiment = {
+    name = "1步兵师"
+    type = infantry
+    home = 399
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 401
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 401
+  }
+  regiment = {
+    name = "步兵师"
+    type = engineer
+    home = 401
+  }
+}
+navy = {
+  name = "北方舰队"  # Escadre du Nord
+  location = 420
+  ship = {
+    name = "荣耀号"  # Gloire
+    type = ironclad
+  }
+  ship = {
+    name = "声誉号"  # Renomm茅e
+    type = commerce_raider
+  }
+  ship = {
+    name = "欧仁妮皇后号"  # Imp茅ratrice Eug茅nie
+    type = commerce_raider
+  }
+  ship = {
+    name = "霹雳号"  # Foudre
+    type = commerce_raider
+  }
+  ship = {
+    name = "无畏号"  # Audacieuse
+    type = commerce_raider
+  }
+  ship = {
+    name = "炽热号"  # Ardente
+    type = commerce_raider
+  }
+  ship = {
+    name = "迅捷号"  # Imp茅tueuse
+    type = commerce_raider
+  }
+  ship = {
+    name = "君主号"  # Souveraine
+    type = commerce_raider
+  }
+  ship = {
+    name = "阿尔赫西拉斯号"  # Alg茅siras
+    type = manowar
+  }
+  ship = {
+    name = "可畏号"  # Redoubtable
+    type = manowar
+  }
+  ship = {
+    name = "帝国号"  # Imp茅rial
+    type = manowar
+  }
+  ship = {
+    name = "南特城号"  # Ville de Nantes
+    type = manowar
+  }
+  ship = {
+    name = "让·巴尔号"  # Jean Bart
+    type = manowar
+  }
+  ship = {
+    name = "迪凯纳号"  # Duquesne
+    type = manowar
+  }
+  ship = {
+    name = "图尔维尔号"  # Tourville
+    type = manowar
+  }
+  ship = {
+    name = "布雷斯劳号"  # Breslaw
+    type = manowar
+  }
+  ship = {
+    name = "蒂尔西特号"  # Tilsitt
+    type = manowar
+  }
+  ship = {
+    name = "多纳韦尔特号"  # Donawerth
+    type = manowar
+  }
+  ship = {
+    name = "安德洛玛刻号"  # Andromaque
+    type = frigate
+  }
+  ship = {
+    name = "堡垒号"  # Forte
+    type = frigate
+  }
+  ship = {
+    name = "狄多号"  # Didon
+    type = frigate
+  }
+}
+navy = {
+  name = "地中海舰队"  # Escadre de la M茅diterran茅e
+  location = 470
+  ship = {
+    name = "圣路易号"  # Saint Louis
+    type = manowar
+  }
+  ship = {
+    name = "贝亚德号"  # Bayard
+    type = manowar
+  }
+  ship = {
+    name = "枫丹白露号"  # Fontenoy
+    type = manowar
+  }
+  ship = {
+    name = "亚历山大号"  # Alexandre
+    type = manowar
+  }
+  ship = {
+    name = "马塞纳号"  # Massena
+    type = manowar
+  }
+  ship = {
+    name = "波尔多城号"  # Ville de Bordeaux
+    type = manowar
+  }
+  ship = {
+    name = "查理曼号"  # Charlemagne
+    type = manowar
+  }
+  ship = {
+    name = "女战士号 "  # Guerri猫re 
+    type = commerce_raider
+  }
+  ship = {
+    name = "达娜厄号"  # Dana茅
+    type = commerce_raider
+  }
+  ship = {
+    name = "泽诺比娅号"  # Z茅nobie
+    type = commerce_raider
+  }
+  ship = {
+    name = "贝罗娜号"  # Bellone
+    type = commerce_raider
+  }
+  ship = {
+    name = "潘多拉号"  # Pandore
+    type = commerce_raider
+  }
+  ship = {
+    name = "赫耳弥俄涅号"  # Hermione
+    type = commerce_raider
+  }
+  ship = {
+    name = "佩涅罗珀号"  # P茅n茅lope
+    type = frigate
+  }
+  ship = {
+    name = "非洲人号"  # Africaine
+    type = frigate
+  }
+}
+navy = {
+  name = "预备舰队"  # Flotte de r茅serve
+  location = 418
+  ship = {
+    name = "统治者号"  # Souverain
+    type = manowar
+  }
+  ship = {
+    name = "巴黎城号"  # Ville de Paris
+    type = manowar
+  }
+  ship = {
+    name = "布列塔尼号"  # Bretagne
+    type = manowar
+  }
+  ship = {
+    name = "奥斯特利茨号"  # Austerlitz
+    type = manowar
+  }
+  ship = {
+    name = "弗勒吕斯号"  # Fleurus
+    type = manowar
+  }
+  ship = {
+    name = "纳瓦林号"  # Navarin
+    type = manowar
+  }
+  ship = {
+    name = "乌尔姆号"  # Ulm
+    type = manowar
+  }
+  ship = {
+    name = "热罗姆亲王号"  # Prince J茅r么me
+    type = manowar
+  }
+  ship = {
+    name = "瓦格拉姆号"  # Wagram
+    type = manowar
+  }
+  ship = {
+    name = "塔霍号"  # Tage
+    type = manowar
+  }
+  ship = {
+    name = "迪盖-特鲁安号"  # Duguay-Trouin
+    type = manowar
+  }
+  ship = {
+    name = "蒂雷纳号"  # Turenne
+    type = manowar
+  }
+  ship = {
+    name = "艾劳号"  # Eylau
+    type = manowar
+  }
+  ship = {
+    name = "拿破仑号"  # Napol茅on
+    type = manowar
+  }
+  ship = {
+    name = "阿尔科莱号"  # Arcole
+    type = manowar
+  }
+  ship = {
+    name = "坚毅号"  # Pers茅v茅rante
+    type = frigate
+  }
+  ship = {
+    name = "复仇号"  # Vengeance
+    type = frigate
+  }
+  ship = {
+    name = "涅瑞伊得号"  # N茅reide
+    type = frigate
+  }
+  ship = {
+    name = "克娄巴特拉号"  # Cl茅op芒tre
+    type = frigate
+  }
+  ship = {
+    name = "弗吉尼亚号"  # Virginie
+    type = frigate
+  }
+  ship = {
+    name = "西比尔号"  # Sybille
+    type = frigate
+  }
+  ship = {
+    name = "涅墨西斯号"  # N茅m茅sis
+    type = frigate
+  }
+  ship = {
+    name = "阿尔刻斯提斯号"  # Alceste
+    type = frigate
+  }
+}
+navy = {
+  name = "第一运输中队"  # 1st Transport Squadron
+  location = 442
+  ship = {
+    name = "索恩号"  # Saone
+    type = steam_transport
+  }
+  ship = {
+    name = "马恩号"  # Marne
+    type = steam_transport
+  }
+  ship = {
+    name = "默兹号"  # Meuse
+    type = steam_transport
+  }
+  ship = {
+    name = "涅夫勒号"  # Nievre
+    type = steam_transport
+  }
+  ship = {
+    name = "默尔特号"  # Meurthe
+    type = steam_transport
+  }
+  ship = {
+    name = "约讷号"  # Yonne
+    type = steam_transport
+  }
+  ship = {
+    name = "欧洲人号"  # Europ茅en
+    type = steam_transport
+  }
+  ship = {
+    name = "日本号"  # Japon
+    type = steam_transport
+  }
+}
+navy = {
+  name = "第二运输中队"  # 2nd Transport Squadron
+  location = 470
+  ship = {
+    name = "伊西斯号"  # Isis
+    type = clipper_transport
+  }
+  ship = {
+    name = "瓦兹号"  # Oise
+    type = clipper_transport
+  }
+  ship = {
+    name = "商队号"  # Caravane
+    type = clipper_transport
+  }
+  ship = {
+    name = "埃吉里娅号"  # Eg茅rie
+    type = clipper_transport
+  }
+  ship = {
+    name = "命运号"  # Fortune
+    type = clipper_transport
+  }
+  ship = {
+    name = "山鹑号"  # Perdrix
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "印度支那远征军"  # Exp茅dition d'Indochine
+  location = 1380
+  ship = {
+    name = "朱诺号"  # Junon
+    type = commerce_raider
+  }
+  ship = {
+    name = "阿斯特赖亚号"  # Astr茅e
+    type = commerce_raider
+  }
+  ship = {
+    name = "波莫纳号"  # Pomone
+    type = commerce_raider
+  }
+  ship = {
+    name = "伊斯利号"  # Isly
+    type = commerce_raider
+  }
+  ship = {
+    name = "宪章号"  # Charte
+    type = frigate
+  }
+  ship = {
+    name = "赫利奥波利斯号"  # H茅liopolis
+    type = frigate
+  }
+  ship = {
+    name = "普赛克号"  # Psyche
+    type = frigate
+  }
+  ship = {
+    name = "阿尔及利亚号"  # Alg茅rie
+    type = frigate
+  }
+  ship = {
+    name = "阿尔米德号"  # Armide
+    type = clipper_transport
+  }
+  ship = {
+    name = "普罗旺斯人号"  # Proven莽ale
+    type = clipper_transport
+  }
+  ship = {
+    name = "卢瓦尔号"  # Loire
+    type = steam_transport
+  }
+  ship = {
+    name = "迪朗斯号"  # Durance
+    type = steam_transport
+  }
+  ship = {
+    name = "吉伦特号"  # Gironde
+    type = steam_transport
+  }
+  ship = {
+    name = "莱茵号"  # Rhin
+    type = steam_transport
+  }
+}
+navy = {
+  name = "西非站"  # Station de l'Afrique de l'ouest
+  location = 1783
+  ship = {
+    name = "追猎者号"  # Poursuivante
+    type = frigate
+  }
+}
+navy = {
+  name = "安的列斯站"  # Station des Antilles
+  location = 2228
+  ship = {
+    name = "厄里戈涅号"  # Erigone
+    type = frigate
+  }
+}
+navy = {
+  name = "印度站"  # Station de l'Inde
+  location = 1312
+  ship = {
+    name = "圣女贞德号"  # Jeanne d'Arc
+    type = frigate
+  }
+}

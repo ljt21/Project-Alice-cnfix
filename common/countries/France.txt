@@ -1,0 +1,296 @@
+color = { 20  50  210 }
+graphical_culture = FrenchGC
+
+party = {
+	name = "FRA_reactionary"
+	start_date = 1830.1.1
+	end_date = 1883.1.1
+
+	ideology = reactionary
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = pro_military
+}
+
+party = {
+	name = "FRA_liberal"
+	start_date = 1830.1.1
+	end_date = 1870.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "FRA_conservative"
+	start_date = 2000.1.1
+	end_date = 1870.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "FRA_socialist"
+	start_date = 2000.1.1
+	end_date = 1870.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "FRA_liberal_2"
+	start_date = 1848.1.1
+	end_date = 1870.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "FRA_conservative_2"
+	start_date = 1830.1.1
+	end_date = 1870.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "FRA_conservative_3"
+	start_date = 1848.1.1
+	end_date = 1894.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = free_trade
+	religious_policy = moralism
+	citizenship_policy = full_citizenship
+	war_policy = jingoism
+}
+
+party = {
+	name = "FRA_conservative_4"
+	start_date = 1870.1.1
+	end_date = 1894.1.1
+
+	ideology = conservative
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "FRA_liberal_3"
+	start_date = 1870.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "FRA_anarcho_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = anarcho_liberal
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "FRA_socialist_2"
+	start_date = 1848.1.1
+	end_date = 1905.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "FRA_communist"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = communist
+
+	economic_policy = planned_economy
+	trade_policy = protectionism
+	religious_policy = pro_atheism
+	citizenship_policy = limited_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "FRA_conservative_5"
+	start_date = 1894.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "FRA_reactionary_2"
+	start_date = 1883.1.1
+	end_date = 2000.1.1
+
+	ideology = reactionary
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "FRA_socialist_3"
+	start_date = 1905.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "FRA_fascist"
+	start_date = 1905.1.1
+	end_date = 2000.1.1
+
+	ideology = fascist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+unit_names = {
+	dreadnought = {
+		"敦刻尔克号" "斯特拉斯堡号" "黎塞留号" "克莱蒙梭号" "贝当号" "拿破仑号" "普安卡雷号"
+		"路易十四号" "阿尔萨斯号" "勃艮第号" "普瓦图号" "加莱号" "鲁昂号" "布雷斯特号" "蹂躏号"
+		"科尔贝号" "迪佩雷海军上将号" "恐怖号" "不屈号" "凯门鳄号" "鲨鱼号" "博丹海军上将号"
+		"可畏号" "奥什号" "马尔索号" "马真塔号" "尼普顿号" "布伦努斯号" "查理·马特号" "卡诺号"
+		"若雷吉贝里号" "马塞纳号" "布韦号" "查理曼号" "圣路易号" "高卢人号" "亨利四世号"
+		"耶拿号" "叙弗朗号" "共和国号" "祖国号" "民主号" "正义号" "自由号" "真理号"
+		"丹东号" "狄德罗号" "米拉波号" "韦尼奥号" "伏尔泰号" "孔多塞号" "科尔贝号" "法兰西号"
+		"让·巴尔特号" "巴黎号" "弗勒吕斯号" "布列塔尼号" "洛林号" "普罗旺斯号" "贝阿恩号" "佛兰德斯号"
+		"加斯科涅号" "朗格多克号" "诺曼底号" "吉耶讷号" "香槟号" "奥弗涅号" "里尔号" "里昂号"
+		"奥尔良号" "拉罗谢尔号" "波尔多号"
+	}
+	
+	battleship = {
+		"布伦努斯号" "查理·马特号" "卡诺号" "若雷吉贝里号" "马塞纳号" 布韦号 查理曼号 "圣路易号" 高卢人号 耶拿号 叙弗朗号 共和国号 祖国号 自由号 正义号 真理号 民主号 丹东号 伏尔泰号 狄德罗号 孔多塞号 米拉波号 韦尼奥号 "亨利四世号"
+	}
+	
+	ironclad = {
+		"康格里夫号" "闪电号" "熔岩号" "雷鸣号" "光荣号" "无敌号" "诺曼底号" "王冠号"
+		"马真塔号" "索尔费里诺号" "佛兰德斯号" "高卢号" "宽宏号" "普罗旺斯号" "复仇号" "萨伏依号"
+		"监视者号" "英勇号" "女英雄号"
+	}
+	manowar = {
+		"亚历山大号" "布雷斯劳号" "热罗姆亲王号" "巴黎城号" "南特城号" "迪盖·特鲁安号"
+		"塔霍河号" "多瑙沃特号" "圣路易号" "丰特努瓦号" "蒂雷纳号" "波尔多城号" "卡斯蒂廖内号"
+		"马塞纳号" "巴亚尔号" "里昂城号" "路易十四号"
+	}
+	cruiser = {
+		"克洛维号" "莫里斯·德·萨克斯号" "维钦托利号" "里什蒙号" "迪努瓦号" "内伊号" "莱热号" "沃邦号"
+		"孔代号" "蒂雷纳号" "蒙泰贝洛号" "奥斯特利茨号" "至高无上号" "纳瓦里诺号" "乌尔姆号" "瓦格拉姆号"
+		"阿尔赫西拉斯号" "阿尔科莱号" "弗里德兰号" "帝国号" "埃劳号" "提尔西特号" "耶拿号" "奥尔施泰特号"
+		"马伦戈号" "土伦号" "贝洛娜号" "光荣号" "优雅号" "大胆号" "狂暴号" "炽热号"
+		"胜利号" "女战士号" "鲁莽号" "凯旋号" "猛虎号" "坚忍号" "警惕号"
+		"顽强号" "锐气号" "迪盖·特鲁安号" "拉莫特·皮凯号" "普里马盖号" "迪凯纳号" "图尔维尔号"
+		"柯尔贝尔号" "福煦号" "阿尔及利亚号" "圣女贞德号" "摩洛哥号" "拉斐特号" "达武号" "絮歇号" "福尔班号"
+		"叙尔库夫号" "科斯莫号" "拉朗德号" "伽利略号" "拉瓦锡号" "利努瓦号" "拉加利索尼埃号"
+		"让·德·维埃纳号" "光荣号" "马赛曲号" "乔治·莱格号" "德·格拉斯号" "幻想号"
+		"伊菲革涅亚号" "那伊阿得斯号" "阿瑞图萨号" "迪布尔迪厄号" "米兰号" "好战号" "斯法克斯号" "塔霍河号"
+		"塞西尔海军上将号" "达武号" "絮歇号" "科埃特洛贡号" "福尔班号" "叙尔库夫号" "科斯莫号" "拉朗德号"
+		"特鲁德号" "伽利略号" "拉瓦锡号" "利努瓦号" "突尼斯号" "伊士利号" "比若号" "沙瑟卢-洛巴号"
+		"弗里昂号" "笛卡尔号" "帕斯卡号" "卡萨号" "达萨号" "迪谢拉号" "卡蒂纳号" "普罗泰号"
+		"当特尔卡斯托号" "吉尚号" "沙特雷诺号" "德斯特雷号" "安弗内号" "朱利安·德·拉格拉维耶尔号"
+		"普鲁托号" "埃米尔·贝尔坦号" "迪皮伊·德洛姆号" "沙尔纳海军上将号" "布律克斯号" "尚齐号" "拉图什-特雷维尔号"
+		"波托号" "迪珀蒂-图阿尔号" "盖东号" "蒙卡尔姆号" "德赛号" "迪普莱克斯号" "克莱贝尔号"
+		"奥布海军上将号" "孔代号" "叙利号" "莱昂·甘必大号" "维克多·雨果号" "儒勒·米什莱号"
+		"欧内斯特·勒南号" "埃德加·基内号" "瓦尔德克-卢梭号" "蒂永维尔号" "梅斯号" "米卢斯号" "科尔马号"
+		"达萨号" "迪谢拉号" "卡蒂纳号" "普罗泰号" "当特尔卡斯托号" "吉尚号" "沙特雷诺号"
+	}
+	frigate = {
+		"神鹰号" "雀鹰号" "猎隼号" "秃鹫号" "瓦蒂尼号" "猎犬号" "卡萨布兰卡号" "迪维尔号"
+		"卡西尼号" "拉伊尔号" "喀耳刻号" "赫敏号" "帕拉斯号" "塞弥拉弥斯号" "阿莫里卡号" "朱诺号"
+		"女巫号" "忒弥斯号" "花神号"
+	}
+	monitor = {
+		"大洋号" "马伦戈号" "叙弗朗号" "弗里德兰号" "黎塞留号" "柯尔贝尔号" "三叉戟号"
+	}
+	clipper_transport = {
+	}
+	steam_transport = {
+	}
+	commerce_raider = {
+		"阿斯莫德号" "戈梅尔号" "达连号" "拉布拉多号" "乌略亚号" "卡西克号" "加拿大号" "克里斯托弗·哥伦布号"
+		"黄金国号" "麦哲伦号" "蒙特祖马号" "奥里诺科号" "巴拿马号" "信天翁号" "笛卡尔号" "沃邦号"
+		"卡法雷利号" "莫加多尔号" "波莫娜号" "伊士利号" "贝洛娜号" "霹雳号" "欧仁妮皇后号"
+		"至高无上号" "大胆号" "狂暴号" "炽热号" "胜利号" "女战士号" "名声号"
+		"达那厄号" "潘多拉号" "芝诺比亚号" "克洛琳达号" "阿斯特赖亚号"
+	}
+}

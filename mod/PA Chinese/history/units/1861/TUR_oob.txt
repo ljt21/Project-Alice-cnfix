@@ -1,0 +1,430 @@
+PER = {
+  value = 75
+  level = 2
+  influence_value = 25
+}
+EGY = {
+  value = 0
+  level = 5
+  influence_value = 25
+}
+GRE = {
+  value = -25
+  level = 0
+  influence_value = 25
+}
+SER = {
+  value = 75
+  level = 5
+  influence_value = 25
+}
+HDJ = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+ROM = {
+  value = 25
+  level = 3
+  influence_value = 25
+}
+leader = {
+  name = "阿卜迪 帕夏"  # Abdi Pasha
+  date = 1861.1.1
+  type = land
+  personality = merciless
+  background = old_school
+  prestige = 0.2
+}
+leader = {
+  name = "阿卜杜勒凯里姆 帕夏"  # Abd眉lkerim Pasha
+  date = 1861.1.1
+  type = land
+  personality = unruly
+  background = rising_star
+  prestige = 0.2
+}
+leader = {
+  name = "伊斯梅尔 帕夏"  # Ismail Pasha
+  date = 1850.1.1
+  type = land
+  personality = balanced_p
+  background = adventurer
+  prestige = 0.2
+}
+leader = {
+  name = "奥马尔 帕夏"  # Omer Pasha
+  date = 1850.1.1
+  type = land
+  personality = skilled
+  background = powerful_friends
+  prestige = 0.2
+}
+leader = {
+  name = "穆罕默德 萨迪克 帕夏"  # Mehmet Sadik Pasha
+  date = 1850.1.1
+  type = land
+  personality = gallant
+  background = adventurer
+  prestige = 0.2
+}
+leader = {
+  name = "穆萨维尔 帕夏"  # Musavir Pasha
+  date = 1850.1.1
+  type = sea
+  personality = romantic
+  background = cartographer
+  prestige = 0.2
+}
+leader = {
+  name = "侯赛因 阿夫尼 帕夏"  # H眉seyin Avni Pasha
+  date = 1856.1.1
+  type = land
+  personality = disorderly
+  background = politician
+  prestige = 0.1
+}
+leader = {
+  name = "穆罕默德 阿里 帕夏"  # Mehmet Ali Pasha
+  date = 1861.1.1
+  type = land
+  personality = able
+  background = cursed_luck
+}
+army = {
+  name = "号敕令军"  # 1.Order
+  location = 860
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 828
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 862
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 861
+  }
+  regiment = {
+    name = "号敕令军"
+    type = engineer
+    home = 860
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 860
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 812
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 810
+  }
+  regiment = {
+    name = "号敕令军"
+    type = artillery
+    home = 883
+  }
+  regiment = {
+    name = "号敕令军"
+    type = engineer
+    home = 880
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 868
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 814
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 863
+  }
+}
+army = {
+  name = "号敕令军"  # 2.Order
+  location = 799
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 809
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 808
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 806
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 807
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 859
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 798
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 803
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 802
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 818
+  }
+}
+army = {
+  name = "号敕令军"  # 3.Order
+  location = 869
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 869
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 870
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 864
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 850
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 849
+  }
+  regiment = {
+    name = "号敕令军"
+    type = artillery
+    home = 851
+  }
+}
+army = {
+  name = "号敕令军"  # 4.Order
+  location = 873
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 878
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 877
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 873
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 875
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 874
+  }
+  regiment = {
+    name = "号敕令军"
+    type = artillery
+    home = 876
+  }
+}
+army = {
+  name = "号敕令军"  # 5.Order
+  location = 926
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 898
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 896
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 894
+  }
+}
+army = {
+  name = "号敕令军"  # 6.Order
+  location = 933
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 879
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 884
+  }
+  regiment = {
+    name = "号敕令军"
+    type = infantry
+    home = 882
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 887
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 888
+  }
+  regiment = {
+    name = "号敕令军"
+    type = cuirassier
+    home = 889
+  }
+  regiment = {
+    name = "号敕令军"
+    type = dragoon
+    home = 886
+  }
+  regiment = {
+    name = "号敕令军"
+    type = dragoon
+    home = 885
+  }
+  regiment = {
+    name = "号敕令军"
+    type = dragoon
+    home = 890
+  }
+}
+army = {
+  name = "的黎波里军团"  # Army of Tripoli
+  location = 1731
+  regiment = {
+    name = "阿斯凯里兵团"  # 4.Ask盲ris
+    type = irregular
+    home = 1731
+  }
+}
+army = {
+  name = "突尼斯贝伊军团"  # Army of the Bey of Tunis
+  location = 1725
+  regiment = {
+    name = "阿斯凯里兵团"  # 1.Ask盲ris
+    type = cavalry
+    home = 1725
+  }
+  regiment = {
+    name = "阿斯凯里兵团"  # 2.Ask盲ris
+    type = irregular
+    home = 1726
+  }
+  regiment = {
+    name = "阿斯凯里兵团"  # 3.Ask盲ris
+    type = irregular
+    home = 1728
+  }
+}
+navy = {
+  name = "土耳其舰队"  # Turkish Fleet
+  location = 860
+  ship = {
+    name = "费特希耶号"  # Fethiye
+    type = manowar
+  }
+  ship = {
+    name = "科索沃号"  # Kosovo
+    type = manowar
+  }
+  ship = {
+    name = "佩克·扎费尔号"  # Peyk-i Zafer
+    type = manowar
+  }
+  ship = {
+    name = "萨迪耶号"  # Sadiye
+    type = manowar
+  }
+  ship = {
+    name = "埃尔图鲁尔号"  # Ertugrul
+    type = frigate
+  }
+  ship = {
+    name = "许达文迪加尔号"  # H眉davandigar
+    type = frigate
+  }
+  ship = {
+    name = "克尔万·巴里号"  # Kervan-i Bahri
+    type = frigate
+  }
+  ship = {
+    name = "穆比尔·苏鲁尔号"  # Mubir-i S眉rur
+    type = frigate
+  }
+  ship = {
+    name = "费扎·巴里号"  # Feyza-i Bahri
+    type = commerce_raider
+  }
+  ship = {
+    name = "麦吉迪耶号"  # Mecidiye
+    type = commerce_raider
+  }
+  ship = {
+    name = "萨伊克·萨迪号"  # Saik-i Sadi
+    type = commerce_raider
+  }
+  ship = {
+    name = "塔伊夫号"  # Taif
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "第一运输舰队"  # 1st Transport Flotilla
+  location = 860
+  ship = {
+    name = "第一运输舰队"  # 1st Transport Flotilla
+    type = clipper_transport
+  }
+}

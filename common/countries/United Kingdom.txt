@@ -1,0 +1,152 @@
+color = { 209  66  58 }
+graphical_culture = BritishGC
+
+
+party = {
+	name = "ENG_conservative"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "ENG_liberal"
+	start_date = 1830.1.1
+	end_date = 1859.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "ENG_liberal_2"
+	start_date = 1859.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = interventionism
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "ENG_socialist"
+	start_date = 1849.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = state_capitalism
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "ENG_reactionary"
+	start_date = 1820.1.1
+	end_date = 2000.1.1
+
+	ideology = reactionary
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "ENG_anarcho_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = anarcho_liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "ENG_communist"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = communist
+
+	economic_policy = planned_economy
+	trade_policy = protectionism
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "ENG_fascist"
+	start_date = 1905.1.1
+	end_date = 2000.1.1
+
+	ideology = fascist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+unit_names = {
+	dreadnought = {
+		 "无畏号" "贝勒罗丰号" "壮丽号" "鲁莽号" "圣文森特号" "科林伍德号" "先锋号" "尼普顿号" "巨像号" "赫拉克勒斯号" "猎户座号" "君主号" "征服者号" "雷霆号" "乔治五世国王号" "百夫长号" "大胆号" "埃阿斯号" "铁公爵号" "马尔博罗号" "本鲍号" "印度皇帝号" "阿金库尔号" "爱尔兰号" "加拿大号" "伊丽莎白女王号" "厌战号" "巴勒姆号" "英勇号" "马来亚号" "皇家橡树号" "君权号" "复仇号" "决心号" "拉米伊号" "抵抗号" "纳尔逊号" "罗德尼号" "威尔士亲王号" "约克公爵号" "安森号" "豪号" "雄狮号"
+	}
+	
+	battleship = {
+		"君权号" "拉米伊号" "皇家橡树号" "反击号" "复仇号" "决心号" "印度女皇号" "威严号" "凯撒号" "汉尼拔号" "卓越号" "朱庇特号" "壮丽号" "玛尔斯号" "乔治亲王号" "胜利号" "卡诺珀斯号" "阿尔比恩号" "光荣号" "歌利亚号" "大洋号" "复仇号" "可畏号" "不屈号" "无情号" "壁垒号" "伦敦号" "尊严号" "邓肯号" "阿博马尔号" "康沃利斯号" "埃克斯茅斯号" "蒙塔古号" "拉塞尔号" "女王号" "威尔士亲王号" "爱德华七世国王号" "非洲号" "不列颠号" "联邦号" "自治领号" "希伯尼亚号" "印度斯坦号" "新西兰号" "快捷号" "凯旋号" "纳尔逊勋爵号" "阿伽门农号" "坎珀当号" "维多利亚号" "无双号" "特拉法加号" "尼罗河号"
+	}
+	
+	ironclad = {
+		"勇士号" "黑太子号" "防御号" "抵抗号" "赫克托耳号" "英勇号" "阿喀琉斯号" "米诺陶号" "阿金库尔号" "诺森伯兰号" "亲王号" "喀里多尼亚号" "大洋号" "皇家橡树号" "皇家阿尔弗雷德号" "探索号" "进取号" "宠儿号" "热忱号" "反击号" "克莱德勋爵号" "沃登勋爵号" "帕拉斯号" "贝勒罗丰号" "佩内洛普号" "赫拉克勒斯号" "君主号" "船长号" "大胆号" "无畏号" "铁公爵号" "先锋号" "快捷号" "凯旋号" "苏丹号" "蹂躏号" "雷霆号" "亚历山德拉号" "鲁莽号" "壮丽号" "尼普顿号" "不屈号" "阿伽门农号" "埃阿斯号"
+	}
+	manowar = {
+		"皇家阿尔伯特号" "温莎城堡号" "马尔博罗号" "君权号" "威尔士亲王号" "女王号" "维多利亚号" "腓特烈·威廉号" "阿尔及尔号" "阿尔比恩号" "阿布基尔号" "埃克斯茅斯号" "圣让达克号" "汉尼拔号" "长公主号" "凯撒号" "先锋号" "歌利亚号" "壮丽号" "米亚尼号" "科林伍德号" "百夫长号" "玛尔斯号" "雄狮号" "威严号" "巨像号" "不屈号" "不伦瑞克号" "猎户座号" "胡德号" "埃德加号" "无双号" "博斯科恩号" "坎伯兰号"
+	}
+	cruiser = {
+	"香农号" "纳尔逊号" "北安普敦号" "跋扈号" "厌战号" "奥兰多号" "澳大利亚号" "不屈不挠号" "纳西索斯号" "加拉泰亚号" "永生号" "曙光女神号" "布雷克号" "布伦海姆号" "埃德加号" "霍克号" "恩底弥翁号" "亚瑟王号" "直布罗陀号" "格拉夫顿号" "圣乔治号" "忒修斯号" "新月号" "强大号" "恐怖号" "王冠号" "尼俄伯号" "欧罗巴号" "安德洛墨达号" "安菲特里忒号" "阿尔戈号" "阿里阿德涅号" "斯巴达人号" "克雷西号" "萨特莱杰号" "阿布基尔号" "霍格号" "巴坎特号" "欧律阿罗斯号" "德雷克号" "好望号" "阿尔弗雷德国王号" "利维坦号" "蒙茅斯号" "贝德福德号" "埃塞克斯号" "肯特号" "贝里克号" "康沃尔号" "坎伯兰号" "多尼戈尔号" "兰开斯特号" "萨福克号" "德文郡号" "汉普郡号" "卡那封号" "安特里姆号" "罗克斯堡号" "阿盖尔号" "爱丁堡公爵号" "黑太子号" "勇士号" "科克伦号" "阿喀琉斯号" "纳塔尔号" "米诺陶号" "香农号" "防御号"
+	}
+	frigate = {
+		"独眼巨人号" "秃鹫号" "火把号" "角斗士号" "参孙号" "半人马号" "飞龙号" "佩内洛普号" "报应号" "恐怖号" "复仇者号" "伯肯黑德号" "奥丁号" "西顿号" "豹子号" "虎号" "女巫号" "英勇号" "暴怒号" "坚定号" "安菲翁号" "傲慢号" "无畏号" "警惕号" "悍妇号" "幼发拉底河号" "护民官号" "库拉索号" "跋扈号" "欧律阿罗斯号" "曙光女神号" "强音号" "切萨皮克号" "利菲河号" "香农号" "黄玉号" "巴坎特号" "利物浦号" "王冠号" "唐斯号" "阿里阿德涅号" "加拉泰亚号" "翡翠号" "墨尔波墨涅号" "永生号" "奥兰多号" "默西号" "纳西索斯号" "纽卡斯尔号" "格拉斯哥号" "布里斯托尔号" "不屈不挠号" "特威德号" "德律阿德斯号" "贝尔维德拉号" "波莫娜号" "罗利号" "不列颠人号" "巴勒姆号" "布狄卡号" "布西发拉斯号" "灵巧号" "恩底弥翁号" "伊斯特号" "布朗德号" "阿斯特赖亚号" "达特茅斯号" "无常号" "沙阿号" "罗利号"
+	}
+	monitor = {
+		"君权号" "阿尔伯特亲王号" "蝎子号" "威文号" "独眼巨人号" "戈耳工号" "赫卡忒号" "许德拉号" "刻耳柏洛斯号" "马格达拉号" "阿比西尼亚号" "格拉顿号" "赫斯珀号" "鲁珀特号" "贝尔岛号" "猎户座号" "征服者号" "英雄号" "塞文河号" "亨伯河号" "默西号" "阿伯克龙比号" "哈夫洛克号" "拉格伦号" "罗伯茨号" "克莱夫勋爵号" "克劳福德将军号" "彼得伯勒伯爵号" "托马斯·皮克顿爵士号" "尤金亲王号" "鲁珀特亲王号" "约翰·穆尔爵士号" "沃尔夫将军号" "内伊元帅号" "苏尔特元帅号" "戈耳工号" "格拉顿号" "美杜莎号" "厄瑞玻斯号" "恐怖号" "罗伯特号" "阿伯克龙比号"
+	}
+	clipper_transport = { 
+		
+
+	}
+	steam_transport = { 
+		
+
+	}
+	commerce_raider = {
+		"查尔斯亲王号" "因弗里昂号" "巴拉拉加号" "法恩伯勒号" "战利品号" "阿尔坎塔拉号" "阿尔曼索拉号" "阿尔萨斯号" "安布罗斯号" "安第斯号" "阿基坦号" "阿兰萨号" "阿马代尔号" "复仇者号" "阿沃卡号" "巴亚诺号" "贝里达号" "卡尔加里号" "花萼号" "加勒比号" "卡马尼亚号" "卡罗尼亚号" "塞德里克号" "凯尔特号" "昌吉诺拉号" "伦敦城号" "麦克诺顿氏族号" "哥伦贝拉号" "迪格比号" "埃尔布罗号" "爱丁堡城堡号" "亚洲皇后号" "不列颠皇后号" "日本皇后号" "俄罗斯皇后号" "爱斯基摩号" "希拉里号" "希尔德布兰德号" "喜马拉雅号" "印度号" "基尔多南城堡号" "金方斯城堡号" "拉科尼亚号" "洛朗蒂克号" "卢西塔尼亚号" "马其顿号" "曼图亚号" "马尔马拉号" "毛里塔尼亚号" "摩尔达维亚号" "蒙特祖马号" "摩里亚号" "莫塔瓜号" "坦普尔山号" "纳尔德拉号" "纳尔孔达号" "大洋号" "奥林匹克号" "俄斐号" "奥拉马号" "奥尔比塔号" "公主号" "斯科舍号" "条顿号" "维多利亚号" "维克诺号" "弗吉尼亚号"
+	}
+}

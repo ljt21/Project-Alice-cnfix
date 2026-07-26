@@ -1,0 +1,124 @@
+army = {
+  name = "皇家陆军"  # Royal Army
+  location = 1381
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1376
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1376
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1376
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1377
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1377
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1377
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1379
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1379
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1379
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1382
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1382
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1382
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1383
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1383
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1383
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1381
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1381
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1381
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1372
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1372
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1372
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1371
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1371
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = irregular
+    home = 1371
+  }
+}

@@ -1,0 +1,9 @@
+army = {
+  name = "迈宁根国民警卫队"  # Meiningenische Landwehr
+  location = 563
+  regiment = {
+    name = "第1步兵旅"  # 1.Linieninfanteriebrigade
+    type = irregular
+    home = 563
+  }
+}

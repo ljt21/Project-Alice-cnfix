@@ -1,0 +1,57 @@
+army = {
+  name = "纳斯鲁拉汗的军队"  # Army of Nasrullah Khan
+  location = 1198
+  regiment = {
+    name = "第一布哈拉"  # 1st Buchara
+    type = cavalry
+    home = 1198
+  }
+  regiment = {
+    name = "第二布哈拉"  # 2nd Buchara
+    type = cavalry
+    home = 1198
+  }
+  regiment = {
+    name = "第三布哈拉"  # 3rd Buchara
+    type = cavalry
+    home = 1198
+  }
+}
+army = {
+  name = "布哈拉的军队"  # Army of Bukkhara
+  location = 1197
+  regiment = {
+    name = "第四布哈拉"  # 4th Buchara
+    type = irregular
+    home = 1198
+  }
+  regiment = {
+    name = "第五布哈拉"  # 5th Buchara
+    type = irregular
+    home = 1198
+  }
+  regiment = {
+    name = "第六布哈拉"  # 6th Buchara
+    type = irregular
+    home = 1198
+  }
+}
+army = {
+  name = "撒马尔罕的军队"  # Army of Samarkand
+  location = 1199
+  regiment = {
+    name = "撒马尔罕军"  # 1.Samarkand
+    type = irregular
+    home = 1199
+  }
+  regiment = {
+    name = "撒马尔罕军"  # 2.Samarkand
+    type = irregular
+    home = 1199
+  }
+  regiment = {
+    name = "撒马尔罕军"  # 3.Samarkand
+    type = irregular
+    home = 1199
+  }
+}

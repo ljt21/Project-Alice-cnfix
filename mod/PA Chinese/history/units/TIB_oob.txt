@@ -1,0 +1,19 @@
+army = {
+  name = "藏军"  # Army of Tibet
+  location = 1587
+  regiment = {
+    name = "第一步兵团"  # 1st Infantry
+    type = irregular
+    home = 1587
+  }
+  regiment = {
+    name = "第二步兵团"  # 2nd Infantry
+    type = irregular
+    home = 1587
+  }
+  regiment = {
+    name = "第三步兵团"  # 3rd Infantry
+    type = irregular
+    home = 1588
+  }
+}

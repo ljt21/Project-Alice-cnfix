@@ -1,0 +1,34 @@
+army = {
+  name = "委内瑞拉陆军"  # Ej茅rcito de Venezuela
+  location = 2264
+  regiment = {
+    name = "步兵师"  # 1.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2264
+  }
+  regiment = {
+    name = "步兵师"  # 2.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2264
+  }
+  regiment = {
+    name = "步兵师"  # 3.Divisi贸n de Infanter铆a
+    type = infantry
+    home = 2267
+  }
+  regiment = {
+    name = "骑兵师"  # 1.Divisi贸n de Caballer铆a
+    type = cavalry
+    home = 2268
+  }
+  regiment = {
+    name = "骑兵师"  # 2.Divisi贸n de Caballer铆a
+    type = cavalry
+    home = 2269
+  }
+  regiment = {
+    name = "骑兵师"  # 3.Divisi贸n de Caballer铆a
+    type = cavalry
+    home = 2271
+  }
+}

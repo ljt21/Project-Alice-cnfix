@@ -1,0 +1,33 @@
+army = {
+  name = "巴厘国王的军队"  # Army of the King of Bali
+  location = 1438
+  regiment = {
+    name = "卡朗阿森民兵"  # 1.Karangasem Militia
+    type = irregular
+    home = 1438
+  }
+  regiment = {
+    name = "卡朗阿森民兵"  # 2.Karangasem Militia
+    type = irregular
+    home = 1438
+  }
+  regiment = {
+    name = "卡朗阿森民兵"  # 3.Karangasem Militia
+    type = irregular
+    home = 1438
+  }
+}
+army = {
+  name = "龙目国王的军队"  # Army of the King of Lombok
+  location = 1442
+  regiment = {
+    name = "卡朗阿森民兵"  # 4.Karangasem Militia
+    type = irregular
+    home = 1442
+  }
+  regiment = {
+    name = "卡朗阿森民兵"  # 5.Karangasem Militia
+    type = irregular
+    home = 1442
+  }
+}

@@ -1,0 +1,38 @@
+leader = {
+  name = "冯 多恩贝格"  # von D枚rnberg
+  date = 1807.1.1
+  type = land
+  personality = audacious
+  background = elderly
+  prestige = 0.3
+}
+leader = {
+  name = "威廉二世"  # Wilhelm II
+  date = 1813.1.1
+  type = land
+  personality = unruly
+  background = aristocrat
+  prestige = 0.3
+}
+leader = {
+  name = "弗里德里希亲王"  # Prince Friedrich
+  date = 1831.1.1
+  type = land
+  personality = unsound
+  background = aristocrat
+  prestige = 0.1
+}
+army = {
+  name = "黑森选侯国军队"  # Kurhessische Armee
+  location = 566
+  regiment = {
+    name = "黑森选侯国步兵旅"  # 1.Kurhessisches Infanterie-Brigade
+    type = infantry
+    home = 566
+  }
+  regiment = {
+    name = "黑森选侯国步兵旅"  # 2.Kurhessisches Infanterie-Brigade
+    type = infantry
+    home = 566
+  }
+}

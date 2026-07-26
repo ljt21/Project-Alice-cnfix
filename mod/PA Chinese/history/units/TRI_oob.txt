@@ -1,0 +1,27 @@
+army = {
+  name = "阿拉伯人"  # Arabs
+  location = 1732
+  regiment = {
+    name = "第一批阿拉伯人"  # 1st Arab
+    type = irregular
+    home = 1732
+  }
+}
+army = {
+  name = "柏柏尔人"  # Berbers
+  location = 1744
+  regiment = {
+    name = "伊马齐根人"  # 1.Imazighen
+    type = irregular
+    home = 1744
+  }
+}
+army = {
+  name = "图阿雷格人"  # Taureg
+  location = 1743
+  regiment = {
+    name = "伊哈杰内姆人"  # 1.Ihajenem
+    type = irregular
+    home = 1743
+  }
+}

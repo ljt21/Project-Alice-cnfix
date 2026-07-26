@@ -1,0 +1,221 @@
+color = { 147 130 110 }
+fascist_dictatorship = { 40 40 40}
+graphical_culture = PrussianGC
+
+
+party = {
+	name = "GER_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "GER_conservative"
+	start_date = 1878.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "GER_liberal_2"
+	start_date = 1861.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = jingoism
+}
+
+party = {
+	name = "GER_liberal_3"
+	start_date = 1861.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "GER_socialist"
+	start_date = 1860.1.1
+	end_date = 1875.1.1
+
+	ideology = socialist
+
+	economic_policy = planned_economy
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "GER_socialist_2"
+	start_date = 1848.1.1
+	end_date = 1875.1.1
+
+	ideology = socialist
+
+	economic_policy = planned_economy
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "GER_socialist_3"
+	start_date = 1875.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = planned_economy
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "GER_reactionary"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = reactionary
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "GER_conservative_2"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "GER_conservative_3"
+	start_date = 1878.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = pro_military
+}
+
+party = {
+	name = "GER_anarcho_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = anarcho_liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "GER_communist"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = communist
+
+	economic_policy = planned_economy
+	trade_policy = protectionism
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "GER_fascist"
+	start_date = 1905.1.1
+	end_date = 2000.1.1
+
+	ideology = fascist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+unit_names = {
+	dreadnought = {
+		巴登号 拜仁号 德夫林格号 "腓特烈大帝号" 戈本号 "大选帝侯号" 黑尔戈兰号 兴登堡号 皇帝号 皇后号 国王号 "阿尔贝特国王号" 王储号 吕措号 马肯森号 边疆总督号 毛奇号 拿骚号 奥尔登堡号 东弗里斯兰号 波森号 "柳特波德摄政王号" 莱茵兰号 萨克森号 塞德利茨号 图林根号 "冯·德·坦恩号" 威斯特伐利亚号 符腾堡号
+	}
+	
+	battleship = {
+		勃兰登堡号 "腓特烈·威廉选帝侯号" 魏森堡号 沃尔特号 "腓特烈三世皇帝号" "威廉二世皇帝号" "威廉大帝号" "卡尔大帝号" "巴巴罗萨皇帝号" 维特尔斯巴赫号 韦廷号 策林根号 施瓦本号 梅克伦堡号 不伦瑞克号 阿尔萨斯号 黑森号 普鲁士号 洛林号 德意志号 波美拉尼亚号 汉诺威号 西里西亚号 石勒苏益格-荷尔斯泰因号
+	}
+	
+	ironclad = {
+		阿米尼乌斯号 不来梅号 卡罗拉号 夏洛特号 法兰克福号 "腓特烈·卡尔号" "腓特烈大帝号" "大选帝侯号" 汉堡号 汉萨号 皇帝号 "威廉国王号" 王储号 莱比锡号 吕贝克号 玛丽号 美杜莎号 海鸥号 毛奇号 水仙女号 奥尔登堡号 奥尔加号 水獭号 利箭号 普鲁士号 "普鲁士之鹰号" "阿达尔贝特亲王号" 索菲号
+	}
+	manowar = {
+		勃兰登堡号 不伦瑞克号 德意志号 阿尔萨斯号 汉诺威号 黑森号 "巴巴罗萨皇帝号" "腓特烈三世皇帝号" "卡尔大帝号" "腓特烈·威廉选帝侯号" 洛林号 梅克伦堡号 波美拉尼亚号 普鲁士号 西里西亚号 石勒苏益格-荷尔斯泰因号 施瓦本号 魏森堡号 韦廷号 维特尔斯巴赫号 沃尔特号 策林根号
+	}
+	cruiser = {
+		亚马逊号 阿科纳号 阿里阿德涅号 奥格斯堡号 柏林号 布吕歇尔号 闪电号 不来梅号 制动号 布雷斯劳号 布雷默号 鵟号 科隆号 彗星号 神鹰号 鸬鹚号 但泽号 德意志号 德累斯顿号 埃尔宾号 埃姆登号 猎鹰号 法兰克福号 弗劳恩洛布号 弗蕾亚号 "腓特烈·卡尔号" "俾斯麦亲王号" 瞪羚号 革菲翁号 兀鹰号 格奈森瑙号 格劳登茨号 狮鹫号 汉堡号 汉萨号 海拉号 赫塔号 伊雷妮号 狩猎号 "奥古斯塔皇后号" 卡尔斯鲁厄号 柯尼斯堡号 科尔贝格号 莱比锡号 吕贝克号 马格德堡号 美因茨号 美杜莎号 流星号 慕尼黑号 尼俄伯号 纽伦堡号 宁芙号 皮劳号 "阿达尔贝特亲王号" "海因里希亲王号" "威廉公主号" 雷根斯堡号 罗恩号 罗斯托克号 沙恩霍斯特号 燕号 海雕号 雀鹰号 斯德丁号 施特拉尔松德号 斯特拉斯堡号 斯图加特号 忒提斯号 温蒂妮号 "维多利亚·路易丝号" 维内塔号 哨兵号 威斯巴登号 约克号
+	}
+	frigate = {
+		阿德勒号 信天翁号 亚历山德里娜号 亚马逊号 阿科纳号 阿里阿德涅号 奥古斯塔号 巴巴罗萨号 巴西利斯克号 俾斯麦号 闪电号 布吕歇尔号 变色龙号 彗星号 独眼巨人号 海豚号 "恩斯特·奥古斯特国王号" 德意志号 飞龙号 野猪号 埃肯弗德号 易北河号 伊丽莎白号 "约翰大公爵号" 富兰克林号 弗劳恩洛布号 弗蕾亚号 狐狸号 瞪羚号 革菲翁号 格奈森瑙号 格里勒号 "奥尔登堡大公号" 苍鹰号 鹤号 赫塔号 鬣狗号 白鼬号 猎人号 路易丝号 流星号 游蛇号 尼俄伯号 宁芙号 利箭号 火蜥蜴号 燕号 蝎子号 雀鹰号 施泰因号 施托施号 忒提斯号 虎号 温蒂妮号 Victoria 维内塔号 胡蜂号 狼号 齐腾号
+	}
+	monitor = {
+		埃吉尔号 巴登号 拜仁号 巴西利斯克号 贝奥武夫号 蜜蜂号 制动号 布雷默号 变色龙号 鳄鱼号 弗里乔夫号 哈根号 海姆达尔号 希尔德布兰德号 熊蜂号 摩泽尔号 蚊子号 游蛇号 奥丁号 莱茵河号 萨克森号 火蜥蜴号 蝎子号 齐格弗里德号 蝰蛇号 胡蜂号 符腾堡号
+	}
+	clipper_transport = {
+		亚美利加号 德意志号 多瑙河号 易北河号 欧罗巴号 汉萨号 海拉号 赫尔曼号 哈德逊号 内卡河号 "纽约号" 北美号 帕米尔号 潘加尼号 帕萨特号 北京号 "彼得·里克默斯号" 直隶号 皮萨瓜号 皮特洛赫里号 普拉西拉号 普拉号 波美拉尼亚号 波托西号 普鲁士号 普里瓦尔号 莱茵河号 "里克默·里克默斯号" 威悉河号
+	}
+	steam_transport = {
+		亚琛号 "阿德琳·胡戈·施廷内斯三号" 阿勒尔号 安斯瓦尔德号 奥索尼亚号 柏林号 波恩号 不伦瑞克号 不来梅号 布雷斯劳号 比洛号 卡塞尔号 开姆尼茨号 乔伊辛号 科布伦茨号 科堡号 鸬鹚号 克雷费尔德号 但泽号 达姆施塔特号 海豚号 多瑙河号 德累斯顿号 艾德号 爱森纳赫号 易北河号 埃姆斯号 埃尔朗根号 法兰克福号 富尔达号 "韦德尔将军号" 格拉号 吉森号 哥达号 哈雷号 汉诺威号 汉萨号 哈韦尔号 赫尔曼号 霍亨斯陶芬号 霍亨索伦号 卡尔斯鲁厄号 克莱斯特号 科隆号 拉恩号 莱比锡号 利鲍号 吕贝克号 美因河号 美因茨号 马克号 "罗恩大臣号" 摩泽尔号 慕尼黑号 内卡河号 北海号 纽伦堡号 奥得河号 奥尔登堡号 奥斯瓦尔德号 普法尔茨号 莱茵河号 罗恩号 萨勒河号 萨利尔号 Schleswig 塞德利茨号 斯库台号 施普雷河号 斯德丁号 斯特拉斯堡号 斯图加特号 泰拉皮耶号 特拉弗河号 特里尔号 联盟号 瓦特堡号 魏玛号 韦拉河号 威悉河号 维勒哈德号 维特金德号 维尔茨堡号 齐柏林号 齐腾号
+	}
+	commerce_raider = {
+		巴巴罗萨号 "特拉法加角号" 鸬鹚号 白鼬号 "威廉大帝号" "威廉王储号" 豹子号 洛勒莱号 流星号 海鸥号 "普鲁士之鹰号" "艾特尔·腓特烈亲王号" 海雕号 海狮号 维内塔号 狼号
+	}
+}

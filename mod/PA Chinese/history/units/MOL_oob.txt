@@ -1,0 +1,19 @@
+army = {
+  name = "摩尔多瓦公国军队"  # Armata Principatul Moldovei
+  location = 673
+  regiment = {
+    name = "摩尔多瓦步兵"  # 1.Infanterie Moldovei
+    type = infantry
+    home = 670
+  }
+  regiment = {
+    name = "摩尔多瓦步兵"  # 2.Infanterie Moldovei
+    type = infantry
+    home = 672
+  }
+  regiment = {
+    name = "摩尔多瓦步兵"  # 3.Infanterie Moldovei
+    type = infantry
+    home = 673
+  }
+}

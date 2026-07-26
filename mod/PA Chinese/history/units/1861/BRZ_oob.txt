@@ -1,0 +1,164 @@
+leader = {
+  name = "埃尔瓦尔侯爵"  # Marqu锚s do Herval
+  date = 1840.1.1
+  type = land
+  personality = relentless
+  background = cavalry_school
+  prestige = 0.2
+}
+leader = {
+  name = "路易斯 阿尔维斯，卡希亚斯公爵"  # Luis Alves,Duque de Caxias
+  date = 1841.1.1
+  type = land
+  personality = brilliant
+  background = innovative_tactician
+  prestige = 0.2
+}
+leader = {
+  name = "若泽 玛丽亚 万登科尔克"  # Jos茅 Maria Wandenkolk
+  date = 1843.1.1
+  type = land
+  personality = coolminded
+  background = generals_aide
+  prestige = 0.2
+}
+leader = {
+  name = "苏鲁伊部族"  # de Surui
+  date = 1845.1.1
+  type = land
+  personality = imperious
+  background = powerful_friends
+  prestige = 0.2
+}
+leader = {
+  name = "塔曼达雷侯爵"  # Marqu锚s de Tamandar茅
+  date = 1847.1.1
+  type = sea
+  personality = audacious
+  background = natural_born_leader
+  prestige = 0.2
+}
+leader = {
+  name = "索萨侯爵三世"  # Marques de Souza III
+  date = 1850.1.1
+  type = land
+  personality = efficient
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "热苏伊诺 拉梅戈 达科斯塔"  # Jesu铆no Lamego da Costa
+  date = 1851.1.1
+  type = land
+  personality = active_p
+  background = armchair_general
+  prestige = 0.2
+}
+leader = {
+  name = "伊塔佩维部族"  # de Itapevi
+  date = 1861.1.1
+  type = land
+  personality = efficient
+  background = old_school
+  prestige = 0.2
+}
+leader = {
+  name = "F.曼努埃尔 巴罗佐"  # F.Manuel Barroso
+  date = 1852.1.1
+  type = sea
+  personality = heroic
+  background = school_of_defense
+  prestige = 0.2
+}
+army = {
+  name = "第一军"  # I Corpo do ex茅rcito
+  location = 2447
+  regiment = {
+    name = "第一步兵旅"  # 1陋 Brigada de Infantaria
+    type = infantry
+    home = 2447
+  }
+  regiment = {
+    name = "第二步兵旅"  # 2陋 Brigada de Infantaria
+    type = infantry
+    home = 2450
+  }
+  regiment = {
+    name = "第三步兵旅"  # 3陋 Brigada de Infantaria
+    type = infantry
+    home = 2436
+  }
+  regiment = {
+    name = "第一骑兵旅"  # 1陋 Brigada de Cavalaria
+    type = cuirassier
+    home = 2447
+  }
+  regiment = {
+    name = "第二骑兵旅"  # 2陋 Brigada de Cavalaria
+    type = cuirassier
+    home = 2441
+  }
+  regiment = {
+    name = "第一炮兵旅"  # 1陋 Brigada de Artilharia
+    type = artillery
+    home = 2447
+  }
+}
+army = {
+  name = "第二军"  # II Corpo do ex茅rcito
+  location = 2463
+  regiment = {
+    name = "第四步兵旅"  # 4陋 Brigada de Infantaria
+    type = infantry
+    home = 2463
+  }
+  regiment = {
+    name = "第五步兵旅"  # 5陋 Brigada de Infantaria
+    type = infantry
+    home = 2461
+  }
+  regiment = {
+    name = "第六步兵旅"  # 6陋 Brigada de Infantaria
+    type = infantry
+    home = 2457
+  }
+}
+army = {
+  name = "第三军"  # III Corpo do ex茅rcito
+  location = 2429
+  regiment = {
+    name = "第四步兵旅"  # 4陋 Brigada de Infantaria
+    type = infantry
+    home = 2429
+  }
+  regiment = {
+    name = "第五步兵旅"  # 5陋 Brigada de Infantaria
+    type = infantry
+    home = 2426
+  }
+  regiment = {
+    name = "第六步兵旅"  # 6陋 Brigada de Infantaria
+    type = infantry
+    home = 2434
+  }
+}
+navy = {
+  name = "舰队"  # 1.Fleet
+  location = 2447
+  ship = {
+    name = "马瑙斯"  # Manaus
+    type = commerce_raider
+  }
+  ship = {
+    name = "里约热内卢"  # Rio de Janeiro
+    type = commerce_raider
+  }
+  ship = {
+    name = "圣保罗"  # Sao Paulo
+    type = commerce_raider
+  }
+  ship = {
+    name = "坎普斯"  # Campos
+    type = commerce_raider
+  }
+}

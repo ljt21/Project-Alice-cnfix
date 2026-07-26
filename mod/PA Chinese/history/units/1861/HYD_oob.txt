@@ -1,0 +1,102 @@
+army = {
+  name = "海得拉巴尼扎姆军队"  # Army of the Nizam of Hyderabad
+  location = 1285
+  regiment = {
+    name = "非正规骑兵"  # 1.Irregular Horse
+    type = cavalry
+    home = 1283
+  }
+  regiment = {
+    name = "非正规骑兵"  # 2.Irregular Horse
+    type = cavalry
+    home = 1278
+  }
+  regiment = {
+    name = "非正规骑兵"  # 3.Irregular Horse
+    type = cavalry
+    home = 1278
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 1.Hyderabad Contingent
+    type = infantry
+    home = 1283
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 2.Hyderabad Contingent
+    type = infantry
+    home = 1285
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 3.Hyderabad Contingent
+    type = infantry
+    home = 1287
+  }
+  regiment = {
+    name = "海得拉巴特遣队"  # 4.Hyderabad Contingent
+    type = artillery
+    home = 1283
+  }
+}
+army = {
+  name = "预备军团"  # Reserve Army
+  location = 1283
+  regiment = {
+    name = "第一海得拉巴兵团"  # 1st Hyderabad
+    type = irregular
+    home = 1283
+  }
+  regiment = {
+    name = "第二海得拉巴兵团"  # 2nd Hyderabad
+    type = irregular
+    home = 1284
+  }
+  regiment = {
+    name = "第三海得拉巴兵团"  # 3rd Hyderabad
+    type = irregular
+    home = 1284
+  }
+  regiment = {
+    name = "第四海得拉巴兵团"  # 4th Hyderabad
+    type = irregular
+    home = 1284
+  }
+  regiment = {
+    name = "第五海得拉巴兵团"  # 5th Hyderabad
+    type = irregular
+    home = 1285
+  }
+  regiment = {
+    name = "第六海得拉巴兵团"  # 6th Hyderabad
+    type = irregular
+    home = 1285
+  }
+}
+army = {
+  name = "预备军团"  # Reserve Army
+  location = 1286
+  regiment = {
+    name = "第七海得拉巴兵团"  # 7th Hyderabad
+    type = irregular
+    home = 1286
+  }
+  regiment = {
+    name = "第八海得拉巴兵团"  # 8th Hyderabad
+    type = irregular
+    home = 1286
+  }
+  regiment = {
+    name = "第九海得拉巴兵团"  # 9th Hyderabad
+    type = irregular
+    home = 1287
+  }
+  regiment = {
+    name = "第十海得拉巴兵团"  # 10th Hyderabad
+    type = irregular
+    home = 1287
+  }
+  regiment = {
+    name = "第十一海得拉巴兵团"  # 11th Hyderabad
+    type = irregular
+    home = 1287
+  }
+}

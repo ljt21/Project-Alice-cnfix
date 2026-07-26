@@ -1,0 +1,24 @@
+army = {
+  name = "智利陆军"  # Ej茅rcito de Chile
+  location = 2324
+  regiment = {
+    name = "第1步兵旅"  # 1.Brigada de Infanter铆a
+    type = infantry
+    home = 2324
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infanter铆a
+    type = infantry
+    home = 2325
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infanter铆a
+    type = infantry
+    home = 2328
+  }
+  regiment = {
+    name = "第4骑兵旅"  # 1.Brigada de Caballer铆a
+    type = cuirassier
+    home = 2324
+  }
+}

@@ -1,0 +1,119 @@
+leader = {
+  name = "保罗 齐格勒"  # Paul Ziegler
+  date = 1847.1.1
+  type = land
+  personality = active_p
+  background = politician
+  prestige = 0.2
+}
+leader = {
+  name = "奥古斯托 福利亚尔迪"  # Augusto Fogliardi
+  date = 1855.1.1
+  type = land
+  personality = active_p
+  background = debutante
+  prestige = 0.1
+}
+leader = {
+  name = "汉斯 赫尔佐格"  # Hans Herzog
+  date = 1861.1.1
+  type = land
+  personality = polite
+  background = armchair_general
+  prestige = 0.1
+}
+army = {
+  name = "联邦第一师"  # Bundesausug I.Division
+  location = 603
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 603
+  }
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 603
+  }
+  regiment = {
+    name = "狙击旅"  # Scharfsch眉tze-Brigade
+    type = guard
+    home = 603
+  }
+}
+army = {
+  name = "联邦第二师"  # Bundesausug II.Division
+  location = 604
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 604
+  }
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 608
+  }
+  regiment = {
+    name = "骑兵旅"  # Brigade der Kavallerie
+    type = dragoon
+    home = 604
+  }
+}
+army = {
+  name = "联邦第三师"  # Bundesausug III.Division
+  location = 605
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 605
+  }
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 603
+  }
+  regiment = {
+    name = "炮兵旅"  # Brigade Artillerie
+    type = artillery
+    home = 603
+  }
+}
+army = {
+  name = "联邦第四师"  # Bundesausug IV.Division
+  location = 606
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 606
+  }
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 2568
+  }
+  regiment = {
+    name = "炮兵旅"  # Brigade Artillerie
+    type = artillery
+    home = 606
+  }
+}
+army = {
+  name = "联邦第五师"  # Bundesausug V.Division
+  location = 607
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 607
+  }
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = infantry
+    home = 607
+  }
+  regiment = {
+    name = "步兵旅"  # Brigade der Infanterie
+    type = engineer
+    home = 609
+  }
+}

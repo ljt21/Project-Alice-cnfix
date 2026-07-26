@@ -1,0 +1,342 @@
+BAD = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+BAV = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+WUR = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+SAX = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+KRA = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+SER = {
+  value = 75
+  level = 2
+  influence_value = 25
+}
+SAR = {
+  value = 50
+  level = 2
+  influence_value = 25
+}
+PAP = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+SWI = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+PAR = {
+  value = 100
+  level = 5
+}
+MOD = {
+  value = 100
+  level = 5
+  influence_value = 25
+}
+TUS = {
+  value = 75
+  level = 5
+  influence_value = 25
+}
+LUC = {
+  value = 75
+  level = 5
+  influence_value = 25
+}
+DEN = {
+  value = 55
+  level = 1
+}
+PRU = {
+  value = 125
+}
+RUS = {
+  value = 100
+}
+ANH = {
+  value = -150
+  level = 0
+}
+leader = {
+  name = "约瑟夫 拉德茨基"  # Josef Radetzky
+  date = 1805.1.1
+  type = land
+  personality = au_fait
+  background = elderly
+  prestige = 0.3
+}
+leader = {
+  name = "尤利乌斯 冯 海瑙"  # Julius von Haynau
+  date = 1835.1.1
+  type = land
+  personality = wrathful
+  background = natural_born_leader
+  prestige = 0.1
+}
+leader = {
+  name = "冯 米特罗维茨-内托利茨基"  # von Mittrowitz-Nettolitzky
+  date = 1835.1.1
+  type = land
+  personality = active_p
+  background = aristocrat
+  prestige = 0.1
+}
+leader = {
+  name = "赫尔曼 冯 赫斯"  # Hermann von Hess
+  date = 1834.1.1
+  type = land
+  personality = aggressive
+  background = generals_aide
+  prestige = 0.1
+}
+leader = {
+  name = "阿斯普雷-胡布雷克"  # d’Aspre und Hoobreuck
+  date = 1832.1.1
+  type = land
+  personality = bold
+  background = drillmaster
+  prestige = 0.1
+}
+leader = {
+  name = "阿尔弗雷德 冯 温迪施格雷茨"  # Alfred von Windischgraetz
+  date = 1826.1.1
+  type = land
+  personality = arrogant
+  background = butcher
+  prestige = 0.3
+}
+leader = {
+  name = "阿尔布雷希特大公"  # Erzherzog Albrecht
+  date = 1836.1.1
+  type = land
+  personality = active_p
+  background = aristocrat
+}
+leader = {
+  name = "保卢奇 德尔 隆科尔"  # Paolucci delle Roncole
+  date = 1824.1.1
+  type = sea
+  personality = competent
+  background = aristocrat
+  prestige = 0.1
+}
+army = {
+  name = "第一集团军"  # I.Armee
+  location = 726
+  regiment = {
+    name = "第1骑兵师"
+    type = cuirassier
+    home = 619
+  }
+  regiment = {
+    name = "第2骑兵师"
+    type = cuirassier
+    home = 639
+  }
+  regiment = {
+    name = "第3骑兵师"
+    type = cuirassier
+    home = 631
+  }
+  regiment = {
+    name = "第1步兵师"
+    type = infantry
+    home = 729
+  }
+  regiment = {
+    name = "第2步兵师"
+    type = infantry
+    home = 771
+  }
+  regiment = {
+    name = "第3步兵师"
+    type = infantry
+    home = 618
+  }
+  regiment = {
+    name = "第4步兵师"
+    type = infantry
+    home = 773
+  }
+  regiment = {
+    name = "第5步兵师"
+    type = artillery
+    home = 728
+  }
+}
+army = {
+  name = "第二集团军"  # II.Armee
+  location = 702
+  regiment = {
+    name = "第1步兵师"
+    type = infantry
+    home = 627
+  }
+  regiment = {
+    name = "第2步兵师"
+    type = infantry
+    home = 640
+  }
+  regiment = {
+    name = "第3步兵师"
+    type = infantry
+    home = 705
+  }
+  regiment = {
+    name = "第4步兵师"
+    type = infantry
+    home = 630
+  }
+  regiment = {
+    name = "第5步兵师"
+    type = infantry
+    home = 643
+  }
+  regiment = {
+    name = "第6步兵师"
+    type = infantry
+    home = 702
+  }
+}
+army = {
+  name = "第三集团军"  # III.Armee
+  location = 619
+  regiment = {
+    name = "第8步兵师"
+    type = infantry
+    home = 628
+  }
+  regiment = {
+    name = "第9步兵师"
+    type = infantry
+    home = 642
+  }
+  regiment = {
+    name = "第10步兵师"
+    type = infantry
+    home = 768
+  }
+  regiment = {
+    name = "第11步兵师"
+    type = infantry
+    home = 624
+  }
+  regiment = {
+    name = "第12步兵师"
+    type = infantry
+    home = 649
+  }
+  regiment = {
+    name = "第13步兵师"
+    type = infantry
+    home = 633
+  }
+}
+army = {
+  name = "第四集团军"  # IV.Armee
+  location = 729
+  regiment = {
+    name = "第1步兵师"
+    type = infantry
+    home = 612
+  }
+  regiment = {
+    name = "第2步兵师"
+    type = infantry
+    home = 629
+  }
+  regiment = {
+    name = "第3步兵师"
+    type = infantry
+    home = 726
+  }
+  regiment = {
+    name = "第4步兵师"
+    type = infantry
+    home = 614
+  }
+  regiment = {
+    name = "第5步兵师"
+    type = infantry
+    home = 648
+  }
+  regiment = {
+    name = "第6步兵师"
+    type = infantry
+    home = 714
+  }
+}
+army = {
+  name = "第五集团军"  # V.Armee
+  location = 641
+  regiment = {
+    name = "第1骑兵师"
+    type = cuirassier
+    home = 622
+  }
+  regiment = {
+    name = "第2骑兵师"
+    type = cuirassier
+    home = 641
+  }
+  regiment = {
+    name = "第3骑兵师"
+    type = cuirassier
+    home = 626
+  }
+  regiment = {
+    name = "第1步兵师"
+    type = infantry
+    home = 613
+  }
+  regiment = {
+    name = "第2步兵师"
+    type = infantry
+    home = 644
+  }
+  regiment = {
+    name = "第3步兵师"
+    type = infantry
+    home = 625
+  }
+  regiment = {
+    name = "第4步兵师"
+    type = infantry
+    home = 616
+  }
+}
+navy = {
+  name = "奥地利帝国海军"  # Austrian Imperial Navy
+  location = 729
+  ship = {
+    name = "第1快速帆船中队"  # 1.Klipperflottille
+    type = clipper_transport
+  }
+  ship = {
+    name = "第2快速帆船中队"  # 2.Klipperflottille
+    type = clipper_transport
+  }
+  ship = {
+    name = "第3快速帆船中队"  # 3.Klipperflottille
+    type = clipper_transport
+  }
+}

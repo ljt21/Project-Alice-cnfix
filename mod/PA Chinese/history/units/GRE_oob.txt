@@ -1,0 +1,76 @@
+leader = {
+  name = "冯 海德克"  # von Heideck
+  type = land
+  date = "1833.1.1"
+  personality = romantic
+  background = poet
+  prestige = 0.1
+}
+leader = {
+  name = "德米特里奥斯 卡勒吉斯"  # Demetrios Kalergis
+  type = land
+  date = "1836.1.1"
+  personality = impetuous
+  background = cavalry_school
+}
+leader = {
+  name = "伊奥尼斯 科洛科特罗尼斯"  # Ioannis Kolokotronis
+  type = land
+  date = "1833.1.1"
+  personality = aweless
+  background = powerful_friends
+  prestige = 0.1
+}
+leader = {
+  name = "安东尼奥斯 克里埃齐斯"  # Antonios Kriezis
+  type = sea
+  date = "1836.1.1"
+  personality = audacious
+  background = expert_raider
+}
+army = {
+  name = "塞萨利亚军"  # Strat贸s Thessal铆as
+  location = 836
+  regiment = {
+    name = "第1步兵旅"  # 1.Taxiarchia Pezikou
+    type = infantry
+    home = 834
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Taxiarchia Pezikou
+    type = infantry
+    home = 836
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Taxiarchia Pezikou
+    type = infantry
+    home = 835
+  }
+  regiment = {
+    name = "第4步兵旅"  # 4.Taxiarchia Pezikou
+    type = infantry
+    home = 838
+  }
+}
+army = {
+  name = "伊庇鲁斯军"  # Strat贸s Epe铆rou
+  location = 837
+  regiment = {
+    name = "第5步兵旅"  # 5.Taxiarchia Pezikou
+    type = infantry
+    home = 837
+  }
+  regiment = {
+    name = "第6步兵旅"  # 6.Taxiarchia Pezikou
+    type = infantry
+    home = 841
+  }
+}
+navy = {
+  name = "希腊海军"  # Hellenic Navy
+  location = 834
+  ship = {
+    name = "丽达号"  # Leda
+    type = clipper_transport
+  }
+}

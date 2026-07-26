@@ -1,0 +1,9 @@
+army = {
+  name = "步兵旅"  #
+  location = 397
+  regiment = {
+    name = "步兵旅"  #
+    type = infantry
+    home = 397
+  }
+}

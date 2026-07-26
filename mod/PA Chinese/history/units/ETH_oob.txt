@@ -1,0 +1,64 @@
+leader = {
+  name = "特沃德罗斯 卡萨"  # Tewoderos Kasa
+  type = land
+  date = 1836.1.1
+  background = school_of_offense
+  personality = bold
+}
+army = {
+  name = "埃塞俄比亚皇帝军队"  # Army of the Emperor of Ethiopia
+  location = 1854
+  regiment = {
+    name = "第一加拉师"  # 1st 'Galla' Division
+    type = irregular
+    home = 1852
+  }
+  regiment = {
+    name = "第二加拉师"  # 2nd 'Galla' Division
+    type = irregular
+    home = 1853
+  }
+  regiment = {
+    name = "第三加拉师"  # 3rd 'Galla' Division
+    type = irregular
+    home = 1854
+  }
+}
+army = {
+  name = "提格雷酋长的军队"  # Army of the Ras of Tigre
+  location = 1855
+  regiment = {
+    name = "第一沃拉师"  # 1st 'Wolla' Division
+    type = irregular
+    home = 1856
+  }
+  regiment = {
+    name = "第二沃拉师"  # 2nd 'Wolla' Division
+    type = irregular
+    home = 1857
+  }
+  regiment = {
+    name = "第三沃拉师"  # 3rd 'Wolla' Division
+    type = irregular
+    home = 1855
+  }
+}
+army = {
+  name = "绍阿酋长的军队"  # Army of the Ras of Shoa
+  location = 1861
+  regiment = {
+    name = "第一绍阿师"  # 1st 'Shoa' Division
+    type = irregular
+    home = 1859
+  }
+  regiment = {
+    name = "第二绍阿师"  # 2nd 'Shoa' Division
+    type = irregular
+    home = 1859
+  }
+  regiment = {
+    name = "第三绍阿师"  # 3rd 'Shoa' Division
+    type = irregular
+    home = 1860
+  }
+}

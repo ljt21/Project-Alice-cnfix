@@ -1,0 +1,9 @@
+army = {
+  name = "吕贝克军团"  # L眉becker Armee
+  location = 530
+  regiment = {
+    name = "吕贝克步兵旅"  # L眉becker Infanterie-Brigade
+    type = infantry
+    home = 530
+  }
+}

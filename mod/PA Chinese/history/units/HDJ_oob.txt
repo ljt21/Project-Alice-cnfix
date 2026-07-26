@@ -1,0 +1,28 @@
+army = {
+  name = "贝都因人"  # Bedouins
+  location = 1153
+  regiment = {
+    name = "阿提亚部落"  # 1.Beni Atiya
+    type = irregular
+    home = 1153
+  }
+  regiment = {
+    name = "阿提亚部落"  # 2.Beni Atiya
+    type = irregular
+    home = 1152
+  }
+}
+army = {
+  name = "贝都因人"  # Bedouins
+  location = 1151
+  regiment = {
+    name = "哈尔布部落"  # 1.Harb
+    type = irregular
+    home = 1151
+  }
+  regiment = {
+    name = "哈尔布部落"  # 2.Harb
+    type = irregular
+    home = 1155
+  }
+}

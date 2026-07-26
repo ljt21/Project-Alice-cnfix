@@ -1,0 +1,52 @@
+army = {
+  name = "索科托苏丹的军队"  # Army of the Sultan of Sokoto
+  location = 1948
+  regiment = {
+    name = "富尔贝人军队"  # 1.Fulbe
+    type = cavalry
+    home = 1948
+  }
+  regiment = {
+    name = "富尔贝人军队"  # 2.Fulbe
+    type = irregular
+    home = 1945
+  }
+  regiment = {
+    name = "富尔贝人军队"  # 3.Fulbe
+    type = irregular
+    home = 1947
+  }
+}
+army = {
+  name = "阿达马瓦埃米尔的军队"  # Army of the Emir of Adamawa
+  location = 1950
+  regiment = {
+    name = "富尔贝人军队"  # 4.Fulbe
+    type = cavalry
+    home = 1950
+  }
+  regiment = {
+    name = "富尔贝人军队"  # 5.Fulbe
+    type = irregular
+    home = 1942
+  }
+}
+army = {
+  name = "伊洛林埃米尔的军队"  # Army of the Emir of Ilorin
+  location = 1927
+  regiment = {
+    name = "约鲁巴军队"  # 1.Yoruba
+    type = cavalry
+    home = 1927
+  }
+  regiment = {
+    name = "富尔贝人军队"  # 6.Fulbe
+    type = irregular
+    home = 1939
+  }
+  regiment = {
+    name = "富尔贝人军队"  # 7.Fulbe
+    type = irregular
+    home = 1946
+  }
+}

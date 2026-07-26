@@ -1,0 +1,166 @@
+leader = {
+  name = "卡尔 诺登舍尔德"  # Carl Nordenskj枚ld
+  date = 1834.1.1
+  type = sea
+  personality = disciplined
+  background = adventurer
+  prestige = 0.1
+}
+leader = {
+  name = "卡尔十四世 约翰"  # Carl XIV Johan
+  date = 1818.1.1
+  type = land
+  personality = charismatic
+  background = elderly
+  prestige = 0.5
+}
+leader = {
+  name = "约翰 塔瓦斯特"  # Johan Tawast
+  date = 1807.1.1
+  type = land
+  personality = soldierly
+  background = old_school
+  prestige = 0.3
+}
+leader = {
+  name = "阿克塞尔 默纳"  # Axel M枚rner
+  date = 1818.1.1
+  type = land
+  personality = unruly
+  background = generals_aide
+  prestige = 0.2
+}
+leader = {
+  name = "巴尔察 冯 普拉滕"  # Baltzar von Platen
+  date = 1834.1.1
+  type = sea
+  personality = able
+  background = adventurer
+  prestige = 0.1
+}
+leader = {
+  name = "C.塞德斯特伦"  # C.Cederstr
+  date = 1824.1.1
+  type = land
+  personality = strange
+  background = hated
+  prestige = 0.1
+}
+leader = {
+  name = "阿夫 比尔贝里"  # af Billbergh
+  date = 1814.1.1
+  type = land
+  personality = diplomatic
+  background = toady
+  prestige = 0.2
+}
+leader = {
+  name = "古斯塔夫 佩龙"  # Gustaf Peyron
+  date = 1827.1.1
+  type = land
+  personality = imperious
+  background = exranker
+  prestige = 0.1
+}
+army = {
+  name = "瑞典陆军"  # Svenska Arm茅n
+  location = 322
+  regiment = {
+    name = "斯韦亚近卫团"  # Svea Livgarde
+    type = guard
+    home = 322
+  }
+  regiment = {
+    name = "南曼兰军团"  # S枚dermanlands Regemente
+    type = infantry
+    home = 326
+  }
+  regiment = {
+    name = "第一近卫掷弹兵团"  # F枚rsta Livgrenadj盲rregementet
+    type = infantry
+    home = 325
+  }
+  regiment = {
+    name = "乌普兰军团"  # Upplands Regemente
+    type = infantry
+    home = 324
+  }
+  regiment = {
+    name = "西约特兰军团"  # V盲stg枚ta Regemente
+    type = infantry
+    home = 330
+  }
+  regiment = {
+    name = "卡尔马军团"  # Kalmar Regemente
+    type = infantry
+    home = 332
+  }
+  regiment = {
+    name = "延雪平军团"  # J枚nk枚pings Regemente
+    type = infantry
+    home = 333
+  }
+  regiment = {
+    name = "南斯科讷步兵团"  # S枚dra Sk氓nska Infanteriregementet
+    type = infantry
+    home = 334
+  }
+  regiment = {
+    name = "王储骠骑兵团"  # Kronprinsens Husarregemente
+    type = hussar
+    home = 335
+  }
+  regiment = {
+    name = "诺尔兰龙骑兵团"  # Norrlands Dragonregemente
+    type = dragoon
+    home = 321
+  }
+}
+navy = {
+  name = "瑞典海军"  # Swedish Navy
+  location = 322
+  ship = {
+    name = "卡尔十三世号"  # Karl XIII
+    type = manowar
+  }
+  ship = {
+    name = "卡尔十四世·约翰号"  # Karl XIV Johan
+    type = manowar
+  }
+  ship = {
+    name = "祖国号"  # F盲derneslandet
+    type = manowar
+  }
+  ship = {
+    name = "男子气概号"  # Manligheten
+    type = manowar
+  }
+  ship = {
+    name = "卡米拉号"  # Camilla
+    type = frigate
+  }
+  ship = {
+    name = "查普曼号"  # Af Chapman
+    type = frigate
+  }
+  ship = {
+    name = "欧律狄刻号"  # Eurydice
+    type = frigate
+  }
+  ship = {
+    name = "伽拉忒亚号"  # Galatea
+    type = frigate
+  }
+  ship = {
+    name = "第一运输舰队"  # 1st Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二运输舰队"  # 2nd Transport Flotilla
+    type = clipper_transport
+  }
+  ship = {
+    name = "第三运输舰队"  # 3rd Transport Flotilla
+    type = clipper_transport
+  }
+}

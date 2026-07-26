@@ -1,0 +1,274 @@
+leader = {
+  name = "大卫 沙塞"  # David Chass茅
+  date = 1806.1.1
+  type = land
+  personality = timid
+  background = school_of_defense
+  prestige = 0.3
+}
+leader = {
+  name = "弗朗斯 科奇乌斯"  # Frans Cochius
+  date = 1830.1.1
+  type = land
+  personality = aggressive
+  background = colonial_b
+  prestige = 0.1
+}
+leader = {
+  name = "亨德里克 德 科克"  # Hendrik de Kock
+  date = 1807.1.1
+  type = land
+  personality = stout
+  background = colonial_b
+  prestige = 0.3
+}
+leader = {
+  name = "范登博斯"  # van den Bosch
+  date = 1827.1.1
+  type = land
+  personality = openminded
+  background = powerful_friends
+  prestige = 0.1
+}
+leader = {
+  name = "多米尼克 德 埃伦斯"  # Dominique de Eerens
+  date = 1815.1.1
+  type = land
+  personality = soldierly
+  background = exranker
+  prestige = 0.2
+}
+leader = {
+  name = "弗雷德里克 利斯特"  # Frederik List
+  date = 1830.1.1
+  type = land
+  personality = arrogant
+  background = old_school
+  prestige = 0.1
+}
+leader = {
+  name = "恩格尔伯特斯 卢卡斯"  # Engelbertus Lucas
+  date = 1830.1.1
+  type = sea
+  personality = indifferent
+  background = politician
+  prestige = 0.1
+}
+leader = {
+  name = "查尔斯 内普弗"  # Charles Nepveu
+  date = 1831.1.1
+  type = land
+  personality = bigoted
+  background = powerful_friends
+  prestige = 0.0
+}
+leader = {
+  name = "萨克森-魏玛的卡雷尔 伯恩哈德"  # Karel Bernhard van Saksen-Weimar
+  date = 1815.1.1
+  type = land
+  personality = smart_p
+  background = uncommonly_young
+  prestige = 0.2
+}
+leader = {
+  name = "亨德里克 杜伊克"  # Hendrik Duycker
+  date = 1827.1.1
+  type = land
+  personality = mediocre
+  background = old_school
+  prestige = 0.1
+}
+leader = {
+  name = "朱利叶斯 赖克"  # Julius Rijk
+  date = 1836.1.1
+  type = sea
+  personality = able
+  background = exranker
+  prestige = 0.0
+}
+army = {
+  name = "第一师"  # 1e Divisie
+  location = 375
+  regiment = {
+    name = "第一骑兵旅"  # 1e Cavalerie Brigade
+    type = cuirassier
+    home = 375
+  }
+  regiment = {
+    name = "第二骑兵旅"  # 2e Cavalerie Brigade
+    type = cuirassier
+    home = 383
+  }
+  regiment = {
+    name = "第三骑兵旅"  # 3e Cavalerie Brigade
+    type = cuirassier
+    home = 380
+  }
+  regiment = {
+    name = "第一步兵旅"  # 1e Infanterie Brigade
+    type = infantry
+    home = 376
+  }
+  regiment = {
+    name = "第二步兵旅"  # 2e Infanterie Brigade
+    type = infantry
+    home = 381
+  }
+  regiment = {
+    name = "第三步兵旅"  # 3e Infanterie Brigade
+    type = infantry
+    home = 377
+  }
+}
+army = {
+  name = "第二师"  # 2e Divisie
+  location = 381
+  regiment = {
+    name = "第四步兵旅"  # 4e Infanterie Brigade
+    type = infantry
+    home = 378
+  }
+  regiment = {
+    name = "第五步兵旅"  # 5e Infanterie Brigade
+    type = infantry
+    home = 379
+  }
+  regiment = {
+    name = "第六步兵旅"  # 6e Infanterie Brigade
+    type = infantry
+    home = 386
+  }
+}
+army = {
+  name = "第三师"  # 3e Divisie
+  location = 375
+  regiment = {
+    name = "第七步兵旅"  # 7e Infanterie Brigade
+    type = infantry
+    home = 383
+  }
+  regiment = {
+    name = "第八步兵旅"  # 8e Infanterie Brigade
+    type = infantry
+    home = 384
+  }
+  regiment = {
+    name = "第九步兵旅"  # 9e Infanterie Brigade
+    type = infantry
+    home = 385
+  }
+}
+army = {
+  name = "K.N.I.L."
+  location = 1413
+  regiment = {
+    name = "第一印度支那旅"  # 1e Indische Brigade
+    type = infantry
+    home = 1413
+  }
+  regiment = {
+    name = "巴尼萨伦军团"  # Banisaren Korps
+    type = irregular
+    home = 1421
+  }
+}
+navy = {
+  name = "皇家海军"  # Koninklijke Marine
+  location = 375
+  ship = {
+    name = "多格滩号"  # Doggersbank
+    type = manowar
+  }
+  ship = {
+    name = "阿姆斯特丹号"  # Amsterdam
+    type = manowar
+  }
+  ship = {
+    name = "玛丽亚·雷根斯伯根号"  # Maria Regensbergen
+    type = frigate
+  }
+  ship = {
+    name = "帕拉斯号"  # Pallas
+    type = frigate
+  }
+  ship = {
+    name = "普罗塞平号"  # Proserpine
+    type = frigate
+  }
+  ship = {
+    name = "达芙妮号"  # Daphne
+    type = frigate
+  }
+  ship = {
+    name = "间谍号"  # Espion
+    type = frigate
+  }
+  ship = {
+    name = "海马号"  # Zeepaard
+    type = frigate
+  }
+  ship = {
+    name = "艾琳号"  # Irene
+    type = frigate
+  }
+  ship = {
+    name = "奥菲斯号"  # Orpheus
+    type = frigate
+  }
+  ship = {
+    name = "第一运输中队"  # 1e Transport Eskader
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "皇家荷属东印度海军"  # Koninklijke NI Marine
+  location = 1413
+  ship = {
+    name = "鲁伊特海军上将"  # Admiraal de Ruyter
+    type = manowar
+  }
+  ship = {
+    name = "期望号"  # Verwachting
+    type = manowar
+  }
+  ship = {
+    name = "奥罗拉号"  # Aurora
+    type = frigate
+  }
+  ship = {
+    name = "鸢尾号"  # Iris
+    type = frigate
+  }
+  ship = {
+    name = "凤凰号"  # Fenix
+    type = frigate
+  }
+  ship = {
+    name = "团结号"  # Eendracht
+    type = frigate
+  }
+  ship = {
+    name = "第二运输中队"  # 2e Transport Eskader
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "皇家荷属西印度海军"  # Koninklijke WI Marine
+  location = 2234
+  ship = {
+    name = "海军上将号"  # Admiraal Generaal
+    type = manowar
+  }
+  ship = {
+    name = "戴安娜号"  # Diana
+    type = frigate
+  }
+  ship = {
+    name = "希望号"  # Hoop
+    type = frigate
+  }
+  ship = {
+    name = "第三运输中队"  # 3e Transport Eskader
+    type = clipper_transport
+  }
+}

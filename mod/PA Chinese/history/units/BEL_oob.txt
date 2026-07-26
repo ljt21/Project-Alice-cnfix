@@ -1,0 +1,137 @@
+leader = {
+  name = "兰伯特 尼佩尔斯"  # Lambert Nypels
+  date = 1830.1.1
+  type = land
+  personality = soldierly
+  background = diplomat
+  prestige = 0.1
+}
+leader = {
+  name = "路易斯 埃万"  # Louis Evain
+  date = 1831.1.1
+  type = land
+  personality = able
+  background = artillerist
+  prestige = 0.1
+}
+leader = {
+  name = "戈布莱"  # Goblet
+  date = 1831.1.1
+  type = land
+  personality = diplomatic
+  background = engineer
+  prestige = 0.1
+}
+leader = {
+  name = "利奥波德一世"  # Leopold I
+  date = 1831.1.1
+  type = land
+  personality = competent
+  background = aristocrat
+  prestige = 0.5
+}
+leader = {
+  name = "阿尔伯特 普里斯"  # Albert Prisse
+  date = 1834.1.1
+  type = land
+  personality = smart_p
+  background = diplomat
+  prestige = 0.1
+}
+army = {
+  name = "第1步兵师"  # 1e Infanterie Divisie
+  location = 387
+  regiment = {
+    name = "第1步兵旅"  # 1e Infanterie Brigade
+    type = infantry
+    home = 387
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2e Infanterie Brigade
+    type = infantry
+    home = 388
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3e Infanterie Brigade
+    type = infantry
+    home = 389
+  }
+  regiment = {
+    name = "第1炮兵旅"  # 1er Brigade d'Artillerie
+    type = artillery
+    home = 392
+  }
+}
+army = {
+  name = "第2步兵师"  # 2eme Division d'Infanterie
+  location = 396
+  regiment = {
+    name = "第4步兵旅"  # 4e Infanterie Brigade
+    type = infantry
+    home = 390
+  }
+  regiment = {
+    name = "第5步兵旅"  # 5eme Brigade d'Infanterie
+    type = infantry
+    home = 393
+  }
+  regiment = {
+    name = "第6步兵旅"  # 6eme Brigade d'Infanterie
+    type = infantry
+    home = 394
+  }
+}
+army = {
+  name = "第3步兵师"  # 3eme Division d'Infanterie
+  location = 388
+  regiment = {
+    name = "第7步兵旅"  # 7eme Brigade d'Infanterie
+    type = infantry
+    home = 395
+  }
+  regiment = {
+    name = "第8步兵旅"  # 8eme Brigade d'Infanterie
+    type = infantry
+    home = 396
+  }
+  regiment = {
+    name = "第9步兵旅"  # 9eme Brigade d'Infanterie
+    type = infantry
+    home = 398
+  }
+}
+army = {
+  name = "第1骑兵师"  # 1er Division de Cavalerie
+  location = 395
+  regiment = {
+    name = "第1骑兵旅"  # 1er Brigade de Cavalerie
+    type = dragoon
+    home = 387
+  }
+  regiment = {
+    name = "第2骑兵旅"  # 2eme Brigade de Cavalerie
+    type = cuirassier
+    home = 392
+  }
+  regiment = {
+    name = "第3骑兵旅"  # 3e Cavalerie Brigade
+    type = cuirassier
+    home = 391
+  }
+}
+navy = {
+  name = "比利时皇家海军"  # Belgische Koninklijk Marine
+  location = 388
+  ship = {
+    name = "第1运输舰队"  # 1e Transport Flottille
+    type = clipper_transport
+  }
+  ship = {
+    name = "第2运输舰队"  # 2e Transport Flotille
+    type = clipper_transport
+  }
+  ship = {
+    name = "第3运输舰队"  # 3e Transport Flotille
+    type = clipper_transport
+  }
+}

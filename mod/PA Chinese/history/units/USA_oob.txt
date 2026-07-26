@@ -1,0 +1,317 @@
+TEX = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+MEX = {
+  value = 75
+  level = 2
+  influence_value = 25
+}
+UCA = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+CLM = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+BRZ = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+URU = {
+  value = 75
+  level = 3
+  influence_value = 25
+}
+LIB = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+JAP = {
+  value = 125
+}
+COL = {
+  value = 50
+  level = 2
+  influence_value = 5
+}
+leader = {
+  name = "温菲尔德 斯科特"  # Winfield Scott
+  date = 1836.1.1
+  type = land
+  personality = steadfast
+  background = school_of_firepower
+  prestige = 0.3
+}
+leader = {
+  name = "扎卡里 泰勒"  # Zachary Taylor
+  date = 1836.1.1
+  type = land
+  personality = intuitive
+  background = school_of_offense
+  prestige = 0.1
+}
+leader = {
+  name = "托马斯 杰瑟普"  # Thomas Jesup
+  date = 1836.1.1
+  type = land
+  personality = meticulous
+  background = toady
+  prestige = 0.1
+}
+leader = {
+  name = "埃德蒙 P 盖恩斯"  # Edmund P.Gaines
+  date = 1828.1.1
+  type = land
+  personality = soldierly
+  background = drillmaster
+  prestige = 0.1
+}
+leader = {
+  name = "亚历山大 麦库姆"  # Alexander Macomb
+  date = 1812.1.1
+  type = land
+  personality = heroic
+  background = engineer
+  prestige = 0.3
+}
+leader = {
+  name = "艾萨克 赫尔"  # Isaac Hull
+  date = 1810.1.1
+  type = sea
+  personality = skilled
+  background = elderly
+  prestige = 0.2
+}
+leader = {
+  name = "威廉 B 舒布里克"  # William B.Shubrick
+  date = 1836.1.1
+  type = sea
+  personality = efficient
+  background = school_of_offense
+  prestige = 0.1
+}
+leader = {
+  name = "詹姆斯 比德尔"  # James Biddle
+  date = 1830.1.1
+  type = sea
+  personality = tactful
+  background = diplomat
+  prestige = 0.1
+}
+leader = {
+  name = "马修 C 佩里"  # Matthew C.Perry
+  date = 1836.1.1
+  type = sea
+  personality = openminded
+  background = war_college
+  prestige = 0.1
+}
+army = {
+  name = "美国龙骑兵团"  # US Dragoons
+  location = 199
+  regiment = {
+    name = "第一骑兵团"  # 1st Cavalry Regiment
+    type = dragoon
+    home = 223
+  }
+  regiment = {
+    name = "第二骑兵团"  # 2nd Cavalry Regiment
+    type = dragoon
+    home = 241
+  }
+  regiment = {
+    name = "第三骑兵团"  # 3rd Cavalry Regiment
+    type = dragoon
+    home = 205
+  }
+}
+army = {
+  name = "南方军团"  # Army of the South
+  location = 200
+  regiment = {
+    name = "第一步兵团"  # 1st Regiment of Infantry
+    type = infantry
+    home = 211
+  }
+  regiment = {
+    name = "第二步兵团"  # 2nd Regiment of Infantry
+    type = infantry
+    home = 206
+  }
+  regiment = {
+    name = "第三步兵团"  # 3rd Regiment of Infantry
+    type = infantry
+    home = 188
+  }
+  regiment = {
+    name = "第一炮兵团"  # 1st Regiment of Artillery
+    type = artillery
+    home = 195
+  }
+}
+army = {
+  name = "美国陆军"  # US Army
+  location = 220
+  regiment = {
+    name = "第四步兵团"  # 4th Regiment of Infantry
+    type = infantry
+    home = 243
+  }
+  regiment = {
+    name = "第五步兵团"  # 5th Regiment of Infantry
+    type = infantry
+    home = 232
+  }
+  regiment = {
+    name = "第六步兵团"  # 6th Regiment of Infantry
+    type = infantry
+    home = 235
+  }
+  regiment = {
+    name = "第二炮兵团"  # 2nd Regiment of Artillery
+    type = artillery
+    home = 234
+  }
+}
+army = {
+  name = "观察军团"  # Army of Observation
+  location = 144
+  regiment = {
+    name = "第七步兵团"  # 7th Regiment of Infantry
+    type = infantry
+    home = 238
+  }
+  regiment = {
+    name = "第八步兵团"  # 8th Regiment of Infantry
+    type = infantry
+    home = 226
+  }
+  regiment = {
+    name = "第九步兵团"  # 9th Regiment of Infantry
+    type = infantry
+    home = 247
+  }
+}
+navy = {
+  name = "第一中队"  # 1st Squadron
+  location = 222
+  ship = {
+    name = "富兰克林号"  # Franklin
+    type = manowar
+  }
+  ship = {
+    name = "宾夕法尼亚号"  # Pennsylvania
+    type = manowar
+  }
+  ship = {
+    name = "华盛顿号"  # Washington
+    type = manowar
+  }
+  ship = {
+    name = "哥伦比亚号"  # Columbia
+    type = frigate
+  }
+  ship = {
+    name = "星座号"  # Constellation
+    type = frigate
+  }
+}
+navy = {
+  name = "第二中队"  # 2nd Squadron
+  location = 248
+  ship = {
+    name = "俄亥俄号"  # Ohio
+    type = manowar
+  }
+  ship = {
+    name = "哈德逊号"  # Hudson
+    type = frigate
+  }
+}
+navy = {
+  name = "第三中队"  # 3rd Squadron
+  location = 214
+  ship = {
+    name = "约翰·亚当斯号"  # John Adams
+    type = frigate
+  }
+  ship = {
+    name = "美利坚号"  # United States
+    type = frigate
+  }
+}
+navy = {
+  name = "第四中队"  # 4th Squadron
+  location = 219
+  ship = {
+    name = "独立号"  # Independance
+    type = frigate
+  }
+  ship = {
+    name = "布兰迪万号"  # Brandywine
+    type = frigate
+  }
+  ship = {
+    name = "宪法号"  # Constitution
+    type = frigate
+  }
+  ship = {
+    name = "波托马克号"  # Potomac
+    type = frigate
+  }
+  ship = {
+    name = "“詹姆斯·麦凯”分舰队"  # 'James McKay' Flotilla
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "第一预备中队"  # 1st Reserve Squadron
+  location = 247
+  ship = {
+    name = "阿拉巴马号"  # Alabama
+    type = manowar
+  }
+  ship = {
+    name = "佛蒙特号"  # Vermont
+    type = manowar
+  }
+  ship = {
+    name = "弗吉尼亚号"  # Virginia
+    type = manowar
+  }
+  ship = {
+    name = "第一预备运输队"  # 1st Reserve Transport
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "第二预备中队"  # 2nd Reserve Squadron
+  location = 214
+  ship = {
+    name = "哥伦布号"  # Columbus
+    type = manowar
+  }
+  ship = {
+    name = "特拉华号"  # Delaware
+    type = manowar
+  }
+  ship = {
+    name = "纽约号"  # New York
+    type = manowar
+  }
+  ship = {
+    name = "北卡罗来纳号"  # North Carolina
+    type = manowar
+  }
+  ship = {
+    name = "第二预备运输队"  # 2nd Reserve Transport
+    type = clipper_transport
+  }
+}

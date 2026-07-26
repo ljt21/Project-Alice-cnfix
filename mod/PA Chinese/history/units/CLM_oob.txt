@@ -1,0 +1,24 @@
+army = {
+  name = "哥伦比亚陆军"  # Ej茅rcito de Colombia
+  location = 2253
+  regiment = {
+    name = "第1步兵旅"  # 1.Brigada de Infanter铆a
+    type = infantry
+    home = 2247
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infanter铆a
+    type = infantry
+    home = 2252
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infanter铆a
+    type = infantry
+    home = 2254
+  }
+  regiment = {
+    name = "骑兵旅"  # 1.Brigada de Caballer铆a
+    type = cuirassier
+    home = 2250
+  }
+}

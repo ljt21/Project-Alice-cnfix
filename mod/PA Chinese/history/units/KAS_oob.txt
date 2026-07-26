@@ -1,0 +1,48 @@
+leader = {
+  name = "佐瓦尔 辛格"  # Zovawar Singh
+  type = land
+  date = 1836.1.1
+  personality = sharp
+  background = spoiled
+}
+leader = {
+  name = "古鲁布 辛格"  # Gulub Singh
+  type = land
+  date = 1836.1.1
+  personality = competent
+  background = aristocrat
+}
+army = {
+  name = "多格拉诸王军队"  # Army of the Dogra Rajas
+  location = 1224
+  regiment = {
+    name = "锡克师"  # 1.Sikh Division
+    type = infantry
+    home = 1224
+  }
+  regiment = {
+    name = "锡克师"  # 2.Sikh Division
+    type = infantry
+    home = 1224
+  }
+  regiment = {
+    name = "锡克师"  # 3.Sikh Division
+    type = infantry
+    home = 1224
+  }
+  regiment = {
+    name = "藏族师"  # 1.Tibetan Division
+    type = infantry
+    home = 1224
+  }
+  regiment = {
+    name = "藏族师"  # 2.Tibetan Division
+    type = infantry
+    home = 1224
+  }
+  regiment = {
+    name = "藏族师"  # 3.Tibetan Division
+    type = infantry
+    home = 1224
+  }
+}

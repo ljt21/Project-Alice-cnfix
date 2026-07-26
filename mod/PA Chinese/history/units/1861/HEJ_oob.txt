@@ -1,0 +1,64 @@
+army = {
+  name = "皇家陆军"  # Royal Army
+  location = 1153
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 911
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 911
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = infantry
+    home = 911
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1153
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1153
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1153
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1154
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1154
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1154
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1151
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1151
+  }
+  regiment = {
+    name = "皇家陆军"
+    type = cavalry
+    home = 1151
+  }
+}

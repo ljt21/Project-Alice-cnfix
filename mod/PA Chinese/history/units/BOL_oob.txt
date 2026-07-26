@@ -1,0 +1,29 @@
+leader = {
+  name = "何塞 巴利维安"  # Jose Ballivi谩n
+  type = land
+  date = 1836.1.1
+  background = generals_aide
+  personality = bold
+}
+army = {
+  name = "玻利维亚陆军"  # Ej茅rcito de Bolivia
+  location = 2313
+  regiment = {
+    name = "第1步兵旅"  # 1.Brigada de Infanteria
+    type = infantry
+    home = 2313
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infanteria
+    type = infantry
+    home = 2310
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infanteria
+    type = infantry
+    home = 2311
+  }
+}
+PEU = {
+  value = 200
+}

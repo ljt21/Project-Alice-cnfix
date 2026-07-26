@@ -1,0 +1,19 @@
+army = {
+  name = "焦特布尔大君的军队"  # Army of the Maharajah of Jodhpur
+  location = 1266
+  regiment = {
+    name = "焦特布尔军团"  # 1.Jodhpur Legion
+    type = infantry
+    home = 1266
+  }
+  regiment = {
+    name = "焦特布尔军团"  # 2.Jodhpur Legion
+    type = infantry
+    home = 1266
+  }
+  regiment = {
+    name = "焦特布尔骑兵"  # 1.Jodhpur Horse
+    type = cavalry
+    home = 1266
+  }
+}

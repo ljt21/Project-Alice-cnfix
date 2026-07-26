@@ -1,0 +1,14 @@
+army = {
+  name = "琅勃拉邦军团"  # Army of Luang Prabang
+  location = 1356
+  regiment = {
+    name = "第一师团"  # 1st Division
+    type = irregular
+    home = 1356
+  }
+  regiment = {
+    name = "第二师团"  # 2nd Division
+    type = irregular
+    home = 1362
+  }
+}

@@ -1,0 +1,9 @@
+army = {
+  name = "法兰克福军团"  # Frankfurter Armee
+  location = 564
+  regiment = {
+    name = "法兰克福步兵旅"  # Frankfurter Infanterie-Brigade
+    type = infantry
+    home = 564
+  }
+}

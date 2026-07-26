@@ -1,0 +1,298 @@
+color = { 231  181  12 }
+graphical_culture = SpanishGC
+
+party = {
+	name = "SPA_conservative"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = interventionism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = pro_military
+}
+
+party = {
+	name = "SPA_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = pro_military
+}
+
+party = {
+	name = "SPA_conservative_2"
+	start_date = 1854.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = state_capitalism
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "SPA_reactionary"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = reactionary
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "SPA_liberal_2"
+	start_date = 1868.1.1
+	end_date = 1903.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "SPA_liberal_3"
+	start_date = 1868.1.1
+	end_date = 1903.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "SPA_socialist"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = socialist
+
+	economic_policy = planned_economy
+	trade_policy = free_trade
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "SPA_liberal_4"
+	start_date = 1908.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = pro_atheism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "SPA_liberal_5"
+	start_date = 1903.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = limited_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "SPA_communist"
+	start_date = 1848.1.1
+	end_date = 2000.1.1
+
+	ideology = communist
+
+	economic_policy = planned_economy
+	trade_policy = free_trade
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pacifism
+}
+
+party = {
+	name = "SPA_liberal_6"
+	start_date = 1912.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "SPA_conservative_3"
+	start_date = 1901.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pluralism
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "SPA_liberal_7"
+	start_date = 1906.1.1
+	end_date = 2000.1.1
+
+	ideology = liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = secularized
+	citizenship_policy = full_citizenship
+	war_policy = anti_military
+}
+
+party = {
+	name = "SPA_conservative_4"
+	start_date = 1895.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+party = {
+	name = "SPA_conservative_5"
+	start_date = 1898.1.1
+	end_date = 2000.1.1
+
+	ideology = conservative
+
+	economic_policy = laissez_faire
+	trade_policy = protectionism
+	religious_policy = pluralism
+	citizenship_policy = limited_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "SPA_anarcho_liberal"
+	start_date = 1830.1.1
+	end_date = 2000.1.1
+
+	ideology = anarcho_liberal
+
+	economic_policy = laissez_faire
+	trade_policy = free_trade
+	religious_policy = pro_atheism
+	citizenship_policy = full_citizenship
+	war_policy = pro_military
+}
+
+party = {
+	name = "SPA_fascist"
+	start_date = 1905.1.1
+	end_date = 2000.1.1
+
+	ideology = fascist
+
+	economic_policy = state_capitalism
+	trade_policy = protectionism
+	religious_policy = moralism
+	citizenship_policy = residency
+	war_policy = jingoism
+}
+
+unit_names = {
+	dreadnought = {
+		"阿方索十三世号" "阿尔瓦罗·德·巴桑号" "托佩特准将号" 卡斯塔涅塔号 "卡塔赫纳城号" "塞维利亚城号" "瓦伦西亚城号" "阿尔瓦公爵号" "梅迪纳-西多尼亚公爵号" "帕尔马公爵号" 
+		"伟大的队长号" 西班牙号 "海洋之星号" "法德里克·阿尔瓦雷斯·德·托莱多号" "费尔南多·德·麦哲伦号" "西班牙亲王号" "海梅一世号" 兰加拉号 "路易斯·德·科尔多瓦号" "玛丽亚·德·莫利纳号"
+		"维多利亚侯爵号" 佩拉约号 "阿斯图里亚斯亲王号" 雷克森斯号 "天主教双王号" "罗德里戈·迪亚斯·德·维瓦尔号" "桑切斯·德·托瓦尔号" "桑乔三世号" "巴塞罗那城号" "马德里城号"
+	}
+	battleship = {
+			佩拉约号
+	}
+	ironclad = {
+		阿拉皮莱斯号 拜兰号 巴塞罗那号 女猎人号 科瓦东加号 杜罗河号 埃布罗河号 北风号 吉拉达号 瓜达莱特号
+		"加勒比海号" 密斯脱拉风号 "纳瓦斯-德托洛萨号" 努曼西亚号 决心号 萨贡托号 "圣金廷号" "圣玛丽亚号" 塞古拉河号 塞利亚号
+		西洛可风号 塔霍河号 坦布雷河号 得土安号 特拉蒙塔纳号 图里亚河号 胜利者号 维里阿图斯号 维多利亚号 萨拉戈萨号
+	}
+	clipper_transport = { 
+		雄鹰号 "南特之鹰号" "飞鹰号" 星盘号 曙光女神号 康塞普西翁号 科妮莉亚号 科尔特斯号 狄安娜号 埃斯梅拉达号
+		希望号 名望号 凤凰号 忠诚号 利箭号 花神号 光荣号 古萨纳号 赫敏号 伊比利亚号
+		伊菲革涅亚号 彩虹女神号 朱诺号 轻快号 马翁号 "玛丽亚·伊莎贝尔号" 美狄亚号 墨丘利号 密涅瓦号 宁芙号
+		"阿兰萨苏圣母号" "阿托查圣母号" "瓜达卢佩圣母号" "皮拉尔圣母号" "罗萨里奥圣母号" 帕拉斯号 白鸽号 珍珠号 "西班牙珍珠号" 迅捷号
+		天意号 考验号 "圣乔治号" "圣何塞号" "圣胡安号" "圣米格尔号" "圣亚拿号" "圣巴巴拉号" "圣卡塔琳娜号" "圣莱奥卡迪亚号"
+		塞壬号 孤独号 惊喜号 忒提斯号 猛虎号 凯旋号 独角兽号 复仇号 维多利亚号 活力号
+	}
+	steam_transport = { 
+		雄鹰号 "南特之鹰号" "飞鹰号" 星盘号 曙光女神号 康塞普西翁号 科妮莉亚号 科尔特斯号 狄安娜号 埃斯梅拉达号
+		希望号 名望号 凤凰号 忠诚号 利箭号 花神号 光荣号 古萨纳号 赫敏号 伊比利亚号
+		伊菲革涅亚号 彩虹女神号 朱诺号 轻快号 马翁号 "玛丽亚·伊莎贝尔号" 美狄亚号 墨丘利号 密涅瓦号 宁芙号
+		"阿兰萨苏圣母号" "阿托查圣母号" "瓜达卢佩圣母号" "皮拉尔圣母号" "罗萨里奥圣母号" 帕拉斯号 白鸽号 珍珠号 "西班牙珍珠号" 迅捷号
+		天意号 考验号 "圣乔治号" "圣何塞号" "圣胡安号" "圣米格尔号" "圣亚拿号" "圣巴巴拉号" "圣卡塔琳娜号" "圣莱奥卡迪亚号"
+		塞壬号 孤独号 惊喜号 忒提斯号 猛虎号 凯旋号 独角兽号 复仇号 维多利亚号 活力号
+	}
+	commerce_raider = {
+		"阿尔卡拉·加利亚诺号" "安特克拉海军上将号" "费兰迪斯海军上将号" "巴尔德斯海军上将号" 阿尔塞多号 大胆号 布斯塔曼特号 卡达尔索号 乌鲁卡号 西斯卡号
+		毁灭者号 埃斯卡尼奥号 狂怒号 守卫号 战士号 韦斯卡号 "豪尔赫·胡安号" "何塞·路易斯·迭斯号" 拉萨加号 野兔号
+		勇猛号 普鲁托号 普洛塞耳皮那号 "桑切斯·巴尔卡伊斯特吉号" 恐怖号 特鲁埃尔号 凯旋者号 乌略亚号 贝拉斯科号 比亚米尔号
+	}
+	cruiser = {
+		"阿方索十二世号" "奥肯多海军上将号" 阿拉贡号 "西斯内罗斯枢机号" 卡斯蒂利亚号 "奥维耶多城号" 加泰罗尼亚号 "贝纳迪托伯爵号" "克里斯托瓦尔·科隆号" "唐·安东尼奥·德·乌略亚号" 
+		"奥地利的唐·胡安号" "卡洛斯五世皇帝号" 埃斯特雷马杜拉号 格拉维纳号 "伊莎贝拉公主号" "古巴岛号" "吕宋岛号" "胡安·塞巴斯蒂安·埃尔卡诺号" 
+		"勒班陀号" "恩塞纳达侯爵号" 纳瓦拉号 "阿斯图里亚斯公主号" "克里斯蒂娜王后号" "梅塞德斯王后号" "摄政王后号" "拉普拉塔河号" "贝拉斯科号" "比斯开号"
+	}
+	
+	frigate = {
+		"塞尔韦拉海军上将号" 安达卢西亚号 阿斯图里亚斯号 大胆号 巴利阿里号 "布拉斯·德莱索号" 加那利号 狄安娜号 埃俄罗斯号 加利西亚号
+		"埃尔南·科尔特斯号" "胡安·德·拉·科萨号" 朱庇特号 黎牙实比号 玛尔斯号 "马丁·阿隆索·平松号" "门德斯·努涅斯号" "米格尔·德·塞万提斯号" 尼普顿号
+		皮萨罗号 公主号 "阿方索亲王号" "维多利亚·欧亨尼娅王后号" "萨米恩托·德·甘博亚号" "特里同号" "瓦斯科·努涅斯·德·巴尔沃亚号" "维森特·亚涅斯·平松号" "毕尔巴鄂城号" 武尔卡诺号
+	}
+	monitor = {
+		"安布罗西奥·斯皮诺拉号" "贝尔纳多·加尔韦斯号" "坎塔布里亚号" "加的斯城号" "拉斯帕尔马斯城号" "马翁城号" "帕尔马城号" "圣克鲁斯城号" "维哥城号" "得土安公爵号" 
+		"加西亚·阿尔瓦雷斯·德·托莱多号" 赫斯珀里得斯号 埃维亚号 "伊达尔戈·德·西斯内罗斯号" "伊格纳西奥·玛丽亚·德·阿拉瓦号" "拉曼查号" 莱昂号 "索科罗侯爵号" "梅嫩德斯·德·阿维莱斯号"
+		"流星号" "佩德罗·纳瓦罗号" 波特号 普奇塞达号 闪电号 雷霆号 索米耶多号 龙卷风号 巴尔德斯号 "帕雷哈海军中将号" "希洪城号"
+	}
+	manowar = {
+		"美洲号" "守护天使号" "阿喀琉斯号" "阿尔戈号" "忠告号" "征服者号" "坚定号" "光荣号" "英雄号" "无畏号"
+		"伊莎贝尔二世号" "君主号" "帕特罗西尼奥圣母号" "王室号" "弗朗西斯科·德·阿西西国王号" "圣贝尔纳多号" "圣卡洛斯号" "圣费尔明号" "圣费尔南多号" "圣弗朗西斯科·德·保拉号"
+		"圣格雷戈里奥号" "圣伊尔德丰索号" "圣伊西德罗号" "圣何塞号" "圣施洗约翰号" "圣胡利安号" "圣莱安德罗号" "圣特尔莫号" "圣地亚哥号" "胜利者号"
+	}
+}

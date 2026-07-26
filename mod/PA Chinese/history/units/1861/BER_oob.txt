@@ -1,0 +1,49 @@
+army = {
+  name = "巴罗达军团"  # Army of Beroda
+  location = 1292
+  regiment = {
+    name = "第一拉杰果德团"  # 1st Rajkot
+    type = irregular
+    home = 1292
+  }
+  regiment = {
+    name = "第二拉杰果德团"  # 2nd Rajkot
+    type = irregular
+    home = 1292
+  }
+  regiment = {
+    name = "第三拉杰果德团"  # 3rd Rajkot
+    type = irregular
+    home = 1292
+  }
+  regiment = {
+    name = "第一帕坦团"  # 1st Patan
+    type = irregular
+    home = 1294
+  }
+  regiment = {
+    name = "第二帕坦团"  # 2nd Patan
+    type = irregular
+    home = 1294
+  }
+  regiment = {
+    name = "第三帕坦团"  # 3rd Patan
+    type = irregular
+    home = 1294
+  }
+  regiment = {
+    name = "第一巴罗达团"  # 1st Baroda
+    type = irregular
+    home = 1295
+  }
+  regiment = {
+    name = "第二巴罗达团"  # 2nd Baroda
+    type = irregular
+    home = 1295
+  }
+  regiment = {
+    name = "第三巴罗达团"  # 3rd Baroda
+    type = irregular
+    home = 1295
+  }
+}

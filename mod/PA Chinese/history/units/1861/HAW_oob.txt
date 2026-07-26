@@ -1,0 +1,9 @@
+army = {
+  name = "夏威夷国王之军"  # Army of the King of Hawaii
+  location = 658
+  regiment = {
+    name = "夏威夷皇家卫队"  # 1.Hawaii Royal Guard
+    type = infantry
+    home = 658
+  }
+}

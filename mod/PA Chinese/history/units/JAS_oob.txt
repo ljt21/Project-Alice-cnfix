@@ -1,0 +1,9 @@
+army = {
+  name = "斋沙默尔大君麾下军队"  # Army of the Maharawal of Jaisalmer
+  location = 1265
+  regiment = {
+    name = "步兵部队"  # 1.Infantry
+    type = irregular
+    home = 1265
+  }
+}

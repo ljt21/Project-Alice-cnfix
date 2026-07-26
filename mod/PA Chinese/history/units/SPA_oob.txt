@@ -1,0 +1,387 @@
+MEX = {
+  value = 75
+  level = 3
+  influence_value = 25
+}
+ECU = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+PEU = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+BOL = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+CHL = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+PRG = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+UCA = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+CLM = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+BRZ = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+URU = {
+  value = 75
+  level = 3
+  influence_value = 25
+}
+POR = {
+  value = 100
+  level = 3
+  influence_value = 25
+}
+FRA = {
+  value = 55
+}
+leader = {
+  name = "巴尔多梅罗 埃斯帕特罗"  # Baldomero Espartero
+  date = 1834.1.1
+  type = land
+  personality = diplomatic
+  background = war_college
+  prestige = 0.1
+}
+leader = {
+  name = "弗朗西斯科 塞拉诺"  # Francisco Serrano
+  date = 1833.1.1
+  type = land
+  personality = expert
+  background = war_college
+  prestige = 0.0
+}
+leader = {
+  name = "莱奥波尔多 奥唐奈"  # Leopoldo O'Donnell
+  date = 1836.1.1
+  type = land
+  personality = efficient
+  background = rising_star
+  prestige = 0.0
+}
+leader = {
+  name = "纳尔瓦埃斯"  # Narv谩ez
+  date = 1836.1.1
+  type = land
+  personality = efficient
+  background = powerful_friends
+  prestige = 0.0
+}
+leader = {
+  name = "赫罗尼莫 巴尔德斯"  # Ger贸nimo Vald茅s
+  date = 1836.1.1
+  type = land
+  personality = competent
+  background = generals_aide
+  prestige = 0.0
+}
+leader = {
+  name = "范 海伦"  # Van Halen
+  date = 1823.1.1
+  type = land
+  personality = merciless
+  background = adventurer
+  prestige = 0.1
+}
+leader = {
+  name = "何塞 拉蒙 罗迪尔"  # Jos茅 Ram贸n Rodil
+  date = 1824.1.1
+  type = land
+  personality = merciless
+  background = adventurer
+  prestige = 0.1
+}
+army = {
+  name = "中央克里斯蒂诺军团"  # Ej茅rcito Cristino del Centro
+  location = 487
+  regiment = {
+    name = "国王掷弹兵团"  # 1.Granaderos del Rey
+    type = infantry
+    home = 487
+  }
+  regiment = {
+    name = "国王掷弹兵团"  # 2.Granaderos del Rey
+    type = infantry
+    home = 489
+  }
+  regiment = {
+    name = "皇家卫队"  # 3.Guardia Real
+    type = guard
+    home = 481
+  }
+  regiment = {
+    name = "'花束'步兵旅"  # 1.Brigada de Infanter铆a 'El Ramillete'
+    type = infantry
+    home = 503
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2.Brigada de Infanter铆a
+    type = infantry
+    home = 509
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3.Brigada de Infanter铆a
+    type = infantry
+    home = 513
+  }
+  regiment = {
+    name = "工兵旅"  # 1.Brigada de Ingenieros
+    type = engineer
+    home = 495
+  }
+  regiment = {
+    name = "国王掷弹兵团"  # 1.Granaderos del Rey
+    type = cuirassier
+    home = 487
+  }
+  regiment = {
+    name = "国王掷弹兵团"  # 2.Granaderos del Rey
+    type = cuirassier
+    home = 489
+  }
+  regiment = {
+    name = "国王掷弹兵团"  # 3.Granaderos del Rey
+    type = cuirassier
+    home = 488
+  }
+}
+army = {
+  name = "北方军团"  # Ej茅rcito del Norte
+  location = 498
+  regiment = {
+    name = "'圣乔治'步兵旅"  # 4.Brigada de Infanter铆a 'San Jorge'
+    type = infantry
+    home = 498
+  }
+  regiment = {
+    name = "炮兵旅"  # 1.Brigada de Artiller铆a
+    type = artillery
+    home = 476
+  }
+  regiment = {
+    name = "第5步兵旅"  # 5.Brigada de Infanter铆a
+    type = infantry
+    home = 482
+  }
+  regiment = {
+    name = "'拉格兰哈'步兵旅"  # 6.Brigada de Infanter铆a 'La Granja'
+    type = infantry
+    home = 483
+  }
+  regiment = {
+    name = "第7步兵旅"  # 7.Brigada de Infanter铆a
+    type = infantry
+    home = 497
+  }
+}
+army = {
+  name = "南方军团"  # Ej茅rcito del Sur
+  location = 512
+  regiment = {
+    name = "第8步兵旅"  # 8.Brigada de Infanter铆a
+    type = infantry
+    home = 512
+  }
+  regiment = {
+    name = "第9步兵旅"  # 9.Brigada de Infanter铆a
+    type = infantry
+    home = 514
+  }
+  regiment = {
+    name = "第10步兵旅"  # 10.Brigada de Infanter铆a
+    type = infantry
+    home = 510
+  }
+  regiment = {
+    name = "第1步兵旅"  # 11.Brigada de Infanter铆a
+    type = infantry
+    home = 516
+  }
+  regiment = {
+    name = "第2步兵旅"  # 12.Brigada de Infanter铆a
+    type = infantry
+    home = 515
+  }
+}
+army = {
+  name = "古巴军团"  # Ej茅rcito de Cuba
+  location = 2209
+  regiment = {
+    name = "第1殖民地旅"  # 1.Brigada Colonial
+    type = infantry
+    home = 474
+  }
+  regiment = {
+    name = "第2殖民地旅"  # 2.Brigada Colonial
+    type = infantry
+    home = 2209
+  }
+}
+army = {
+  name = "波多黎各军团"  # Ej茅rcito de Puerto Rico
+  location = 2222
+  regiment = {
+    name = "第3殖民地旅"  # 3.Brigada Colonial
+    type = infantry
+    home = 475
+  }
+}
+army = {
+  name = "菲律宾军团"  # Ej茅rcito de Filipinas
+  location = 1455
+  regiment = {
+    name = "第4殖民地旅"  # 4.Brigada Colonial
+    type = infantry
+    home = 1455
+  }
+}
+army = {
+  name = "棉兰老军团"  # Ej茅rcito de Mindanao
+  location = 1463
+  regiment = {
+    name = "第5殖民地旅"  # 5.Brigada Colonial
+    type = infantry
+    home = 1463
+  }
+}
+navy = {
+  name = "古巴舰队"  # Armada de Cuba
+  location = 2212
+  ship = {
+    name = "圣地亚哥号"  # Santiago
+    type = manowar
+  }
+  ship = {
+    name = "赫斯珀里得斯号"  # Hesp茅rides
+    type = manowar
+  }
+  ship = {
+    name = "哨兵号"  # Centinela
+    type = manowar
+  }
+  ship = {
+    name = "古巴岛号"  # Isla de Cuba
+    type = frigate
+  }
+  ship = {
+    name = "克里斯托瓦尔·科隆号"  # Crist贸bal Col贸n
+    type = frigate
+  }
+  ship = {
+    name = "第1运输舰队"  # 1a Flotilla de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第2运输舰队"  # 2a Flotilla de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第3运输舰队"  # 3a Flotilla de Transporte
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "菲律宾舰队"  # Armada de Filipinas
+  location = 1455
+  ship = {
+    name = "警戒号"  # Alerta
+    type = manowar
+  }
+  ship = {
+    name = "圣费尔南多号"  # San Fernando
+    type = manowar
+  }
+  ship = {
+    name = "莱加斯皮号"  # Legazpi
+    type = manowar
+  }
+  ship = {
+    name = "维多利亚号"  # Victoria
+    type = frigate
+  }
+  ship = {
+    name = "庇护圣母号"  # Nuestra Se帽ora del Patrocinio
+    type = frigate
+  }
+  ship = {
+    name = "第1运输舰队"  # 1a Flotilla de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第2运输舰队"  # 2a Flotilla de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第3运输舰队"  # 3a Flotilla de Transporte
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "西班牙皇家海军"  # Armada Real Espa帽ola
+  location = 506
+  ship = {
+    name = "圣雷蒙多号"  # San Raimundo
+    type = manowar
+  }
+  ship = {
+    name = "英雄号"  # H茅roe
+    type = manowar
+  }
+  ship = {
+    name = "圣保罗号"  # San Pablo
+    type = manowar
+  }
+  ship = {
+    name = "刻瑞斯号"  # Ceres
+    type = frigate
+  }
+  ship = {
+    name = "荣耀号"  # Gloria
+    type = frigate
+  }
+  ship = {
+    name = "圣母升天号"  # Nuestra Se帽ora de Asunci贸n
+    type = frigate
+  }
+  ship = {
+    name = "阿托查圣母号"  # Nuestra Se帽ora de Atocha
+    type = frigate
+  }
+  ship = {
+    name = "圣萨比娜号"  # Santa Sabina
+    type = frigate
+  }
+  ship = {
+    name = "第1运输舰队"  # 1a Flotilla de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第2运输舰队"  # 2a Flotilla de Transporte
+    type = clipper_transport
+  }
+  ship = {
+    name = "第3运输舰队"  # 3a Flotilla de Transporte
+    type = clipper_transport
+  }
+}

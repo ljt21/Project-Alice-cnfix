@@ -1,0 +1,9 @@
+army = {
+  name = "奥尔登堡军队"  # Oldenburgische Armee
+  location = 540
+  regiment = {
+    name = "奥尔登堡步兵旅"  # Oldenburgische Infanterie-Brigade
+    type = infantry
+    home = 540
+  }
+}

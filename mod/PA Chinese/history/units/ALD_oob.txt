@@ -1,0 +1,68 @@
+army = {
+  name = "阿卜杜勒·卡迪尔的军队"  # Army of Abd el Kader
+  location = 1707
+  regiment = {
+    name = "阿斯卡里斯骑兵"  # 1.Ask盲ris
+    type = irregular
+    home = 1707
+  }
+  regiment = {
+    name = "阿斯卡里斯骑兵"  # 2.Ask盲ris
+    type = irregular
+    home = 1702
+  }
+  regiment = {
+    name = "阿斯卡里斯骑兵"  # 3.Ask盲ris
+    type = irregular
+    home = 1705
+  }
+  regiment = {
+    name = "斯帕西骑兵"  # 1.Spahis
+    type = cavalry
+    home = 1705
+  }
+  regiment = {
+    name = "斯帕西骑兵"  # 2.Spahis
+    type = cavalry
+    home = 1715
+  }
+  regiment = {
+    name = "斯帕西骑兵"  # 3.Spahis
+    type = cavalry
+    home = 1713
+  }
+}
+army = {
+  name = "君士坦丁堡贝伊的军队"  # Army of the Bey of Constantine
+  location = 1713
+  regiment = {
+    name = "阿斯卡里斯骑兵"  # 4.Ask盲ris
+    type = irregular
+    home = 1708
+  }
+  regiment = {
+    name = "阿斯卡里斯骑兵"  # 5.Ask盲ris
+    type = irregular
+    home = 1703
+  }
+  regiment = {
+    name = "阿斯卡里斯骑兵"  # 6.Ask盲ris
+    type = irregular
+    home = 1702
+  }
+  regiment = {
+    name = "阿斯卡里斯骑兵"  # 7.Ask盲ris
+    type = irregular
+    home = 1703
+  }
+  regiment = {
+    name = "斯帕西骑兵"  # 3.Spahis
+    type = irregular
+    home = 1708
+  }
+  regiment = {
+    name = "斯帕西骑兵"  # 4.Spahis
+    type = irregular
+    home = 1710
+  }
+}

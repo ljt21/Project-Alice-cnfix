@@ -1,0 +1,65 @@
+leader = {
+  name = "弗里德里希 威廉"  # Fredrich Wilhelm
+  date = 1819.1.1
+  type = land
+  personality = impetuous
+  background = cavalry_school
+  prestige = 0.2
+}
+leader = {
+  name = "费迪南德 戈特利布"  # Ferdinand Gottleb
+  date = 1820.1.1
+  type = land
+  personality = indifferent
+  background = powerful_friends
+  prestige = 0.2
+}
+leader = {
+  name = "威廉一世"  # Wilhelm I
+  date = 1812.1.1
+  type = land
+  personality = able
+  background = aristocrat
+  prestige = 0.5
+}
+leader = {
+  name = "弗里德里希亲王"  # Prince Friedrich
+  date = 1829.1.1
+  type = land
+  personality = mediocre
+  background = politician
+  prestige = 0.1
+}
+army = {
+  name = "第一师"  # 1.Division
+  location = 589
+  regiment = {
+    name = "“卡尔国王”骑兵团"  # 1.Reiter-Regiment K枚nig Karl
+    type = cavalry
+    home = 589
+  }
+  regiment = {
+    name = "“奥尔加王后”步兵团"  # 1.Infanterie-Regiment K枚nigin Olga
+    type = infantry
+    home = 589
+  }
+  regiment = {
+    name = "步兵团"  # 2.Infanterie-Regiment
+    type = infantry
+    home = 589
+  }
+}
+army = {
+  name = "第2师"  # 2.Division
+  location = 593
+  regiment = {
+    name = "第7步兵团"  # 7.Infanterie-Regiment
+    type = infantry
+    home = 593
+  }
+  regiment = {
+    name = "第1炮兵营"  # 1.Bataillon Fu脽Artillerie
+    type = artillery
+    home = 593
+  }
+}

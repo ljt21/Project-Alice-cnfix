@@ -1,0 +1,33 @@
+army = {
+  name = "琅勃拉邦军团"  # Army of Luang Prabang
+  location = 1356
+  regiment = {
+    name = "军团旅"  # 1.Brigade
+    type = irregular
+    home = 1356
+  }
+  regiment = {
+    name = "军团旅"  # 2.Brigade
+    type = irregular
+    home = 1356
+  }
+  regiment = {
+    name = "军团旅"  # 3.Brigade
+    type = irregular
+    home = 1356
+  }
+}
+army = {
+  name = "琅勃拉邦第二军团"  # 2nd Army of Luang Prabang
+  location = 1362
+  regiment = {
+    name = "军团旅"  # 4.Brigade
+    type = irregular
+    home = 1362
+  }
+  regiment = {
+    name = "军团旅"  # 5.Brigade
+    type = irregular
+    home = 1362
+  }
+}

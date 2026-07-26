@@ -1,0 +1,53 @@
+leader = {
+  name = "扬 弗洛雷斯库"  # Ion Florescu
+  date = 1861.1.1
+  type = land
+  personality = indifferent
+  background = politician
+}
+leader = {
+  name = "格奥尔基 阿德里安"  # Gheorghe Adrian
+  date = 1861.1.1
+  type = land
+  personality = soldierly
+  background = war_college
+}
+army = {
+  name = "罗马尼亚陆军"  # Armata Rom芒na
+  location = 664
+  regiment = {
+    name = "山地猎兵旅"  # Brigada V芒natori de Munte
+    type = engineer
+    home = 672
+  }
+  regiment = {
+    name = "第1步兵旅"  # 1 Brigada de Infanterie
+    type = infantry
+    home = 664
+  }
+  regiment = {
+    name = "第2步兵旅"  # 2 Brigada de Infanterie
+    type = infantry
+    home = 670
+  }
+  regiment = {
+    name = "第3步兵旅"  # 3 Brigada de Infanterie
+    type = infantry
+    home = 670
+  }
+  regiment = {
+    name = "第4步兵旅"  # 4 Brigada de Infanterie
+    type = infantry
+    home = 668
+  }
+  regiment = {
+    name = "第5步兵旅"  # 5 Brigada de Infanterie
+    type = infantry
+    home = 673
+  }
+  regiment = {
+    name = "炮兵旅"  # Brigada de Artillerie
+    type = artillery
+    home = 669
+  }
+}

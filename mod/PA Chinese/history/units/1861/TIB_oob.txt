@@ -1,0 +1,57 @@
+army = {
+  name = "西藏方面军"  # Army of Tibet
+  location = 1587
+  regiment = {
+    name = "西藏方面军"
+    type = irregular
+    home = 1587
+  }
+  regiment = {
+    name = "西藏方面军"
+    type = irregular
+    home = 1587
+  }
+  regiment = {
+    name = "西藏方面军"
+    type = irregular
+    home = 1590
+  }
+}
+army = {
+  name = "西藏东方面军"  # Eastern Army of Tibet
+  location = 1588
+  regiment = {
+    name = "西藏东方面军"
+    type = irregular
+    home = 1588
+  }
+  regiment = {
+    name = "西藏东方面军"
+    type = irregular
+    home = 1588
+  }
+  regiment = {
+    name = "西藏东方面军"
+    type = irregular
+    home = 1593
+  }
+}
+army = {
+  name = "西藏西方面军"  # Western Army of Tibet
+  location = 1591
+  regiment = {
+    name = "西藏西方面军"
+    type = irregular
+    home = 1591
+  }
+  regiment = {
+    name = "西藏西方面军"
+    type = irregular
+    home = 1589
+  }
+  regiment = {
+    name = "西藏西方面军"
+    type = irregular
+    home = 1592
+  }
+}

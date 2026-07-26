@@ -1,0 +1,9 @@
+army = {
+  name = "利比里亚陆军"  # Liberian Army
+  location = 1887
+  regiment = {
+    name = "利比里亚"  # 1.Liberian
+    type = irregular
+    home = 1887
+  }
+}

@@ -1,0 +1,24 @@
+army = {
+  name = "柔佛苏丹的军队"  # Army of the Sultan of Johore
+  location = 1385
+  regiment = {
+    name = "柔佛州军队"  # 1.Johore State Troops
+    type = irregular
+    home = 1385
+  }
+  regiment = {
+    name = "柔佛州军队"  # 2.Johore State Troops
+    type = irregular
+    home = 1387
+  }
+  regiment = {
+    name = "柔佛州军队"  # 3.Johore State Troops
+    type = irregular
+    home = 2575
+  }
+  regiment = {
+    name = "柔佛州军队"  # 4.Johore State Troops
+    type = irregular
+    home = 1390
+  }
+}

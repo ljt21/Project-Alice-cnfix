@@ -1,0 +1,19 @@
+army = {
+  name = "奥里萨邦军队 "  # Army of Orissa 
+  location = 1262
+  regiment = {
+    name = "巴兰吉尔分遣队"  # 1.Balangir Contingent
+    type = irregular
+    home = 1262
+  }
+  regiment = {
+    name = "巴兰吉尔分遣队"  # 2.Balangir Contingent
+    type = irregular
+    home = 1262
+  }
+  regiment = {
+    name = "巴兰吉尔分遣队"  # 3.Balangir Contingent
+    type = irregular
+    home = 1263
+  }
+}

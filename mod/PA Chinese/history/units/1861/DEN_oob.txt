@@ -1,0 +1,181 @@
+PRU = {
+  value = 100
+}
+leader = {
+  name = "克里斯蒂安 德 梅萨"  # Christian de Meza
+  date = 1850.1.1
+  type = land
+  personality = ballsy
+  background = war_college
+  prestige = 0.2
+}
+leader = {
+  name = "尼尔斯 克里斯蒂安 伦丁"  # Niels Christian Lunding
+  date = 1852.1.1
+  type = land
+  personality = resourceful
+  background = engineer
+  prestige = 0.2
+}
+leader = {
+  name = "爱德华 苏恩松"  # Edouard Suenson
+  date = 1852.1.1
+  type = sea
+  personality = competent
+  background = war_college
+  prestige = 0.2
+}
+leader = {
+  name = "格奥尔格 格拉赫"  # Georg Gerlach
+  date = 1858.1.1
+  type = land
+  personality = able
+  background = generals_aide
+  prestige = 0.2
+}
+navy = {
+  name = "丹麦北海舰队"  # Danish Northsea Fleet
+  location = 372
+  ship = {
+    name = "丹讷布罗"  # Dannebrog
+    type = ironclad
+  }
+  ship = {
+    name = "腓特烈六世"  # Frederik den sjette
+    type = manowar
+  }
+  ship = {
+    name = "路易莎王后"  # Dronning Lovisa
+    type = manowar
+  }
+  ship = {
+    name = "瓦尔德马"  # Waldemar
+    type = manowar
+  }
+  ship = {
+    name = "斯基奥尔"  # Skiold
+    type = manowar
+  }
+  ship = {
+    name = "罗塔"  # Rota
+    type = frigate
+  }
+  ship = {
+    name = "贝罗纳"  # Bellona
+    type = frigate
+  }
+  ship = {
+    name = "哈弗鲁恩"  # Havfruen
+    type = frigate
+  }
+  ship = {
+    name = "忒提斯"  # Thetis
+    type = frigate
+  }
+  ship = {
+    name = "格菲昂"  # Gefion
+    type = frigate
+  }
+  ship = {
+    name = "托登舍尔德"  # Tordenskjold
+    type = frigate
+  }
+  ship = {
+    name = "尼尔斯·尤尔"  # Niels Juel
+    type = commerce_raider
+  }
+  ship = {
+    name = "日德兰"  # Jylland
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "丹麦蒸汽舰队"  # Danish Steamer Fleet
+  location = 372
+  ship = {
+    name = "埃吉尔"  # Aegir
+    type = steam_transport
+  }
+  ship = {
+    name = "赫克拉"  # Heckla
+    type = steam_transport
+  }
+  ship = {
+    name = "斯基尔尼尔"  # Skirner
+    type = steam_transport
+  }
+}
+army = {
+  name = "丹麦陆军"  # Danske Heeren
+  location = 372
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 372
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 373
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 372
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 366
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 366
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 374
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 367
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 368
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 371
+  }
+  regiment = {
+    name = "步兵师"
+    type = engineer
+    home = 373
+  }
+  regiment = {
+    name = "步兵师"
+    type = hussar
+    home = 372
+  }
+  regiment = {
+    name = "步兵师"
+    type = dragoon
+    home = 373
+  }
+  regiment = {
+    name = "步兵师"
+    type = dragoon
+    home = 366
+  }
+}

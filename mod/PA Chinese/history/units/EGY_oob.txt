@@ -1,0 +1,216 @@
+leader = {
+  name = "易卜拉欣帕夏"  # Ibrahim Pasha
+  type = land
+  date = "1832.1.1"
+  personality = defiant
+  background = expert_raider
+  prestige = 0.3
+}
+leader = {
+  name = "苏莱曼帕夏"  # Suleyman Pasha
+  type = land
+  date = "1832.1.1"
+  personality = balanced_p
+  background = drillmaster
+  prestige = 0.1
+}
+navy = {
+  name = "塔巴"  # Taba
+  location = 1753
+  ship = {
+    name = "图什卡号"  # Toushka
+    type = manowar
+  }
+  ship = {
+    name = "沙姆沙伊赫号"  # Sharm El-Sheikh
+    type = manowar
+  }
+  ship = {
+    name = "达米埃塔号"  # Damyat
+    type = manowar
+  }
+  ship = {
+    name = "拉希德号"  # Rasheed
+    type = manowar
+  }
+  ship = {
+    name = "苏伊士号"  # El Suez
+    type = manowar
+  }
+  ship = {
+    name = "阿布基尔号"  # El Aboukir
+    type = frigate
+  }
+  ship = {
+    name = "纳吉姆·扎菲尔号"  # Najim al Zafir
+    type = frigate
+  }
+  ship = {
+    name = "开罗号"  # Cairo
+    type = frigate
+  }
+  ship = {
+    name = "亚历山大号"  # Al Iskandariyah
+    type = frigate
+  }
+  ship = {
+    name = "阿斯旺号"  # Aswan
+    type = frigate
+  }
+  ship = {
+    name = "塞得港号"  # Port Said
+    type = frigate
+  }
+  ship = {
+    name = "马特鲁港号"  # Marsa Matruh
+    type = frigate
+  }
+  ship = {
+    name = "陶菲克港号"  # Bur Tawfiq
+    type = frigate
+  }
+  ship = {
+    name = "宰海卜号"  # Al Ghardaqah
+    type = frigate
+  }
+  ship = {
+    name = "萨法加港号"  # Bur Safajah
+    type = frigate
+  }
+  ship = {
+    name = "第一运输舰队"  # 1st transport flotilla
+    type = clipper_transport
+  }
+}
+army = {
+  name = "埃及军队"  # Army of Egypt
+  location = 1745
+  regiment = {
+    name = "埃及军"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "埃及军"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "埃及军"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1745
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1745
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1750
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1751
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1751
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1747
+  }
+}
+army = {
+  name = "叙利亚军队"  # Army of Syria
+  location = 902
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1746
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1752
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1748
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1749
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1765
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1764
+  }
+}
+army = {
+  name = "上尼罗河军队"  # Army of the Upper Nile
+  location = 1827
+  regiment = {
+    name = "骑兵旅"
+    type = cavalry
+    home = 1745
+  }
+  regiment = {
+    name = "骑兵旅"
+    type = cavalry
+    home = 1751
+  }
+  regiment = {
+    name = "骑兵旅"
+    type = cavalry
+    home = 1762
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1827
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1827
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1828
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1829
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1830
+  }
+  regiment = {
+    name = "步兵旅"
+    type = irregular
+    home = 1831
+  }
+}

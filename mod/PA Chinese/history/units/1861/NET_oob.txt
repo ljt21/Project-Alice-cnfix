@@ -1,0 +1,264 @@
+leader = {
+  name = "威廉 弗雷德里克亲王"  # Prins Willem Frederik
+  date = 1825.1.1
+  type = land
+  personality = active_p
+  background = drillmaster
+  prestige = 0.3
+}
+leader = {
+  name = "内普弗男爵"  # Baron Nepveu
+  date = 1836.1.1
+  type = land
+  personality = bigoted
+  background = powerful_friends
+  prestige = 0.3
+}
+leader = {
+  name = "亨德里克 库普斯"  # Hendrik Coops
+  date = 1850.1.1
+  type = sea
+  personality = diplomatic
+  background = cartographer
+  prestige = 0.2
+}
+leader = {
+  name = "扬 范 斯维滕"  # Jan van Swieten
+  date = 1853.1.1
+  type = land
+  personality = able
+  background = rising_star
+  prestige = 0.2
+}
+leader = {
+  name = "亚历山大 格雷戈里"  # Alexander Gregory
+  date = 1860.1.1
+  type = sea
+  personality = polite
+  background = armchair_general
+  prestige = 0.1
+}
+leader = {
+  name = "科勒"  # K枚hler
+  date = 1860.1.1
+  type = land
+  personality = inept
+  background = unqualified
+  prestige = 0.1
+}
+leader = {
+  name = "德 卡森布罗特"  # de Casembroot
+  date = 1860.1.1
+  type = land
+  personality = indifferent
+  background = powerful_friends
+  prestige = 0.1
+}
+army = {
+  name = "第一军团"  # I.Corps
+  location = 375
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 375
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 375
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 376
+  }
+  regiment = {
+    name = "步兵师"
+    type = dragoon
+    home = 376
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 376
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 377
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 378
+  }
+}
+army = {
+  name = "第二军团"  # II.Corps
+  location = 380
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 380
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 379
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 379
+  }
+  regiment = {
+    name = "步兵师"
+    type = engineer
+    home = 381
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 382
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 382
+  }
+  regiment = {
+    name = "步兵师"
+    type = artillery
+    home = 386
+  }
+}
+army = {
+  name = "第三军团"  # III.Corps
+  location = 383
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 383
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 384
+  }
+  regiment = {
+    name = "步兵师"
+    type = infantry
+    home = 385
+  }
+}
+army = {
+  name = "荷属东印度皇家陆军"  # Koninklijk Nederlands Indisch Leger
+  location = 1413
+  regiment = {
+    name = "殖民陆军"
+    type = infantry
+    home = 1413
+  }
+  regiment = {
+    name = "殖民陆军"
+    type = infantry
+    home = 1413
+  }
+  regiment = {
+    name = "殖民陆军"
+    type = infantry
+    home = 1414
+  }
+}
+navy = {
+  name = "荷兰舰队"  # Dutch Fleet
+  location = 375
+  ship = {
+    name = "奥兰治的威廉"  # William of Orange
+    type = manowar
+  }
+  ship = {
+    name = "特龙普号"  # Tromp
+    type = manowar
+  }
+  ship = {
+    name = "七省号"  # Zeven Provincien
+    type = manowar
+  }
+  ship = {
+    name = "德·鲁伊特号"  # de Ruyter
+    type = frigate
+  }
+  ship = {
+    name = "泽兰省"  # Zeeland
+    type = frigate
+  }
+  ship = {
+    name = "鹿特丹"  # Rotterdam
+    type = frigate
+  }
+  ship = {
+    name = "马斯特里赫特"  # Maastricht
+    type = frigate
+  }
+  ship = {
+    name = "库拉索"  # Curacao
+    type = frigate
+  }
+  ship = {
+    name = "巴达维亚"  # Batavia
+    type = commerce_raider
+  }
+}
+navy = {
+  name = "第一运输中队"  # 1st Transport Squadron
+  location = 375
+  ship = {
+    name = "第一运输支队"  # 1st Transport Flotilla
+    type = steam_transport
+  }
+  ship = {
+    name = "第二运输支队"  # 2nd Transport Flotilla
+    type = steam_transport
+  }
+}
+navy = {
+  name = "东印度舰队"  # East Indies Squadron
+  location = 1418
+  ship = {
+    name = "瓦塞纳尔海军上将号"  # Admiraal van Wassenaer
+    type = frigate
+  }
+  ship = {
+    name = "拿骚的阿道夫公爵号"  # Adolf Hertog van Nassau
+    type = frigate
+  }
+  ship = {
+    name = "埃弗岑号"  # Evertsen
+    type = frigate
+  }
+  ship = {
+    name = "布雷达号"  # Breda
+    type = frigate
+  }
+  ship = {
+    name = "兹沃勒号"  # Zwolle
+    type = frigate
+  }
+  ship = {
+    name = "格罗宁根号"  # Groningen
+    type = frigate
+  }
+  ship = {
+    name = "吕伐登号"  # Leeuwarden
+    type = frigate
+  }
+}
+navy = {
+  name = "第二运输中队"  # 2nd Transport Squadron
+  location = 1418
+  ship = {
+    name = "第三运输支队"  # 3rd Transport Flotilla
+    type = clipper_transport
+  }
+}

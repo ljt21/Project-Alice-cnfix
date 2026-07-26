@@ -1,0 +1,719 @@
+BEL = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+LUX = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+NET = {
+  value = -100
+  level = 3
+}
+PAP = {
+  value = 125
+  level = 5
+  influence_value = 25
+}
+SIC = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+SWI = {
+  value = 125
+  level = 3
+  influence_value = 25
+}
+SAR = {
+  value = 125
+  level = 4
+  influence_value = 25
+}
+GRE = {
+  value = 75
+  level = 4
+  influence_value = 10
+}
+ENG = {
+  value = 0
+}
+RUS = {
+  value = -75
+}
+AUS = {
+  value = 0
+}
+USA = {
+  value = 50
+}
+PRU = {
+  value = -25
+}
+TUR = {
+  value = 0
+}
+SPA = {
+  value = 55
+}
+leader = {
+  name = "德 拉 皮科纳里"  # de la Piconnerie
+  date = 1836.1.1
+  type = land
+  personality = confident
+  background = professor
+  prestige = 0.1
+}
+leader = {
+  name = "让-伊西多尔 阿里斯佩"  # Jean-Isidore Harispe
+  date = 1830.1.1
+  type = land
+  personality = heroic
+  background = natural_born_leader
+  prestige = 0.3
+}
+leader = {
+  name = "盖伊-维克多 迪佩雷"  # Guy-Victor Duperr茅
+  date = 1811.1.1
+  type = sea
+  personality = au_fait
+  background = natural_born_leader
+  prestige = 0.3
+}
+leader = {
+  name = "卡斯特拉内伯爵"  # Comte de Castelanne
+  date = 1823.1.1
+  type = land
+  personality = incapable
+  background = aristocrat
+  prestige = 0.2
+}
+leader = {
+  name = "雅克 阿沙尔"  # Jacques Achard
+  date = 1823.1.1
+  type = land
+  personality = relentless
+  background = elderly
+  prestige = 0.2
+}
+leader = {
+  name = "让-巴蒂斯特 瓦扬"  # Jean-Baptiste Vaillant
+  date = 1832.1.1
+  type = land
+  personality = lackluster
+  background = engineer
+  prestige = 0.1
+}
+leader = {
+  name = "贝尔南 皮埃尔 马格南"  # Bernand Pierre Magnan
+  date = 1835.1.1
+  type = land
+  personality = disorderly
+  background = bootlicker
+  prestige = 0.1
+}
+leader = {
+  name = "巴拉盖 迪利耶"  # Baraguey d'Hilliers
+  date = 1836.1.1
+  type = land
+  personality = active_p
+  background = drillmaster
+  prestige = 0.1
+}
+leader = {
+  name = "朗东伯爵"  # Comte de Randon
+  date = 1835.1.1
+  type = land
+  personality = indifferent
+  background = old_school
+  prestige = 0.1
+}
+leader = {
+  name = "夏尔 鲍丹"  # Charles Baudin
+  date = 1836.1.1
+  type = sea
+  personality = stouthearted
+  background = unfit
+  prestige = 0.1
+}
+leader = {
+  name = "雷耶"  # Reille
+  date = 1836.1.1
+  type = land
+  personality = gallant
+  background = generals_aide
+  prestige = 0.0
+}
+leader = {
+  name = "德 拉 布鲁内里"  # de la Brunerie
+  date = 1836.1.1
+  type = land
+  personality = stouthearted
+  background = unfit
+  prestige = 0.0
+}
+army = {
+  name = "王家卫队"  # Garde Royale
+  location = 425
+  regiment = {
+    name = "王家卫队"  # 1.Garde Royale
+    type = guard
+    home = 425
+  }
+  regiment = {
+    name = "王家卫队"  # 2.Garde Royale
+    type = guard
+    home = 426
+  }
+  regiment = {
+    name = "王家卫队"  # 3.Garde Royale
+    type = guard
+    home = 427
+  }
+  regiment = {
+    name = "王家卫队"  # 4.Garde Royale
+    type = guard
+    home = 440
+  }
+}
+army = {
+  name = "步兵师"  # Division d'Infanterie
+  location = 438
+  regiment = {
+    name = "步兵师"  # 1.Division d'Infanterie
+    type = infantry
+    home = 438
+  }
+  regiment = {
+    name = "步兵师"  # 2.Division d'Infanterie
+    type = infantry
+    home = 400
+  }
+  regiment = {
+    name = "步兵师"  # 3.Division d'Infanterie
+    type = infantry
+    home = 401
+  }
+  regiment = {
+    name = "步兵师"  # 4.Division d'Infanterie
+    type = infantry
+    home = 441
+  }
+  regiment = {
+    name = "步兵师"  # 5.Division d'Infanterie
+    type = infantry
+    home = 2570
+  }
+  regiment = {
+    name = "步兵师"  # 6.Division d'Infanterie
+    type = infantry
+    home = 404
+  }
+  regiment = {
+    name = "步兵师"  # 7.Division d'Infanterie
+    type = infantry
+    home = 402
+  }
+  regiment = {
+    name = "步兵师"  # 8.Division d'Infanterie
+    type = infantry
+    home = 403
+  }
+  regiment = {
+    name = "炮兵师"  # 0.Division d'Infanterie
+    type = artillery
+    home = 399
+  }
+}
+army = {
+  name = "禁卫骑兵"  # Cavalerie de la Garde
+  location = 468
+  regiment = {
+    name = "禁卫骑兵"  # 1.Cavalerie de la Garde
+    type = hussar
+    home = 458
+  }
+  regiment = {
+    name = "禁卫骑兵"  # 2.Cavalerie de la Garde
+    type = hussar
+    home = 420
+  }
+  regiment = {
+    name = "禁卫重骑兵"  # 3.Cavalerie de la Garde
+    type = cuirassier
+    home = 418
+  }
+  regiment = {
+    name = "禁卫重骑兵"  # 4.Cavalerie de la Garde
+    type = cuirassier
+    home = 406
+  }
+}
+army = {
+  name = "阿尔及利亚军团"  # Algerie
+  leader = {
+    name = "贝特朗 克劳泽尔"  # Bertrand Clauzel
+    date = 1803.1.1
+    type = land
+    personality = inefficient
+    background = elderly
+    prestige = 0.1
+  }
+  location = 1700
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 425
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 423
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 432
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 439
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 433
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 431
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 429
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 442
+  }
+  regiment = {
+    name = "阿尔及利亚军团"
+    type = infantry
+    home = 459
+  }
+}
+army = {
+  name = "第七步兵师" 
+  location = 1701
+  regiment = {
+    name = "第七步兵师"
+    type = infantry
+    home = 415
+  }
+  regiment = {
+    name = "第七步兵师"
+    type = infantry
+    home = 416
+  }
+  regiment = {
+    name = "第七步兵师"
+    type = infantry
+    home = 417
+  }
+}
+army = {
+  name = "第一骑兵师" 
+  location = 1704
+  regiment = {
+    name = "第一骑兵师"
+    type = dragoon
+    home = 422
+  }
+  regiment = {
+    name = "第一骑兵师"
+    type = dragoon
+    home = 436
+  }
+  regiment = {
+    name = "第一骑兵师"
+    type = dragoon
+    home = 421
+  }
+}
+army = {
+  name = "西班牙干预部队"  # Force d'intervention Espagnole
+  location = 458
+  regiment = {
+    name = "西班牙干预部队"
+    type = infantry
+    home = 455
+  }
+  regiment = {
+    name = "西班牙干预部队"
+    type = infantry
+    home = 457
+  }
+  regiment = {
+    name = "西班牙干预部队"
+    type = infantry
+    home = 473
+  }
+  regiment = {
+    name = "西班牙干预部队"
+    type = infantry
+    home = 456
+  }
+  regiment = {
+    name = "西班牙干预部队"
+    type = artillery
+    home = 470
+  }
+  regiment = {
+    name = "西班牙干预部队"
+    type = infantry
+    home = 434
+  }
+  regiment = {
+    name = "西班牙胸甲骑兵"
+    type = cuirassier
+    home = 462
+  }
+  regiment = {
+    name = "西班牙胸甲骑兵"
+    type = cuirassier
+    home = 463
+  }
+  regiment = {
+    name = "西班牙胸甲骑兵"
+    type = cuirassier
+    home = 460
+  }
+}
+army = {
+  name = "塞内加尔驻军"  
+  location = 1784
+  regiment = {
+    name = "塞内加尔驻军"
+    type = infantry
+    home = 411
+  }
+  regiment = {
+    name = "塞内加尔驻军"
+    type = infantry
+    home = 407
+  }
+  regiment = {
+    name = "塞内加尔驻军"
+    type = infantry
+    home = 444
+  }
+}
+army = {
+  name = "科特迪瓦驻军" 
+  location = 1894
+  regiment = {
+    name = "科特迪瓦驻军"
+    type = infantry
+    home = 467
+  }
+  regiment = {
+    name = "科特迪瓦驻军"
+    type = infantry
+    home = 454
+  }
+  regiment = {
+    name = "科特迪瓦驻军"
+    type = infantry
+    home = 428
+  }
+}
+navy = {
+  name = "北方舰队"  # Escadre du Nord
+  location = 420
+  ship = {
+    name = "王冠号"  # Couronne
+    type = manowar
+  }
+  ship = {
+    name = "辉煌号"  # Superbe
+    type = manowar
+  }
+  ship = {
+    name = "让·巴尔号"  # Jean Bart
+    type = manowar
+  }
+  ship = {
+    name = "牧月十八号"  # Dix-huit Fructidor
+    type = manowar
+  }
+  ship = {
+    name = "瓦格拉姆号"  # Wagram
+    type = manowar
+  }
+  ship = {
+    name = "特罗卡德罗号聽"  # Trocadero聽
+    type = manowar
+  }
+  ship = {
+    name = "泽兰号"  # Z茅landais
+    type = manowar
+  }
+  ship = {
+    name = "辉煌号"  # Superbe
+    type = manowar
+  }
+  ship = {
+    name = "奥斯特利茨号"  # Austerlitz
+    type = manowar
+  }
+  ship = {
+    name = "宏伟号"  # Magnifique
+    type = manowar
+  }
+  ship = {
+    name = "法兰西共和国号"  # R茅publique Fran莽aise
+    type = manowar
+  }
+  ship = {
+    name = "征服者号"  # Conqu茅rant
+    type = manowar
+  }
+  ship = {
+    name = "海王星号"  # Neptune
+    type = manowar
+  }
+  ship = {
+    name = "阿尔赫西拉斯号"  # Algerisas
+    type = manowar
+  }
+  ship = {
+    name = "内斯特号"  # Nestor
+    type = manowar
+  }
+  ship = {
+    name = "贝里公爵夫人号"  # Duchesse de Berry
+    type = frigate
+  }
+  ship = {
+    name = "忒提斯号"  # Th茅tis
+    type = frigate
+  }
+  ship = {
+    name = "阿斯特赖亚号"  # Astr茅e
+    type = frigate
+  }
+  ship = {
+    name = "亚马逊号"  # Amazone
+    type = frigate
+  }
+  ship = {
+    name = "克洛林德号"  # Clorinde
+    type = frigate
+  }
+  ship = {
+    name = "摩尔号"  # Maure
+    type = frigate
+  }
+  ship = {
+    name = "维斯塔莱号"  # Vestale
+    type = frigate
+  }
+  ship = {
+    name = "魔女号"  # Magicienne
+    type = frigate
+  }
+  ship = {
+    name = "玛丽·特蕾莎号"  # Marie Th茅rese
+    type = frigate
+  }
+  ship = {
+    name = "维纳斯号"  # Venus
+    type = frigate
+  }
+  ship = {
+    name = "塞壬号"  # Sirne
+    type = frigate
+  }
+  ship = {
+    name = "阿塔兰忒号"  # Atalante
+    type = frigate
+  }
+  ship = {
+    name = "监视者号"  # Surveillante
+    type = frigate
+  }
+  ship = {
+    name = "伊菲革涅亚号"  # Iphig茅nie
+    type = frigate
+  }
+  ship = {
+    name = "苏丹娜号"  # Sultane
+    type = frigate
+  }
+  ship = {
+    name = "第一运输船队"  # Flotille de Transport
+    type = clipper_transport
+  }
+  ship = {
+    name = "第二运输船队"  # Flotille de Transport
+    type = clipper_transport
+  }
+  ship = {
+    name = "第三运输船队"  #  Flotille de Transport
+    type = clipper_transport
+  }
+}
+navy = {
+  name = "地中海舰队"  # Escadre de Mditerrane
+  location = 470
+  ship = {
+    name = "特里同号"  # Triton
+    type = manowar
+  }
+  ship = {
+    name = "勃艮第三级议会号"  # Etats de Bourgogne
+    type = manowar
+  }
+  ship = {
+    name = "君主号"  # Souverain
+    type = manowar
+  }
+  ship = {
+    name = "马伦戈号"  # Marengo
+    type = manowar
+  }
+  ship = {
+    name = "马赛城号"  # Ville de Marseilles
+    type = manowar
+  }
+  ship = {
+    name = "赫拉克勒斯号"  # Hercule
+    type = manowar
+  }
+  ship = {
+    name = "蒙特贝罗号聽"  # Montebello聽
+    type = manowar
+  }
+  ship = {
+    name = "半人马号"  # Centaure
+    type = manowar
+  }
+  ship = {
+    name = "朱庇特号"  # Jupiter
+    type = manowar
+  }
+  ship = {
+    name = "昂古莱姆公爵号"  # Duc d’Angouleme
+    type = manowar
+  }
+  ship = {
+    name = "赫拉克勒斯号"  # Hercules
+    type = manowar
+  }
+  ship = {
+    name = "慷慨号"  # Gnreux
+    type = manowar
+  }
+  ship = {
+    name = "王冠号"  # Diadme
+    type = manowar
+  }
+  ship = {
+    name = "王冠号"  # Couronne
+    type = manowar
+  }
+  ship = {
+    name = "叙弗朗号"  # Suffren
+    type = manowar
+  }
+  ship = {
+    name = "三叉戟号"  # Trident
+    type = manowar
+  }
+  ship = {
+    name = "皇家路易号聽"  # Royal Louis
+    type = manowar
+  }
+  ship = {
+    name = "巴黎商贸号"  # Commerces de Paris
+    type = manowar
+  }
+  ship = {
+    name = "忒耳普西科瑞号"  # Terpsichore
+    type = frigate
+  }
+  ship = {
+    name = "阿耳忒弥斯号"  # Arth茅mise
+    type = frigate
+  }
+  ship = {
+    name = "美丽加布里埃尔号"  # Belle Gabrielle
+    type = frigate
+  }
+  ship = {
+    name = "狄多号"  # Didon
+    type = frigate
+  }
+  ship = {
+    name = "卡罗琳号"  # Caroline
+    type = frigate
+  }
+  ship = {
+    name = "赫尔米尼号"  # Herminie
+    type = frigate
+  }
+  ship = {
+    name = "墨尔波墨涅号"  # Melpomne
+    type = frigate
+  }
+  ship = {
+    name = "乌拉尼亚号"  # Uranie
+    type = frigate
+  }
+  ship = {
+    name = "安德洛墨达号"  # Andromde
+    type = frigate
+  }
+  ship = {
+    name = "圣女贞德号"  # Jeanne d’Arc
+    type = frigate
+  }
+  ship = {
+    name = "美丽小鸡号"  # Belle Poule
+    type = frigate
+  }
+  ship = {
+    name = "厄里戈涅号"  # Erigone
+    type = frigate
+  }
+  ship = {
+    name = "涅瑞伊得斯号"  # Nereide
+    type = frigate
+  }
+  ship = {
+    name = "荣耀号"  # Gloire
+    type = frigate
+  }
+  ship = {
+    name = "白女王号"  # Reine Blanche
+    type = frigate
+  }
+  ship = {
+    name = "第四运输船队"  # 4me Flotille de Transport
+    type = clipper_transport
+  }
+  ship = {
+    name = "第五运输船队"  # 5me Flotille de Transport
+    type = clipper_transport
+  }
+  ship = {
+    name = "第六运输船队"  # 6me Flotille de Transport
+    type = clipper_transport
+  }
+}

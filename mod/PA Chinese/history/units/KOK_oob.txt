@@ -1,0 +1,38 @@
+army = {
+  name = "浩罕汗国第1军"  # 1st Army of the Khanate of Kokand
+  location = 1202
+  regiment = {
+    name = "第1旅"  # 1st Brigade
+    type = irregular
+    home = 1189
+  }
+  regiment = {
+    name = "第2旅"  # 2nd Brigade
+    type = irregular
+    home = 1189
+  }
+  regiment = {
+    name = "第3旅"  # 3rd Brigade
+    type = irregular
+    home = 1189
+  }
+}
+army = {
+  name = "浩罕汗国第2军"  # 2nd Army of The Khanate of Kokand
+  location = 1208
+  regiment = {
+    name = "第4旅"  # 4th Brigade
+    type = irregular
+    home = 1190
+  }
+  regiment = {
+    name = "第5旅"  # 5th Brigade
+    type = irregular
+    home = 1203
+  }
+  regiment = {
+    name = "第6旅"  # 6th Brigade
+    type = irregular
+    home = 1203
+  }
+}
