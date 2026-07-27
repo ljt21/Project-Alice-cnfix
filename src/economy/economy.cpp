@@ -5136,6 +5136,7 @@ void resolve_constructions(sys::state& state) {
 			auto a = fatten(state.world, state.world.create_army());
 
 			a.set_controller_from_army_control(c.get_nation());
+			military::set_auto_army_name(state, a.id, c.get_nation());
 			state.world.try_create_army_membership(new_reg, a);
 			state.world.try_create_regiment_source(new_reg, c.get_pop());
 			military::army_arrives_in_province(state, a, pop_location, military::crossing_type::none);
@@ -5193,10 +5194,11 @@ void resolve_constructions(sys::state& state) {
 
 			if(ready_for_deployment) {
 				auto new_ship = military::create_new_ship(state, c.get_nation(), c.get_type());
-				auto a = fatten(state.world, state.world.create_navy());
-				a.set_controller_from_navy_control(c.get_nation());
-				a.set_location_from_navy_location(p);
-				state.world.try_create_navy_membership(new_ship, a);
+			auto a = fatten(state.world, state.world.create_navy());
+			a.set_controller_from_navy_control(c.get_nation());
+			a.set_location_from_navy_location(p);
+			military::set_auto_navy_name(state, a.id, c.get_nation());
+			state.world.try_create_navy_membership(new_ship, a);
 				military::move_navy_to_merge(state, c.get_nation(), a, c.get_province(), c.get_template_province());
 
 				if(c.get_nation() == state.local_player_nation) {

@@ -423,7 +423,7 @@ else() # GCC or CLANG
 		-mavx2 -mfma )
 	else()
 		target_compile_options(AliceCommon INTERFACE
-		-march=nehalem -fno-fast-math -ffp-model=precise -ffp-contract=off )
+		-march=nehalem -fno-fast-math $<$<CXX_COMPILER_ID:Clang>:-ffp-model=precise> -ffp-contract=off )
 	endif()
 
 

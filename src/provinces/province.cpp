@@ -1378,6 +1378,7 @@ void change_province_owner(sys::state& state, dcon::province_id id, dcon::nation
 					auto old_army = src.get_regiment().get_army_from_army_membership();
 					auto new_u = fatten(state.world, state.world.create_army());
 					new_u.set_controller_from_army_control(new_owner);
+					military::set_auto_army_name(state, new_u.id, new_owner);
 					src.get_regiment().set_army_from_army_membership(new_u);
 					// if the previous army is now empty, clean it up early so incoming collitions with enemy armies on the same day can be handled properly
 					if(old_army.get_army_membership().begin() == old_army.get_army_membership().end()) {

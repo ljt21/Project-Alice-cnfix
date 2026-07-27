@@ -205,6 +205,13 @@ bool leader_is_in_combat(sys::state& state, dcon::leader_id l);
 dcon::leader_id make_new_leader(sys::state& state, dcon::nation_id n, bool is_general);
 void kill_leader(sys::state& state, dcon::leader_id l);
 
+// 为自动生成的军队/海军设置名称（基于该国已有军队/海军数量自动编号）
+void set_auto_army_name(sys::state& state, dcon::army_id a, dcon::nation_id n);
+void set_auto_navy_name(sys::state& state, dcon::navy_id v, dcon::nation_id n);
+void set_auto_rebel_name(sys::state& state, dcon::army_id a);
+
+void rename_all_units(sys::state& state);
+
 void give_back_units(sys::state& state, dcon::nation_id target);
 
 // tests whether joining the war would violate the constraint that you can't both be in a war with and

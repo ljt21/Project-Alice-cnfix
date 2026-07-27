@@ -1078,10 +1078,11 @@ void rebel_risings_check(sys::state& state) {
 									return ar.get_army().id;
 							}
 							auto new_army = fatten(state.world, state.world.create_army());
-							new_army.set_controller_from_army_rebel_control(rf);
-							new_army.set_location_from_army_location(pop_location);
-							new_armies.push_back(new_army);
-							return new_army.id;
+						new_army.set_controller_from_army_rebel_control(rf);
+						new_army.set_location_from_army_location(pop_location);
+						military::set_auto_rebel_name(state, new_army.id);
+						new_armies.push_back(new_army);
+						return new_army.id;
 						}();
 						state.world.try_create_army_membership(new_reg, a);
 						state.world.try_create_regiment_source(new_reg, pop.get_pop());
