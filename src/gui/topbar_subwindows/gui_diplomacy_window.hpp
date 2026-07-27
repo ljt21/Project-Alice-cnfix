@@ -2340,6 +2340,9 @@ public:
 		simple_text_element_base::on_create(state);
 		set_text(state, text::produce_simple_string(state, "tut_8c_3"));
 	}
+	void on_reset_text(sys::state& state) noexcept override {
+		set_text(state, text::produce_simple_string(state, "tut_8c_3"));
+	}
 };
 inline const int DiplomaticActionsRows = 11;
 

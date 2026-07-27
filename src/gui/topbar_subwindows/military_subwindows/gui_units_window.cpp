@@ -462,6 +462,13 @@ class build_unit_button : public button_element_base {
 public:
 	bool disarmed = false;
 	bool no_possible_units = false;
+	void on_reset_text(sys::state& state) noexcept override {
+		if constexpr(std::is_same_v<T, dcon::army_id>) {
+			set_button_text(state, text::produce_simple_string(state, "military_build_army_label"));
+		} else {
+			set_button_text(state, text::produce_simple_string(state, "military_build_navy_label"));
+		}
+	}
 	void button_action(sys::state& state) noexcept override {
 		state.ui_state.unit_window_army->set_visible(state, false);
 		state.ui_state.unit_window_navy->set_visible(state, false);
