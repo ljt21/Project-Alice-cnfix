@@ -463,6 +463,8 @@ public:
 	bool disarmed = false;
 	bool no_possible_units = false;
 	void on_reset_text(sys::state& state) noexcept override {
+		// 切换语言时用新语言重新生成本地化文本，避免 cached_text 仍为旧语言字符串
+		// 导致在英文字体下渲染中文字符出现空白
 		if constexpr(std::is_same_v<T, dcon::army_id>) {
 			set_button_text(state, text::produce_simple_string(state, "military_build_army_label"));
 		} else {

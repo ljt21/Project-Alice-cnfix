@@ -23,8 +23,7 @@ else()
 	add_executable(launch_alice		
 		"${PROJECT_SOURCE_DIR}/src/launcher/launcher_main_nix.cpp"
 		${ALICE_INCREMENTAL_SOURCES_LIST}
-		${LAUNCHER_ASSET_FILES}
-		"${PROJECT_SOURCE_DIR}/src/alice.rc")
+		${LAUNCHER_ASSET_FILES})
 endif()
 
 target_compile_definitions(launch_alice PUBLIC ALICE_NO_ENTRY_POINT=1)
