@@ -48,6 +48,7 @@ ffi.cdef[[
     void remove_battle_end(const char function_name[]);
 
     void set_text(const char text[]);
+    const char* get_localised_text(const char key[]);
     int32_t local_player_nation();
 
     void console_log(const char text[]);
@@ -73,6 +74,12 @@ end
 ---@param text string
 function STATE.set_text(text)
     return ffi.C.set_text(text)
+end
+
+---@param key string
+---@return string
+function STATE.get_localised_text(key)
+    return ffi.string(ffi.C.get_localised_text(key))
 end
 
 

@@ -1001,7 +1001,7 @@ ORA;奥兰治
 TRN;德兰士瓦
 LUA;琅勃拉邦
 WIA;万象
-NEW;纽芬兰
+NEW;新建工厂
 ZAN;桑给巴尔
 NAS;拿骚
 ANH;安哈尔特
@@ -1627,8 +1627,8 @@ MILITARY_ADMIRAL_TOOLTIP;海军将领
 MILITARY_SKILL_TOOLTIP;技能：?Y$SKILL$?W
 MILITARY_NEW_GENERAL_TOOLTIP;提拔陆军将领\n我们当前可以提拔?Y$VALUE$?W位陆军将领
 MILITARY_NEW_ADMIRAL_TOOLTIP;提拔海军将领\n我们当前可以提拔?Y$VALUE$?W位海军将领
-MILITARY_BUILD_ARMY_TOOLTIP;组建陆军
-MILITARY_BUILD_NAVY_TOOLTIP;组建海军
+MILITARY_BUILD_ARMY_TOOLTIP;组建陆军TEXT
+MILITARY_BUILD_NAVY_TOOLTIP;组建海军TEXT
 MILITARY_AUTOCREATE_TOOLTIP;开关自动创建将领
 MILITARY_AUTOASSIGN_TOOLTIP;开关自动分配将领
 MILITARY_BUILD_ARMY_LABEL;组建陆军
@@ -3150,8 +3150,8 @@ REMOVE_PROVINCE_RARE_MATERIALS_EFFECT;失去?R$VALUE$?W储存在?Y$PROVINCE$?W�
 ADD_PROVINCE_RARE_MATERIALS_EFFECT;获得?G$VALUE$?W的稀有金属，在?Y$PROVINCE$?W\n
 REMOVE_PROVINCE_SUPPLIES_EFFECT;失去?R$VALUE$?W储存在?Y$PROVINCE$?W的补给\n
 ADD_PROVINCE_SUPPLIES_EFFECT;获得?G$VALUE$?W补给，在?Y$PROVINCE$?W\n
-REMOVE_PROVINCE_MONEY_EFFECT;失去?R$VALUE$?W的?Y$PROVINCE$?W。\n
-ADD_PROVINCE_MONEY_EFFECT;获得?G$VALUE$?W的?Y$PROVINCE$?W。\n
+REMOVE_PROVINCE_MONEY_EFFECT;失去?R$VALUE$?Wぴ讧Y$PROVINCE$?W。\n
+ADD_PROVINCE_MONEY_EFFECT;获得?G$VALUE$?Wぴ讧Y$PROVINCE$?W。\n
 CREATE_VASSAL_EFFECT;?Y$TARGET_COUNTRY$?W成为?Y$COUNTRY$?W的傀儡国\n
 ADD_BUILDING_EFFECT;在$PROVINCE$获得?Y$VALUE$级的$BUILDING$?W\n
 REMOVE_BUILDING_EFFECT;在$PROVINCE$?Y的$BUILDING$?W变为?Y$VALUE$?W级?W\n
@@ -3750,7 +3750,7 @@ EVTNAME3301;家庭习俗
 EVTDESC3301;伴随着近年来平均预期寿命的增长，越来越多的家庭不得不照顾起生活难以自理的老年人。我国社会结构正在变化，而国家有关老年人与残疾人的计划还没有影子，无数人在体制内没有得到应有的关注。保守派总体上认为家庭是支持老年人的最首要和最终的社会组织，而政府对该领域日益积极的干预正威胁着这一重要的社会纽带。另一方面，自由派又认为我们的退休金严重不足，他们指出看起来还有很多人没有获得援助。
 EVTOPTA3301;赞成提高退休金
 EVTOPTB3301;反对提高退休金
-EVTOPTC3301;他们有退休金?!
+EVTOPTC3301;他们有退休金？！
 EVTNAME3302;退休金辩论
 EVTDESC3302;“在我看来，政府的政策并非恶意所为的结果，而是愚蠢至极的结果。任务目前还很艰巨。”\n\n我们的退休金制度遭到了执政党内反对派的攻击。除了针对制度的许多行政申诉以外，批评的焦点在于退休金就是太少了点。
 EVTOPTA3302;我同意以后应作一些调整
@@ -3884,7 +3884,7 @@ EVTOPTB3751;废除这道法律
 EVTNAME3752;布里克街绅士俱乐部
 EVTDESC3752;“先生们，国家的命运就掌握在我们手中！我们必须努力争取我们在阳光下应有的地位，否则就只能走回过去腐败、专制和落后的老路。”\n\n在我们的一个省份内成立了一家绅士俱乐部，该俱乐部旨在促进会员自身、慈善事业以及国家整体的利益，并有望在未来数年内成为当地社会的支柱。
 EVTOPTA3752;很好很主动！
-EVTOPTB3752;搞阴谋？在我的$COUNTRY$?!
+EVTOPTB3752;搞阴谋？在我的$COUNTRY$？！
 EVTNAME3753;松树街的骚乱
 EVTDESC3753;这次集会在有秩序的环境下开始，一些人带着标语牌来到了松树街。可以很清楚地观察到松树街的示威者对某事非常不满，尽管我们并不清楚究竟是什么事件。突然，人们的情绪开始波动。当一些官员试图控制局势时情绪达到了沸点，而集会民众变成了暴民……
 EVTOPTA3753;这是允许公众集会的直接结果！
@@ -13117,7 +13117,7 @@ PROVINCEVIEW_BUILD_ARMY;组建陆军
 PROVINCEVIEW_BUILD_NAVY;组建海军
 PROVINCEVIEW_FROM_ADMIN_SPENDING;来自行政开支：?Y+
 REMOVE_PROVINCEVIEW_FROM_LOCAL_TAX;来自当地税收效率：?Y+
-PROVINCEVIEW_GOODSPRODUCTION;以?Y$VALUE$?W的?Y$NUM$?W单位的?Y$GOODS$?W
+PROVINCEVIEW_GOODSPRODUCTION;以?Y$VALUE$?Wさ男噬Y$NUM$?W单位的?Y$GOODS$?W
 PROVINCEVIEW_BUILD_ARMY2;组建军队
 PROVINCEVIEW_BUILD_NAVY2;组建海军
 PROVINCEVIEW_EXPAND;扩建

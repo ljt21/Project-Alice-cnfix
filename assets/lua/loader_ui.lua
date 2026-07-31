@@ -26,5 +26,5 @@ function alice.update_control_element()
 			control = 1
 		end
 	end
-	STATE.set_text("Avg. Control: " .. tostring(math.floor(100 * control)) .. "%")
+	STATE.set_text(STATE.get_localised_text("alice_avg_control_label") .. tostring(math.floor(100 * control)) .. "%")
 end
