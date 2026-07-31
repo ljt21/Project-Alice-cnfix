@@ -12,6 +12,7 @@
 
 namespace sys {
 
+// 读取场景文件头
 uint8_t const* read_scenario_header(uint8_t const* ptr_in, scenario_header& header_out) {
 	uint32_t length = 0;
 	memcpy(&length, ptr_in, sizeof(uint32_t));
@@ -19,6 +20,7 @@ uint8_t const* read_scenario_header(uint8_t const* ptr_in, scenario_header& head
 	return ptr_in + sizeof(uint32_t) + length;
 }
 
+// 读取存档文件头
 uint8_t const* read_save_header(uint8_t const* ptr_in, save_header& header_out) {
 	uint32_t length = 0;
 	memcpy(&length, ptr_in, sizeof(uint32_t));
@@ -26,12 +28,14 @@ uint8_t const* read_save_header(uint8_t const* ptr_in, save_header& header_out) 
 	return ptr_in + sizeof(uint32_t) + length;
 }
 
+// 写入场景文件头
 uint8_t* write_scenario_header(uint8_t* ptr_in, scenario_header const& header_in) {
 	uint32_t length = uint32_t(sizeof(scenario_header));
 	memcpy(ptr_in, &length, sizeof(uint32_t));
 	memcpy(ptr_in + sizeof(uint32_t), &header_in, sizeof(scenario_header));
 	return ptr_in + sizeof_scenario_header(header_in);
 }
+// 写入存档文件头
 uint8_t* write_save_header(uint8_t* ptr_in, save_header const& header_in) {
 	uint32_t length = uint32_t(sizeof(save_header));
 	memcpy(ptr_in, &length, sizeof(uint32_t));
@@ -39,14 +43,17 @@ uint8_t* write_save_header(uint8_t* ptr_in, save_header const& header_in) {
 	return ptr_in + sizeof_save_header(header_in);
 }
 
+// 计算场景文件头序列化大小
 size_t sizeof_scenario_header(scenario_header const& header_in) {
 	return sizeof(uint32_t) + sizeof(scenario_header);
 }
 
+// 计算存档文件头序列化大小
 size_t sizeof_save_header(save_header const& header_in) {
 	return sizeof(uint32_t) + sizeof(save_header);
 }
 
+// 读取模组路径
 void read_mod_path(uint8_t const* ptr_in, uint8_t const* lim, native_string& path_out) {
 	uint32_t length = 0;
 	if(size_t(lim - ptr_in) < sizeof(uint32_t))
@@ -62,6 +69,7 @@ void read_mod_path(uint8_t const* ptr_in, uint8_t const* lim, native_string& pat
 	auto path_str = std::string{ path_char_ptr, length };
 	path_out =  simple_fs::utf8_to_native(path_str);
 }
+// 加载模组路径并恢复文件系统状态
 uint8_t const* load_mod_path(uint8_t const* ptr_in, sys::state& state) {
 	uint32_t length = 0;
 	memcpy(&length, ptr_in, sizeof(uint32_t));
@@ -74,6 +82,7 @@ uint8_t const* load_mod_path(uint8_t const* ptr_in, sys::state& state) {
 	simple_fs::restore_state(state.common_fs, str_view);
 	return ptr_in + length * sizeof(char);
 }
+// 写入模组路径
 uint8_t* write_mod_path(uint8_t* ptr_in, native_string const& path_in) {
 	auto uf8_path = simple_fs::native_to_utf8(path_in);
 	uint32_t length = uint32_t(uf8_path.length());
@@ -83,6 +92,7 @@ uint8_t* write_mod_path(uint8_t* ptr_in, native_string const& path_in) {
 	ptr_in += length * sizeof(char);
 	return ptr_in;
 }
+// 计算模组路径序列化大小
 size_t sizeof_mod_path(native_string const& path_in) {
 	auto uf8_path = simple_fs::native_to_utf8(path_in);
 	size_t sz = 0;
@@ -92,6 +102,7 @@ size_t sizeof_mod_path(native_string const& path_in) {
 	return sz;
 }
 
+// 从文件中提取模组信息
 mod_identifier extract_mod_information(uint8_t const* ptr_in, uint64_t file_size) {
 	scenario_header h;
 
@@ -111,6 +122,7 @@ mod_identifier extract_mod_information(uint8_t const* ptr_in, uint64_t file_size
 	return mod_identifier{ mod_path, h.timestamp, h.count };
 }
 
+// 写入压缩数据段
 uint8_t* write_compressed_section(uint8_t* ptr_out, uint8_t const* ptr_in, uint32_t uncompressed_size) {
 	uint32_t decompressed_length = uncompressed_size;
 
@@ -123,6 +135,7 @@ uint8_t* write_compressed_section(uint8_t* ptr_out, uint8_t const* ptr_in, uint3
 	return ptr_out + sizeof(uint32_t) * 2 + section_length;
 }
 
+// 解压数据段并执行回调函数
 template<typename T>
 uint8_t const* with_decompressed_section(uint8_t const* ptr_in, T const& function) {
 	uint32_t section_length = 0;
@@ -143,6 +156,7 @@ uint8_t const* with_decompressed_section(uint8_t const* ptr_in, T const& functio
 }
 
 
+// 读取手写场景数据段
 uint8_t const* read_handwritten_scenario_section(uint8_t const* ptr_in, uint8_t const* section_end, sys::state& state, bool exclude_local_handwritten_fields = false) {
 	// hand-written contribution
 	{  // lua script
@@ -335,6 +349,7 @@ uint8_t const* read_handwritten_scenario_section(uint8_t const* ptr_in, uint8_t 
 	return ptr_in;
 }
 
+// 读取场景数据段
 uint8_t const* read_scenario_section(uint8_t const* ptr_in, uint8_t const* section_end, sys::state& state, bool exclude_local_handwritten_fields) {
 	ptr_in = read_handwritten_scenario_section(ptr_in, section_end, state, exclude_local_handwritten_fields);
 
@@ -348,6 +363,7 @@ uint8_t const* read_scenario_section(uint8_t const* ptr_in, uint8_t const* secti
 }
 
 
+// 写入手写场景数据段
 uint8_t* write_handwritten_scenario_section(uint8_t* ptr_in, sys::state& state, bool exclude_local_handwritten_fields = false) {
 	// hand-written contribution
 	{  // lua script
@@ -541,6 +557,7 @@ uint8_t* write_handwritten_scenario_section(uint8_t* ptr_in, sys::state& state, 
 
 
 
+// 写入场景数据段
 uint8_t* write_scenario_section(uint8_t* ptr_in, sys::state& state, bool exclude_local_handwritten_fields) {
 	ptr_in = write_handwritten_scenario_section(ptr_in, state, exclude_local_handwritten_fields);
 
@@ -551,6 +568,7 @@ uint8_t* write_scenario_section(uint8_t* ptr_in, sys::state& state, bool exclude
 	return reinterpret_cast<uint8_t*>(start);
 }
 
+// 计算手写场景数据段大小
 size_t sizeof_handwritten_scenario_section(sys::state& state, bool exclude_local_handwritten_fields = false) {
 	size_t sz = 0;
 
@@ -743,6 +761,7 @@ size_t sizeof_handwritten_scenario_section(sys::state& state, bool exclude_local
 
 }
 
+// 计算场景数据段大小
 scenario_size sizeof_scenario_section(sys::state& state, bool exclude_local_handwritten_fields) {
 	size_t sz = 0;
 
@@ -757,6 +776,7 @@ scenario_size sizeof_scenario_section(sys::state& state, bool exclude_local_hand
 	return scenario_size{ sz + szb, sz };
 }
 
+// 读取手写存档数据段
 uint8_t const* read_handwritten_save_section(uint8_t const* ptr_in, uint8_t const* section_end, sys::state& state, bool exclude_local_handwritten_fields = false) {
 	// hand-written contribution
 	if(!exclude_local_handwritten_fields) {
@@ -803,6 +823,7 @@ uint8_t const* read_handwritten_save_section(uint8_t const* ptr_in, uint8_t cons
 	return ptr_in;
 }
 
+// 读取存档数据段
 uint8_t const* read_save_section(uint8_t const* ptr_in, uint8_t const* section_end, sys::state& state, bool exclude_local_handwritten_fields) {
 	ptr_in = read_handwritten_save_section(ptr_in, section_end, state, exclude_local_handwritten_fields);
 
@@ -821,6 +842,7 @@ uint8_t const* read_save_section(uint8_t const* ptr_in, uint8_t const* section_e
 	return section_end;
 }
 
+// 写入手写存档数据段
 uint8_t* write_handwritten_save_section(uint8_t* ptr_in, sys::state& state, bool exclude_local_handwritten_fields = false) {
 	// hand-written contribution
 	ptr_in = serialize(ptr_in, state.unit_names);
@@ -866,6 +888,7 @@ uint8_t* write_handwritten_save_section(uint8_t* ptr_in, sys::state& state, bool
 	return ptr_in;
 }
 
+// 写入存档数据段
 uint8_t* write_save_section(uint8_t* ptr_in, sys::state& state, bool exclude_local_handwritten_fields) {
 	ptr_in = write_handwritten_save_section(ptr_in, state, exclude_local_handwritten_fields);
 
@@ -877,6 +900,7 @@ uint8_t* write_save_section(uint8_t* ptr_in, sys::state& state, bool exclude_loc
 	return reinterpret_cast<uint8_t*>(start);
 }
 
+// 计算手写存档数据段大小
 size_t sizeof_handwritten_save_section(sys::state& state, bool exclude_local_handwritten_fields = false) {
 	size_t sz = 0;
 
@@ -925,6 +949,7 @@ size_t sizeof_handwritten_save_section(sys::state& state, bool exclude_local_han
 	return sz;
 }
 
+// 计算存档数据段大小
 size_t sizeof_save_section(sys::state& state, bool exclude_local_handwritten_fields) {
 	size_t sz = 0;
 
@@ -937,6 +962,7 @@ size_t sizeof_save_section(sys::state& state, bool exclude_local_handwritten_fie
 	return sz;
 }
 
+// 读取完整多人游戏状态
 uint8_t const* read_entire_mp_state(uint8_t const* ptr_in, uint8_t const* section_end, sys::state& state, bool exclude_local_handwritten_fields) {
 
 	ptr_in = read_handwritten_scenario_section(ptr_in, section_end, state, exclude_local_handwritten_fields);
@@ -946,6 +972,7 @@ uint8_t const* read_entire_mp_state(uint8_t const* ptr_in, uint8_t const* sectio
 	state.world.deserialize(start, reinterpret_cast<std::byte const*>(section_end), loaded);
 	return section_end;
 }
+// 写入完整多人游戏状态
 uint8_t* write_entire_mp_state(uint8_t* ptr_in, sys::state& state, bool exclude_local_handwritten_fields) {
 	ptr_in = write_handwritten_scenario_section(ptr_in, state, exclude_local_handwritten_fields);
 	ptr_in = write_handwritten_save_section(ptr_in, state, exclude_local_handwritten_fields);
@@ -957,6 +984,7 @@ uint8_t* write_entire_mp_state(uint8_t* ptr_in, sys::state& state, bool exclude_
 
 	return reinterpret_cast<uint8_t*>(start);
 }
+// 计算完整多人游戏状态大小
 size_t sizeof_entire_mp_state(sys::state& state, bool exclude_local_handwritten_fields) {
 	size_t sz = 0;
 	sz += sizeof_handwritten_scenario_section(state, exclude_local_handwritten_fields);
@@ -968,6 +996,7 @@ size_t sizeof_entire_mp_state(sys::state& state, bool exclude_local_handwritten_
 }
 
 
+// 计算多人游戏数据大小
 size_t sizeof_mp_data(sys::state& state) {
 	size_t sz = 0;
 
@@ -979,6 +1008,7 @@ size_t sizeof_mp_data(sys::state& state) {
 }
 
 
+// 写入多人游戏数据
 uint8_t* write_mp_data(uint8_t* ptr_in, sys::state& state) {
 
 	// data container contribution
@@ -989,6 +1019,7 @@ uint8_t* write_mp_data(uint8_t* ptr_in, sys::state& state) {
 	return reinterpret_cast<uint8_t*>(start);
 }
 
+// 读取多人游戏数据
 uint8_t const* read_mp_data(uint8_t const* ptr_in, uint8_t const* section_end, sys::state& state) {
 	dcon::load_record loaded;
 	std::byte const* start = reinterpret_cast<std::byte const*>(ptr_in);
@@ -1003,6 +1034,7 @@ uint8_t const* read_mp_data(uint8_t const* ptr_in, uint8_t const* section_end, s
 
 
 
+// 合并加载记录（按位或操作）
 void combine_load_records(dcon::load_record& affected_record, const dcon::load_record& other_record) {
 
 	uint8_t* write_ptr = reinterpret_cast<uint8_t*>(&affected_record);
@@ -1014,6 +1046,7 @@ void combine_load_records(dcon::load_record& affected_record, const dcon::load_r
 }
 
 
+// 写入场景文件
 void write_scenario_file(sys::state& state, native_string_view name, uint32_t count) {
 	scenario_header header;
 	header.count = count;
@@ -1066,6 +1099,7 @@ void write_scenario_file(sys::state& state, native_string_view name, uint32_t co
 
 	delete[] temp_buffer;
 }
+// 尝试读取场景文件
 bool try_read_scenario_file(sys::state& state, native_string_view name) {
 	auto dir = simple_fs::get_or_create_scenario_directory();
 	auto save_file = open_file(dir, name);
@@ -1105,6 +1139,7 @@ bool try_read_scenario_file(sys::state& state, native_string_view name) {
 	}
 }
 
+// 尝试读取场景和存档文件
 bool try_read_scenario_and_save_file(sys::state& state, native_string_view name) {
 	auto dir = simple_fs::get_or_create_scenario_directory();
 	auto save_file = open_file(dir, name);
@@ -1154,6 +1189,7 @@ bool try_read_scenario_and_save_file(sys::state& state, native_string_view name)
 	}
 }
 
+// 尝试将场景文件作为存档读取
 bool try_read_scenario_as_save_file(sys::state& state, native_string_view name) {
 	auto dir = simple_fs::get_or_create_scenario_directory();
 	auto save_file = open_file(dir, name);
@@ -1204,6 +1240,7 @@ bool try_read_scenario_as_save_file(sys::state& state, native_string_view name) 
 	}
 }
 
+// 生成时间字符串
 std::string make_time_string(uint64_t value) {
 	std::string result;
 	for(int32_t i = 64 / 4; i --> 0; ) {
@@ -1212,6 +1249,7 @@ std::string make_time_string(uint64_t value) {
 	return result;
 }
 
+// 获取默认存档名称
 std::string get_default_save_name(sys::state& state, save_type type) {
 	auto ymd_date = state.current_date.to_ymd(state.start_date);
 	if(type == sys::save_type::autosave) {
@@ -1226,6 +1264,7 @@ std::string get_default_save_name(sys::state& state, save_type type) {
 	}
 }
 
+// 写入存档文件
 void write_save_file(sys::state& state, save_type type, std::string const& name, const std::string& file_name) {
 	save_header header;
 	header.count = state.scenario_counter;
@@ -1351,6 +1390,7 @@ void write_save_file(sys::state& state, save_type type, std::string const& name,
 		state.cheat_data.supply_dump_buffer.clear();
 	}
 }
+// 尝试读取存档文件
 bool try_read_save_file(sys::state& state, native_string_view name, bool ignore_checksum) {
 	auto dir = simple_fs::get_or_create_save_game_directory(state.mod_save_dir);
 	auto save_file = open_file(dir, name);

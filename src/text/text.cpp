@@ -15,6 +15,7 @@
 #endif
 
 namespace text {
+// 将颜色字符（如 'W'、'G' 等）转换为对应的文本颜色枚举值
 text_color char_to_color(char in) {
 	switch(in) {
 	case 'W':
@@ -50,10 +51,12 @@ text_color char_to_color(char in) {
 	}
 }
 
+// 判断字符是否为颜色转义字符
 inline bool is_qmark_color(char in) {
 	return char_to_color(in) != text_color::unspecified;
 }
 
+// 将字符串视图转换为小写形式并返回字符串
 std::string lowercase_str(std::string_view sv) {
 	std::string result;
 	result.reserve(sv.length());
@@ -63,6 +66,7 @@ std::string lowercase_str(std::string_view sv) {
 	return result;
 }
 
+// 从 UTF-8 字符流中读取一个 Unicode 码点
 uint32_t codepoint_from_utf8(char const* start, char const* end) {
 	uint8_t byte1 = uint8_t(start + 0 < end ? start[0] : 0);
 	uint8_t byte2 = uint8_t(start + 1 < end ? start[1] : 0);
@@ -79,26 +83,30 @@ uint32_t codepoint_from_utf8(char const* start, char const* end) {
 	}
 	return 0;
 }
+// 计算 UTF-8 编码字符占用的字节数（仅根据首字节判断）
 size_t size_from_utf8(char const* start, char const*) {
 	uint8_t b = uint8_t(start[0]);
 	return ((b & 0x80) == 0) ? 1 : ((b & 0xE0) == 0xC0) ? 2
 		: ((b & 0xF0) == 0xE0) ? 3 : ((b & 0xF8) == 0xF0) ? 4
 		: 1;
 }
+// 判断 Unicode 码点是否为空白字符
 bool codepoint_is_space(uint32_t c) noexcept {
 	return (c == 0x3000 || c == 0x205F || c == 0x202F || c == 0x2029 || c == 0x2028 || c == 0x00A0
 		|| c == 0x0085 || c <= 0x0020 || (0x2000 <= c && c <= 0x200A));
 }
+// 判断 Unicode 码点是否为换行符
 bool codepoint_is_line_break(uint32_t c) noexcept {
 	return  c == 0x2029 || c == 0x2028 || c == uint32_t('\n') || c == uint32_t('\r');
 }
 
+// 解析并加载 CSV 本地化文件到状态中
 void consume_csv_file(sys::state& state, char const* file_content, uint32_t file_size, int32_t target_column, bool as_unicode) {
 	auto cpos = file_content;
 
 	if(as_unicode) {
 		if(file_size >= 3) {
-			// skip utf8 BOM if present
+			// 跳过UTF8 BOM标记（如果存在）
 			// 0xEF, 0xBB, 0xBF)
 			if(int(file_content[0]) == 0xEF && int(file_content[1]) == 0xBB && int(file_content[2]) == 0xBF)
 				cpos += 3;
@@ -121,6 +129,7 @@ void consume_csv_file(sys::state& state, char const* file_content, uint32_t file
 	}
 }
 
+// 大小写不敏感地比较字符串视图是否等于固定字符串字面量
 template<size_t N>
 bool is_fixed_token_ci(std::string_view v, char const (&t)[N]) {
 	if(v.length() != (N - 1))
@@ -134,6 +143,7 @@ bool is_fixed_token_ci(std::string_view v, char const (&t)[N]) {
 
 #define CT_STRING_ENUM(X) else if(is_fixed_token_ci(v, #X)) return variable_type::X;
 
+// 根据变量名（字符串视图）解析对应的变量类型枚举，按字符串长度分组以加速比较
 variable_type variable_type_from_name(std::string_view v) {
 	if(v.length() == 1) {
 		if(false) { }
@@ -584,6 +594,7 @@ variable_type variable_type_from_name(std::string_view v) {
 }
 #undef CT_STRING_ENUM
 
+// 将 Windows-1250 编码字符转换为 UTF-16 字符（使用预定义映射表）
 char16_t win1250toUTF16(char in) {
 	constexpr static char16_t converted[256] =
 			//		0		1		2		3		4		5		6		7		8		9		A		B		C		D		E		F
@@ -614,17 +625,20 @@ char16_t win1250toUTF16(char in) {
 	return converted[(uint8_t)in];
 }
 
+// 获取商品名称（带图标前缀），如 "@$01钢铁"
 std::string get_commodity_name_with_icon(sys::state& state, dcon::commodity_id cid) {
 	std::string padding = cid.index() < 10 ? "0" : "";
 	std::string description = "@$" + padding + std::to_string(cid.index());
 	return description + text::produce_simple_string(state, state.world.commodity_get_name(cid));
 }
+// 获取商品图标的文本表示（仅图标前缀），如 "@$01"
 std::string get_commodity_text_icon(sys::state& state, dcon::commodity_id cid) {
 	std::string padding = cid.index() < 10 ? "0" : "";
 	std::string description = "@$" + padding + std::to_string(cid.index());
 	return description;
 }
 
+// 根据文本键生成简单字符串：去除颜色、变量、图标等转义序列后的纯文本
 std::string produce_simple_string(sys::state const& state, dcon::text_key id) {
 	std::string result;
 
@@ -695,6 +709,7 @@ std::string produce_simple_string(sys::state const& state, dcon::text_key id) {
 
 	return result;
 }
+// 根据字符串键生成简单字符串：先查找文本键再生成
 std::string produce_simple_string(sys::state const& state, std::string_view txt) {
 	auto v = state.lookup_key(txt);
 	if(v)
@@ -703,6 +718,7 @@ std::string produce_simple_string(sys::state const& state, std::string_view txt)
 		return std::string(txt);
 }
 
+// 查找或添加文本键：根据 as_unicode 选择 UTF-8 或 Win1252 编码方式
 dcon::text_key find_or_add_key(sys::state& state, std::string_view key, bool as_unicode) {
 	if(as_unicode)
 		return state.add_key_utf8(key);
@@ -710,6 +726,7 @@ dcon::text_key find_or_add_key(sys::state& state, std::string_view key, bool as_
 		return state.add_key_win1252(key);
 }
 
+// 将浮点数美化显示为货币形式（使用 K/M/B 等后缀，根据数值大小选择小数位数）
 std::string prettify_currency(float num) {
 	constexpr static double mag[] = {
 		1.0,
@@ -769,6 +786,7 @@ std::string prettify_currency(float num) {
 	return std::string("#inf");
 }
 
+// 将浮点数美化显示（使用 K/M/B 等后缀，根据数值大小选择小数位数）
 std::string prettify_float(float num) {
 	constexpr static double mag[] = {
 		1.0,
@@ -828,6 +846,7 @@ std::string prettify_float(float num) {
 	return std::string("#inf");
 }
 
+// 将整数美化显示（使用 K/M/B 等后缀，根据数值大小选择小数位数）
 std::string prettify(int64_t num) {
 	if(num == 0)
 		return std::string("0");
@@ -887,6 +906,69 @@ std::string prettify(int64_t num) {
 	return std::string("#inf");
 }
 
+// 本地化版本的 prettify：根据当前语言选择合适的数字后缀
+// 中文/日文/韩文使用万/亿体系，其他语言保持 K/M/B 体系
+std::string prettify(sys::state& state, int64_t num) {
+	if(num == 0)
+		return std::string("0");
+
+	// 获取当前语言
+	auto locale_id = state.font_collection.get_current_locale();
+	std::string locale_str;
+	if(bool(locale_id)) {
+		auto name = state.world.locale_get_locale_name(locale_id);
+		locale_str = std::string((char const*)name.begin(), name.size());
+	}
+
+	// 中文、日文、韩文使用万/亿体系
+	bool use_wan = (locale_str == "zh-CN" || locale_str == "zh-TW"
+		|| locale_str == "jp-JP" || locale_str == "ko-SK");
+
+	if(use_wan) {
+		// 中文后缀
+		const char* wan_suffix = (locale_str == "jp-JP") ? "万" :
+			(locale_str == "ko-SK") ? "만" : "万";
+		const char* yi_suffix = (locale_str == "jp-JP") ? "億" :
+			(locale_str == "ko-SK") ? "억" : "亿";
+
+		constexpr int64_t wan = 10000;
+		constexpr int64_t yi = 100000000;
+
+		char buffer[200] = { 0 };
+		double dval = double(num);
+
+		if(std::abs(dval) >= double(yi)) {
+			// 亿级别
+			auto reduced = dval / double(yi);
+			if(std::abs(reduced) < 10.0)
+				snprintf(buffer, sizeof(buffer), "%.2f%s", float(reduced), yi_suffix);
+			else if(std::abs(reduced) < 100.0)
+				snprintf(buffer, sizeof(buffer), "%.1f%s", float(reduced), yi_suffix);
+			else
+				snprintf(buffer, sizeof(buffer), "%.0f%s", float(reduced), yi_suffix);
+			return std::string(buffer);
+		} else if(std::abs(dval) >= double(wan)) {
+			// 万级别
+			auto reduced = dval / double(wan);
+			if(std::abs(reduced) < 10.0)
+				snprintf(buffer, sizeof(buffer), "%.2f%s", float(reduced), wan_suffix);
+			else if(std::abs(reduced) < 100.0)
+				snprintf(buffer, sizeof(buffer), "%.1f%s", float(reduced), wan_suffix);
+			else
+				snprintf(buffer, sizeof(buffer), "%.0f%s", float(reduced), wan_suffix);
+			return std::string(buffer);
+		} else {
+			// 小于万，直接显示
+			snprintf(buffer, sizeof(buffer), "%.0f", float(dval));
+			return std::string(buffer);
+		}
+	}
+
+	// 其他语言使用原有 K/M/B 体系
+	return prettify(num);
+}
+
+// 获取州的简短名称：根据本地化情况选择州定义名称或首府省份名称
 std::string get_short_state_name(sys::state& state, dcon::state_instance_id state_id) {
 	auto fat_id = dcon::fatten(state.world, state_id);
 	for(auto st : fat_id.get_definition().get_abstract_state_membership()) {
@@ -903,6 +985,7 @@ std::string get_short_state_name(sys::state& state, dcon::state_instance_id stat
 	return get_name_as_string(state, fat_id.get_definition());
 }
 
+// 获取州的动态名称：根据所有者形容词和州定义名称组合生成
 std::string get_dynamic_state_name(sys::state& state, dcon::state_instance_id state_id) {
 	auto fat_id = dcon::fatten(state.world, state_id);
 	for(auto st : fat_id.get_definition().get_abstract_state_membership()) {
@@ -930,6 +1013,7 @@ std::string get_dynamic_state_name(sys::state& state, dcon::state_instance_id st
 	return get_name_as_string(state, fat_id.get_definition());
 }
 
+// 获取省份所属州的名称
 std::string get_province_state_name(sys::state& state, dcon::province_id prov_id) {
 	auto fat_id = dcon::fatten(state.world, prov_id);
 	auto state_instance_id = fat_id.get_state_membership().id;
@@ -946,6 +1030,7 @@ std::string get_province_state_name(sys::state& state, dcon::province_id prov_id
 	}
 }
 
+// 获取国家名称（含政府类型变体）：优先使用政府特定的名称，回退到通用名称
 dcon::text_key get_name(sys::state& state, dcon::nation_id id) {
 	auto ident = state.world.nation_get_identity_from_identity_holder(id);
 	auto gov_id = state.world.nation_get_government_type(id);
@@ -956,77 +1041,97 @@ dcon::text_key get_name(sys::state& state, dcon::nation_id id) {
 	}
 	return state.world.national_identity_get_name(ident);
 }
+// 获取国家形容词（含政府类型变体）：优先使用政府特定的形容词
 dcon::text_key get_adjective(sys::state& state, dcon::nation_id id) {
 	auto ident = state.world.nation_get_identity_from_identity_holder(id);
-	//government specific adjective
+	// 政府特定的形容词
 	if(auto k = state.world.national_identity_get_government_adjective(ident, state.world.nation_get_government_type(id)); state.key_is_localized(k)) {
 		return k;
 	}
 	return state.world.national_identity_get_adjective(ident);
 }
 
+// 获取统治者头衔：优先使用政府特定的统治者名称
 dcon::text_key get_ruler_title(sys::state& state, dcon::nation_id n) {
 	auto ident = state.world.nation_get_identity_from_identity_holder(n);
 	auto gov = state.world.nation_get_government_type(n);
-	//government specific adjective
+	// 政府特定的形容词
 	if(auto k = state.world.national_identity_get_government_ruler_name(ident, gov); state.key_is_localized(k)) {
 		return k;
 	}
 	return state.world.government_type_get_ruler_name(gov);
 }
 
+// 获取国家名称字符串
 std::string get_name_as_string(sys::state& state, dcon::nation_id n) {
 	return text::produce_simple_string(state, get_name(state, n));
 }
+// 获取意识形态名称字符串
 std::string get_name_as_string(sys::state& state, dcon::ideology_id n) {
 	return text::produce_simple_string(state, state.world.ideology_get_name(n));
 }
+// 获取政党名称字符串
 std::string get_name_as_string(sys::state& state, dcon::political_party_id n) {
 	return text::produce_simple_string(state, state.world.political_party_get_name(n));
 }
+// 获取宗教名称字符串
 std::string get_name_as_string(sys::state& state, dcon::religion_id n) {
 	return text::produce_simple_string(state, state.world.religion_get_name(n));
 }
+// 获取科技名称字符串
 std::string get_name_as_string(sys::state& state, dcon::technology_id n){
 	return text::produce_simple_string(state, state.world.technology_get_name(n));
 }
+// 获取文化名称字符串
 std::string get_name_as_string(sys::state& state, dcon::culture_id n){
 	return text::produce_simple_string(state, state.world.culture_get_name(n));
 }
+// 获取商品名称字符串
 std::string get_name_as_string(sys::state& state, dcon::commodity_id n) {
 	return text::produce_simple_string(state, state.world.commodity_get_name(n));
 }
+// 获取议题名称字符串
 std::string get_name_as_string(sys::state& state, dcon::issue_id n) {
 	return text::produce_simple_string(state, state.world.issue_get_name(n));
 }
+// 获取议题选项名称字符串
 std::string get_name_as_string(sys::state& state, dcon::issue_option_id n) {
 	return text::produce_simple_string(state, state.world.issue_option_get_name(n));
 }
+// 获取修正项名称字符串
 std::string get_name_as_string(sys::state& state, dcon::modifier_id n) {
 	return text::produce_simple_string(state, state.world.modifier_get_name(n));
 }
+// 获取省份名称字符串
 std::string get_name_as_string(sys::state& state, dcon::province_id n) {
 	return text::produce_simple_string(state, state.world.province_get_name(n));
 }
+// 获取国家身份名称字符串
 std::string get_name_as_string(sys::state& state, dcon::national_identity_id n) {
 	return text::produce_simple_string(state, state.world.national_identity_get_name(n));
 }
+// 获取改革选项名称字符串
 std::string get_name_as_string(sys::state& state, dcon::reform_option_id n) {
 	return text::produce_simple_string(state, state.world.reform_option_get_name(n));
 }
+// 获取州定义名称字符串
 std::string get_name_as_string(sys::state& state, dcon::state_definition_id n) {
 	return text::produce_simple_string(state, state.world.state_definition_get_name(n));
 }
+// 获取国家身份形容词
 dcon::text_key get_adjective(sys::state& state, dcon::national_identity_id ident) {
 	return state.world.national_identity_get_adjective(ident);
 }
+// 获取国家形容词字符串
 std::string get_adjective_as_string(sys::state& state, dcon::nation_id n) {
 	return text::produce_simple_string(state, get_adjective(state, n));
 }
+// 获取国家身份形容词字符串
 std::string get_adjective_as_string(sys::state& state, dcon::national_identity_id n) {
 	return text::produce_simple_string(state, get_adjective(state, n));
 }
 
+// 获取国家焦点类别的名称
 std::string get_focus_category_name(sys::state const& state, nations::focus_type category) {
 	switch(category) {
 	case nations::focus_type::rail_focus:
@@ -1076,6 +1181,7 @@ std::string get_focus_category_name(sys::state const& state, nations::focus_type
 	}
 }
 
+// 获取影响力等级名称
 std::string get_influence_level_name(sys::state const& state, uint8_t v) {
 	switch(v & nations::influence::level_mask) {
 	case nations::influence::level_neutral:
@@ -1095,15 +1201,17 @@ std::string get_influence_level_name(sys::state const& state, uint8_t v) {
 	}
 }
 
+// 格式化百分比（默认保留 2 位小数）
 std::string format_percentage(float num, size_t digits) {
 	return format_float(num * 100.f, digits) + '%';
 }
 
+// 格式化浮点数（默认保留 2 位小数），特殊处理接近 0 的值
 std::string format_float(float num, size_t digits) {
 	char buffer[200] = {0};
 	switch(digits) {
 	default:
-		// fallthrough
+		// 贯穿
 	case 3:
 		if(num == 0.f) {
 			return std::string("0.000");
@@ -1147,10 +1255,12 @@ std::string format_float(float num, size_t digits) {
 	return std::string(buffer);
 }
 
+// 格式化货币金额（货币符号为后缀，而非前缀）
 std::string format_money(float num) {
-	return prettify_currency(num); // Currency is postfixed, NOT prefixed
+	return prettify_currency(num); // 货币符号为后缀，而非前缀
 }
 
+// 格式化整数（带千位分隔符）
 std::string format_wholenum(int32_t num) {
 	std::string result;
 
@@ -1182,14 +1292,17 @@ std::string format_wholenum(int32_t num) {
 	return result;
 }
 
+// 格式化为比例形式（如 left/right）
 std::string format_ratio(int32_t left, int32_t right) {
 	return std::to_string(left) + '/' + std::to_string(right);
 }
 
+// 向替换映射表中添加一个变量类型到替换值的映射
 void add_to_substitution_map(substitution_map& mp, variable_type key, substitution value) {
 	mp.insert_or_assign(uint32_t(key), value);
 }
 
+// 根据月份数字（1-12）查找对应的本地化月份名称
 dcon::text_key localize_month(sys::state const& state, uint16_t month) {
 	static const std::string_view month_names[12] = {"january", "february", "march", "april", "may_month_name", "june", "july", "august",
 		"september", "october", "november", "december"};
@@ -1200,6 +1313,7 @@ dcon::text_key localize_month(sys::state const& state, uint16_t month) {
 	return state.lookup_key(month_names[month - 1]);
 }
 
+// 将游戏日期格式化为字符串（基于 "date_string_ymd" 本地化模板）
 std::string date_to_string(sys::state& state, sys::date date) {
 	sys::year_month_day ymd = date.to_ymd(state.start_date);
 	substitution_map sub{};
@@ -1209,6 +1323,7 @@ std::string date_to_string(sys::state& state, sys::date date) {
 	return resolve_string_substitution(state, "date_string_ymd", sub);
 }
 
+// 根据坐标查找对应位置的文本块
 text_chunk const* layout::get_chunk_from_position(int32_t x, int32_t y) const {
 	for(auto& chunk : contents) {
 		if(int32_t(chunk.x) <= x && x <= int32_t(chunk.x) + chunk.width && chunk.y <= y && y <= chunk.y + chunk.height) {
@@ -1218,6 +1333,7 @@ text_chunk const* layout::get_chunk_from_position(int32_t x, int32_t y) const {
 	return nullptr;
 }
 
+// 创建一个无限布局：根据当前语言环境决定 RTL/LTR 方向，并清空原布局内容
 endless_layout create_endless_layout(sys::state& state, layout& dest, layout_parameters const& params) {
 	dest.contents.clear();
 	dest.number_of_lines = 0;
@@ -1226,6 +1342,7 @@ endless_layout create_endless_layout(sys::state& state, layout& dest, layout_par
 
 namespace impl {
 
+// 完成一行的布局：根据对齐方式调整已布局文本块的 x 坐标，并准备下一行
 void lb_finish_line(layout_base& dest, layout_box& box, int32_t line_height) {
 	bool rtl = dest.native_rtl == layout_base::rtl_status::rtl;
 	if(dest.fixed_parameters.align == alignment::center) {
@@ -1266,17 +1383,20 @@ void lb_finish_line(layout_base& dest, layout_box& box, int32_t line_height) {
 
 } // namespace impl
 
+// 在布局盒子中添加换行
 void add_line_break_to_layout_box(sys::state& state, layout_base& dest, layout_box& box) {
 	auto text_height = int32_t(std::ceil(state.font_collection.line_height(state, dest.fixed_parameters.font_id)));
 	auto line_height = text_height + dest.fixed_parameters.leading;
 	impl::lb_finish_line(dest, box, line_height);
 }
+// 在分栏布局中添加换行
 void add_line_break_to_layout(sys::state& state, columnar_layout& dest) {
 	auto text_height = int32_t(std::ceil(state.font_collection.line_height(state, dest.fixed_parameters.font_id)));
 	auto line_height = text_height + dest.fixed_parameters.leading;
 	dest.base_layout.number_of_lines += 1;
 	dest.y_cursor += line_height;
 }
+// 在无限布局中添加换行
 void add_line_break_to_layout(sys::state& state, endless_layout& dest) {
 	auto text_height = int32_t(std::ceil(state.font_collection.line_height(state, dest.fixed_parameters.font_id)));
 	auto line_height = text_height + dest.fixed_parameters.leading;
@@ -1284,6 +1404,7 @@ void add_line_break_to_layout(sys::state& state, endless_layout& dest) {
 	dest.y_cursor += line_height;
 }
 
+// 将内嵌国旗添加到布局盒子中
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, embedded_flag ico) {
 	auto v_amount = state.font_collection.get_font(state, text::font_index_from_font_id(state, dest.fixed_parameters.font_id)).retrieve_instance(state, text::size_from_font_id(dest.fixed_parameters.font_id)).ascender(state);
 
@@ -1295,6 +1416,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, em
 		box.x_position += v_amount * 1.5f;
 	}
 }
+// 将内嵌图标（如对勾、叉号等）添加到布局盒子中
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, embedded_icon ico) {
 	auto v_amount = state.font_collection.get_font(state, text::font_index_from_font_id(state, dest.fixed_parameters.font_id)).retrieve_instance(state, text::size_from_font_id(dest.fixed_parameters.font_id)).ascender(state);
 
@@ -1307,6 +1429,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, em
 	}
 }
 
+// 将内嵌单位图标添加到布局盒子中
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, embedded_unit_icon ico) {
 	auto v_amount = state.font_collection.get_font(state, text::font_index_from_font_id(state, dest.fixed_parameters.font_id)).retrieve_instance(state, text::size_from_font_id(dest.fixed_parameters.font_id)).ascender(state);
 
@@ -1319,6 +1442,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, em
 	}
 }
 
+// 将内嵌商品图标添加到布局盒子中
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, embedded_commodity_icon ico) {
 	auto v_amount = state.font_collection.get_font(state, text::font_index_from_font_id(state, dest.fixed_parameters.font_id)).retrieve_instance(state, text::size_from_font_id(dest.fixed_parameters.font_id)).ascender(state);
 
@@ -1331,6 +1455,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, em
 	}
 }
 
+// 根据当前语言环境调整文本对齐方式（RTL 时左右互换）
 text::alignment localized_alignment(sys::state& state, text::alignment in) {
 	if(in == alignment::left && state.world.locale_get_native_rtl(state.font_collection.get_current_locale())) {
 		return alignment::right;
@@ -1339,6 +1464,7 @@ text::alignment localized_alignment(sys::state& state, text::alignment in) {
 	}
 	return in;
 }
+// 根据当前语言环境调整 UI 对齐方式（RTL 时左右互换）
 ui::alignment localized_alignment(sys::state& state, ui::alignment in) {
 	if(in == ui::alignment::left && state.world.locale_get_native_rtl(state.font_collection.get_current_locale())) {
 		return ui::alignment::right;
@@ -1347,6 +1473,7 @@ ui::alignment localized_alignment(sys::state& state, ui::alignment in) {
 	}
 	return in;
 }
+// 将 UI 对齐方式转换为文本对齐方式
 text::alignment to_text_alignment(ui::alignment in) {
 	switch(in) {
 	case ui::alignment::left:
@@ -1364,6 +1491,7 @@ text::alignment to_text_alignment(ui::alignment in) {
 }
 
 
+// 将 UTF-16 文本添加到布局盒子中：处理换行、省略号、RTL/LTR、对齐等
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, std::u16string_view text, text_color color, substitution source) {
 	if(text.size() == 0)
 		return;
@@ -1398,7 +1526,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, st
 	UBreakIterator* lb_it = ubrk_openBinaryRules(state.font_collection.compiled_ubrk_rules.data(), int32_t(state.font_collection.compiled_ubrk_rules.size()), (UChar const*)text.data(), int32_t(text.size()), &errorCode);
 
 	if(!lb_it || !U_SUCCESS(errorCode)) {
-		std::abort(); // couldn't create iterator
+		std::abort(); // 无法创建迭代器
 	}
 
 	ubrk_first(lb_it);
@@ -1446,7 +1574,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, st
 			float extent = state.font_collection.text_extent(state, all_glyphs, glyph_start_position, next_glyph_position - glyph_start_position, dest.fixed_parameters.font_id);
 
 			if(!dest.fixed_parameters.single_line && first_in_line && int32_t(dest.fixed_parameters.right - box.x_offset) == box.x_position && box.x_position - extent <= dest.fixed_parameters.left) {
-				// too long, but no line breaking opportunities earlier in the line
+				// 过长，但本行之前没有换行机会
 
 				box.x_position -= extent;
 				box.y_size = std::max(box.y_size, box.y_position + line_height);
@@ -1525,7 +1653,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, st
 				box.y_size = std::max(box.y_size, box.y_position + line_height);
 				box.x_size = std::max(box.x_size, int32_t(dest.fixed_parameters.right - box.x_position));
 			} else if(next_cluster_position >= int32_t(text.size())) {
-				// no remaining text
+				// 无剩余文本
 
 				box.x_position -= extent;
 				box.y_size = std::max(box.y_size, box.y_position + line_height);
@@ -1575,7 +1703,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, st
 			float extent = state.font_collection.text_extent(state, all_glyphs, glyph_start_position, next_glyph_position - glyph_start_position, dest.fixed_parameters.font_id);
 
 			if(!dest.fixed_parameters.single_line && first_in_line && int32_t(box.x_offset + dest.fixed_parameters.left) == box.x_position && box.x_position + extent >= dest.fixed_parameters.right) {
-				// too long, but no line breaking opportunities earlier in the line
+				// 过长，但本行之前没有换行机会
 
 				append_glyphs(std::span<uint16_t>((uint16_t*)(const_cast<char16_t*>(text.data())) + cluster_start_position, next_cluster_position - cluster_start_position),
 					uint32_t(cluster_start_position), int16_t(extent));
@@ -1652,7 +1780,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, st
 				box.y_size = std::max(box.y_size, box.y_position + line_height);
 				box.x_size = std::max(box.x_size, int32_t(box.x_position));
 			} else if(next_cluster_position >= int32_t(text.size())) {
-				// no remaining text
+				// 无剩余文本
 
 				append_glyphs(std::span<uint16_t>((uint16_t*)(const_cast<char16_t*>(text.data())) + cluster_start_position, next_cluster_position - cluster_start_position),
 					uint32_t(cluster_start_position), int16_t(extent));
@@ -1680,6 +1808,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, st
 }
 
 
+// 将 UTF-8 文本添加到布局盒子中：先将 UTF-8 转换为 UTF-16，再调用上述 UTF-16 版本
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, std::string_view text, text_color color, substitution source) {
 	if(text.size() == 0)
 		return;
@@ -1709,6 +1838,7 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, st
 
 namespace impl {
 
+// 将替换值解析为字符串：根据替换值的不同类型调用对应的格式化函数
 std::string lb_resolve_substitution(sys::state& state, substitution sub, substitution_map const& mp) {
 	if(std::holds_alternative<std::string_view>(sub)) {
 		return std::string(std::get<std::string_view>(sub));
@@ -1767,6 +1897,7 @@ std::string lb_resolve_substitution(sys::state& state, substitution sub, substit
 
 } // namespace impl
 
+// 将未解析的字符串（含颜色、图标、变量替换等转义）添加到布局盒子中
 void add_unparsed_text_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, std::string_view sv, substitution_map const& mp) {
 	if(sv.length() == 0)
 		return;
@@ -1897,8 +2028,8 @@ void add_unparsed_text_to_layout_box(sys::state& state, layout_base& dest, layou
 
 			pos += 1;
 			section_start = pos;
-			// This colour escape sequence must be followed by something, otherwise
-			// we should probably discard the last colour command
+			// 此颜色转义序列后必须跟随内容，否则
+			// 我们可能应当丢弃最后的颜色命令
 			if(pos < seq_end) {
 
 				auto newcolor = char_to_color(*pos);
@@ -1947,6 +2078,7 @@ void add_unparsed_text_to_layout_box(sys::state& state, layout_base& dest, layou
 		add_text_range(std::string_view(section_start, seq_end - section_start));
 }
 
+// 将本地化文本键（含替换）添加到布局盒子中
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, dcon::text_key source_text, substitution_map const& mp) {
 	if(!source_text)
 		return;
@@ -1960,13 +2092,16 @@ void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, dc
 	add_unparsed_text_to_layout_box(state, dest, box, sv, mp);
 }
 
+// 将替换值（解析为字符串后）添加到布局盒子中
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, substitution val, text_color color) {
 	auto txt = impl::lb_resolve_substitution(state, val, substitution_map{});
 	add_to_layout_box(state, dest, box, std::string_view(txt), color, val);
 }
+// 将字符串添加到布局盒子中
 void add_to_layout_box(sys::state& state, layout_base& dest, layout_box& box, std::string const& val, text_color color) {
 	add_to_layout_box(state, dest, box, std::string_view(val), color, std::monostate{});
 }
+// 在布局盒子中添加一个空格宽度的间距
 void add_space_to_layout_box(sys::state& state, layout_base& dest, layout_box& box) {
 	auto& font = state.font_collection.get_font(state, text::font_index_from_font_id(state, dest.fixed_parameters.font_id));
 	auto& font_inst = font.retrieve_instance(state, text::size_from_font_id(dest.fixed_parameters.font_id));
@@ -1981,6 +2116,7 @@ void add_space_to_layout_box(sys::state& state, layout_base& dest, layout_box& b
 		box.x_position += amount;
 }
 
+// 打开一个新的布局盒子，根据 RTL/LTR 决定起始 x 位置
 layout_box open_layout_box(layout_base& dest, int32_t indent) {
 	if(dest.native_rtl == layout_base::rtl_status::ltr)
 		return layout_box{dest.base_layout.contents.size(), dest.base_layout.contents.size(), indent, 0, 0,
@@ -1989,10 +2125,11 @@ layout_box open_layout_box(layout_base& dest, int32_t indent) {
 		return layout_box{ dest.base_layout.contents.size(), dest.base_layout.contents.size(), indent, 0, 0,
 			float(dest.fixed_parameters.right - indent), 0, dest.fixed_parameters.color };
 }
+// 关闭分栏布局中的布局盒子：处理分列逻辑，超出底部时换列
 void close_layout_box(columnar_layout& dest, layout_box& box) {
 	impl::lb_finish_line(dest, box, 0);
 	if(dest.native_rtl == layout_base::rtl_status::ltr) {
-		if(box.y_size + dest.y_cursor >= dest.fixed_parameters.bottom) { // make new column
+		if(box.y_size + dest.y_cursor >= dest.fixed_parameters.bottom) { // 创建新列
 			dest.current_column_x = dest.used_width + dest.column_width;
 			for(auto i = box.first_chunk; i < dest.base_layout.contents.size(); ++i) {
 				dest.base_layout.contents[i].y += dest.fixed_parameters.top;
@@ -2000,7 +2137,7 @@ void close_layout_box(columnar_layout& dest, layout_box& box) {
 				dest.used_width = std::max(dest.used_width, int32_t(dest.base_layout.contents[i].x + dest.base_layout.contents[i].width));
 			}
 			dest.y_cursor = box.y_size + dest.fixed_parameters.top;
-		} else { // append to current column
+		} else { // 追加到当前列
 			for(auto i = box.first_chunk; i < dest.base_layout.contents.size(); ++i) {
 				dest.base_layout.contents[i].y += int16_t(dest.y_cursor);
 				dest.base_layout.contents[i].x += float(dest.current_column_x);
@@ -2010,7 +2147,7 @@ void close_layout_box(columnar_layout& dest, layout_box& box) {
 		}
 		dest.used_height = std::max(dest.used_height, dest.y_cursor);
 	} else {
-		if(box.y_size + dest.y_cursor >= dest.fixed_parameters.bottom) { // make new column
+		if(box.y_size + dest.y_cursor >= dest.fixed_parameters.bottom) { // 创建新列
 			dest.current_column_x = dest.used_width - dest.column_width;
 			for(auto i = box.first_chunk; i < dest.base_layout.contents.size(); ++i) {
 				dest.base_layout.contents[i].y += dest.fixed_parameters.top;
@@ -2018,7 +2155,7 @@ void close_layout_box(columnar_layout& dest, layout_box& box) {
 				dest.used_width = std::min(dest.used_width, int32_t(dest.base_layout.contents[i].x));
 			}
 			dest.y_cursor = box.y_size + dest.fixed_parameters.top;
-		} else { // append to current column
+		} else { // 追加到当前列
 			for(auto i = box.first_chunk; i < dest.base_layout.contents.size(); ++i) {
 				dest.base_layout.contents[i].y += int16_t(dest.y_cursor);
 				dest.base_layout.contents[i].x += float(dest.current_column_x) - float(dest.fixed_parameters.right - dest.fixed_parameters.left);
@@ -2029,6 +2166,7 @@ void close_layout_box(columnar_layout& dest, layout_box& box) {
 		dest.used_height = std::max(dest.used_height, dest.y_cursor);
 	}
 }
+// 关闭无限布局中的布局盒子：累加 y 游标
 void close_layout_box(endless_layout& dest, layout_box& box) {
 	impl::lb_finish_line(dest, box, 0);
 	for(auto i = box.first_chunk; i < dest.base_layout.contents.size(); ++i) {
@@ -2037,31 +2175,37 @@ void close_layout_box(endless_layout& dest, layout_box& box) {
 
 	dest.y_cursor += box.y_size;
 }
+// 关闭单行布局中的布局盒子
 void close_layout_box(single_line_layout& dest, layout_box& box) {
 	impl::lb_finish_line(dest, box, 0);
 }
 
+// 通过基类引用关闭布局盒子（虚函数分发）
 void close_layout_box(layout_base& dest, layout_box& box) {
 	dest.internal_close_box(box);
 }
 
+// 分栏布局关闭盒子的最终实现
 void columnar_layout::internal_close_box(layout_box& box) {
 	close_layout_box(*this, box);
 }
+// 无限布局关闭盒子的最终实现
 void endless_layout::internal_close_box(layout_box& box) {
 	close_layout_box(*this, box);
 }
+// 单行布局关闭盒子的最终实现
 void single_line_layout::internal_close_box(layout_box& b) {
 	close_layout_box(*this, b);
 }
 
+// 创建一个分栏布局：根据当前语言环境决定 RTL/LTR 方向，并清空原布局内容
 columnar_layout create_columnar_layout(sys::state& state, layout& dest, layout_parameters const& params, int32_t column_width) {
 	dest.contents.clear();
 	dest.number_of_lines = 0;
 	return columnar_layout(dest, params, state.world.locale_get_native_rtl(state.font_collection.get_current_locale()) ? layout_base::rtl_status::rtl : layout_base::rtl_status::ltr, 0, 0, params.top, column_width);
 }
 
-// Reduces code repeat
+// 减少代码重复的本地化格式化辅助函数
 void localised_format_box(sys::state& state, layout_base& dest, layout_box& box, std::string_view key, text::substitution_map const& sub) {
 	if(auto k = state.lookup_key(key); k) {
 		add_to_layout_box(state, dest, box, k, sub);
@@ -2070,6 +2214,7 @@ void localised_format_box(sys::state& state, layout_base& dest, layout_box& box,
 	}
 }
 
+// 将本地化键对应的文本（含单个替换）添加到布局盒子中
 void localised_single_sub_box(sys::state& state, layout_base& dest, layout_box& box, std::string_view key, variable_type subkey,
 		substitution value) {
 	text::substitution_map sub;
@@ -2081,11 +2226,13 @@ void localised_single_sub_box(sys::state& state, layout_base& dest, layout_box& 
 	}
 }
 
+// 添加一行本地化文本（无替换，使用文本键）
 void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 	add_to_layout_box(state, dest, box, txt);
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 1 个替换，使用文本键）
 void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable_type subkey, substitution value, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 	text::substitution_map sub;
@@ -2093,6 +2240,7 @@ void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable
 	add_to_layout_box(state, dest, box, txt, sub);
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 2 个替换，使用文本键）
 void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable_type subkey, substitution value,
 		variable_type subkey_b, substitution value_b, int32_t indent) {
 
@@ -2103,6 +2251,7 @@ void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable
 	add_to_layout_box(state, dest, box, txt, sub);
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 3 个替换，使用文本键）
 void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable_type subkey, substitution value,
 		variable_type subkey_b, substitution value_b, variable_type subkey_c, substitution value_c, int32_t indent) {
 
@@ -2114,6 +2263,7 @@ void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable
 	add_to_layout_box(state, dest, box, txt, sub);
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 4 个替换，使用文本键）
 void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable_type subkey, substitution value,
 		variable_type subkey_b, substitution value_b, variable_type subkey_c, substitution value_c, variable_type subkey_d,
 		substitution value_d, int32_t indent) {
@@ -2128,6 +2278,7 @@ void add_line(sys::state& state, layout_base& dest, dcon::text_key txt, variable
 	text::close_layout_box(dest, box);
 }
 
+// 添加一行本地化文本（无替换）
 void add_line(sys::state& state, layout_base& dest, std::string_view key, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 	if(auto k = state.lookup_key(key); k) {
@@ -2137,6 +2288,7 @@ void add_line(sys::state& state, layout_base& dest, std::string_view key, int32_
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行带条件标记（对勾/叉号）的本地化文本
 void add_line_with_condition(sys::state& state, layout_base& dest, std::string_view key, bool condition_met, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 
@@ -2155,6 +2307,7 @@ void add_line_with_condition(sys::state& state, layout_base& dest, std::string_v
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行带条件标记和 1 个替换的本地化文本
 void add_line_with_condition(sys::state& state, layout_base& dest, std::string_view key, bool condition_met, variable_type subkey, substitution value, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 
@@ -2175,6 +2328,7 @@ void add_line_with_condition(sys::state& state, layout_base& dest, std::string_v
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行带条件标记和 2 个替换的本地化文本
 void add_line_with_condition(sys::state& state, layout_base& dest, std::string_view key, bool condition_met, variable_type subkey, substitution value, variable_type subkeyb, substitution valueb, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 
@@ -2196,6 +2350,7 @@ void add_line_with_condition(sys::state& state, layout_base& dest, std::string_v
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行带条件标记和 3 个替换的本地化文本
 void add_line_with_condition(sys::state& state, layout_base& dest, std::string_view key, bool condition_met, variable_type subkey, substitution value, variable_type subkeyb, substitution valueb, variable_type subkeyc, substitution valuec, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 
@@ -2218,6 +2373,7 @@ void add_line_with_condition(sys::state& state, layout_base& dest, std::string_v
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 1 个替换）
 void add_line(sys::state& state, layout_base& dest, std::string_view key, variable_type subkey, substitution value,
 		int32_t indent) {
 
@@ -2232,6 +2388,7 @@ void add_line(sys::state& state, layout_base& dest, std::string_view key, variab
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 2 个替换）
 void add_line(sys::state& state, layout_base& dest, std::string_view key, variable_type subkey, substitution value,
 		variable_type subkey_b, substitution value_b, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
@@ -2246,6 +2403,7 @@ void add_line(sys::state& state, layout_base& dest, std::string_view key, variab
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 3 个替换）
 void add_line(sys::state& state, layout_base& dest, std::string_view key, variable_type subkey, substitution value,
 		variable_type subkey_b, substitution value_b, variable_type subkey_c, substitution value_c, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
@@ -2261,6 +2419,7 @@ void add_line(sys::state& state, layout_base& dest, std::string_view key, variab
 	}
 	text::close_layout_box(dest, box);
 }
+// 添加一行本地化文本（带 4 个替换）
 void add_line(sys::state& state, layout_base& dest, std::string_view key, variable_type subkey, substitution value,
 		variable_type subkey_b, substitution value_b, variable_type subkey_c, substitution value_c, variable_type subkey_d,
 		substitution value_d, int32_t indent) {
@@ -2280,12 +2439,14 @@ void add_line(sys::state& state, layout_base& dest, std::string_view key, variab
 }
 
 
+// 在布局盒子中添加一个分隔符（空行-空格-空行）
 void add_divider_to_layout_box(sys::state& state, layout_base& dest, layout_box& box) {
 	text::add_line_break_to_layout_box(state, dest, box);
 	text::add_to_layout_box(state, dest, box, std::string_view(" "));
 	text::add_line_break_to_layout_box(state, dest, box);
 }
 
+// 添加国家名称与旗帜到布局中（旗帜 + 空格 + 国家名）
 void nation_name_and_flag(sys::state& state, dcon::nation_id n, layout_base& dest, int32_t indent) {
 	auto box = text::open_layout_box(dest, indent);
 	auto ident = state.world.nation_get_identity_from_identity_holder(n);
@@ -2295,6 +2456,7 @@ void nation_name_and_flag(sys::state& state, dcon::nation_id n, layout_base& des
 	text::close_layout_box(dest, box);
 }
 
+// 解析字符串替换：将文本键对应的本地化文本中的 $...$ 变量替换为映射表中的值，返回纯文本结果
 std::string resolve_string_substitution(sys::state& state, dcon::text_key source_text, substitution_map const& mp) {
 	std::string result;
 
@@ -2381,6 +2543,7 @@ std::string resolve_string_substitution(sys::state& state, dcon::text_key source
 	return result;
 }
 
+// 解析字符串替换（按键查找）：先查找本地化键，再调用文本键版本进行替换
 std::string resolve_string_substitution(sys::state& state, std::string_view key, substitution_map const& mp) {
 	dcon::text_key source_text;
 	if(auto k = state.lookup_key(key); k) {
@@ -2394,13 +2557,16 @@ std::string resolve_string_substitution(sys::state& state, std::string_view key,
 }
 
 
+// 向单行布局中添加 UTF-8 文本（含转义解析）
 void single_line_layout::add_text(sys::state& state, std::string_view v) {
 	add_unparsed_text_to_layout_box(state, *this, box, v);
 }
+// 向单行布局中添加 UTF-16 文本
 void single_line_layout::add_text(sys::state& state, std::u16string_view v) {
 	auto current_color = fixed_parameters.color;
 	add_to_layout_box(state, *this, box, v, current_color, std::monostate{});
 }
+// 向单行布局中添加本地化文本键对应的文本
 void single_line_layout::add_text(sys::state& state, dcon::text_key source_text) {
 	add_to_layout_box(state, *this, box, source_text);
 }

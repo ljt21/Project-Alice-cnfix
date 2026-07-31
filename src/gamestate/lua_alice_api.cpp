@@ -40,39 +40,48 @@ extern "C" {
 
 }
 
+// 输出控制台日志
 void console_log(const char message[]) {
 	alice_state_ptr->console_log(message);
 }
 
+// 获取本地玩家国家ID
 int32_t local_player_nation() {
 	return alice_state_ptr->local_player_nation.index();
 }
 
+// 命令移动陆军
 void command_move_army(int32_t unit, int32_t target, bool reset) {
 	command::move_army(*alice_state_ptr, alice_state_ptr->local_player_nation, dcon::army_id{ uint16_t(unit) }, dcon::province_id{ uint16_t(target) }, reset);
 }
+// 命令移动海军
 void command_move_navy(int32_t unit, int32_t target, bool reset) {
 	command::move_navy(*alice_state_ptr, alice_state_ptr->local_player_nation, dcon::navy_id{ uint16_t(unit) }, dcon::province_id{ uint16_t(target) }, reset);
 }
 
 
+// 根据名称获取游戏规则ID
 int32_t lua_get_gamerule_id_by_name(const char gamerule_name[]) {
 	return gamerule::get_gamerule_id_by_name(*alice_state_ptr, std::string_view(gamerule_name)).index();
 }
 
+// 根据名称获取游戏规则选项ID
 uint8_t lua_get_gamerule_option_id_by_name(const char gamerule_option_name[]) {
 	return gamerule::get_gamerule_option_id_by_name(*alice_state_ptr, std::string_view(gamerule_option_name));
 }
 
+// 检查游戏规则是否启用
 bool lua_check_gamerule(int32_t gamerule_id, uint8_t opt_id) {
 	return gamerule::check_gamerule(*alice_state_ptr, dcon::gamerule_id{ dcon::gamerule_id::value_base_t(gamerule_id) }, opt_id);
 }
 
+// 获取当前激活的游戏规则选项
 int32_t lua_get_active_gamerule_option(int32_t gamerule_id) {
 	return static_cast<int32_t>(gamerule::get_active_gamerule_option(*alice_state_ptr, dcon::gamerule_id{ dcon::gamerule_id::value_base_t(gamerule_id) }));
 }
 
 namespace ui {
+// 设置显示文本
 void lua_scripted_element::set_text(sys::state& state, std::string const& new_text) {
 	if(new_text != cached_text) {
 		cached_text = new_text;
@@ -82,8 +91,10 @@ void lua_scripted_element::set_text(sys::state& state, std::string const& new_te
 		sl.add_text(state, cached_text);
 	}
 }
+// 重置文本时的回调
 void lua_scripted_element::on_reset_text(sys::state& state) noexcept  {
 }
+// 创建元素时的回调
 void lua_scripted_element::on_create(sys::state& state) noexcept  {
 	auto found = alice_state_ptr->lua_registered_ui_functions.find(on_update_lname);
 	if(found != alice_state_ptr->lua_registered_ui_functions.end()) {
@@ -98,6 +109,7 @@ void lua_scripted_element::on_create(sys::state& state) noexcept  {
 		alice_state_ptr->lua_registered_ui_functions[on_update_lname] = on_update_lref;
 	}
 }
+// 渲染元素
 void lua_scripted_element::render(sys::state& state, int32_t x, int32_t y)  noexcept  {
 	if(internal_layout.contents.empty()) return;
 	auto fh = text::make_font_id(state, text_is_header, text_scale * 16);
@@ -109,15 +121,19 @@ void lua_scripted_element::render(sys::state& state, int32_t x, int32_t y)  noex
 		ui::render_text_chunk(state, t, float(x) + t.x, float(y + int32_t(ycentered)), fh, ui::get_text_color(state, text_color), cmod);
 	}
 }
+// 获取提示框行为
 ui::tooltip_behavior lua_scripted_element::has_tooltip(sys::state& state) noexcept  {
 	return ui::tooltip_behavior::no_tooltip;
 }
+// 测试鼠标交互
 ui::message_result lua_scripted_element::test_mouse(sys::state& state, int32_t x, int32_t y, ui::mouse_probe_type type) noexcept  {
 	return ui::message_result::consumed;
 }
+// 更新提示框内容
 void lua_scripted_element::update_tooltip(sys::state& state, int32_t x, int32_t y, text::columnar_layout& contents) noexcept  {
 
 }
+// 更新元素状态
 void lua_scripted_element::on_update(sys::state& state) noexcept {
 	state.current_lua_element = this;
 	auto start = lua_gettop(alice_state_ptr->lua_ui_environment);
@@ -139,16 +155,19 @@ void lua_scripted_element::on_update(sys::state& state) noexcept {
 }
 }
 
+// 设置当前Lua元素的文本
 void set_text(const char text[]) {
 	alice_state_ptr->current_lua_element->set_text(*alice_state_ptr, text);
 }
 
+// 获取本地化文本
 const char* get_localised_text(const char key[]) {
 	static thread_local std::string result;
 	result = text::produce_simple_string(*alice_state_ptr, key);
 	return result.c_str();
 }
 
+// 判断两个国家是否处于战争状态
 bool alice_at_war(int32_t nation_a, int32_t nation_b) {
 	return military::are_at_war(
 		*alice_state_ptr,
@@ -157,11 +176,13 @@ bool alice_at_war(int32_t nation_a, int32_t nation_b) {
 	);
 }
 
+// 获取单位属性统计数据
 sys::unit_variable_stats* alice_get_unit_stats(int32_t unit_id) {
 	dcon::unit_type_id uid = dcon::unit_type_id{ dcon::unit_type_id::value_base_t(unit_id) };
 	return &(alice_state_ptr->military_definitions.unit_base_definitions[uid]);
 }
 
+// 添加动作回调函数
 void add_on_action(const char function_name[], std::vector<int>& container) {
 	std::string name = function_name;
 	auto found = alice_state_ptr->lua_registered_functions.find(name);
@@ -185,6 +206,7 @@ void add_on_action(const char function_name[], std::vector<int>& container) {
 	container.push_back(index);
 }
 
+// 移除动作回调函数
 void remove_on_action(const char function_name[], std::vector<int>& container) {
 	std::string name = function_name;
 	auto found = alice_state_ptr->lua_registered_functions.find(name);
@@ -198,22 +220,28 @@ void remove_on_action(const char function_name[], std::vector<int>& container) {
 	container.erase(place);
 }
 
+// 注册每日更新回调函数
 void call_daily(const char function_name[]){
 	add_on_action(function_name, alice_state_ptr->lua_on_daily_tick);
 }
 
+// 移除每日更新回调函数
 void remove_daily(const char function_name[]) {
 	remove_on_action(function_name, alice_state_ptr->lua_on_daily_tick);
 }
+// 注册战斗每日更新回调函数
 void call_daily_battle(const char function_name[]) {
 	add_on_action(function_name, alice_state_ptr->lua_on_battle_tick);
 }
+// 移除战斗每日更新回调函数
 void remove_daily_battle(const char function_name[]) {
 	remove_on_action(function_name, alice_state_ptr->lua_on_battle_tick);
 }
+// 注册战斗结束回调函数
 void call_battle_end(const char function_name[]) {
 	add_on_action(function_name, alice_state_ptr->lua_on_battle_end);
 }
+// 移除战斗结束回调函数
 void remove_battle_end(const char function_name[]) {
 	remove_on_action(function_name, alice_state_ptr->lua_on_battle_end);
 }
@@ -221,6 +249,7 @@ void remove_battle_end(const char function_name[]) {
 
 namespace lua_alice_api {
 
+// 设置游戏循环的Lua环境
 void setup_gameloop_environment(sys::state& state) {
 	// Setup LUA game loop environment
 
@@ -234,7 +263,7 @@ void setup_gameloop_environment(sys::state& state) {
 	}
 }
 
-// example of providing LUA API if someone would ever need it for something
+// 绘制矩形（Lua API示例）
 static int draw_rectangle(lua_State* L) {
 	// get amount of arguments
 	int n = lua_gettop(L);
@@ -266,6 +295,7 @@ static int draw_rectangle(lua_State* L) {
 	return 0;
 }
 
+// 设置UI的Lua环境
 void setup_ui_environment(sys::state& state) {
 	// LOAD LUA UI Environment
 	state.lua_ui_environment = luaL_newstate();
@@ -303,10 +333,12 @@ void setup_ui_environment(sys::state& state) {
 	assert(lua_gettop(state.lua_ui_environment) == 0);
 }
 
+// 设置全局状态指针
 void set_state(sys::state* state_ptr) {
 	alice_state_ptr = state_ptr;
 }
 
+// 检查是否存在指定名称的Lua函数
 bool has_named_function(sys::state& state, const char function_name[]) {
 	std::string name = function_name;
 	auto found = state.lua_registered_functions.find(name);
@@ -336,6 +368,7 @@ bool has_named_function(sys::state& state, const char function_name[]) {
 	}
 }
 
+// 调用指定名称的Lua函数
 void call_named_function(sys::state& state, const char function_name[]) {
 	std::string name = function_name;
 	auto found = state.lua_registered_functions.find(name);
@@ -368,6 +401,7 @@ void call_named_function(sys::state& state, const char function_name[]) {
 	assert(lua_gettop(state.lua_game_loop_environment) == 0);
 }
 
+// 调用指定名称的Lua函数（带省份参数）
 void call_named_function(sys::state& state, const char function_name[], dcon::province_id prov) {
 	std::string name = function_name;
 	auto found = state.lua_registered_functions.find(name);
@@ -398,6 +432,7 @@ void call_named_function(sys::state& state, const char function_name[], dcon::pr
 	assert(lua_gettop(state.lua_game_loop_environment) == 0);
 }
 
+// 安全调用指定名称的Lua函数（带省份参数）
 void call_named_function_safe(sys::state& state, const char function_name[], dcon::province_id prov) {
 	std::string name = function_name;
 	auto found = state.lua_registered_functions.find(name);

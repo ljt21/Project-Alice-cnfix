@@ -5822,7 +5822,6 @@ void trade_dashboard_commodity_selector_name_t::set_text(sys::state& state, std:
 	}
 }
 void trade_dashboard_commodity_selector_name_t::on_reset_text(sys::state& state) noexcept {
-	set_text(state, text::get_commodity_text_icon(state, cid));
 }
 void trade_dashboard_commodity_selector_name_t::render(sys::state & state, int32_t x, int32_t y) noexcept {
 	if(is_active)

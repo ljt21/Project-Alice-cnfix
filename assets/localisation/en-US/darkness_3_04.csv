@@ -1,0 +1,19 @@
+#Powered_by_ParaTranz
+EVTNAME19356;War to End Wars
+EVTDESC19356;We have entered an era of warfare unprecedented in history, and this is becoming increasingly clear. The conflicts of this age are no longer confined to a single region but have spread to every corner of the world. Considering that the relevant countries will face growing risks and the terrifying consequences of hostile acts, there is no longer any need to restrain ourselves.\n\n From now on, world wars allow the clearly dominant side to add more war justifications.
+EVTOPTA19356;Gentlemen, all I ask for is a war — a war that will make even Hell itself begin to tremble
+EVTDESC19356_NEWS_LONG;We have entered an era of warfare unprecedented in history, and this is becoming increasingly clear. The conflicts of this age are no longer confined to a single region but have spread to every corner of the world. Considering that the relevant countries will face growing risks and the terrifying consequences of hostile acts, there is no longer any need to restrain ourselves.
+EVTDESC19356_NEWS_MEDIUM;We have entered an era of warfare unprecedented in history, and this is becoming increasingly clear. The conflicts of this age are no longer confined to a single region but have spread to every corner of the world. Considering that the relevant countries will face growing risks and the terrifying consequences of hostile acts, there is no longer any need to restrain ourselves.
+EVTDESC19356_NEWS_SHORT;We have entered an era of warfare unprecedented in history, and this is becoming increasingly clear.
+ASSIMILATE_EFFECT;Assimilate all pops in the state\n
+WORLD_WARS_ENABLE_DESC;Wars can become world wars
+WORLD_WARS_ENABLED_DESC;World wars enabled
+WORLD_WARS_DISABLED_DESC;World wars disabled
+SM_WINDOW;Windowed mode
+SM_WINDOWED;Windowed mode
+SM_FULLSCREEN;Fullscreen mode
+SM_BORDERLESS;Borderless fullscreen
+IGNORE_DECISION_ON;Feasibility notifications for this decision are turned off.\n\n?GClick to change notification status.?!
+IGNORE_DECISION_OFF;Feasibility notifications for this decision are turned on.\n\n?GClick to change notification status.?!
+SPLITINHALF;Split into Two
+SPLITINHALF_DRO;Splitting in half divides the current unit into two units of roughly equal size and selects the larger of the two.

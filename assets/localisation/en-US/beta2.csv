@@ -1,0 +1,302 @@
+#Powered_by_ParaTranz
+WARSUBSIDIES_DI;Offer War Subsidies
+CANCEL_WARSUBSIDIES_DI;Cancel War Subsidies
+ASKMILITARYACCESS_DI;Request Military Access
+CANCELASKMILITARYACCESS_DI;Abandon Military Access
+GIVEMILITARYACCESS_DI;Grant Military Access
+CANCELGIVEMILITARYACCESS_DI;Revoke Military Access
+ALLIANCE_DI;Propose Alliance
+CANCELALLIANCE_DI;Dissolve Alliance
+CALLALLY_DI;Call Ally to Arms
+DISCREDIT_DI;Discredit
+EXPELADVISORS_DI;Expel Advisors
+BANEMBASSY_DI;Blockade Embassy
+INCREASEOPINION_DI;Improve Relations
+DECREASEOPINION_DI;Reduce Relations
+ADDTOSPHERE_DI;Add to Sphere of Influence
+REMOVEFROMSPHERE_DI;Remove from Sphere of Influence
+INCREASERELATION_DI;Improve Relations
+DECREASERELATION_DI;Reduce Relations
+GUNBOAT_DI;Gunboat Diplomacy
+WAR_DI;Declare War
+WARGOAL_DI;Add War Goal
+PEACE_DI;Propose Peace
+TOPBAR_LEADERSHIP_MAX;You have reached the maximum leadership: ?Y$MAX$?W. No new leadership can be accumulated after this point.\n
+IS_MOBILIZED_IRO;(Reserves have been mobilized)
+ADD_CRIME;Acquired?Y$NAME$?W\n
+TOPBAR_WAR_PLUS;and their Sphere of Influence\n
+CANTBUILD_FORCEDISARM;We cannot build new military units because a peace treaty has forced our country to disarm
+SOME_LIFE_NEEDS;Some Necessities
+TOPBAR_AVG_CHANGE;We estimate it will change by $VAL$?W next month
+TECH_DAILY_RESEARCHPOINTS_BASE_TOOLTIP;Base daily research points: ?Y$VALUE$?W
+TECH_DAILY_RESEARCHPOINTS_TOTAL_TOOLTIP;Daily research points: ?G+$VALUE$?W
+TECH_DAILY_RESEARCHPOINTS_TOOLTIP;$POPTYPE$ provides ?G$VALUE$?W research points\n(Currently ?Y$FRACTION$%?W of population, optimal is $OPTIMAL$%)
+average_literacy;Literacy Rate
+MODIFIER_RESEARCH_POINTS;Research Points
+gas;Gas Attack
+COMBAT_GAS;Gas attacks are devastating against enemies lacking defenses
+MAY_GAS_ATTACK;Can use gas attack\n
+MAY_GAS_DEFEND;Can defend against gas attack\n
+IMMIGRANTS_FROM;There are ?G$VAL$?W immigrants from $NAME$ here
+EMIGRANTS_TO;?R$VAL$?W emigrants to $NAME$
+PW_ALL_FOCUSES_USED;All national focuses have been used
+HAS_NO_FACTORIES;No Factories\n
+HAS_FACTORIES;Has Factories\n
+RETREAT_DELAY_IRO;Can choose to retreat in ?Y$VAL$?W days
+PW_CANTCOLONIZE;Cannot colonize here
+IS_COLONIAL_STATE_POPVIEW;Colonial Territory
+CULTURE_IS_NOT;Culture is not
+CULTURE_IS;Culture is
+INVALID_WARTARGET_TROOPS_IN_THEM;We still have troops in their territory
+WEX_EFFECTS;Current Effects
+NOBODY_CAN_VOTE_HERE;No one has the right to vote
+NOT_ABLE_TO_REINFORCE;This pop is too small to reinforce this brigade
+POP_SIZE_UNITVIEW;This pop has ?Y$VAL$?W people and can support ?Y$ALLOWED$?W brigades. Currently it supports ?Y$CURRENT$?W brigades.
+MAX_REINF_UNITVIEW;Reinforcing at ?G100%?W speed
+POP_IMPACT_UNITVIEW;Due to reserve losses, this unit is being reinforced at ?Y$VAL$%?W speed
+MOB_IS_REINFORCE;Mobilized units are being reinforced at ?Y50%?W speed
+EVTNAME60120;Rising Federalism
+EVTDESC60120;A wave of cultural nationalism is sweeping through $COUNTRY$, with people calling for unification with their brethren in $CULTURE_GROUP_UNION$. We have no reason to doubt they will petition for a union.
+EVTOPTA60120;Proceed
+EVTNAME60130;Petition for Union from $FROMCOUNTRY$
+EVTDESC60130;As national sentiment surges, the government of $FROMCOUNTRY_ADJ$ has made a formal request to our officials at $CAPITAL$, seeking to permanently join $COUNTRY$. There seems to be no reason to oppose this.
+EVTOPTA60130;Proceed
+EVTOPTB60130;Reject $FROMCOUNTRY$ in the name of God
+ATPEACE;At Peace
+NORMAL_WAR_RUDEBOI_NAME;$ORDER$$FIRST$ Containment War against $SECOND$
+AGRESSION_WAR_RUDEBOI_NAME;$ORDER$$FIRS_COUNTRY$ Containment War against $SECOND$
+rude_boy;Containment
+rude_boy_desc;Forcing a ?Ycountry?W to drastically reduce its ambitions, this declaration of war has stripped away all civilized pretenses in international affairs
+rude_boy_setup;Contain $RECIPIENT$ by reducing its territory, prestige, and military
+rude_boy_short;Contain $RECIPIENT$
+POP_DETAILS_EXPENSES;Expenses:
+CONFIRM_CREATE_VASSAL;Release Nation
+CONFIRM_CREATE_VASSAL_DESC;Do you wish to release ?Y$COUNTRY$?W as a ?Y$TYPE$?W?\n?Y$COUNTRY$?W will gain the following ?Y$NUM$?W provinces: ?Y$PROVINCES$?W
+egyptian_excavations;Egyptian Excavations
+egyptian_excavations_desc;Our country has launched archaeological excavations in the Valley of the Kings.
+red_shirts_title;Red Shirts
+red_shirts_name;Garibaldi's Red Shirts
+red_shirts_desc;The name "Red Shirts" is used to describe the volunteers who served Giuseppe Garibaldi in his struggle to forge the loose Italian city-states into a nation-state. They were so named because Garibaldi and his fighters wore red shirts. The charismatic Garibaldi was renowned at home and abroad, widely regarded as a freedom fighter dedicated to uniting Italy under the Sardinian crown. These Italian pan-nationalists fought for the unification of Italy.
+red_shirts_army;Expedition of the Thousand
+EVTNAME11103;Expedition of the Thousand!
+EVTDESC11103;$MONARCHTITLE$! News has reached us! The famous Italian freedom fighter Giuseppe Garibaldi and his "Expedition of the Thousand" have defeated and taken control of the government of $FROMCOUNTRY$. Wherever this powerful freedom fighter goes, he is welcomed by cheering Italian crowds waving the Italian tricolor flag — the liberator of all Italy. Due to our dominant position on the peninsula, the newly formed government of $FROMCOUNTRY$ has sent word that the nascent Italy will recognize the existing position of $COUNTRY$.
+EVTOPTA11103;Viva il Risorgimento!
+EVTOPTB11103;Who is this fellow? What does he want from me?
+CB_DESC_HEAD;This casus belli allows us to demand:
+CB_ALLOWED_DISARMAMENT;Force Disarmament
+CB_ALLOWED_REPARATIONS;War Reparations
+CB_ALLOWED_STATES;Cede Territory
+TRADE_DISABLED_AUTOMATE;This resource is set to automatic trade. Please disable automatic mode to change settings
+AUTOMATE_TRADE_CHECK;Toggle automatic trade for this resource
+TECHNOLOGYVIEW_RESEARCH_TOOLTIP;We are currently researching ?Y$TECH$?W\nAt the current rate, this project will be completed on ?Y$DATE$?W
+INCREASERELATION_THEY_ACCEPT_4;Our relations have improved by ?G$CHANGE$?W, now at ?Y$RELATION$?W
+INCREASERELATION_WE_ACCEPT_4;Our relations have improved by ?G$CHANGE$?W, now at ?Y$RELATION$?W
+DECREASERELATION_WE_ACCEPT_5;Our relations have changed by ?R$CHANGE$?W, now at ?Y$RELATION$?W
+DECREASERELATION_THEY_ACCEPT_6;Our relations have changed by ?R$CHANGE$?W, now at ?Y$RELATION$?W
+TRI_1743;Tripoli
+NORMAL_WAR_CONCESSION_NAME;$ORDER$$STATE$ Concession War
+AGRESSION_WAR_CONCESSION_NAME;$ORDER$$STATE$ Concession War
+demand_concession_casus_belli;Demand Concession
+demand_concession_casus_belli_desc;Force a ?Yuncivilized nation?W to cede territory for a colonial concession
+demand_concession_casus_belli_setup;Demand that $RECIPIENT$ cede territory for a colonial concession
+demand_concession_casus_belli_short;Demand $STATE$
+NORMAL_WAR_PROTECTORATE_NAME;$ORDER$ Acquisition of $SECOND$ belonging to $FIRST$
+AGRESSION_WAR_PROTECTORATE_NAME;$ORDER$ Acquisition of $SECOND$ belonging to $FIRST$
+establish_protectorate_casus_belli;Establish Protectorate
+establish_protectorate_casus_belli_desc;Annex a ?Yuncivilized nation?W by forcing it to become our protectorate
+establish_protectorate_casus_belli_setup;Annex $RECIPIENT$ through the establishment of a protectorate
+establish_protectorate_casus_belli_short;Annex $RECIPIENT$
+NORMAL_WAR_UNIFICATION_NAME;$ORDER$$FIRST$ Liberate $STATE$
+AGRESSION_WAR_UNIFICATION_NAME;$ORDER$$FIRST$ Liberate $STATE$
+unification_casus_belli;Unification War
+unification_casus_belli_desc;Liberate the core territories of our ?Yculture sphere?W
+unification_casus_belli_setup;Liberate the core territories of our ?Yculture sphere?W
+unification_casus_belli_short;Liberate $STATE$
+POP_PROMOTE_INFO_ON_SEL;Recently $VAL$ $WHO$ registered in $WHERE$
+POP_LEAVE_INFO_ON_SEL;Recently lost $VAL$ $WHO$ in $WHERE$
+DOMINION;Dominion
+SATELLITE;Satellite
+DOMINION_OF_NOCOLOR;Dominion of
+SATELLITE_OF_NOCOLOR;Satellite of
+DIPLOMACY_CANNOT_SET_PRIO_MYVASSAL;They are our ?Y$TYPE$?W and will always remain within our ?Ysphere of influence?W
+DIPLOMACY_TRUCE_WITH;Truce:
+DIPLOMACY_CASUSBELLIS;Casus Belli:
+tut_1c_9;As we mentioned before, when a pop with an attached brigade revolts, the brigade will also revolt. If a brigade has a rebel icon behind its population icon, it means the pop it belongs to is a member of a rebel faction. This is very dangerous. One way to confirm the status of this pop and its political views is to click on the pop icon in the unit interface to open the population interface. Now, click next to continue.
+BUDGET_VIEW_CRIME_FIGHT;Crime Fighting Effect:
+POP_CURRENT_PROD;Current Production:
+ALREADY_ASSIMILATED;Primary or Accepted Culture
+TCP_SERVER_LOST;Host lost during save transfer!
+tut_7b_6;Prices on the global market are set daily based on changes in supply and demand. Current supply and demand set a target price that the actual price will constantly approach. You must pay close attention to the development of commodity prices, which is very important for you. When the price of small arms rises, it may be time to build a new factory. The arrow next to the price indicates whether the price is rising (green), stable (yellow), or falling (red). Click next to continue.
+tut_7b_8;The image below shows an example of a sailing ship on the world market. The icon at the bottom shows whether we are currently selling or buying this resource, and whether the trade is conducted automatically by AI or not. The government (player or AI) can buy or sell on the market in two ways: by setting trade rules or through automatic trade. Click on the sailing ship icon to observe an automatic trade.
+DIPLO_CALL_ALLIES;Call Allies
+RULE_OPEN_FACTORY;Open/Close Factory
+PRODUCTION_NOT_DESTROY_FACTORY_BECAUSE_TOOLTIP;Reason we ?Rcannot?W destroy this factory:
+BE_ANNEXED;Annexed
+PW_COLONY_NO_STATE;Need at least ?Y$NUM$?W% of the accepted culture to be bureaucrats to convert a colony into formal territory. Current proportion is ?Y$CURR$?W%
+REMOVE_PW_COLONY_NO_STATE;Need at least ?Y$NUM$?W% of the accepted culture to be bureaucrats to convert a colony into formal territory. Current proportion is ?Y$CURR$?W%
+BAD_SAVE;Error: Save file corrupted
+tut_4c_12b;Now go to the Army Technology interface.
+USA_reactionary;Southern Democrats
+MILITARY_DIG_IN_CAP;Trench Depth
+MILITARY_MILITARY_TACTICS;Military Tactics
+COUNTRYALERT_NO_CanDoDecisions;There are currently no decisions worth our attention
+POP_OTHER_LABEL;Other
+annex_hawaii_title;Newlands Resolution
+annex_hawaii_desc;The Newlands Resolution was a joint resolution passed by the US Congress in 1898, named after Congressman Francis G. Newlands. It annexed the Republic of Hawaii to the United States, acquiring the territory of Hawaii.
+ionian_islands_question_title;Treaty of London (1864)
+ionian_islands_question_desc;Britain acquired sovereignty over the Ionian Islands after the Napoleonic Wars. In 1862, the cost of maintaining sovereignty was considered too high relative to their value, and after two years of negotiations, they were ceded to Greece.
+WARSUBSIDIES_DESC;Provide ?Y$MONEY$?W per day to assist this nation
+release_puppet;Release Puppet
+release_puppet_short;Grant independence to $THIRD$
+release_puppet_setup;Release $THIRD$ from $RECIPIENT$
+release_puppet_desc;Grant a ?Ynation?W independence from its suzerain
+IS_NOT_OUR_VASSAL;Not our puppet
+IS_OUR_VASSAL;Is our puppet
+COUNTRYALERT_HaveOrganizingRebels;Rebel factions are organizing in our country!
+TOTAL_REBEL_POP;Rebel Faction Members
+PROV2918;Bay of Benin
+PROV2921;Guinea Coast
+PROV2922;Senegambia Coast
+NUMBER_OF_EMIREES;?Y$NUM$?W people emigrated this month
+NUMBER_OF_IMMIGREES;?Y$NUM$?W people immigrated this month
+alaskan_purchase_title;Seward's Folly
+alaskan_purchase_desc;As a consequence of the Crimean War, Russia began to believe there was no hope of retaining its North American territories in another war with Britain, and sought to sell them, which became the state of Alaska in the United States. This territory was purchased by the United States in 1867 at a price of $0.023 per acre. After being championed and completed by then-Secretary of State William Henry Seward, the purchase of Alaska was widely mocked by Americans as "Seward's Folly."
+EVTNAME32509;Alaska Purchase?
+EVTDESC32509;The probe made by Eduard Andreevich Stoeckl, our chargé d'affaires at the embassy in Washington, has yielded results. The United States indicated today that negotiations can begin on the sale of our North American territories. The Americans have offered us $0.023 per acre for the Alaska region, which seems relatively fair. It will be difficult for the colony to survive a war with Britain, so selling it now at this price is not a bad idea. What do you think, $MONARCHTITLE$?
+EVTOPTA32509;We're struggling anyway
+EVTOPTB32509;No, I don't think so. Perhaps someday we can build a bridge there?
+EVTNAME32510;Russia Accepts!
+EVTDESC32510;$MONARCHTITLE$, Russia has agreed to sell Alaska to us!
+EVTOPTA32510;Excellent!
+EVTNAME32511;Russia Refuses!
+EVTDESC32511;$MONARCHTITLE$, negotiations with Russia over the sale of Alaska have ceased. Russia has refused to sell the region to us.
+EVTOPTA32511;Detestable!
+IS_DISARMED;Has been disarmed
+IS_NOT_DISARMED;Has not been disarmed
+TRUCE_LASTS_UNTIL;Truce lasts until ?Y$DATE$?W
+LOBBY_HOST_ONLY;Only the host can start the game
+LOBBY_WAITING;You must wait for all players to start, or kick players who have disappeared
+NO_UNIT_TECH;To form ?Y$UNIT$?W, we must first research ?Y$TECH$?W
+NO_UNIT_REGIMENTS;We cannot form ?Y$UNIT$?W; we need more ?Ysoldiers?W
+NO_UNIT_PORTS;We cannot form ?Y$UNIT$?W; we need a ?Ycoastal?W province
+DIPLOMACY_WARDIALOG_ALLIES;?Y$COUNTRY$?W is protected by the following:
+DIPLOMACY_WARDIALOG_NUM_ALLIES;?Y$COUNTRY$?W is protected by ?Y$NUM$?W nations
+DIPLOMACY_WARDIALOG_ALLY;Ally
+WARGOAL_WE_ACCEPT_HEADER;Foreign Secretary's Report
+WARGOAL_WE_ACCEPT_1;$MONARCHTITLE$
+WARGOAL_WE_ACCEPT_2;$ACTOR$ has decided to expand their war against us to demand
+WARGOAL_WE_ACCEPT_3;$WARGOAL$
+WARGOAL_WE_ACCEPT_4;These fools think we will agree.
+WARGOAL_WE_ACCEPT_5;*
+WARGOAL_WE_ACCEPT_6;We will punish their arrogance.
+WARGOAL_WE_ACCEPT_BTN1;OK
+WARGOAL_WE_ACCEPT_BTN2;OK
+WARGOAL_WE_ACCEPT_BTN3;View
+WARGOAL_WE_ACCEPT_LOG;$ACTOR$ expanded their war against us to gain $WARGOAL$.
+WARGOAL_THEY_ACCEPT_HEADER;Foreign Secretary's Report
+WARGOAL_THEY_ACCEPT_1;$MONARCHTITLE$
+WARGOAL_THEY_ACCEPT_2;We have decided to expand our war to demand
+WARGOAL_THEY_ACCEPT_3;$WARGOAL$
+WARGOAL_THEY_ACCEPT_4;We hope $RECIPIENT$ will be reasonable
+WARGOAL_THEY_ACCEPT_5;*
+WARGOAL_THEY_ACCEPT_6;Now they will pay for their shortsightedness.
+WARGOAL_THEY_ACCEPT_BTN1;OK
+WARGOAL_THEY_ACCEPT_BTN2;OK
+WARGOAL_THEY_ACCEPT_BTN3;View
+WARGOAL_THEY_ACCEPT_LOG;We expanded our war with $RECIPIENT$ to gain $WARGOAL$.
+WARGOAL_OTHER_ACCEPT_HEADER;Foreign Secretary's Report
+WARGOAL_OTHER_ACCEPT_1;$MONARCHTITLE$
+WARGOAL_OTHER_ACCEPT_2;We have heard rumors from distant places
+WARGOAL_OTHER_ACCEPT_3;It appears $ACTOR$
+WARGOAL_OTHER_ACCEPT_4;has expanded their war against $RECIPIENT$
+WARGOAL_OTHER_ACCEPT_5;to gain $WARGOAL$
+WARGOAL_OTHER_ACCEPT_6;As if we care.
+WARGOAL_OTHER_ACCEPT_BTN1;OK
+WARGOAL_OTHER_ACCEPT_BTN2;OK
+WARGOAL_OTHER_ACCEPT_BTN3;View
+WARGOAL_OTHER_ACCEPT_LOG;$ACTOR$ expanded their war against $RECIPIENT$ to gain $WARGOAL$.
+NO_GP_ACTION_ON_SELF;It is foolish to target ourselves
+OL_VIEW_SIEGES;Toggle ?YSiege?W shortcut bar
+BADBOY_EFFECT;$DIRECTION$$VALUE$ Infamy\n
+unification_annex_casus_belli;Unification War
+unification_annex_casus_belli_desc;Liberate the core territories of our ?Yculture sphere?W
+unification_annex_casus_belli_setup;Liberate the core territories of our ?Yculture sphere?W
+unification_annex_casus_belli_short;Annex
+enlightenment_thought;Rights Thought
+enlightenment_thought_desc;Rights Thought
+NORMAL_WAR_UNIFICATION_ANNEX_NAME;$ORDER$$FIRST$ Liberate $SECOND$
+AGRESSION_WAR_UNIFICATION_ANNEX_NAME;$ORDER$$FIRST$ Liberate $SECOND$
+springtime_of_nations;Spring of Nations!
+springtime_of_nations_desc;The sleeping nations of Europe awaken against despotism and tyranny
+HND_conservative;National Assembly Party
+HND_liberal;Independence Party
+HND_reactionary;National Front
+HND_anarcho_liberal;Liberty Party
+HND_socialist;Indian National Congress
+HND_communist;Communist Party
+HND_fascist;Unification Party
+HND;India
+WEDID_ISDISCREDITED_DESC;The effects of discredit last until ?Y$UNTIL$?W. Our nation is still affected.
+WEDID_ISBANNEDEMBASSY_DESC;The effects of the embassy blockade last until ?Y$UNTIL$?W. Our nation is still affected.
+OTHER_MUST_NEGOTIATE_WITH_WAR_LEADER;We cannot negotiate with the enemy's ?Ywar leader?W before the end of the war. Peace agreements can only be signed between ?Y$ENEMY$?W and ?Y$COUNTRY$?W.
+unification_humiliate_cb;Assert Hegemony
+REMOVE_unification_humiliate_cb_desc;Humiliate other great powers to demonstrate leadership to your culture sphere
+REMOVE_unification_humiliate_cb_setup;Humiliate other great powers to demonstrate leadership to your culture sphere
+unification_humiliate_cb_short;Acknowledge Hegemony
+NORMAL_UNIFICATION_HUMILIATE_NAME;$FIRST$ - $SECOND$ War of Brothers
+AGRESSION_UNIFICATION_HUMILIATE_NAME;$FIRST$ - $SECOND$ War of Brothers
+PRODUCTION_REQUIRED_DAILY_INPUTS;Required Daily Inputs:
+PRODUCTION_DAILY_OUTPUT;Daily Output:
+COUNTRYALERT_NO_HasClosedFactories;Our country has no bankrupt factories
+COUNTRYALERT_HasClosedFactories;Bankrupt factories in the following regions:
+CHI_1496;Hong Kong and Macau
+ANY_STATE_STARTS;Any Situation
+indian_sepoys_title;Indian Mutiny
+indian_sepoys_name;Sepoys
+indian_sepoys_desc;The term "Sepoy" derives from the Persian "Siphai", meaning soldier, and was commonly used to refer to Indian soldiers serving European powers. In 1857, some sepoys employed by the British East India Company launched a mutiny against British rule, an event known simultaneously as the "Indian Mutiny" and the "First War of Independence." The mutinous soldiers fought to liberate India from colonial rule.
+indian_sepoys_army;Indian Mutiny
+HND_ADJ;Indian
+ALD;Algeria
+REMOVED_BUDGET_CANT_LOAN_DESC;Banks will only lend to you if you meet interest payment requirements and are not hostile. Foreign banks will never lend you more than $MAXLOAN$% of their available funds for security reasons.
+WE_ARE_DISCREDITED;We are discredited
+INFLUENCE_NEIGHBOUR;Neighboring Nation
+INFLUENCE_OTHER_CONTINENT;Nation on Another Continent
+INFLUENCE_RELATIVE;Difference between total score and our nation
+INFLUENCE_AT_MAX;We cannot have more than ?Y$MAX$?W points of influence in a single nation
+DIPLOMACY_DAILYINFLULENCE_GAIN;We gain ?Y$NUM$?W points of influence per day over ?Y$COUNTRY$?W. Our base influence gain is ?Y$BASE$?W points
+DECL_WAR_NO_VASSAL;We cannot declare war on ?Ysatellites?W or ?Ydominions?W
+austrian_form_south_german_confederation_title;South German Confederation
+austrian_form_south_german_confederation_desc;Before the unification of the German Empire, with the progress of the Franco-Prussian War, the heightened nationalism of the 19th century had already shown tendencies toward unification. The Frankfurt National Assembly of 1848 was an important precursor. By achieving dominance among the South German states, we can establish the South German Confederation.
+OL_HOSTILE_SIEGES;Enemy Sieges
+OL_VIEW_HOSTILE_SIEGES;Toggle ?YEnemy Sieges?W shortcut bar
+civil_war_setup;Fight to unite our country once again under the same banner
+POOR_MILITANCY_MORE_THAN;Poor militancy more than
+MIDDLE_MILITANCY_MORE_THAN;Middle class militancy more than
+RICH_MILITANCY_MORE_THAN;Rich militancy more than
+POOR_MILITANCY_LESS_THAN;Poor militancy less than
+MIDDLE_MILITANCY_LESS_THAN;Middle class militancy less than
+RICH_MILITANCY_LESS_THAN;Rich militancy less than
+PRODUCTION_SORT_BY_AVAILABLE_WORKFORCE_TOOLTIP;Sort by unemployed ?Y$TYPE$?W
+PRODUCTION_SORT_BY_AVG_INVESTORS_TOOLTIP;Sort by average ?Y$TYPE$?W by region
+PRODUCED_DETAIL;Our nation currently has $VAL$ available
+TRADE_AVAILABLE;Available
+SPA_2517;Micronesia
+hungarian_culture_group;Hungarian
+polish_culture_group;Polish
+czecho_slovak_culture_group;Czechoslovak
+DZG_ADJ;Danzig
+EVTNAME13201;Diplomatic Mission Besieged!
+EVTDESC13201;News from $FROMCOUNTRY$ has reached us. The local ruler has expelled our diplomats from the country, and their forces have surrounded our embassy in a show of force. This will result in a tremendous loss of international prestige unless we formally declare war on $FROMCOUNTRY$. Sir, how should we respond?
+EVTOPTA13201;Force!
+EVTOPTB13201;Perhaps we can let the $FROMCOUNTRY_ADJ$ dragon sleep.
+annex_core_country;Restore Order
+annex_core_country_short;Annex $RECIPIENT$
+annex_core_country_setup;Annex $RECIPIENT$
+annex_core_country_desc;Annex all provinces of a ?Ynation?W that contain your cores
+liberal_rebels_title;Jacobins
+liberal_rebels_name;Jacobins
+liberal_rebels_desc;The liberal Jacobins fight to include broader segments of the population in the nation's government. In an absolute monarchy they would demand a constitutional monarchy; in other cases they wish to establish a democratic system.
+liberal_rebels_army;Republican Guard
+NORMAL_WAR_RESTORE_ORDER_NAME;$ORDER$$FIRST$ Restores Order in $SECOND$
+AGRESSION_WAR_RESTORE_ORDER_NAME;$ORDER$$FIRST$ Restores Order in $SECOND$
+NOT_ENOUGH_FOR_BRIGADE;A brigade has not been fully mobilized yet

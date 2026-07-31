@@ -864,7 +864,7 @@ EVTDESC17640;对资本主义的未来与自由民主政策感到失望的老兵�
 EVTOPTA17640;那就由他们去吧
 EVTOPTB17640;阻止他们影响到军队
 EVTNAME17650;法西斯报纸
-EVTDESC17650;法西斯份子们在一个省份创办了一份名为《$COUNTRY_ADJ黎明报》的报纸，从天到地无所不谈，并且对共产主义者、社会主义者、自由派、保守党、外国人、少数民族、女性、同性恋、资本家、精神病患者与罪犯进行了刻薄的批判，在不少观点上受到了民众的支持。
+EVTDESC17650;法西斯份子们在一个省份创办了一份名为《$COUNTRY_ADJ$黎明报》的报纸，从天到地无所不谈，并且对共产主义者、社会主义者、自由派、保守党、外国人、少数民族、女性、同性恋、资本家、精神病患者与罪犯进行了刻薄的批判，在不少观点上受到了民众的支持。
 EVTOPTA17650;我认为它的阅读对象主要是下层人士
 EVTOPTB17650;我想它的阅读对象主要是中产阶层
 EVTNAME17660;暴力教条
@@ -1195,7 +1195,7 @@ EVTOPTA2100;悲惨的消息！
 EVTNAME2110;文化丰富化
 EVTDESC2110;$PROVINCENAME$新来的移民带来了他们母国积累下来的经验，他们的歌曲现在被混合进我们的歌曲，成为这首叫做$COUNTRY$的变幻不息的交响乐。他们的风俗丰富了我们的风俗，创造了艺术、科学和建筑领域文化表现的新混合风格。
 EVTOPTA2110;炫耀的资本+1！
-EVTOPTB2110;……人们告诉我这些事干什么？！
+EVTOPTB2110;……人们告诉我这些事干什么?!
 EVTNAME2120;移民遭到驱逐
 EVTDESC2120;一名$PROVINCENAME$的新移民偷窃一名当地摊贩时被当地警方抓获，再次被推上返回老家的轮船。此事引起当地移民社区很大的惊慌，许多移民不熟悉我们的司法体制，他们现在担心接下来出现更多的遣返。
 EVTOPTA2120;尽力让他们相信一切安好
@@ -1368,7 +1368,7 @@ BUDGET_BANK_BIGGEST_INVESTORS;最大投资者：\n
 POLITICS_ALREADY_RULING_PARTY;$PARTY$现在是执政党。
 POLITICS_CANNOT_SET_RULING_PARTY_RULE;我国政体不允许我们指定执政党
 BANK_OF;$COUNTRY$银行
-TRADE_STOCKPILE_BUY;我国昨日花费了?Y$MONEY$?Wす郝颛Y$UNITS$?W单位
+TRADE_STOCKPILE_BUY;我国昨日花费了?Y$MONEY$?W的?Y$UNITS$?W单位
 TRADE_STOCKPILE_SOLD;我国昨日销售?Y$UNITS$?W单位获得了?Y$MONEY$?W?!
 annals_of_the_fulani_jihad_title;富拉尼圣战编年史
 annals_of_the_fulani_jihad_desc;阿布杜拉·丹·弗迪奥（Abdullahi dan Fodio，1766-1828）是昆杜（Gwandu）的埃米尔。在其仍在世时，他写了一本关于富拉尼圣战的书，正是在这场大战的洗礼下索科托诞生了。通过传播这本历史著作的一字一言，我们可以恢复我国的荣耀与声威。

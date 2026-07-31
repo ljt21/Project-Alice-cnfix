@@ -40,6 +40,7 @@
 
 namespace sys {
 
+// 开始州选择模式
 void state::start_state_selection(state_selection_data& data) {
 	state_selection = data;
 
@@ -50,6 +51,7 @@ void state::start_state_selection(state_selection_data& data) {
 	}
 }
 
+// 开始民族身份选择模式
 void state::start_national_identity_selection(national_identity_selection_data& data) {
 	national_identity_selection = data;
 
@@ -61,6 +63,7 @@ void state::start_national_identity_selection(national_identity_selection_data& 
 	ui_state.root->impl_on_update(*this);
 }
 
+// 选择州定义
 void state::state_select(dcon::state_definition_id sdef) {
 	assert(state_selection);
 	if(std::find(state_selection->selectable_states.begin(), state_selection->selectable_states.end(), sdef) != state_selection->selectable_states.end()) {
@@ -83,7 +86,7 @@ void state::state_select(dcon::state_definition_id sdef) {
 	map_state.update(*this);
 }
 
-// A national identity was selected from the legend
+// 从图例中选择民族身份
 void state::national_identity_select(dcon::national_identity_id ni) {
 	assert(national_identity_selection);
 	if(std::find(national_identity_selection->selectable_identities.begin(), national_identity_selection->selectable_identities.end(), ni) != national_identity_selection->selectable_identities.end()) {
@@ -94,7 +97,7 @@ void state::national_identity_select(dcon::national_identity_id ni) {
 	map_state.update(*this);
 }
 
-// A province was selected on the map
+// 从地图上选择省份
 void state::national_identity_select(dcon::province_id prov) {
 	assert(national_identity_selection);
 
@@ -112,16 +115,19 @@ void state::national_identity_select(dcon::province_id prov) {
 // window event functions
 //
 
+// 鼠标右键按下事件
 void state::on_rbutton_down(int32_t x, int32_t y, key_modifiers mod) {
 	game_scene::on_rbutton_down(*this, x, y, mod);
 }
 
+// 鼠标中键按下事件
 void state::on_mbutton_down(int32_t x, int32_t y, key_modifiers mod) {
 	// Lose focus on text
 	ui_state.set_focus_target(*this, nullptr);
 	map_state.on_mbuttom_down(x, y, x_size, y_size, mod);
 }
 
+// 鼠标左键按下事件
 void state::on_lbutton_down(int32_t x, int32_t y, key_modifiers mod) {
 	if(ui_state.current_drag_and_drop_data_type != ui::drag_and_drop_data::none) {
 		if(!current_scene.get_root)
@@ -147,13 +153,17 @@ void state::on_lbutton_down(int32_t x, int32_t y, key_modifiers mod) {
 	
 }
 
+// 鼠标右键释放事件
 void state::on_rbutton_up(int32_t x, int32_t y, key_modifiers mod) { }
+// 鼠标中键释放事件
 void state::on_mbutton_up(int32_t x, int32_t y, key_modifiers mod) {
 	map_state.on_mbuttom_up(x, y, mod);
 }
+// 鼠标左键释放事件
 void state::on_lbutton_up(int32_t x, int32_t y, key_modifiers mod) {
 	game_scene::on_lbutton_up(*this, x, y, mod);
 }
+// 鼠标移动事件
 void state::on_mouse_move(int32_t x, int32_t y, key_modifiers mod) {
 	map_state.on_mouse_move(x, y, x_size, y_size, mod);
 	if(map_state.is_dragging) {
@@ -180,7 +190,8 @@ void state::on_mouse_move(int32_t x, int32_t y, key_modifiers mod) {
 		}
 	}
 }
-void state::on_mouse_drag(int32_t x, int32_t y, key_modifiers mod) { // called when the left button is held down
+// 鼠标拖动事件（左键按下时调用）
+void state::on_mouse_drag(int32_t x, int32_t y, key_modifiers mod) {
 	is_dragging = true;
 	if(ui_state.drag_target) {
 		ui_state.drag_target->on_drag(*this, int32_t(mouse_x_position / user_settings.ui_scale),
@@ -188,12 +199,14 @@ void state::on_mouse_drag(int32_t x, int32_t y, key_modifiers mod) { // called w
 			int32_t(y / user_settings.ui_scale), mod);
 	}
 }
-void state::on_drag_finished(int32_t x, int32_t y, key_modifiers mod) { // called when the left button is released after one or more drag events
+// 拖动结束事件（左键在一次或多次拖动后释放时调用）
+void state::on_drag_finished(int32_t x, int32_t y, key_modifiers mod) {
 	if(ui_state.drag_target) {
 		ui_state.drag_target->on_drag_finish(*this);
 		ui_state.drag_target = nullptr;
 	}
 }
+// 窗口大小改变事件
 void state::on_resize(int32_t x, int32_t y, window::window_state win_state) {
 	ogl::deinitialize_msaa(*this);
 	ogl::initialize_msaa(*this, x, y);
@@ -218,6 +231,7 @@ void state::on_resize(int32_t x, int32_t y, window::window_state win_state) {
 	}
 }
 
+// 键盘按下事件
 void state::on_key_down(virtual_key keycode, key_modifiers mod) {
 	if(keycode == virtual_key::CONTROL || keycode == virtual_key::LCONTROL || keycode == virtual_key::RCONTROL)
 		ui_state.ctrl_held_down = true;
@@ -231,6 +245,7 @@ void state::on_key_down(virtual_key keycode, key_modifiers mod) {
 	game_scene::on_key_down(*this, keycode, mod);
 }
 
+// 键盘释放事件
 void state::on_key_up(virtual_key keycode, key_modifiers mod) {
 	if(keycode == virtual_key::CONTROL || keycode == virtual_key::LCONTROL || keycode == virtual_key::RCONTROL)
 		ui_state.ctrl_held_down = false;
@@ -251,19 +266,23 @@ void state::on_key_up(virtual_key keycode, key_modifiers mod) {
 
 	map_state.on_key_up(keycode, mod);
 }
-void state::on_text(char32_t c) { // c is win1250 codepage value
+// 文本输入事件（c为win1250代码页值）
+void state::on_text(char32_t c) {
 	if(ui_state.edit_target_internal)
 		ui_state.edit_target_internal->on_text(*this, c);
 }
+// 过滤文本编辑相关的鼠标事件
 bool state::filter_tso_mouse_events(int32_t x, int32_t y, uint32_t buttons) {
 	if(ui_state.edit_target_internal && ui_state.edit_target_internal->edit_consume_mouse_event(*this, x, y, buttons))
 		return true;
 	return false;
 }
+// 传递编辑命令
 void state::pass_edit_command(ui::edit_command command, sys::key_modifiers mod) {
 	if(ui_state.edit_target_internal)
 		ui_state.edit_target_internal->on_edit_command(*this, command, mod);
 }
+// 发送编辑框鼠标移动事件
 bool state::send_edit_mouse_move(int32_t x, int32_t y, bool extend_selection) {
 	if(ui_state.edit_target_internal) {
 		auto abs_pos = ui::get_absolute_location(*this, *ui_state.edit_target_internal);
@@ -277,6 +296,7 @@ bool state::send_edit_mouse_move(int32_t x, int32_t y, bool extend_selection) {
 	}
 	return false;
 }
+// 详细文本鼠标测试
 text_mouse_test_result state::detailed_text_mouse_test(int32_t x, int32_t y) {
 	if(ui_state.edit_target_internal) {
 		auto abs_pos = ui::get_absolute_location(*this, *ui_state.edit_target_internal);
@@ -291,12 +311,14 @@ text_mouse_test_result state::detailed_text_mouse_test(int32_t x, int32_t y) {
 }
 
 
+// 获取编辑框X坐标
 int state::get_edit_x() {
 	if (ui_state.edit_target_internal) {
 		return ui::get_absolute_location(*this, *ui_state.edit_target_internal).x;
 	}
 	return 0;
 }
+// 获取编辑框Y坐标
 int state::get_edit_y(){
 	if (ui_state.edit_target_internal) {
 		return ui::get_absolute_location(*this, *ui_state.edit_target_internal).y;
@@ -305,6 +327,7 @@ int state::get_edit_y(){
 }
 
 
+// 更新商品-国家缓存数据
 cache_response commodity_per_nation_cache_slot::update(sys::state& state) {
 	if(progress >= state.world.nation_size()) return cache_response::ready;
 	if(!commodity) return cache_response::ready;
@@ -349,6 +372,7 @@ cache_response commodity_per_nation_cache_slot::update(sys::state& state) {
 	return cache_response::in_progress;
 }
 
+// 更新国家-国家缓存数据
 cache_response nation_per_nation_cache_slot::update(sys::state& state) {
 	if(!nation) return cache_response::ready;
 
@@ -379,6 +403,7 @@ cache_response nation_per_nation_cache_slot::update(sys::state& state) {
 	return cache_response::ready;
 }
 
+// 更新国家-商品缓存数据
 cache_response nation_per_commodity_cache_slot::update(sys::state& state) {
 	if(progress >= state.world.commodity_size()) return cache_response::ready;
 	if(!nation) return cache_response::ready;
@@ -415,6 +440,7 @@ cache_response nation_per_commodity_cache_slot::update(sys::state& state) {
 	return cache_response::in_progress;
 }
 
+// 更新省份缓存数据
 cache_response per_province_cache_slot::update(sys::state& state) {
 	// we can't create provinces thankfully
 	if(progress >= state.world.province_size()) {
@@ -485,6 +511,7 @@ cache_response per_province_cache_slot::update(sys::state& state) {
 	return cache_response::in_progress;
 }
 
+// 更新国家缓存数据
 cache_response per_nation_cache_slot::update(sys::state& state) {
 	if(progress >= state.world.nation_size() && progress_sphere >= state.world.nation_size()) return cache_response::ready;
 
@@ -569,6 +596,7 @@ cache_response per_nation_cache_slot::update(sys::state& state) {
 	}
 }
 
+// 更新商品-省份缓存数据
 cache_response commodity_per_province_cache_slot::update(sys::state& state) {
 	if(progress >= state.world.province_size()) {
 		// update sorting
@@ -637,10 +665,12 @@ cache_response commodity_per_province_cache_slot::update(sys::state& state) {
 	return cache_response::in_progress;
 }
 
+// 更新UI状态标志
 void ui_cache::update_ui(sys::state& state) {
 	state.game_state_updated.store(true, std::memory_order_release);
 }
 
+// 更新单个缓存槽
 template<typename SLOT>
 void ui_cache::update_slot(sys::state& state, SLOT& slot, bool& updates_running) {
 	auto requested_update = slot.update_requested.exchange(false);
@@ -665,6 +695,7 @@ void ui_cache::update_slot(sys::state& state, SLOT& slot, bool& updates_running)
 	}
 }
 
+// 处理缓存更新的主循环
 void ui_cache::process_update(sys::state& state) {
 	while(state.quit_signaled.load(std::memory_order::acquire) == false) {
 		bool updates_running = false;
@@ -688,6 +719,7 @@ void ui_cache::process_update(sys::state& state) {
 	}
 };
 
+// 请求查询对象ID
 GLuint request_query(std::vector<GLuint>& ids, std::vector<bool>& free_ids) {
 	unsigned int first_free_index = 0;
 	while(first_free_index < free_ids.size() && !free_ids[first_free_index]) first_free_index++;
@@ -701,8 +733,8 @@ GLuint request_query(std::vector<GLuint>& ids, std::vector<bool>& free_ids) {
 	return ids[first_free_index];
 }
 
-void state::render() { // called to render the frame may (and should) delay returning until the frame is rendered, including
-	// waiting for vsync
+// 渲染帧（可能并且应该延迟返回直到帧渲染完成，包括等待垂直同步）
+void state::render() {
 	if(!current_scene.get_root)
 		return;
 
@@ -1143,6 +1175,7 @@ void state::render() { // called to render the frame may (and should) delay retu
 	/*render_semaphore.release();*/
 }
 
+// 窗口创建完成后的初始化
 void state::on_create() {
 	// lua
 	lua_alice_api::set_state(this);
@@ -1241,10 +1274,12 @@ void state::on_create() {
 //
 
 
+// 移除字符串中的回车符
 void remove_carriage_returns(std::string& str) {
 	str.erase(std::remove(str.begin(), str.end(), '\r'), str.end());
 }
 
+// 将文本键转换为字符串视图
 std::string_view state::to_string_view(dcon::text_key tag) const {
 	if(!tag)
 		return std::string_view();
@@ -1259,6 +1294,7 @@ std::string_view state::to_string_view(dcon::text_key tag) const {
 	return std::string_view(key_data.data() + tag.index(), size_t(end_position - start_position));
 }
 
+// 将本地化标签转换为字符串视图
 std::string_view state::locale_string_view(uint32_t tag) const {
 	assert(size_t(tag) < locale_text_data.size());
 	auto start_position = locale_text_data.data() + tag;
@@ -1271,12 +1307,14 @@ std::string_view state::locale_string_view(uint32_t tag) const {
 	return std::string_view(locale_text_data.data() + tag, size_t(end_position - start_position));
 }
 
+// 重置本地化字符串池
 void state::reset_locale_pool() {
 	locale_text_data.clear();
 	locale_key_to_text_sequence.clear();
 	locale_text_data.push_back(0);
 }
 
+// 加载本地化字符串
 void state::load_locale_strings(std::string_view locale_name) {
 	auto root_dir = get_root(common_fs);
 	auto assets_dir = open_directory(root_dir, NATIVE("assets/localisation"));
@@ -1328,6 +1366,9 @@ void state::load_locale_strings(std::string_view locale_name) {
 		load_base_files(12);
 	} else if(locale_name.starts_with("fi")) {
 		load_base_files(13);
+	} else {
+		// 对于中文、日文、韩文、阿拉伯文等未列出的语言，先加载英文作为回退基础
+		load_base_files(1);
 	}
 
 	auto locale_dir = open_directory(assets_dir, simple_fs::utf8_to_native(locale_name));
@@ -1339,15 +1380,18 @@ void state::load_locale_strings(std::string_view locale_name) {
 	}
 }
 
+// 检查文本键是否已本地化
 bool state::key_is_localized(dcon::text_key tag) const {
 	if(!tag)
 		return false;
 	assert(size_t(tag.index()) < key_data.size());
 	return locale_key_to_text_sequence.find(tag) != locale_key_to_text_sequence.end();
 }
+// 检查字符串键是否已本地化
 bool state::key_is_localized(std::string_view key) const {
 	return locale_key_to_text_sequence.find(key) != locale_key_to_text_sequence.end();
 }
+// 查找文本键
 dcon::text_key state::lookup_key(std::string_view text) const {
 	if(auto it = untrans_key_to_text_sequence.find(text); it != untrans_key_to_text_sequence.end()) {
 		return *it;
@@ -1355,9 +1399,11 @@ dcon::text_key state::lookup_key(std::string_view text) const {
 	return dcon::text_key{};
 }
 
+// 添加win1252编码的文本键（常量引用版本）
 dcon::text_key state::add_key_win1252(std::string const& text) {
 	return add_key_win1252(std::string_view(text));
 }
+// 添加win1252编码的文本键（字符串视图版本）
 dcon::text_key state::add_key_win1252(std::string_view text) {
 	std::string temp;
 	for(auto c : text) {
@@ -1378,9 +1424,11 @@ dcon::text_key state::add_key_win1252(std::string_view text) {
 	assert(temp[temp.size()] == '\0');
 	return add_key_utf8(temp);
 }
+// 添加utf8编码的文本键（常量引用版本）
 dcon::text_key state::add_key_utf8(std::string const& new_text) {
 	return add_key_utf8(std::string_view(new_text.data()));
 }
+// 添加utf8编码的文本键（字符串视图版本）
 dcon::text_key state::add_key_utf8(std::string_view new_text) {
 	auto ekey = lookup_key(new_text);
 	if(ekey)
@@ -1398,9 +1446,11 @@ dcon::text_key state::add_key_utf8(std::string_view new_text) {
 	untrans_key_to_text_sequence.insert(ret);
 	return ret;
 }
+// 添加win1252编码的本地化数据（常量引用版本）
 uint32_t state::add_locale_data_win1252(std::string const& text) {
 	return add_locale_data_win1252(std::string_view(text));
 }
+// 添加win1252编码的本地化数据（字符串视图版本）
 uint32_t state::add_locale_data_win1252(std::string_view text) {
 	auto start = locale_text_data.size();
 	for(auto c : text) {
@@ -1421,9 +1471,11 @@ uint32_t state::add_locale_data_win1252(std::string_view text) {
 	locale_text_data.push_back(0);
 	return uint32_t(start);
 }
+// 添加utf8编码的本地化数据（常量引用版本）
 uint32_t state::add_locale_data_utf8(std::string const& new_text) {
 	return add_locale_data_utf8(std::string_view(new_text));
 }
+// 添加utf8编码的本地化数据（字符串视图版本）
 uint32_t state::add_locale_data_utf8(std::string_view new_text) {
 	auto start = locale_text_data.size();
 	auto length = new_text.length();
@@ -1435,6 +1487,7 @@ uint32_t state::add_locale_data_utf8(std::string_view new_text) {
 	return uint32_t(start);
 }
 
+// 添加单位名称
 dcon::unit_name_id state::add_unit_name(std::string_view text) {
 	if(text.empty())
 		return dcon::unit_name_id();
@@ -1450,6 +1503,7 @@ dcon::unit_name_id state::add_unit_name(std::string_view text) {
 	unit_names_indices.push_back(int32_t(start));
 	return dcon::unit_name_id(dcon::unit_name_id::value_base_t(unit_names_indices.size() - 1));
 }
+// 将单位名称ID转换为字符串视图
 std::string_view state::to_string_view(dcon::unit_name_id tag) const {
 	if(!tag)
 		return std::string_view();
@@ -1464,6 +1518,7 @@ std::string_view state::to_string_view(dcon::unit_name_id tag) const {
 	return std::string_view(unit_names.data() + unit_names_indices[tag.index()], size_t(end_position - start_position));
 }
 
+// 提交触发器数据
 dcon::trigger_key state::commit_trigger_data(std::vector<uint16_t> data) {
 	if(trigger_data_indices.empty()) { // Create placeholder for invalid triggers
 		trigger_data_indices.push_back(0);
@@ -1498,6 +1553,7 @@ dcon::trigger_key state::commit_trigger_data(std::vector<uint16_t> data) {
 	}
 }
 
+// 提交效果数据
 dcon::effect_key state::commit_effect_data(std::vector<uint16_t> data) {
 	if(effect_data_indices.empty()) { // Create placeholder for invalid effects
 		effect_data_indices.push_back(0);
@@ -1532,6 +1588,7 @@ dcon::effect_key state::commit_effect_data(std::vector<uint16_t> data) {
 	}
 }
 
+// 保存用户设置
 void state::save_user_settings() const {
 	auto settings_location = simple_fs::get_or_create_settings_directory();
 
@@ -1594,6 +1651,7 @@ void state::save_user_settings() const {
 
 	simple_fs::write_file(settings_location, NATIVE("user_settings.dat"), &buffer[0], uint32_t(ptr - buffer));
 }
+// 加载用户设置
 void state::load_user_settings() {
 	auto settings_location = simple_fs::get_or_create_settings_directory();
 	auto settings_file = open_file(settings_location, NATIVE("user_settings.dat"));
@@ -1753,6 +1811,7 @@ void state::load_user_settings() {
 	}
 }
 
+// 加载游戏规则设置
 void state::load_gamerule_settings() {
 	auto sdir = simple_fs::get_or_create_gamerules_directory();
 	auto f = simple_fs::open_file(sdir, loaded_scenario_file);
@@ -1775,6 +1834,7 @@ void state::load_gamerule_settings() {
 }
 
 
+// 保存游戏规则设置
 void state::save_gamerule_settings() const {
 	auto sdir = simple_fs::get_or_create_gamerules_directory();
 	std::vector<uint8_t> current_gamerule_settings;
@@ -1787,6 +1847,7 @@ void state::save_gamerule_settings() const {
 }
 
 
+// 更新UI缩放比例
 void state::update_ui_scale(float new_scale) {
 	user_settings.ui_scale = new_scale;
 	ui_state.for_each_root([&](ui::element_base& elm) {
@@ -1817,6 +1878,7 @@ void state::update_ui_scale(float new_scale) {
 	// TODO move windows
 }
 
+// 列出人口类型
 void list_pop_types(sys::state& state, parsers::scenario_building_context& context) {
 	auto root = get_root(state.common_fs);
 	auto poptypes = open_directory(root, NATIVE("poptypes"));
@@ -1845,10 +1907,12 @@ void list_pop_types(sys::state& state, parsers::scenario_building_context& conte
 	}
 }
 
+// 打开外交界面
 void state::open_diplomacy(dcon::nation_id target) {
 	sys::open_diplomacy_window(*this, target);
 }
 
+// 加载剧本数据
 void state::load_scenario_data(parsers::error_handler& err, sys::year_month_day bookmark_date) {
 	auto root = get_root(common_fs);
 	auto common = open_directory(root, NATIVE("common"));
@@ -3651,6 +3715,7 @@ void state::load_scenario_data(parsers::error_handler& err, sys::year_month_day 
 	current_scene.game_in_progress = old_game_in_prog;
 }
 
+// 清除未保存数据
 void state::clear_unsaved_data() {
 
 	/*unit_names.clear();
@@ -3696,12 +3761,15 @@ void state::clear_unsaved_data() {
 
 }
 
+// 推送日志消息（右值引用版本）
 void state::push_log_message(std::string&& str) {
 	pending_log_messages.try_enqueue(std::move(str));
 }
+// 推送日志消息（常量引用版本）
 void state::push_log_message(const std::string& str) {
 	pending_log_messages.try_enqueue(str);
 }
+// 刷新所有待处理的日志消息
 void state::flush_pending_log_messages() {
 	std::string msg;
 	while(pending_log_messages.try_dequeue(msg)) {
@@ -3723,6 +3791,7 @@ void state::flush_pending_log_messages() {
 	}
 }
 
+// 预加载数据
 void state::preload() {
 
 	adjacency_data_out_of_date = true;
@@ -3763,6 +3832,7 @@ void state::preload() {
 
 }
 
+// 剧本加载完成后的回调
 void state::on_scenario_load() {
 
 	// update map of gamerules. No gamerules or gamerule options should be added after scenario load, as they themselves are scenario data. The only thing that may change is the active gamerule option
@@ -4083,7 +4153,8 @@ void state::on_scenario_load() {
 
 }
 
-void state::fill_unsaved_data() { // reconstructs derived values that are not directly saved after a save has been loaded
+// 填充未保存数据（加载存档后重建不直接保存的派生值）
+void state::fill_unsaved_data() {
 	// reset ui gamerule settings to match the actual setting of the save
 	gamerule::restore_gamerule_ui_settings(*this);
 	great_nations.reserve(int32_t(defines.great_nations_count));
@@ -4316,6 +4387,7 @@ void state::fill_unsaved_data() { // reconstructs derived values that are not di
 	game_state_updated.store(true, std::memory_order::release);
 }
 
+// 执行单步游戏逻辑更新
 void state::single_game_tick() {
 	// do update logic
 
@@ -4913,10 +4985,12 @@ void state::single_game_tick() {
 	}
 }
 
+// 控制台日志输出
 void state::console_log(std::string_view message) {
 	current_scene.console_log(*this, message);
 }
 
+// Lua通知消息
 void state::lua_notification(const std::string message) {
 	notification::post(*this, notification::message{
 		.body = [=](sys::state& state, text::layout_base& layout) {
@@ -4933,6 +5007,7 @@ void state::lua_notification(const std::string message) {
 	console_log("LUA_ERROR: " + message);
 }
 
+// 获取存档校验和
 sys::checksum_key state::get_save_checksum() {
 	auto size = sizeof_save_section(*this, true);
 	auto buffer = std::unique_ptr<uint8_t[]>(new uint8_t[size]);
@@ -4945,6 +5020,7 @@ sys::checksum_key state::get_save_checksum() {
 }
 
 
+// 获取剧本校验和
 sys::checksum_key state::get_scenario_checksum() {
 
 
@@ -4958,6 +5034,7 @@ sys::checksum_key state::get_scenario_checksum() {
 	return key;
 }
 
+// 获取多人游戏状态校验和
 sys::checksum_key state::get_mp_state_checksum() {
 
 	auto size = sizeof_entire_mp_state(*this, true);
@@ -4970,6 +5047,7 @@ sys::checksum_key state::get_mp_state_checksum() {
 	return key;
 }
 
+// 调试：输出存档不同步转储
 void state::debug_save_oos_dump() {
 	auto sdir = simple_fs::get_or_create_oos_directory();
 	auto saveprefix = simple_fs::utf8_to_native(network_state.nickname.to_string());
@@ -5011,6 +5089,7 @@ void state::debug_save_oos_dump() {
 	console_log("Total rows: " + std::to_string(i));*/
 }
 
+// 调试：输出剧本不同步转储
 void state::debug_scenario_oos_dump() {
 	auto sdir = simple_fs::get_or_create_oos_directory();
 	{
@@ -5030,6 +5109,7 @@ void state::debug_scenario_oos_dump() {
 	}
 }
 
+// 启动日志线程
 std::thread state::start_logger_thread() {
 	std::thread thread([this]() {
 		while(quit_signaled.load(std::memory_order::acquire) == false) {
@@ -5040,6 +5120,7 @@ std::thread state::start_logger_thread() {
 	return thread;
 }
 
+// 游戏主循环
 void state::game_loop() {
 	static int32_t game_speed[] = {
 		0,		// speed 0
@@ -5091,6 +5172,7 @@ void state::game_loop() {
 	}
 }
 
+// 创建新的陆军集团
 void state::new_army_group(dcon::province_id hq) {
 	bool invalid_province = false;
 	world.for_each_automated_army_group(
@@ -5111,6 +5193,7 @@ void state::new_army_group(dcon::province_id hq) {
 	game_state_updated.store(true, std::memory_order_release);
 }
 
+// 切换防御阵地状态
 void state::toggle_defensive_position(dcon::automated_army_group_id group, dcon::province_id position) {
 	auto fat_group = fatten(world, group);
 
@@ -5124,6 +5207,7 @@ void state::toggle_defensive_position(dcon::automated_army_group_id group, dcon:
 	map_state.unhandled_province_selection = true;
 }
 
+// 切换控制执行阵地状态
 void state::toggle_enforce_control_position(dcon::automated_army_group_id group, dcon::province_id position) {
 	auto fat_group = fatten(world, group);
 
@@ -5137,6 +5221,7 @@ void state::toggle_enforce_control_position(dcon::automated_army_group_id group,
 	map_state.unhandled_province_selection = true;
 }
 
+// 切换指定港口状态
 void state::toggle_designated_port(dcon::automated_army_group_id group, dcon::province_id position) {
 	auto fat_group = fatten(world, group);
 
@@ -5154,6 +5239,7 @@ void state::toggle_designated_port(dcon::automated_army_group_id group, dcon::pr
 	map_state.unhandled_province_selection = true;
 }
 
+// 向陆军集团添加团
 void state::army_group_add_regiment(dcon::automated_army_group_id group, dcon::regiment_id id) {
 
 	auto automation_check = world.regiment_get_automation(id);
@@ -5187,6 +5273,7 @@ void state::army_group_add_regiment(dcon::automated_army_group_id group, dcon::r
 	game_state_updated.store(true, std::memory_order_release);
 }
 
+// 从陆军集团移除海军
 void state::remove_navy_from_army_group(dcon::automated_army_group_id selected_group, dcon::navy_id navy_to_delete) {
 	std::lock_guard l{ ugly_ui_game_interaction_hack };
 
@@ -5198,6 +5285,7 @@ void state::remove_navy_from_army_group(dcon::automated_army_group_id selected_g
 	world.delete_automated_army_group_membership_navy(membership);
 }
 
+// 从陆军集团移除团
 void state::remove_regiment_from_army_group(dcon::automated_army_group_id selected_group, dcon::regiment_id regiment_to_delete) {
 	std::lock_guard l{ ugly_ui_game_interaction_hack };
 
@@ -5211,24 +5299,28 @@ void state::remove_regiment_from_army_group(dcon::automated_army_group_id select
 	world.delete_regiment_automation_data(automation_data);
 }
 
+// 从所有陆军集团移除团
 void state::remove_regiment_from_all_army_groups(dcon::regiment_id regiment_to_delete) {
 	world.for_each_automated_army_group([&](dcon::automated_army_group_id item) {
 		remove_regiment_from_army_group(item, regiment_to_delete);
 	});
 }
 
+// 清理移除陆军后的陆军集团
 void state::remove_army_army_group_clean(dcon::automated_army_group_id group, dcon::army_id army_to_delete) {
 	for(auto regiment_membership : world.army_get_army_membership(army_to_delete)) {
 		remove_regiment_from_army_group(group, regiment_membership.get_regiment().id);
 	}
 }
 
+// 向陆军集团添加陆军
 void state::add_army_to_army_group(dcon::automated_army_group_id selected_group, dcon::army_id selected_army) {
 	for(auto item : world.army_get_army_membership(selected_army)) {
 		army_group_add_regiment(selected_group, item.get_regiment());
 	}
 }
 
+// 向陆军集团添加海军
 void state::add_navy_to_army_group(dcon::automated_army_group_id selected_group, dcon::navy_id selected_navy) {
 	auto automation_link = world.navy_get_automated_army_group_membership_navy(selected_navy);
 	auto current_group = world.automated_army_group_membership_navy_get_army(automation_link);
@@ -5245,6 +5337,7 @@ void state::add_navy_to_army_group(dcon::automated_army_group_id selected_group,
 	game_state_updated.store(true, std::memory_order_release);
 }
 
+// 删除陆军集团
 void state::delete_army_group(dcon::automated_army_group_id group) {
 	static std::vector<dcon::regiment_automation_data_id> to_delete = {};
 	to_delete.clear();
@@ -5266,6 +5359,7 @@ void state::delete_army_group(dcon::automated_army_group_id group) {
 	game_state_updated.store(true, std::memory_order_release);
 }
 
+// 更新陆军和舰队
 void state::update_armies_and_fleets(dcon::automated_army_group_id group) {
 	auto owner = world.automated_army_group_get_owner(group);
 
@@ -5294,6 +5388,7 @@ void state::update_armies_and_fleets(dcon::automated_army_group_id group) {
 	}
 }
 
+// 智能选择陆军集团
 void state::smart_select_army_group(dcon::automated_army_group_id selected_group) {
 	if(!selected_army_group) {
 		select_army_group(selected_group);
@@ -5308,18 +5403,21 @@ void state::smart_select_army_group(dcon::automated_army_group_id selected_group
 	select_army_group(selected_group);
 }
 
+// 选择陆军集团
 void state::select_army_group(dcon::automated_army_group_id selected_group) {
 	selected_army_group = selected_group;
 
 	game_state_updated.store(true, std::memory_order_release);
 }
 
+// 取消选择陆军集团
 void state::deselect_army_group() {
 	selected_army_group = {};
 
 	game_state_updated.store(true, std::memory_order_release);
 }
 
+// 填充省份至补给上限
 dcon::regiment_automation_data_id state::fill_province_up_to_supply_limit(
 	dcon::automated_army_group_id group_id,
 	dcon::province_id target,
@@ -5376,6 +5474,7 @@ dcon::regiment_automation_data_id state::fill_province_up_to_supply_limit(
 	return {};
 }
 
+// 获取陆军集团可用补给量
 float state::army_group_available_supply(dcon::automated_army_group_id group, dcon::province_id province) {
 	float max_supply = float(military::supply_limit_in_province(*this, local_player_nation, province));
 	float current_weight = 0.f;
@@ -5407,6 +5506,7 @@ float state::army_group_available_supply(dcon::automated_army_group_id group, dc
 	return max_supply - current_weight;
 }
 
+// 重置团的命令
 void state::regiment_reset_order(dcon::regiment_automation_data_id regiment) {
 	auto fat_data = fatten(world, regiment);
 
@@ -5414,6 +5514,7 @@ void state::regiment_reset_order(dcon::regiment_automation_data_id regiment) {
 	fat_data.set_task(army_group_regiment_task::idle);
 }
 
+// 查找可用的渡轮起点
 dcon::province_id state::find_available_ferry_origin(dcon::automated_army_group_id group, dcon::regiment_automation_data_id regiment) {
 	auto fat_reg = fatten(world, regiment);
 	auto army = fat_reg.get_regiment_from_automation().get_army_from_army_membership();
@@ -5475,6 +5576,7 @@ dcon::province_id state::find_available_ferry_origin(dcon::automated_army_group_
 	return invalid_province;
 }
 
+// 移动到可用港口
 bool state::move_to_available_port(dcon::automated_army_group_id group, dcon::regiment_automation_data_id regiment) {
 	auto fat_reg = fatten(world, regiment);
 	dcon::province_id target = find_available_ferry_origin(group, regiment);
@@ -5493,6 +5595,7 @@ bool state::move_to_available_port(dcon::automated_army_group_id group, dcon::re
 	return false;
 }
 
+// 重新计算陆军集团分配
 bool state::army_group_recalculate_distribution(dcon::automated_army_group_id group, std::vector<float>& regiments_distribution) {
 	for(uint32_t i = 0; i < military_definitions.unit_base_definitions.size(); ++i) {
 		regiments_distribution[i] = 0.f;
@@ -5529,6 +5632,7 @@ bool state::army_group_recalculate_distribution(dcon::automated_army_group_id gr
 	return false;
 }
 
+// 更新陆军集团任务
 void state::army_group_update_tasks(dcon::automated_army_group_id group) {
 	// before update:
 
@@ -5580,6 +5684,7 @@ void state::army_group_update_tasks(dcon::automated_army_group_id group) {
 	}
 }
 
+// 获取登陆用港口
 dcon::province_id state::get_port_for_landing(dcon::automated_army_group_id group, dcon::province_id target) {
 	auto fat_group = fatten(world, group);
 
@@ -5598,6 +5703,7 @@ dcon::province_id state::get_port_for_landing(dcon::automated_army_group_id grou
 	return potential_target_port;
 }
 
+// 分配陆军集团任务
 void state::army_group_distribute_tasks(dcon::automated_army_group_id group) {
 	static std::vector<dcon::province_id> province_queue;
 	static std::vector<dcon::province_id> provinces_to_reduce_weight;
@@ -5862,6 +5968,7 @@ void state::army_group_distribute_tasks(dcon::automated_army_group_id group) {
 	}
 }
 
+// 更新陆军集团团状态
 void state::army_group_update_regiment_status(dcon::automated_army_group_id group) {
 	auto fat_group = fatten(world, group);
 
@@ -6001,6 +6108,7 @@ void state::army_group_update_regiment_status(dcon::automated_army_group_id grou
 	}
 }
 
+// 填充省份
 dcon::regiment_automation_data_id state::fill_province(
 	dcon::automated_army_group_id group_id,
 	dcon::province_id target,
@@ -6078,6 +6186,7 @@ dcon::regiment_automation_data_id state::fill_province(
 	return {};
 }
 
+// 填充相连省份向量
 void state::fill_vector_of_connected_provinces(dcon::province_id p1, bool is_land, std::vector<dcon::province_id>& provinces) {
 	provinces.clear();
 	if(world.province_get_nation_from_province_ownership(p1) == local_player_nation) {
@@ -6106,6 +6215,7 @@ struct build_queue_data {
 	dcon::unit_type_id u;
 };
 
+// 按模板构建陆军
 void state::build_up_to_template_land(
 	macro_builder_template const& target_template,
 	dcon::province_id target_province,
@@ -6201,7 +6311,7 @@ void state::build_up_to_template_land(
 	}
 }
 
-// When selecting a province, clear selected armies
+// 设置选中的省份时清除选中的陆军
 void sys::state::set_selected_province(dcon::province_id prov_id) {
 	// US31AC3 If a valid province has been selected, reset selection of armies as well
 	if(prov_id && map_state.selected_province != prov_id) {
@@ -6225,11 +6335,13 @@ void sys::state::set_selected_province(dcon::province_id prov_id) {
 }
 
 
+// 设置本地玩家国家
 void sys::state::set_local_player_nation(dcon::nation_id value) {
 	local_player_nation = value;
 	map_state.unhandled_province_selection = true;
 	game_state_updated.store(true, std::memory_order_release);
 }
+// 从选中列表中移除团
 void selected_regiments_remove(sys::state& state, dcon::regiment_id reg) {
 	auto iterator = std::find(state.selected_regiments.begin(), state.selected_regiments.end(), reg);
 	if(iterator != state.selected_regiments.end()) {
@@ -6238,6 +6350,7 @@ void selected_regiments_remove(sys::state& state, dcon::regiment_id reg) {
 	state.game_state_updated.store(true, std::memory_order_release);
 }
 
+// 添加团到选中列表
 void selected_regiments_add(sys::state& state, dcon::regiment_id reg) {
 	auto iterator = std::find(state.selected_regiments.begin(), state.selected_regiments.end(), reg);
 	if(iterator == state.selected_regiments.end()) {
@@ -6245,12 +6358,13 @@ void selected_regiments_add(sys::state& state, dcon::regiment_id reg) {
 	}
 	state.game_state_updated.store(true, std::memory_order_release);
 }
-// Clear state.selected_regiments of data, maintaining fixed vector size
+// 清空选中的团列表（保持固定向量大小）
 void selected_regiments_clear(sys::state& state) {
 	state.selected_regiments.clear();
 	state.game_state_updated.store(true, std::memory_order_release);
 }
 
+// 从选中列表中移除舰船
 void selected_ships_remove(sys::state& state, dcon::ship_id ship) {
 	auto iterator = std::find(state.selected_ships.begin(), state.selected_ships.end(), ship);
 	if(iterator != state.selected_ships.end()) {
@@ -6259,7 +6373,7 @@ void selected_ships_remove(sys::state& state, dcon::ship_id ship) {
 	state.game_state_updated.store(true, std::memory_order_release);
 }
 
-// Clear state.selected_ships of data, maintaining fixed vector size
+// 添加舰船到选中列表
 void selected_ships_add(sys::state& state, dcon::ship_id sh) {
 	auto iterator = std::find(state.selected_ships.begin(), state.selected_ships.end(), sh);
 	if(iterator == state.selected_ships.end()) {
@@ -6267,6 +6381,7 @@ void selected_ships_add(sys::state& state, dcon::ship_id sh) {
 	}
 	state.game_state_updated.store(true, std::memory_order_release);
 }
+// 清空选中舰船列表
 void selected_ships_clear(sys::state& state) {
 	state.selected_ships.clear();
 	state.game_state_updated.store(true, std::memory_order_release);

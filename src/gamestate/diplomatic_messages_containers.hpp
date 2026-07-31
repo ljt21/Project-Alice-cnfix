@@ -5,23 +5,22 @@
 
 namespace diplomatic_message {
 
+// 外交消息类型
 enum class type_t : uint8_t {
-	none = 0,
-	access_request = 1,
-	alliance_request = 2,
-	call_ally_request = 3,
-	be_crisis_primary_defender = 4,
-	be_crisis_primary_attacker = 5,
-	peace_offer = 6,
-	take_crisis_side_offer = 7,
-	crisis_peace_offer = 8,
-	state_transfer = 9,
-	free_trade_agreement = 10
+	none = 0, // 无
+	access_request = 1, // 军事通行权请求
+	alliance_request = 2, // 结盟请求
+	call_ally_request = 3, // 召唤盟友参战请求
+	be_crisis_primary_defender = 4, // 邀请成为危机主要防御方
+	be_crisis_primary_attacker = 5, // 邀请成为危机主要攻击方
+	peace_offer = 6, // 和平提议
+	take_crisis_side_offer = 7, // 加入危机某方的提议
+	crisis_peace_offer = 8, // 危机和平提议
+	state_transfer = 9, // 州移交
+	free_trade_agreement = 10 // 自由贸易协定
 };
 
-/// <summary>
-/// Holds data regarding a diplomatic message between two specified nations at a certain date, whether it be an alliance request, peace offer, calling an ally, etc. Also contains other optional data such as a pertinent war, crisis, state, etc.
-/// </summary>
+// 外交消息：记录两个国家之间在特定日期的外交消息（结盟请求、和平提议、召唤盟友等），还可包含相关的战争、危机、州等可选数据
 struct message {
 	union dtype {
 		dcon::war_id war; //2
@@ -36,12 +35,12 @@ struct message {
 	dcon::nation_id from; //2
 	dcon::nation_id to; //2
 	type_t type = diplomatic_message::type_t::none; //1
-	bool automatic_call = false; // This was 1 byte padding previously, now used for checking if war call-to-arms were done automatically (by attacker by having the "call all allies" btn checked, or defender allies when they are automatically called when declared on
+	bool automatic_call = false; // 用于标记战争召唤是否为自动发出（攻击方勾选"召唤所有盟友"或防御方盟友被自动召唤时）
 
 	bool operator==(const message& other) const {
-		// Comparing the unused members of a union is technically UB.
-		// so it is copied into a buffer first before comparing them
-		// there is a very small chance that two seperate unions can be equal even though they hold diffrent types.
+		// 比较联合体中未使用的成员在技术上属于未定义行为，
+		// 因此先复制到缓冲区再进行比较
+		// 有极小概率两个持有不同类型的联合体会被判定为相等
 		char data_buffer[sizeof(data)];
 		std::memcpy(data_buffer, &data, sizeof(data));
 

@@ -1,0 +1,34 @@
+#Powered_by_ParaTranz
+RALLY_POINT_NAVY_MERGE_INFO;Toggle navy merge at rally points\n(Ships will automatically merge into the largest fleet)
+RALLY_POINT_NAVY_PROVINCE_MERGE_INFO;Ships will automatically merge into the largest fleet at the rally point
+BUDGET_INTERNALLY_SOLD_STOCKPILE;Stockpile sold to construction plan: ?Y$VAL$?!
+OL_VIEW_RALLYPOINTS_NAVY_TOOLTIP;All ships built nearby will sail to ?Y$PROV$?!
+OL_VIEW_RALLYPOINTS_NAVY_MERGE_TOOLTIP;and automatically merge into the largest fleet at the rally point
+ARMY_SPLIT_AND_LOAD_DESC_1;?Y$UNIT$?! has been split into ?G$NUM$?! ships:
+ARMY_SPLIT_AND_LOAD_DESC_2;—?Y$NAVY$?! transport capacity $NUM$)
+ARMY_SPLIT_AND_LOAD_DESC_3;?R The remaining troops with a total weight of ($NUM$) will be unable to board?!
+UW_NOT_POSSIBLE_TO_ATTACH;No friendly units to follow
+UW_UNITS_ATTACHED;The following units are following
+UW_ATTACH_TO;Follow $NAME$
+UW_DETACH_FROM;Stop following $NAME$
+IW_SUPPLY_COST;You need ?Y$VAL$?W per day to supply this unit
+HAS_NOT_CULTURE_CORE;$CUL$ is not a core culture of $WHERE$\n
+HAS_CULTURE_CORE;$CUL$ is a core culture of $WHERE$\n
+PROMOTION_EFFECT_FROM_ADMIN;Administrative efficiency effect on promotion speed: ?Y$PERCENTAGE$?!
+OUTLINER_TOOLTIP_FACTORY_OCCUPANCY;Local factory employees: $PERC$
+REVOLTALLIANCE_LOG;A revolution! Our alliance is no more!
+tut_5b_12b;Click the resolution button to continue.
+tut_5b_14b;Click the movement button to continue.
+Workforce;Profession
+Ideology;Ideology
+SELL;Sell
+BUY;Buy
+Start Research;Begin Research
+Maneuver;Maneuver
+LEDGER;Ledger
+OK;OK
+TOPBAR_POPULATION;Our adult male population is $CURR$\nOur adult male population has changed by $CHANGE$ in the last ?Y$DAYS$?!
+DIG_IN_TOOLTIP_1;Current entrenchment level: $LEV$/$MAX$
+DIG_IN_TOOLTIP_2;Requires ?Y$DAYS$?! to reach entrenchment level ?G+$VAL$?!
+in_bankrupcy;Bankrupt
+in_bankrupcy_desc;We are bankrupt!

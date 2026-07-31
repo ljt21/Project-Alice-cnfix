@@ -1,0 +1,288 @@
+#Powered_by_ParaTranz
+DIPLOMACY_AI_ACCEPTANCE;?Y$COUNTRY$?W's response: ?Y$ODDS$?W
+TOO_SOON_FOR_REFORM;We cannot enact another reform before ?Y$DATE$?W
+SIEGE_EXTRA_ATTR;Resistance in occupied territories causes ?R+$VAL$%?W attrition
+NO_SEPARATE_PEACE_CRISIS;We cannot make a separate peace in a crisis war
+CRISIS_RESOLUTION_EFFECTS;Resolving the crisis this way will bring you $VAL$ prestige
+CRISIS_RESOLUTION_RELATIONS;Relations with the following countries will change:
+flintlock_rifle_armament;Flintlock Rifle Equipment
+flintlock_rifle_armament_desc;The flintlock was invented in the early 17th century and quickly became a substitute for earlier ignition firearms such as the snaplock, matchlock, and wheel-lock. Over the following two centuries, the flintlock was widely used before being replaced by the percussion cap, and eventually by cartridge-based rifles in the mid-19th century. Despite being far inferior to modern firearms, flintlocks remain popular among black powder enthusiasts.
+post_napoleonic_army_doctrine;Post-Napoleonic Military Doctrine
+post_napoleonic_army_doctrine_desc;Both the French Revolution and the Napoleonic era pursued an innovative military doctrine. The influence of this period persisted even through the American Civil War and the early stages of World War I. Cheap and small weapons with hastily trained soldiers allowed armies to expand to unprecedented sizes, leading to the division of armies into divisions, and later into corps. Artillery divisions also emerged during this period.
+muzzle_loaded_rifle_armament;Muzzle-Loaded Rifle Equipment
+muzzle_loaded_rifle_armament_desc;Muzzle-loaded rifles are firearms that load projectiles and powder through the muzzle. Hand-held rifles were fully developed in the 1740s. The typical image of a muzzle-loaded rifle is the Kentucky rifle, although it was actually invented in Pennsylvania. The American long rifle evolved from the German hunting rifle.
+breech_loaded_rifle_armament;Breech-Loaded Rifle Equipment
+breech_loaded_rifle_armament_desc;Breech-loaded rifles are weapons with a space at the end of the barrel or bore for loading shells or bullets. Although breech-loaded weapons appeared as early as the 14th century, they did not become successful until the 19th century due to advances in precision engineering and mechanical engineering.
+bolt_action_rifle_armament;Bolt-Action Rifle Equipment
+bolt_action_rifle_armament_desc;Bolt-action refers to rifles that require manual operation to feed a cartridge into the chamber (loading) and to extract the spent case from the chamber (unloading). The first bolt-action rifle was created by Johann von der Luis in 1824 while developing breech-loaded weapons. Over the following half-century, bolt-action designs underwent continuous development in Europe and reached their peak during World War I: various bolt-action designs could be seen on the weapons of every army on the battlefield.
+machine_gun_armament;Machine Gun Equipment
+machine_gun_armament_desc;The Gatling gun was patented by Richard Gatling in 1861 and was the first auto-loading weapon capable of providing controlled, sustained fire. It made a brief appearance during the American Civil War, and was further developed and used in the Franco-Prussian War and the Northwest Rebellion. Many armies purchased Gatling guns in the 19th century, and these weapons remained in use until the early 20th century. The first automatic machine gun was invented by Hiram Maxim in 1885. The Maxim gun used the recoil force from the previously fired bullet to load instead of manual loading, greatly increasing the rate of fire, far exceeding the early designs of Nordenfelt and Gatling.
+cuirassier_activation;Cuirassier
+cuirassier_activation_desc;Cuirassiers were cavalry units equipped with armor and firearms, first appearing in Europe in the 15th century. The first cuirassiers emerged when armored cavalry such as heavy cavalry and lancers abandoned their lances and adopted pistols as their primary weapon. Cuirassiers reached their peak during the Napoleonic Wars and appeared on the battlefield for the last time in the early stages of World War I. To this day, cuirassiers still serve as ceremonial units in some countries.
+dragoon_activation;Dragoon
+dragoon_activation_desc;Dragoons originally referred to mounted infantry who possessed both cavalry and infantry skills. However, the meaning of dragoon gradually evolved; in the 18th century, dragoons came to refer to regular light cavalry units and members. In the 17th and early 18th centuries, most European armies established dragoon regiments. During the Napoleonic Wars, dragoons were generally regarded as cavalry, though their equipment was still lighter compared to cuirassiers.
+hussar_activation;Hussar
+hussar_activation_desc;Hussars refer to various types of light cavalry originating from Hungary in the 15th century. Later, light cavalry from Europe and other regions adopted their title and distinctive dress. During the Napoleonic Wars, hussars distinguished themselves as cavalry. As light cavalry riding fast horses, they were used for skirmishing and reconnaissance.
+military_aviation;Military Aviation
+military_aviation_desc;Military aviation refers to the use of aircraft or other flying machines for warfare. Heavier-than-air aircraft were early recognized for their military value. As early as 1909, the U.S. Signal Corps purchased a Wright Model A aircraft, and later in 1911, the Italians used various types of aircraft in the Libyan War for reconnaissance, photographic reconnaissance, and bombing. Military aircraft rapidly diversified into various types during World War I, such as reconnaissance, artillery observation planes, fighters, and bombers.
+SIEGE;Siege
+TRANSFER_SUB_ALL;?GShift+Left Click?!Transfer all similar units
+OBSOLETE_UNIT_TECH;?Y$UNIT$?W's technology lags behind ?Y$TECH$?W
+ARMY_RECON_TOOLTIP;Reconnaissance Efficiency: ?Y$VAL$?!
+ARMY_RECON_DELAYED_TOOLTIP;Reconnaissance efficiency, as the ability of army scouts, can reduce the bonus of enemy fortifications and accelerate siege speed\n\nThis army has ?Y$RECONUNITS$?! additional reconnaissance brigades beyond the required ?Y$RECONMAXUNITS$?!, gaining ?Y$VAL$%?! reconnaissance efficiency
+ARMY_ENGINEER_TOOLTIP;Siege Efficiency: ?Y$VAL$?!
+ARMY_ENGINEER_DELAYED_TOOLTIP;Siege efficiency, as the ability of army engineers and tanks, can weaken enemy fortifications during attacks and sieges\n\nThis army has ?Y$ENGINEERUNITS$?! additional engineering and tank brigades beyond the required ?Y$ENGINEERMAXUNITS$?!, gaining ?Y$VAL$%?! siege efficiency
+TENSION_DECAY;Base Decay: ?Y$VAL$?!
+TENSION_FROM_GP_WARS;Great Power at War: ?Y$VAL$?!
+TENSION_FROM_GP_DISARMED;Disarmed Great Power: ?Y$VAL$?!
+TENSION_FROM_GP_RANK;Great Power Rank: ?Y$VAL$?!
+HAS_NOT_CULTURAL_SPHERE;No Cultural Sphere
+HAS_CULTURAL_SPHERE;Has Cultural Sphere
+UCA;Central American Federation
+LOAD_SAVEGAME_FAIL;Failed to load save game
+NEWS_TOOLTIP_UNREAD;Among all ?G$MAX$?! published newspapers, there are ?G$NUM$?! unread
+NEWS_TOOLTIP_NO_NEW;No unread newspapers
+become_independent_desc;Declare independence from the suzerain by force of arms
+CRISIS_DAYS_UNTIL_WAR;If a diplomatic solution is not found, war will break out within ?Y$DAYS$?!
+REMOVEFROMSPHERE_COST_NO_INFAMY;This will cost ?R$PRESTIGE$?! prestige
+REMOVEFROMSPHERE_COST;This will cost ?R$PRESTIGE$?! prestige and grant you ?R$INFAMY$?! infamy
+REMOVEFROMSPHERE_DESC;Remove a country from a ?YGreat Power?W's sphere of influence
+CRISIS_INTEREST;Their interest: ?Y$VAL$?!
+CRISIS_MAKE_OFFER_INVALID;You must give them something!
+CRISIS_MAKE_OFFER_NOT_LEADER;You must be the leader of this crisis before making an offer
+CRISIS_MAKE_OFFER;Offer inducements to ?Y$COUNTRY$?! to join your side
+CRISIS_AI_WANTS_TO_BACK_1;Has not decided who to support
+CRISIS_AI_WANTS_TO_BACK_2;Is leaning toward supporting
+CRISIS_AI_WANTS_TO_BACK_3;Is strongly inclined to support
+CRISIS_AI_INTEREST;Their interest in supporting
+unification_release_puppet_cb_setup;Cause $RECIPIENT$ to release $THIRD$ and add $THIRD$ to your sphere of influence
+unification_release_puppet_cb_desc;Liberate our cultural kin from foreign rule and bring them into your sphere of influence
+unification_release_puppet_cb;Liberate Kin
+unification_release_puppet_cb_short;Release $THIRD$
+AIREASON_STRATEGIC_INTERESTS;Strategic Interests
+AIREASON_BACKED_BY_ALLY;Backed by Ally
+AIREASON_ALLY;Ally
+AIREASON_TOO_EARLY_IN_CRISIS;Early in Crisis
+AIREASON_CRISIS_OFFER;$WARGOAL$:
+AIREASON_ATTACKING_ALLY;Attacking Ally
+AIREASON_ATTACKING_FRIENDS;Attacking Friends
+AIREASON_ATTACKING_ENEMIES;Attacking Enemies
+AIREASON_COMMON_FOE;Common Enemy
+AIREASON_WAR_WITH_SPHERE_LEADER;War with Sphere Leader
+AIREASON_CONSTRUCTING_CB;Strategic Interests
+AIREASON_HELD_CORES;Held Core Provinces
+AIREASON_NEGATIVE_RELATIONS;Poor Relations
+AIREASON_THREATS;Threats
+AIREASON_TOO_MANY_GP_ALLIES;Too Many Great Power Allies
+AIREASON_DESIRES_GP_ALLY;Desires Great Power Ally
+AIREASON_ALLY_OF_ALLY;Ally of an Ally
+AIREASON_TOO_MANY_ALLIANCES;Too Many Alliances
+AIREASON_RELATIVE_ARMY_STRENGTH;Army Strength
+AIREASON_RELATIVE_NAVY_STRENGTH;Navy Strength
+AIREASON_CURRENT_WARS;At War
+AIREASON_OUR_CASUS_BELLI;Our Casus Belli
+AIREASON_YOUR_CASUS_BELLI;Your Casus Belli
+AIREASON_CIV_VS_UNCIV;Civilized vs. Barbaric
+AIREASON_DIPLOMATIC_GOALS;Political Considerations
+AIREASON_DISTANCE;Distance
+AIREASON_DIFFERENT_GOVTYPES;Government Type
+AIREASON_OUR_SPHERE;Our Sphere of Influence
+AIREASON_OTHER_SPHERE_LEADER;Other Sphere Leaders
+AIREASON_OTHER_SPHERE;Different Sphere
+AIREASON_OVERLORD;Suzerain
+AIREASON_BADBOY;Infamy
+AIREASON_RELATIONS;Relations
+AIREASON_GP_RELATIONS;Evaluation
+AIREASON_BASE_RELUCTANCE;Base Reluctance
+AI_DIPLOMATIC_VALUE;Diplomatic Value
+AI_DIPLO_NO;They will not accept
+AI_DIPLO_YES;They will accept
+SHIP_BUILD_MIN_BASE_LEVEL_WARNING;?RCannot build at this naval port, requires at least level ?Y$LVL$?R?!
+NAVAL_BASE_OVERSEAS_LIMIT;?RCapital ships cannot be built in overseas provinces?!
+NAVAL_COMBAT_DAMAGE_DESC_TITLE;Expected firepower: ?G$POWER$?!
+NAVAL_COMBAT_DAMAGE_DESC_BASE;?Y$UNIT$?! Base Attack: ?G$VAL$?!
+NAVAL_COMBAT_DAMAGE_DESC_TORP;Torpedo Attack: ?G$VAL$?!
+NAVAL_COMBAT_DAMAGE_DESC_LUCK;Luck and Decision: ?Y$VAL$%?!
+NAVAL_COMBAT_DAMAGE_DESC_HULL;Reduced by opponent's hull (?R$HULL$?!: ?R$VAL$%?!
+NAVAL_COMBAT_DAMAGE_DESC_EXP;Reduced by opponent's experience (?R$EXP$%?!: ?R$VAL$%?!
+NAVAL_COMBAT_DAMAGE_DESC_NOORG;Opponent lacks organization: ?Y$VAL$%?!
+NAVAL_COMBAT_DAMAGE_DESC_STR;Reduced by our strength: ?R$VAL$%?!
+NAVAL_COMBAT_HIT_CHANCE_DESC;Hit Chance: ?Y$VAL$%?!
+NAVAL_COMBAT_HIT_CHANCE_DESC_EVA;(Reduced by opponent's dodge ?R$VAL$%?!
+MOBILIZATION_PROGRESS_PAUSED;?Y$PROV$?! mobilization enlistment will begin soon
+MOBILIZATION_PROGRESS_PENDING;Current mobilization progress is ?Y$PROG$%?!
+MOBILIZATION_PROGRESS_NOT_MOBILIZED;Mobilization takes some time, but an advanced railway network will accelerate the process
+COLONY_ADD_INFLUENCE;Increase Colonial Influence
+EVTNAME20100;Tensions in $STATE$
+EVTDESC20100;Recently, the international community has become increasingly concerned about the so-called "plight of the oppressed people in $STATE$". Allegedly, they have been long oppressed by us and yearn to break free from our benevolent rule. We certainly cannot tolerate any form of interference in our rule over $STATE$.
+EVTOPTA20100;Absolutely not!
+EVTOPTB20100;Perhaps we should discuss this...
+EVTNAME20101;Tensions in $STATE$
+EVTDESC20101;Recently, the international community has become increasingly concerned about the so-called "plight of the oppressed people in $STATE$". Allegedly, we have no legitimate right to rule this region, and neighboring Great Powers are beginning to stir up ambitions over their claims to the area.
+EVTOPTA20101;Emphasize that $STATE$ is ours!
+EVTOPTB20101;Recognize their point of view.
+EVTNAME20102;$CRISISAREA$ Crisis
+EVTDESC20102;The dispute over $CRISISAREA$ has now escalated into an international crisis. $CRISISTAKER$ claims this area as an inalienable part of their country, while $CRISISTARGET$ denies any claim by the former and insists the region should remain under their control. At a recent meeting on this issue, some inflammatory remarks from our ambassador caused a sudden spike in tensions.\nShould we recognize his position, or apologize for his actions and disavow his statements?
+EVTOPTA20102;He's right, only war can resolve this!
+EVTOPTB20102;Don't listen to him!
+EVTNAME20103;$CRISISTAKER$'s Destiny
+EVTDESC20103;The fate of the people of $CRISISTAKER$ has recently become a major international crisis. Although $CRISISTARGET$ currently controls the region, rebels and patriots in $CRISISAREA$ are making major attempts to liberate themselves from the rule of $CRISISTARGET_ADJ$. As a great power, we have certainly sent an ambassador to discuss the fate of $CRISISAREA$. However, unfortunately, this ambassador happened to appear somewhat eccentric (perhaps drunk) at a recent high-level meeting, declaring that we are prepared to resolve the issue by intimidating other participants who refuse to follow our leadership. This certainly escalated the situation, but we could also remedy things by disavowing his actions—though doing so would undoubtedly be very embarrassing.
+EVTOPTA20103;Take up arms!
+EVTOPTB20103;Fire this fool!
+EVTNAME20104;$CRISISAREA$ Crisis
+EVTDESC20104;The dispute over $CRISISAREA$ has now escalated into an international crisis. With Great Powers interfering in this issue, the stakes are rising. Should we insist on our claim or try to cool down the situation?
+EVTOPTA20104;That's our territory!
+EVTOPTB20104;We welcome consultations.
+EVTNAME20105;$CRISISAREA$ Crisis
+EVTDESC20105;$CRISISTAKER_ADJ$ rebels are attempting to break through our borders by force, and we know that the backstage supporter behind them is $CRISISATTACKER$. We can only count on the armies of $CRISISDEFENDER$ to support our claim. Should we send an ambassador to $CRISISDEFENDER$ to request that they firmly uphold our claim? Or should we hint that we are willing to negotiate a solution?
+EVTOPTA20105;Maintain the claim!
+EVTOPTB20105;Let's not fight over this.
+COLONIZE_PHASE_INTEREST;Establish Interest
+COLONIZE_PHASE_INTEREST_DESC;Compete by investing colonial power. When a country reaches $LEVELS$ level, the top two countries will advance to the next stage of competition.
+COLONIZE_PHASE_INFLUENCE;Colonial Competition
+COLONIZE_PHASE_INFLUENCE_DESC;Two countries compete with colonial power until one side's investment bottoms out. Each investment increases tension in the region, and if tensions become too high, it will escalate into a crisis.
+COLONIZE_PHASE_COLONIZATION;Colonization
+COLONIZE_PHASE_COLONIZATION_DESC;The winner of the previous stage will have $MONTHS$ months to convert it into a colony, otherwise they will lose the investment.
+TICKING_WARSCORE_DESC_GRACE;$VAL$ (remaining ?Y$DAY$?!).
+TICKING_WARSCORE_DESC_GRACE_EXPLAIN;When a territorial war goal is at least ?G$MIN$%?! satisfied, it will slowly add war score to the claimant.\nIf a war goal is not satisfied within the ?Y$DAYS$ day limit?!, it will instead add war score to the holder. If control of the target region changes hands, both sides will slowly revert to ?Y0?!.
+TICKING_WARSCORE_FULFILL_TERRITORY_WG;?GSatisfied when occupying at least $MIN$% of provinces in the target region?!
+TICKING_WARSCORE_FULFILL_TERRITORY_ANY;?GSatisfied when occupying at least $MIN$% of provinces in the target country?!
+TICKING_WARSCORE_FULFILL_BATTLE;?GAfter ?G$BAT$?! battles, the side with higher war score satisfies the goal?!
+CREATE_PROTECTORATE;Create Protectorate
+JAN;Jan Mayen
+JAN_ADJ;Jan Mayen's
+JAN_liberal;Liberal Party
+JAN_conservative;Conservative Party
+JAN_socialist;Labour Party
+JAN_anarcho_liberal;Radical Party
+JAN_communist;Communist Party
+JAN_fascist;National Unity
+COUNTRYALERT_NO_Colonial;Nothing needs attention in our colonies
+COUNTRYALERT_NO_Crisis;No crises occurring
+COUNTRYALERT_Crisis;Current crisis temperature is ?Y$TEMPERATURE$?!
+HAS_GOODS_IN_STATE;Produces $GOODS$ in the region
+HAS_NO_GOODS_IN_STATE;Does not produce $GOODS$ in the region
+MILITARY_MOBILIZE_CRISIS_IMPACT;?RWhen a party to a crisis mobilizes, it will intensify the crisis temperature and lead to war?!
+NORMAL_WAR_LIBERATE_NAME;$ORDER$War of $FIRST$ Liberation of $COUNTRY$
+AGRESSION_WAR_LIBERATE_NAME;$ORDER$War of $FIRST$ Liberation of $COUNTRY$
+CANT_COLONIZE;?RUncolonizable:?!
+COLONIZE_LAST_INVESTMENT;We just invested in this region, ?Y$DATE$ days?! before the next investment can be made
+COLONY_INVEST_COST;Investment cost: ?Y$COST$?! colonial power
+COLONY_INVEST_COST_LACK;Investment cost: ?R$COST$?! colonial power
+COLONIAL_INVESTMENT;Current investment: ?R$VALUE$?!
+COLONIAL_MAINTENANCE;Maintenance consumes colonial power: ?R$VALUE$?!
+AVAILABLE_COLONIAL_POWER;Available: ?Y$VALUE$?!
+PW_PROTECTORATE;Protectorate
+D01;Kingdom of $REGION$
+D01_ADJ;$REGION$'s
+D02;Confederation of $REGION$
+D02_ADJ;$REGION$'s
+D03;Commonwealth of $REGION$
+D03_ADJ;$REGION$'s
+D04;Republic of $REGION$
+D04_ADJ;$REGION$'s
+D05;State of $REGION$
+D05_ADJ;$REGION$'s
+D06;People's Republic of $REGION$
+D06_ADJ;$REGION$'s
+D07;Free State of $REGION$
+D07_ADJ;$REGION$'s
+D08;Great Power of $REGION$
+D08_ADJ;$REGION$'s
+D09;State of $REGION$
+D09_ADJ;$REGION$'s
+D10;Principality of $REGION$
+D10_ADJ;$REGION$'s
+D11;Democratic Republic of $REGION$
+D11_ADJ;$REGION$'s
+D12;Union of $REGION$
+D12_ADJ;$REGION$'s
+D13;Kingdom of $REGION$
+D13_ADJ;$REGION$'s
+D14;Dominion of $REGION$
+D14_ADJ;$REGION$'s
+D15;Grand Duchy of $REGION$
+D15_ADJ;$REGION$'s
+D16;Nation of $REGION$
+D16_ADJ;$REGION$'s
+D17;Federation of $REGION$
+D17_ADJ;$REGION$'s
+D18;United States of $REGION$
+D18_ADJ;$REGION$'s
+D19;Democratic Federation of $REGION$
+D19_ADJ;$REGION$'s
+D20;Principality of $REGION$
+D20_ADJ;$REGION$'s
+D21;Federation of $REGION$
+D21_ADJ;$REGION$'s
+D22;People's Democratic Republic of $REGION$
+D22_ADJ;$REGION$'s
+D23;Region of $REGION$
+D23_ADJ;$REGION$'s
+D24;Glorious Federation of $REGION$
+D24_ADJ;$REGION$'s
+D25;Mighty $REGION$
+D25_ADJ;$REGION$'s
+D26;Free State of $REGION$
+D26_ADJ;$REGION$'s
+D27;Commonwealth of $REGION$
+D27_ADJ;$REGION$'s
+D28;Confederation of $REGION$
+D28_ADJ;$REGION$'s
+D29;Free Folk of $REGION$
+D29_ADJ;$REGION$'s
+D30;Republic of $REGION$
+D30_ADJ;$REGION$'s
+D31;Holy Union of $REGION$
+D31_ADJ;$REGION$'s
+D32;People's Union of $REGION$
+D32_ADJ;$REGION$'s
+D33;Federation of $REGION$
+D33_ADJ;$REGION$'s
+D34;Federation of $REGION$
+D34_ADJ;$REGION$'s
+D35;Confederation of $REGION$
+D35_ADJ;$REGION$'s
+D36;Federation of $REGION$
+D36_ADJ;$REGION$'s
+D37;Pious Union of $REGION$
+D37_ADJ;$REGION$'s
+D38;Land of $REGION$
+D38_ADJ;$REGION$'s
+D39;Most Serene Republic of $REGION$
+D39_ADJ;$REGION$'s
+D40;Secret Kingdom of $REGION$
+D40_ADJ;$REGION$'s
+D41;Commune of $REGION$
+D41_ADJ;$REGION$'s
+D42;Commune of $REGION$
+D42_ADJ;$REGION$'s
+D43;Workers' Union of $REGION$
+D43_ADJ;$REGION$'s
+D44;County of $REGION$
+D44_ADJ;$REGION$'s
+D45;State of $REGION$
+D45_ADJ;$REGION$'s
+D46;Holy $REGION$
+D46_ADJ;$REGION$'s
+D47;Dominion of $REGION$
+D47_ADJ;$REGION$'s
+D48;People's State of $REGION$
+D48_ADJ;$REGION$'s
+D49;Sublime Kingdom of $REGION$
+D49_ADJ;$REGION$'s
+D50;Small Principality of $REGION$
+D50_ADJ;$REGION$'s
+dominion_conservative;Conservative Party
+dominion_reactionary;Reactionary
+dominion_liberal;Liberal Party
+dominion_anarcho_liberal;Anarcho-Liberal Party
+dominion_socialist;Socialist Party
+dominion_communist;Communist Party
+dominion_fascist;Imperial Party
+PW_UPGRADE_TO_COLONY;Click to upgrade to colony, you need ?Y$VALUE$?! available colonial power points to do so
+PW_CANT_UPGRADE_TO_COLONY;Upgrade to colony costs ?R$VALUE$?! colonial power points
+PW_CANT_UPGRADE_TO_STATE;Incorporate into homeland costs ?R$VALUE$?! colonial power points
+CREATE_DOMINION;Release Dominion
+CANT_CREATE_PROTECTORATE_COST;You need ?R$VALUE$?! available colonial power points to create a protectorate
+torpedo_attacks_desc;A torpedo is a self-propelled weapon equipped with an explosive warhead. After being launched from the surface or underwater, the torpedo generally travels through the water toward its target and is designed to detonate at or near the point of contact with the target. Even small ships can use this weapon to deal a fatal blow to large warships.

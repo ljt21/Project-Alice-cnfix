@@ -1,0 +1,247 @@
+cholera_epidemic_small;Cholera Outbreak
+desc_cholera_epidemic_small;Cholera has broken out in this province and shows signs of further spreading.
+cholera_epidemic_big;Cholera Epidemic
+desc_cholera_epidemic_big;Cholera has broken out in this province and shows signs of further spreading.
+local_opium_habit;Opium Problem
+desc_local_opium_habit;The opium smoking problem among residents of this province has become increasingly severe.
+desc_leagation_quarter;A diplomatic quarter housing foreign legations has been established in this province.
+colonial_dry_spell;Drought Period
+colonial_dry_spell_desc;This province has seen almost no rain this summer, and farmlands have suffered greatly.
+colonial_exploitation;Colonial Exploitation
+colonial_exploitation_desc;We are extracting all value from this colonial province.
+REMOVE_enraged_soldiers;Enraged Soldiers
+REMOVE_desc_enraged_soldiers;Enraged soldiers are rampaging through the colony.
+REMOVE_unsatisfied_soldiers;Unsatisfied Soldiers
+REMOVE_desc_unsatisfied_soldiers;The soldiers are deeply dissatisfied.
+REMOVE_satisified_soldiers;Satisfied Soldiers
+REMOVE_desc_satisified_soldiers;The soldiers are satisfied.
+REMOVE_colony_rebellion;Colonial Rebellion
+REMOVE_desc_colony_rebellion;The colony is resisting your rule.
+REMOVE_retaliation_colony;Retaliation
+REMOVE_desc_retaliation;You have the opportunity to retaliate against the rebels.
+REMOVE_secret_organization;Secret Organization
+REMOVE_desc_secret_organization;A secret organization dedicated to inciting rebellion seems to have been established in your colony.
+REMOVE_rebel_meeting;Rebel Meeting
+REMOVE_desc_rebel_meeting;An open gathering of rebels has made the expatriates living in the colony feel uneasy.
+REMOVE_anti_propaganda;Anti-Propaganda
+REMOVE_desc_anti_propaganda;You handle criticism with great ease.
+REMOVE_colony_propaganda;Colonial Propaganda
+REMOVE_desc_colony_propaganda;Reports from witnesses have drawn criticism from other nations about the way you manage your colony.
+REMOVE_colonial_war;Colonial War
+REMOVE_desc_colonial_war;A colonial war has broken out.
+REMOVE_court_martial;Court Martial
+REMOVE_desc_court_martial;A court martial was held.
+REMOVE_prison_break;Prison Break
+REMOVE_desc_prison_break;A group of prisoners has successfully broken out of prison.
+REMOVE_rescue_helpless;Rescue the Helpless
+REMOVE_desc_rescue_helpless;The soldiers rescued numerous refugees.
+REMOVE_quench_rebels;Quell the Rebellion
+REMOVE_desc_quench_rebels;More troops have been deployed to thoroughly quench the raging fire of rebellion.
+REMOVE_eliminate_rebels;Eliminate the Rebels
+REMOVE_desc_eliminate_rebels;You have nearly eliminated all the rebels, with only a few surviving.
+REMOVE_rebel_workers;Rebel Workers
+REMOVE_desc_rebel_workers;Rebel workers are complaining about low workplace safety standards.
+REMOVE_rebel_slaves;Rebel Slaves
+REMOVE_desc_rebel_slaves;The slaves in $PROVINCENAME$ have rebelled.
+REMOVE_protest_religion;Anti-Religious Protest
+REMOVE_desc_protest_religion;The indigenous people of the colony oppose the missionaries' work.
+REMOVE_measles_disease;Measles
+REMOVE_desc_measles_disease;Measles has caused the deaths of many residents.
+local_economic_downturn;Local Economic Downturn
+desc_local_economic_downturn;The province's economy has suffered a temporary setback but should recover in the coming years.
+minority_building_restrictions;Minority Building Restrictions
+desc_minority_building_restrictions;Our country has implemented a policy prohibiting ethnic minorities from building permanent structures, even on their own land.
+dryzymalas_wagon;Dryzymala's Wagon
+desc_dryzymalas_wagon;An elderly man named Dryzymala avoids the building ban by living in a wagon.
+flying_university;Flying University
+desc_flying_university;An underground organization provides opportunities for higher education to speakers of minority languages.
+border_ruffians;Border Ruffians
+desc_border_ruffians;The activities of border ruffians have led to a decline in the quality of life for residents of this province.
+REMOVE_vote_right;Voting Rights
+REMOVE_desc_vote_right;A solution to the issue of women's suffrage may be near at hand.
+trustee_system_desc;The prison here operates under a model system, and local production benefits from it.
+penal_colonies_desc;Scattered along our country's border are penal colonies where we exile our most heinous criminals.
+the_statue_of_liberty_desc;As immigrants from the Old World sailed into New York Harbor, the first thing they saw was a gigantic torch symbolizing freedom and a new beginning. For many immigrants coming to our great country, this formed an indelible impression that our nation was born in freedom and tempered by it.
+germania_werft_desc;With a pleasing rhythm, ships whistle and slide out of the dry docks of Kiel Harbor. Thanks to the Krupp family for bringing us this shipyard.
+colonial_museum_of_natural_history_desc;The National Natural History Museum has been completed in this province.
+colonial_mismanagement_desc;Due to a shortage of administrative expenditure, this colony has fallen into a severe shortage of management personnel.
+colonial_recruitment_desc;A government-initiated movement attracts immigrants to this province by promising land and opportunity.
+baby_bood_desc;The campaign to vigorously encourage population growth has been effective, and the province's population has increased.
+loyal_askaris_desc;The residents of this province support our country's rule, and some are willing to show their support by serving in the colonial army.
+EVTDESC100;"Our people's dependence on alcohol is growing day by day, and a tense atmosphere is spreading across the country. Under these circumstances, it is crucial that we take action to uphold our noble social virtues, in the name of our nation's noble and devout character, to resist the onslaught of alcohol, and to bring this good practice to the lower strata of our society."\n\nAlcohol consumption in our country has been increasing steadily over the years. The combined effect of this cheap and readily available distilled spirit, together with harsh working conditions, has naturally led the poorer classes to accept and become addicted to this deadly poison. It is no wonder that the $COUNTRY_ADJ$ Prohibition Alliance has emerged.
+EVTOPTA100;What harm can a few drinks do? *burp*
+EVTOPTB100;Well done!
+EVTDESC110;Another tavern has opened in this province today, further cementing its reputation as a paradise for vagrants and gamblers. On average, there is one saloon or tavern for every hundred citizens, providing them with venues to indulge in their vices. Although the soul may be saved from even the most desperate circumstances, we cannot ignore the serious consequences of long-term excessive consumption.
+EVTOPTA110;Cheers!
+EVTOPTB110;Pressure the local authorities to shut it down.
+EVTDESC120;A sudden police raid on a $PROVINCENAME$ tavern tonight has sparked a large-scale public gathering against police and other government authorities. Local residents, angered by the police decision to close the bar, joined by many drunkards in the protest, marched almost riotously through the city streets.
+EVTOPTA120;These saloons are causing trouble...
+EVTDESC130;A series of social problems such as poverty caused by alcohol addiction have become increasingly serious in $PROVINCENAME$ and the entire $STATENAME$. Members of the local Prohibition Alliance believe this is due to the large number of bars and taverns in $PROVINCENAME$, but other less radical thinkers point to severe unemployment and harsh working conditions as the real causes.
+EVTOPTA130;Close these bars!
+EVTOPTB130;We cannot take any action at this time
+EVTDESC140;Members of the local Prohibition Alliance have picketed a saloon in $PROVINCENAME$, claiming it is responsible for countless family breakdowns and marital problems in $STATENAME$ caused by providing alcohol. They are demanding that the establishment be closed. Now we can only deploy police to prevent the situation from getting out of their control.
+EVTOPTA140;Order the saloon closed
+EVTOPTB140;People should be free to drink
+EVTDESC150;"For a person of sincere and pure faith, wasting one's life on troublesome and undoubtedly vicious vices is meaningless. We must strive to improve ourselves and our communities. And to do this, we must drive away the evil influence from the spirits within the wine bottle. Instead, let us look up to the spirits in heaven."\n\nThe Prohibition movement has drawn great attention from religious circles in $COUNTRY_ADJ$, and a tent conference held in one region of our country has highlighted this phenomenon.
+EVTOPTA150;This is great for the prohibition cause
+EVTOPTB150;The Prohibition movement is too ostentatious
+EVTDESC160;Under the persistent lobbying of the Prohibition Alliance, one region of our country has adopted a licensing system that allows local residents to decide whether to allow alcohol sales in their area. With strong public support, the licensing bill has prohibited most local alcohol sales. Many local alcohol sellers have been unable to obtain licenses and have gone bankrupt.
+EVTOPTA160;Local residents have the right to decide on issues that affect them directly
+EVTOPTB160;Forcefully revoke the decree!
+EVTDESC170;"If we want to free ourselves and our brothers from the disastrous consequences of alcohol and alcoholism, nothing is more effective than complete and total abstinence. What is the use of breaking free from capitalist oppression if we soon fall into the abyss of vice?"\n\nSince the habit of alcoholism has spread like wildfire among the poor, the Prohibition Alliance has attempted to form an alliance with the Socialists. Local labor agitators have begun to publicly denounce the series of problems caused by alcohol.
+EVTOPTA170;Let them do what they want undisturbed
+EVTOPTB170;We must oppose these Socialists
+EVTDESC180;"Quiet, boys, just wait a moment. Once that guard's attention is diverted, we can slip quietly across the border. There are thousands of thirsty throats in $CAPITAL$ waiting for these bottles we're carrying."\n\nThe emergence of prohibition has created a lucrative smuggling trade in alcohol. In neighboring countries, secret underground breweries and distilleries are everywhere, and a secret army works day and night to supply the public with various contraband alcohol products, from diluted liquids to methanol. Police have received a tip that a smuggling ship loaded with contraband alcohol will dock at our port tonight.
+EVTOPTA180;Let the ship pass
+EVTOPTB180;Seize the smuggling ship
+EVTDESC190;A grape growers' association has been established in our country to counter the recent activities of prohibitionists. The association is dedicated to protecting what they call the longstanding $COUNTRY_ADJ$ wine culture tradition, including rituals and customs associated with drinking. The association opposes all demands for prohibition and instead promotes responsible drinking.
+EVTOPTA190;...Where do I sign?
+EVTOPTB190;Drinking, by its very definition, is irresponsible
+EVTNAME1000;Socialists
+EVTDESC1000;Karl Marx published the "Communist Manifesto," a declaration that led workers in $COUNTRY$ to establish a party dedicated to achieving this goal. They call themselves Socialists and insist that the working class should govern the country, with workers themselves controlling the means of production. Equality, justice, solidarity, and democracy are other components of Socialist thought.
+EVTOPTA1000;Very well.
+EVTNAME1001;Communist Agenda
+EVTDESC1001;"We demand, no, we need a free society in which no one is superior to anyone else, no one is abandoned, and no one is exploited or lacks food, clothing, or shelter. We need a society without government, a society without class divisions, a society where workers themselves control the means of production."
+EVTOPTA1001;Very well.
+EVTNAME1002;Anarchists
+REMOVE_EVTDESC1002;Anarchists are street-fighting experts: "Instead of having the state control law enforcement agencies, courts, and defense institutions, voluntary personal institutions should provide different legal systems as alternatives. Money should be provided by competing personal institutions on the open market, and personal economic activities should only be constrained by the naturally formed laws of the market, not by political strategies."\n\nAnarchists are seeking to gain a foothold among the many political factions in our country.
+EVTOPTA1002;Very well.
+EVTNAME1003;Third Way
+EVTDESC1003;"Strength through unity! The government is already feeble and we need a party, one that can give us a stronger national identity, one that will not be deceived by the capitalists' sweet but poisonous voices."\n\nThe Third Way, or as they call them, the Fascists, are eyeing seats in the upper house.
+EVTOPTA1003;Very well.
+EVTNAME1100;Gold Rush in $PROVINCENAME$
+EVTDESC1100;A thirsty and exhausted adventurer returns from the wilderness. After drinking a sip of whiskey, he shouts hoarsely: "Gold! I found gold! A whole mountain of gold!"
+EVTOPTA1100;Gold!
+EVTNAME1105;Diamond Rush in $PROVINCENAME$
+EVTDESC1105;A thirsty and exhausted adventurer returns from the wilderness. After drinking a sip of whiskey, he shouts hoarsely: "Diamonds! I found diamonds! A mountain of diamonds!"
+EVTOPTA1105;Diamonds!
+EVTNAME1107;Rubber Discovered in $PROVINCENAME$
+EVTDESC1107;An expedition sent to explore $PROVINCENAME$ and its surrounding areas has made some interesting discoveries. According to expedition members, this area abounds with rubber trees. Their discovery may be extremely useful in the near future.
+EVTOPTA1107;This will come in handy sooner or later
+EVTNAME1109;Oil Well Discovered in $PROVINCENAME$
+EVTDESC1109;A thirsty and exhausted adventurer returns from the wilderness. After drinking a sip of whiskey, he shouts hoarsely: "Oil! I found oil! A veritable ocean of oil!"
+EVTOPTA1109;Oil!
+EVTNAME1139;Witwatersrand Gold Rush
+EVTDESC1139;For a long time, there has been a local legend among the indigenous people that somewhere in the Witwatersrand, gold nuggets the size of apples lie exposed on the surface. Whether this legend originated from imagination or reality has finally been revealed today, as prospectors in the Witwatersrand have struck gold veins. News of the gold rush spread like wildfire across the world, and a new town sprang up as prospectors poured in. This province will henceforth be known by a simple name: "Johannesburg."
+EVTOPTA1139;Dig through the surface!
+EVTNAME1140;Gold Discovered in the Black Hills!
+EVTDESC1140;Lieutenant Colonel Custer has reported from the Black Hills that considerable quantities of gold have been discovered in the Dakota Territory. Prospectors and treasure seekers have flocked from all directions, but there are disturbing reports of strange howls coming from the mountains at night. Some claim the Sioux are already on the march...
+EVTOPTA1140;Unreliable rumors
+anarchic_bomb_throwers;Anarchist Bomb Throwers
+citizen_guard;Citizen Guard
+immoral_business;Immoral Business
+machine_politics;Machine Politics
+mafia;Mafia
+rotten_boroughs;Rotten Boroughs
+spoil_system;Spoil System
+terrorist_cells;Terrorist Cells
+trusts;Trusts
+desc_anarchic_bomb_throwers;Too little budget for public security leads to reduced ability to respond to threats to security such as anarchist uprisings.
+desc_citizen_guard;Too little budget for public security leads to reduced ability to respond to threats to security such as street gang conflicts.
+desc_immoral_business;As crime rates rise and government control declines, businessmen will become increasingly self-interested. This leads to the collapse of the entire social system, with everyone fighting for their own interests.
+desc_machine_politics;Machine politics is essentially politicians using influence to bribe a few people. Within this system, government positions are typically used to collect bribes.
+desc_mafia;If a province's security apparatus expands excessively, organized crime will develop in the form of the mafia. Such organizations lead to reduced province productivity.
+desc_rotten_boroughs;Rotten boroughs are small constituencies with very few voters, easily won by bribing common people.
+desc_spoil_system;Lack of sufficient oversight institutions allows politicians to use their political power and influence to seize personal wealth and honor. This leads to increased militancy among all people in the province.
+desc_terrorist_cells;With too few security personnel in the province, terrorists will find it easier to hide and wait for opportunities to launch attacks.
+desc_trusts;Low government investment in public security leads to very unequal wealth distribution within a province. The rich get richer and the poor get poorer.
+EVTNAME1200;Anarchist Bomb Throwers
+EVTDESC1200;Too little budget for public security leads to reduced ability to respond to threats to security such as anarchist uprisings.
+EVTOPTA1200;Very well
+EVTNAME1201;Citizen Guard
+EVTDESC1201;Too little budget for public security leads to reduced ability to respond to threats to security such as street gang conflicts.
+EVTOPTA1201;Very well
+EVTNAME1202;Immoral Business
+EVTDESC1202;As crime rates rise and government control declines, businessmen will become increasingly self-interested. This leads to the collapse of the entire social system, with everyone fighting for their own interests.
+EVTOPTA1202;Very well
+EVTNAME1203;Machine Politics
+EVTDESC1203;Machine politics is essentially politicians using influence to bribe a few people. Within this system, government positions are typically used to collect bribes.
+EVTOPTA1203;Very well
+EVTNAME1204;Mafia
+EVTDESC1204;If a province's security apparatus expands excessively, organized crime will develop in the form of the mafia. Such organizations lead to reduced province productivity.
+EVTOPTA1204;Very well
+EVTNAME1205;Rotten Boroughs
+EVTDESC1205;Rotten boroughs are small constituencies with very few voters, easily won by bribing common people.
+EVTOPTA1205;Very well
+EVTNAME1206;Spoil System
+EVTDESC1206;Lack of sufficient oversight institutions allows politicians to use their power and influence to seize personal wealth and honor. This leads to increased militancy among all people in the province.
+EVTOPTA1206;Very well
+EVTNAME1207;Terrorist Cells
+EVTDESC1207;With too few security personnel in the province, terrorists will find it easier to hide and wait for opportunities to launch attacks.
+EVTOPTA1207;Very well
+EVTNAME1208;Trusts
+EVTDESC1208;Low government investment in public security leads to very unequal wealth distribution within a province. The rich get richer and the poor get poorer.
+EVTOPTA1208;Very well
+EVTNAME1209;Anarchist Bomb Throwers No Longer a Problem
+EVTDESC1209;By increasing funding for public security, we have enhanced our ability to respond to anarchist bomb throwers.
+EVTOPTA1209;Very good
+EVTNAME1210;Citizen Guard No Longer a Problem
+EVTDESC1210;By increasing funding for public security, we have enhanced our ability to respond to the citizen guard.
+EVTOPTA1210;Very good
+EVTNAME1211;Immoral Business No Longer a Problem
+EVTDESC1211;By increasing funding for public security, we have controlled and reduced crime rates. Businessmen are no longer solely focused on their personal interests, and the risk of social system collapse has been greatly reduced, with only a few people still fighting for personal gain.
+EVTOPTA1211;Very good
+EVTNAME1212;Machine Politics No Longer a Problem
+EVTDESC1212;By increasing funding for public security, we have enhanced our ability to respond to machine politics.
+EVTOPTA1212;Very good
+EVTNAME1213;Mafia No Longer a Problem
+EVTDESC1213;By increasing funding for public security, we have enhanced our ability to respond to organized crime. This type of organization leads to reduced productivity across the province.
+EVTOPTA1213;Very good
+EVTNAME1214;Rotten Boroughs No Longer a Problem
+EVTDESC1214;Rotten boroughs are a form of vote-buying. By increasing funding for public security, we have addressed the over-representation in small constituencies.
+EVTOPTA1214;Very good
+EVTNAME1215;Spoil System No Longer a Problem
+EVTDESC1215;By increasing funding for public security, we have added oversight institutions, making it difficult for politicians to use their political power and influence to seize personal wealth and honor. The militancy of $PROVINCENAME$ residents is no longer increasing as rapidly.
+EVTOPTA1215;Very good
+EVTNAME1216;Terrorist Cells No Longer a Problem
+EVTDESC1216;By increasing security personnel in $PROVINCENAME$, terrorists have fewer opportunities to launch attacks and find it harder to hide.
+EVTOPTA1216;Very good
+EVTNAME1217;Trusts No Longer a Problem
+EVTDESC1217;By increasing funding for public security, we have made wealth distribution more equal in $PROVINCENAME$. The gap between rich and poor is no longer as vast as it was.
+EVTOPTA1217;Very good
+REMOVE_EVTNAME2000;Community
+REMOVE_EVTDESC2000;New immigrants arrived there and began searching for a place to live. They created a community together and hoped to be allowed to do so. Since the new immigrants knew very little about the country's language, they hired a translator to help them draw up documents and humble themselves for their community.
+REMOVE_EVTOPTB2000;Big trouble. No community allowed.
+REMOVE_EVTOPTA2000;Let them establish their own community.
+EVTNAME2010;Immigrant Employment
+EVTDESC2010;"It's been twenty days. Twenty days without work, without money, my family without proper clothing or food. Twenty days... when you have to dig through garbage bins to find something to eat, twenty days feels like an endless night. I don't want to beg, I don't want to steal, but I've been unemployed for twenty days..."\n\nSome immigrants who came to your country from their homelands have found few opportunities for work.
+EVTOPTA2010;Ignore them.
+EVTOPTB2010;Encourage local businesses to hire
+REMOVE_EVTNAME2020;Marriage Alliance
+REMOVE_EVTDESC2020;"When her husband first danced with her, her eyes shone bright. Never mind the gossip, mockery, and scorn, she smiled at her husband, looking at his dark skin and white teeth. The marriage between a black man and an upper-class white woman has created a strong social reaction, but the young couple doesn't care."
+REMOVE_EVTOPTA2020;Wish them well.
+REMOVE_EVTOPTB2020;I'm shocked!
+EVTNAME2030;Change Your Name
+EVTDESC2030;"Anya Yes-what?"\n"Anya Yesacza. Can't pronounce my name properly?"\n"Sort of. Want to change it? Otherwise you might have trouble finding a job."\n\nNew immigrants have names that are difficult to pronounce accurately, which causes them some problems in finding work.
+EVTOPTA2030;"Change it to Anya Jeske"
+EVTOPTB2030;"I'll keep calling you Anya Yesacsac"
+EVTNAME2040;Owning a Home
+EVTDESC2040;The influx of foreign immigrants has driven up demand in the housing market. Construction of new housing must accelerate, as reports indicate that twenty immigrants crowded into a small room is already commonplace, which could easily lead to the spread of infectious diseases, unrest, and other problems.
+EVTOPTA2040;We must accelerate construction.
+EVTOPTB2040;No rush.
+REMOVE_EVTNAME2050;Naturalization
+REMOVE_EVTDESC2050;It's been five years since the first immigrants arrived. After these five years, immigrants can apply for citizenship and become true citizens instead of foreigners.
+REMOVE_EVTOPTA2050;Grant them citizenship.
+REMOVE_EVTOPTB2050;Only been a few years...
+REMOVE_EVTNAME2060;Early Naturalization
+REMOVE_EVTDESC2060;"After five years in this country, living in $COUNTRY$, speaking the language well, and having a happy marriage with a local woman... Congratulations on your citizenship! Now you just need to sign your name here and here..."\n\nAn increasing number of policies directed at foreigners don't seem to prevent them from becoming citizens.
+REMOVE_EVTOPTA2060;Very good.
+REMOVE_EVTOPTB2060;Angry.
+REMOVE_EVTNAME2070;Mass Naturalization
+REMOVE_EVTDESC2070;Immigrants have fled from the original tyrant to $PROVINCENAME$ and need to be naturalized as soon as possible. A bill has been passed to carry out mass naturalization, and the country will welcome immigrants with open arms.
+REMOVE_EVTOPTA2070;Very well.
+REMOVE_EVTNAME2080;No Naturalization
+REMOVE_EVTDESC2080;"You have always considered this country's citizenship worthless. Leave $COUNTRY$ within 30 days, or face four years in prison."\n\nThe judge was that harsh. This person's crime against the state was not enough to imprison them, but it was enough to strip them of their citizenship and deport them.
+REMOVE_EVTOPTA2080;Very well
+REMOVE_EVTNAME2090;Segregation
+REMOVE_EVTDESC2090;School segregation, store segregation, even restroom segregation. Racial segregation between immigrants and citizens has reached new heights, causing anger and dissatisfaction.
+REMOVE_EVTOPTA2090;Very good.
+REMOVE_EVTOPTB2090;Terrible.
+REMOVE_EVTNAME2100;Ghetto
+REMOVE_EVTDESC2100;More and more immigrants are pouring into residential areas. This is why it's called a ghetto - a special area of the city where ethnic minorities gather, slowly emerging. The environment is poor, streets are narrow, and immigrants and minorities are crowded into housing that simply cannot accommodate them.
+REMOVE_EVTOPTA2100;That's wonderful...
+REMOVE_EVTNAME2110;Emigration
+REMOVE_EVTDESC2110;'The last person to leave looked at their hometown, and tears finally rolled down their cheeks. Shrugging helplessly, hoping to ease the pain of leaving home, perhaps never to return. The cargo ship carrying neighbors and relatives won't wait for him. He packed his bags and boarded the ship, hoping for a bright future in the new country, no longer having to endure hunger and cold. After arriving in the new country, he and his companions will establish an immigrant community, which includes the hope of someday returning home.'
+REMOVE_EVTOPTA2110;Let them establish an immigrant community.
+REMOVE_EVTOPTB2110;They won't go back.
+ANN_liberal_2;Reform Association

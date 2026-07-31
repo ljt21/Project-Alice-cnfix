@@ -6,7 +6,7 @@
 namespace command {
 enum class command_type : uint8_t;
 
-// padding due to alignment
+// 命令头：对齐填充
 struct cmd_header {
 	command_type type;
 	uint8_t padding = 0;
@@ -26,6 +26,7 @@ struct cmd_header {
 };
 static_assert(sizeof(command::cmd_header) == sizeof(command::cmd_header::type) + sizeof(command::cmd_header::padding) + sizeof(command::cmd_header::player_id) + sizeof(command::cmd_header::payload_size));
 
+// 命令数据：包含命令头和可变长度的负载，支持序列化/反序列化操作
 struct command_data {
 	cmd_header header{};
 	std::vector<uint8_t> payload;
@@ -52,7 +53,7 @@ struct command_data {
 
 	~command_data() = default;
 
-	// add data to the payload
+	// 向负载中添加数据
 	template<typename data_type>
 	friend command_data& operator << (command_data& msg, data_type& data) {
 
@@ -66,7 +67,7 @@ struct command_data {
 
 		return msg;
 	}
-	// adds data from pointer to the payload
+	// 从指针向负载中添加指定数量的数据
 	template<typename data_type>
 	void push_ptr(data_type* ptr, size_t size) {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
@@ -77,7 +78,7 @@ struct command_data {
 
 		header.payload_size = (uint32_t)payload.size();
 	}
-	// adds data from a memory span to payload with a specified size, up to a maximum of vec.size()
+	// 从内存span向负载添加数据，限制大小不超过vec.size()
 	template<typename data_type>
 	void push_span(const std::span<data_type> vec, size_t size) {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
@@ -89,22 +90,22 @@ struct command_data {
 
 		header.payload_size = (uint32_t)payload.size();
 	}
-	// adds data from a memory span to payload
+	// 从内存span向负载添加全部数据
 	template<typename data_type>
 	void push_span(const std::span<data_type> vec) {
 		push_span(vec, vec.size());
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
 	}
-	// adds data from a string to the payload, with a size up to a maximum size of string.size()
+	// 从字符串向负载添加数据，限制大小不超过string.size()
 	void push_string(const std::string& string, size_t size) {
 		push_ptr(string.data(), std::min(size, string.size()));
 	}
-	// adds data from a string_view to the payload, with a size up to a maximum size of string_view.size()
+	// 从string_view向负载添加数据，限制大小不超过string_view.size()
 	void push_string_view(std::string_view string_view, size_t size) {
 		push_ptr(string_view.data(), std::min(size, string_view.size()));
 	}
 
-	// grab data from the payload
+	// 从负载中提取数据
 	template<typename data_type>
 	friend command_data& operator >> (command_data& msg, data_type& data) {
 
@@ -118,14 +119,14 @@ struct command_data {
 
 		return msg;
 	}
-	// returns a mutable reference to the payload of the desired type, starting from the start of the vector
+	// 返回负载起始处的可变引用，按指定类型解释
 	template<typename data_type>
 	data_type& get_payload() {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
 		uint8_t* ptr = payload.data();
 		return reinterpret_cast<data_type&>(*ptr);
 	}
-	// returns a const reference to the payload of the desired type, starting from the start of the vector
+	// 返回负载起始处的只读引用，按指定类型解释
 	template<typename data_type>
 	const data_type& get_payload() const {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
@@ -133,26 +134,26 @@ struct command_data {
 		return reinterpret_cast<const data_type&>(*ptr);
 	}
 
-	// Checks if the payload of the given type has an additional variable payload of size "expected_size" (in bytes). Returns true if that is the case, false otherwise
+	// 检查指定类型的负载后是否还附有恰好"expected_size"字节的可变负载
 	template<typename data_type>
 	bool check_variable_size_payload(size_t expected_size) const {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
 		return expected_size == (payload.size() - sizeof(data_type));
 	}
-	// Checks if the payload of the given type has an additional variable payload of size "expected_size" (in bytes) with the specified offset from the start. Returns true if that is the case, false otherwise
+	// 检查指定类型的负载在给定偏移后是否还附有恰好"expected_size"字节的可变负载
 	template<typename data_type>
 	bool check_variable_size_payload(size_t expected_size, size_t offset) const {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
 		return expected_size == ((payload.size() - offset) - sizeof(data_type));
 	}
-	// Checks if the payload of the given type has an additional variable payload of atleast size "expected_size" (in bytes). Returns true if that is the case, false otherwise
+	// 检查指定类型的负载后是否还附有至少"expected_size"字节的可变负载
 	template<typename data_type>
 	bool check_atleast_variable_size_payload(size_t expected_size) const {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
 		return expected_size <= (payload.size() - sizeof(data_type));
 	}
 
-	// removes "count" items of "data_type" from the vector starting from "offset" at the beginning of the vector. Aka it starts removing the FIRST items added
+	// 从向量起始处移除"count"个"data_type"项（即移除最先添加的数据）
 	template<typename data_type>
 	void remove_payload_from_begin(size_t count, size_t offset = 0) {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
@@ -160,7 +161,7 @@ struct command_data {
 		size_t offset_bytes = offset * sizeof(data_type);
 		payload.erase(payload.begin() + offset_bytes, payload.begin() + offset_bytes + bytes_to_remove);
 	}
-	// removes "count" items of "data_type" from the vector starting from "offset" at the end of the vector. Aka it starts removing the LAST items added
+	// 从向量末尾处移除"count"个"data_type"项（即移除最后添加的数据）
 	template<typename data_type>
 	void remove_payload_from_end(size_t count, size_t offset = 0) {
 		static_assert(std::is_standard_layout<data_type>::value, "Data type is too complex");
@@ -177,6 +178,7 @@ struct command_data {
 };
 static_assert(sizeof(command_data) == sizeof(command_data::header) + sizeof(command_data::payload));
 
+// 待处理的人类国家事件数据
 struct pending_human_n_event_data {
 	uint32_t r_lo = 0;
 	uint32_t r_hi = 0;
@@ -188,6 +190,7 @@ struct pending_human_n_event_data {
 	event::slot_type pt;
 	event::slot_type ft;
 };
+// 待处理的自由国家事件数据
 struct pending_human_f_n_event_data {
 	uint32_t r_lo = 0;
 	uint32_t r_hi = 0;
@@ -195,6 +198,7 @@ struct pending_human_f_n_event_data {
 	dcon::free_national_event_id e;
 	uint8_t opt_choice;
 };
+// 待处理的人类省份事件数据
 struct pending_human_p_event_data {
 	uint32_t r_lo = 0;
 	uint32_t r_hi = 0;
@@ -205,6 +209,7 @@ struct pending_human_p_event_data {
 	uint8_t opt_choice;
 	event::slot_type ft;
 };
+// 待处理的自由省份事件数据
 struct pending_human_f_p_event_data {
 	uint32_t r_lo = 0;
 	uint32_t r_hi = 0;

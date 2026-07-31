@@ -28,6 +28,7 @@ namespace ui {
 
 class map_state_select_title : public simple_text_element_base {
 public:
+	// 更新州选择标题文本
 	void on_update(sys::state& state) noexcept override {
 		set_text(state, text::produce_simple_string(state, "alice_state_select_title"));
 	}
@@ -35,12 +36,14 @@ public:
 
 class map_state_select_button : public button_element_base {
 public:
+	// 更新州选择按钮文本
 	void on_update(sys::state& state) noexcept override {
 		auto content = retrieve<dcon::state_definition_id>(state, parent);
 		set_button_text(state, text::produce_simple_string(state, state.world.state_definition_get_name(content)));
 		//auto it = std::find(state.selected_states.begin(), state.selected_states.end(), content);
 		//disabled = (it != state.selected_states.end());
 	}
+	// 州选择按钮点击动作
 	void button_action(sys::state& state) noexcept override {
 		auto content = retrieve<dcon::state_definition_id>(state, parent);
 		state.state_select(content);
@@ -49,6 +52,7 @@ public:
 
 class map_state_select_entry : public listbox_row_element_base<dcon::state_definition_id> {
 public:
+	// 创建州选择条目的子元素
 	std::unique_ptr<element_base> make_child(sys::state& state, std::string_view name, dcon::gui_def_id id) noexcept override {
 		if(name == "button") {
 			return make_element_by_type<map_state_select_button>(state, id);
@@ -60,10 +64,12 @@ public:
 
 class map_state_select_listbox : public listbox_element_base<map_state_select_entry, dcon::state_definition_id> {
 protected:
+	// 获取行元素的名称
 	std::string_view get_row_element_name() override {
 		return "alice_select_legend_entry";
 	}
 public:
+	// 更新州选择列表框内容
 	void on_update(sys::state& state) noexcept override {
 		row_contents.clear();
 		assert(state.state_selection.has_value());
@@ -74,6 +80,7 @@ public:
 
 class map_state_select_window : public window_element_base {
 public:
+	// 创建州选择窗口的子元素
 	std::unique_ptr<element_base> make_child(sys::state& state, std::string_view name, dcon::gui_def_id id) noexcept override {
 		if(name == "legend_title") {
 			return make_element_by_type<map_state_select_title>(state, id);
@@ -87,17 +94,20 @@ public:
 
 
 class go_to_base_game_button : public button_element_base {
+	// 切换到基础游戏场景
 	void button_action(sys::state& state) noexcept final {
 		game_scene::switch_scene(state, game_scene::scene_id::in_game_basic);
 	}
 };
 
 class go_to_battleplanner_button : public button_element_base {
+	// 切换到军事作战规划场景
 	void button_action(sys::state& state) noexcept final {
 		game_scene::switch_scene(state, game_scene::scene_id::in_game_military);
 	}
 };
 
+// 创建游戏内所有UI窗口
 void create_in_game_windows(sys::state& state) {
 	state.ui_state.lazy_load_in_game = true;
 
@@ -374,6 +384,7 @@ void create_in_game_windows(sys::state& state) {
 }
 
 
+// 调整游戏内窗口的属性和布局
 void adjust_in_game_windows(sys::state& state) {
 	// Clear "center" property so they don't look messed up!
 	{

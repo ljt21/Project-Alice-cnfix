@@ -32,10 +32,11 @@
 
 namespace command {
 
+// 判断是否为控制台命令
 bool is_console_command(command_type t) {
 	return uint8_t(t) == 255;
 }
-// This overload will broadcast the command to all clients in MP and SP, if is_host_broadcast_command is true
+// 此重载会将命令广播给多人游戏和单人游戏中的所有客户端，如果is_host_broadcast_command为true
 void add_to_command_queue(sys::state& state, command_data& p) {
 #ifndef NDEBUG
 	assert(command::can_perform_command(state, p));
@@ -96,7 +97,7 @@ void add_to_command_queue(sys::state& state, command_data& p) {
 }
 
 
-// This overload will only broadcast the command to clients which pass the selector if is_host_broadcast_command is true. ONLY USABLE FOR HOST.
+// 此重载仅会将命令广播给通过选择器的客户端，如果is_host_broadcast_command为true。仅主机可用。
 void add_to_command_queue(sys::state& state, network::host_command_wrapper& p) {
 #ifndef NDEBUG
 	assert(command::can_perform_command(state, p.cmd_data));
@@ -139,6 +140,7 @@ void add_to_command_queue(sys::state& state, network::host_command_wrapper& p) {
 
 
 
+// 设置集结点
 void set_rally_point(sys::state& state, dcon::nation_id source, dcon::province_id location, bool naval, bool enable) {
 	command_data p{ command_type::set_rally_point, state.local_player_id };
 	auto data = rally_point_data{ location, naval, enable };
@@ -146,6 +148,7 @@ void set_rally_point(sys::state& state, dcon::nation_id source, dcon::province_i
 	add_to_command_queue(state, p);
 }
 
+// 执行设置集结点
 void execute_set_rally_point(sys::state& state, dcon::nation_id source, dcon::province_id location, bool naval, bool enable) {
 	if(state.world.province_get_nation_from_province_ownership(location) != source)
 		return;
@@ -157,6 +160,7 @@ void execute_set_rally_point(sys::state& state, dcon::nation_id source, dcon::pr
 	}
 }
 
+// 保存游戏
 void save_game(sys::state& state, dcon::nation_id source, bool and_quit, const std::string& filename) {
 	command_data p{ command_type::save_game, state.local_player_id };
 	uint8_t truncated_length = std::min<uint8_t>(uint8_t(filename.length()), std::numeric_limits<uint8_t>::max());
@@ -168,6 +172,7 @@ void save_game(sys::state& state, dcon::nation_id source, bool and_quit, const s
 
 }
 
+// 判断是否可以保存游戏
 bool can_save_game(sys::state& state, command_data& command) {
 	auto& payload = command.get_payload<save_game_data>();
 
@@ -180,6 +185,7 @@ bool can_save_game(sys::state& state, command_data& command) {
 	return true;
 }
 
+// 执行保存游戏
 void execute_save_game(sys::state& state, dcon::nation_id source, bool and_quit, const std::string& filename) {
 	sys::write_save_file(state, sys::save_type::normal, "", filename);
 
@@ -188,6 +194,7 @@ void execute_save_game(sys::state& state, dcon::nation_id source, bool and_quit,
 	}
 }
 
+// 设置国家焦点
 void set_national_focus(sys::state& state, dcon::nation_id source, dcon::state_instance_id target_state,
 		dcon::national_focus_id focus) {
 
@@ -198,6 +205,7 @@ void set_national_focus(sys::state& state, dcon::nation_id source, dcon::state_i
 
 }
 
+// 判断是否可以设置国家焦点
 bool can_set_national_focus(sys::state& state, dcon::nation_id source, dcon::state_instance_id target_state,
 		dcon::national_focus_id focus) {
 	if(!state.current_scene.game_in_progress) {
@@ -247,6 +255,7 @@ bool can_set_national_focus(sys::state& state, dcon::nation_id source, dcon::sta
 	}
 }
 
+// 执行设置国家焦点
 void execute_set_national_focus(sys::state& state, dcon::nation_id source, dcon::state_instance_id target_state, dcon::national_focus_id focus) {
 	if(state.world.state_instance_get_nation_from_state_ownership(target_state) == source) {
 		state.world.state_instance_set_owner_focus(target_state, focus);
@@ -258,6 +267,7 @@ void execute_set_national_focus(sys::state& state, dcon::nation_id source, dcon:
 	}
 }
 
+// 开始研究
 void start_research(sys::state& state, dcon::nation_id source, dcon::technology_id tech) {
 
 	command_data p{ command_type::start_research, state.local_player_id };
@@ -266,6 +276,7 @@ void start_research(sys::state& state, dcon::nation_id source, dcon::technology_
 	add_to_command_queue(state, p);
 }
 
+// 判断是否可以开始研究
 bool can_start_research(sys::state& state, dcon::nation_id source, dcon::technology_id tech) {
 	/* Nations can only start researching technologies if, they are not uncivilized, the tech
 		 activation date is past by, and all the previous techs (if any) of the same folder index
@@ -294,12 +305,14 @@ bool can_start_research(sys::state& state, dcon::nation_id source, dcon::technol
 	return false;
 }
 
+// 执行开始研究
 void execute_start_research(sys::state& state, dcon::nation_id source, dcon::technology_id tech) {
 	if(state.world.nation_get_current_research(source))
 		state.world.nation_set_research_points(source, 0.0f);
 	state.world.nation_set_current_research(source, tech);
 }
 
+// 创建领袖
 void make_leader(sys::state& state, dcon::nation_id source, bool general) {
 	command_data p{ command_type::make_leader, state.local_player_id };
 	auto data = make_leader_data{ general };
@@ -307,16 +320,19 @@ void make_leader(sys::state& state, dcon::nation_id source, bool general) {
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以创建领袖
 bool can_make_leader(sys::state& state, dcon::nation_id source, bool general) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return state.world.nation_get_leadership_points(source) >= state.defines.leader_recruit_cost;
 }
+// 执行创建领袖
 void execute_make_leader(sys::state& state, dcon::nation_id source, bool general) {
 	military::make_new_leader(state, source, general);
 }
 
+// 设置工厂类型优先级
 void set_factory_type_priority(sys::state& state, dcon::nation_id source, dcon::factory_type_id ftid, float value) {
 
 	command_data p{ command_type::set_factory_type_priority, state.local_player_id };
@@ -325,17 +341,20 @@ void set_factory_type_priority(sys::state& state, dcon::nation_id source, dcon::
 	add_to_command_queue(state, p);
 
 };
+// 判断是否可以设置工厂类型优先级
 bool can_set_factory_type_priority(sys::state& state, dcon::nation_id source, dcon::factory_type_id ftid, float value) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return (value >= 0.f);
 };
+// 执行设置工厂类型优先级
 void execute_set_factory_type_priority(sys::state& state, dcon::nation_id source, dcon::factory_type_id ftid, float value) {
 	state.world.nation_set_factory_type_experience_priority_national(source, ftid, value);
 }
 
 
+// 给予战争补贴
 void give_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::war_subsidies, state.local_player_id };
@@ -344,6 +363,7 @@ void give_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以给予战争补贴
 bool can_give_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	/* Can only perform if, the nations are not at war, the nation isn't already being given war subsidies, and there is
 	 * defines:WARSUBSIDY_DIPLOMATIC_COST diplomatic points available. And the target isn't equal to the sender. */
@@ -364,6 +384,7 @@ bool can_give_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nat
 		return state.world.nation_get_diplomatic_points(source) >= state.defines.warsubsidy_diplomatic_cost; // Enough diplomatic points
 	return true;
 }
+// 执行给予战争补贴
 void execute_give_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	nations::adjust_relationship(state, source, target, state.defines.warsubsidy_relation_on_accept);
 	auto& current_diplo = state.world.nation_get_diplomatic_points(source);
@@ -386,6 +407,7 @@ void execute_give_war_subsidies(sys::state& state, dcon::nation_id source, dcon:
 }
 
 
+// 取消战争补贴
 void cancel_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 
@@ -395,6 +417,7 @@ void cancel_war_subsidies(sys::state& state, dcon::nation_id source, dcon::natio
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以取消战争补贴
 bool can_cancel_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	/* Can only perform if, the nations are not at war, the nation is already being given war subsidies, and there is
 	 * defines:CANCELWARSUBSIDY_DIPLOMATIC_COST diplomatic points available. And the target isn't equal to the sender. */
@@ -412,6 +435,7 @@ bool can_cancel_war_subsidies(sys::state& state, dcon::nation_id source, dcon::n
 		return state.world.nation_get_diplomatic_points(source) >= state.defines.cancelwarsubsidy_diplomatic_cost; // Enough diplomatic points
 	return true;
 }
+// 执行取消战争补贴
 void execute_cancel_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	nations::adjust_relationship(state, source, target, state.defines.cancelwarsubsidy_relation_on_accept);
 	auto& current_diplo = state.world.nation_get_diplomatic_points(source);
@@ -433,6 +457,7 @@ void execute_cancel_war_subsidies(sys::state& state, dcon::nation_id source, dco
 }
 
 
+// 提升关系
 void increase_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::increase_relations, state.local_player_id };
@@ -441,6 +466,7 @@ void increase_relations(sys::state& state, dcon::nation_id source, dcon::nation_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以提升关系
 bool can_increase_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	/* Can only perform if, the nations are not at war, the relation value isn't maxed out at 200, and has
 	 * defines:INCREASERELATION_DIPLOMATIC_COST diplomatic points. And the target can't be the same as the sender. */
@@ -461,6 +487,7 @@ bool can_increase_relations(sys::state& state, dcon::nation_id source, dcon::nat
 		return state.world.nation_get_diplomatic_points(source) >= state.defines.increaserelation_diplomatic_cost; // Enough diplomatic points
 	return true;
 }
+// 执行提升关系
 void execute_increase_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	nations::adjust_relationship(state, source, target, state.defines.increaserelation_relation_on_accept);
 	auto& current_diplo = state.world.nation_get_diplomatic_points(source);
@@ -476,6 +503,7 @@ void execute_increase_relations(sys::state& state, dcon::nation_id source, dcon:
 	});
 }
 
+// 降低关系
 void decrease_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::decrease_relations, state.local_player_id };
@@ -484,6 +512,7 @@ void decrease_relations(sys::state& state, dcon::nation_id source, dcon::nation_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以降低关系
 bool can_decrease_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	/* Can only perform if, the nations are not at war, the relation value isn't maxxed out at -200, and has
 	 * defines:DECREASERELATION_DIPLOMATIC_COST diplomatic points. And not done to self. */
@@ -501,6 +530,7 @@ bool can_decrease_relations(sys::state& state, dcon::nation_id source, dcon::nat
 		return state.world.nation_get_diplomatic_points(source) >= state.defines.decreaserelation_diplomatic_cost; // Enough diplomatic points
 	return true;
 }
+// 执行降低关系
 void execute_decrease_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	nations::adjust_relationship(state, source, target, state.defines.decreaserelation_relation_on_accept);
 	auto& current_diplo = state.world.nation_get_diplomatic_points(source);
@@ -516,6 +546,7 @@ void execute_decrease_relations(sys::state& state, dcon::nation_id source, dcon:
 	});
 }
 
+// 开始省份建筑建造
 void begin_province_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id prov, economy::province_building_type type) {
 
 	command_data p{ command_type::begin_province_building_construction, state.local_player_id };
@@ -524,6 +555,7 @@ void begin_province_building_construction(sys::state& state, dcon::nation_id sou
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以开始省份建筑建造
 bool can_begin_province_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id p, economy::province_building_type type) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -543,6 +575,7 @@ bool can_begin_province_building_construction(sys::state& state, dcon::nation_id
 		return false;
 	}
 }
+// 执行开始省份建筑建造
 void execute_begin_province_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id p, economy::province_building_type type) {
 	if(type == economy::province_building_type::naval_base) {
 		auto si = state.world.province_get_state_membership(p);
@@ -569,6 +602,7 @@ void execute_begin_province_building_construction(sys::state& state, dcon::natio
 }
 
 
+// 取消工厂建造
 void cancel_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type) {
 	command_data p{ command_type::cancel_factory_building_construction, state.local_player_id };
 	auto data = factory_building_data{ };
@@ -578,6 +612,7 @@ void cancel_factory_building_construction(sys::state& state, dcon::nation_id sou
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以取消工厂建造
 bool can_cancel_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -594,6 +629,7 @@ bool can_cancel_factory_building_construction(sys::state& state, dcon::nation_id
 	}
 	return false;
 }
+// 执行取消工厂建造
 void execute_cancel_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type) {
 	auto owner = state.world.province_get_nation_from_province_ownership(location);
 	for(auto c : state.world.province_get_factory_construction(location)) {
@@ -608,6 +644,7 @@ void execute_cancel_factory_building_construction(sys::state& state, dcon::natio
 		}
 	}
 }
+// 开始工厂建造
 void begin_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type, bool is_upgrade, dcon::factory_type_id refit_target) {
 
 	command_data p{ command_type::begin_factory_building_construction, state.local_player_id };
@@ -617,6 +654,7 @@ void begin_factory_building_construction(sys::state& state, dcon::nation_id sour
 
 }
 
+// 判断是否可以开始工厂建造
 bool can_begin_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type, bool is_upgrade, dcon::factory_type_id refit_target) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -802,6 +840,7 @@ bool can_begin_factory_building_construction(sys::state& state, dcon::nation_id 
 	}
 }
 
+// 执行开始工厂建造
 void execute_begin_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type, bool is_upgrade, dcon::factory_type_id refit_target) {
 	auto new_up = fatten(state.world, state.world.force_create_factory_construction(location, source));
 	new_up.set_is_pop_project(false);
@@ -823,6 +862,7 @@ void execute_begin_factory_building_construction(sys::state& state, dcon::nation
 	}
 }
 
+// 开始海军单位建造
 void start_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type, dcon::province_id template_province) {
 
 	command_data p{ command_type::begin_naval_unit_construction, state.local_player_id };
@@ -833,6 +873,7 @@ void start_naval_unit_construction(sys::state& state, dcon::nation_id source, dc
 
 }
 
+// 判断是否可以开始海军单位建造
 bool can_start_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type, dcon::province_id template_province) {
 	/*
 	The province must be owned and controlled by the building nation, without an ongoing siege.
@@ -878,6 +919,7 @@ bool can_start_naval_unit_construction(sys::state& state, dcon::nation_id source
 	}
 }
 
+// 执行开始海军单位建造
 void execute_start_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type, dcon::province_id template_province) {
 	auto c = fatten(state.world, state.world.try_create_province_naval_construction(location, source));
 	c.set_type(type);
@@ -885,6 +927,7 @@ void execute_start_naval_unit_construction(sys::state& state, dcon::nation_id so
 	c.set_template_province(template_province);
 }
 
+// 开始陆军单位建造
 void start_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type, dcon::province_id template_province) {
 
 
@@ -896,6 +939,7 @@ void start_land_unit_construction(sys::state& state, dcon::nation_id source, dco
 }
 
 template <bool VALIDATE>
+// 判断是否可以开始陆军单位建造
 bool can_start_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type, dcon::province_id template_province) {
 	/*
 	The province must be owned and controlled by the building nation, without an ongoing siege.
@@ -934,6 +978,7 @@ template bool can_start_land_unit_construction<true>(sys::state& state, dcon::na
 template bool can_start_land_unit_construction<false>(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type, dcon::province_id template_province);
 
 
+// 执行开始陆军单位建造
 void execute_start_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type, dcon::province_id template_province) {
 	auto soldier = military::find_available_soldier(state, location, soldier_culture);
 
@@ -943,6 +988,7 @@ void execute_start_land_unit_construction(sys::state& state, dcon::nation_id sou
 	c.set_template_province(template_province);
 }
 
+// 取消海军单位建造
 void cancel_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type) {
 
 	command_data p{ command_type::cancel_naval_unit_construction, state.local_player_id };
@@ -953,6 +999,7 @@ void cancel_naval_unit_construction(sys::state& state, dcon::nation_id source, d
 	add_to_command_queue(state, p);
 }
 
+// 判断是否可以取消海军单位建造
 bool can_cancel_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -960,6 +1007,7 @@ bool can_cancel_naval_unit_construction(sys::state& state, dcon::nation_id sourc
 	return state.world.province_get_nation_from_province_ownership(location) == source;
 }
 
+// 执行取消海军单位建造
 void execute_cancel_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type) {
 	dcon::province_naval_construction_id c;
 	for(auto lc : state.world.province_get_province_naval_construction(location)) {
@@ -970,6 +1018,7 @@ void execute_cancel_naval_unit_construction(sys::state& state, dcon::nation_id s
 	state.world.delete_province_naval_construction(c);
 }
 
+// 取消陆军单位建造
 void cancel_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type) {
 
 
@@ -982,12 +1031,14 @@ void cancel_land_unit_construction(sys::state& state, dcon::nation_id source, dc
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以取消陆军单位建造
 bool can_cancel_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return state.world.province_get_nation_from_province_ownership(location) == source;
 }
+// 执行取消陆军单位建造
 void execute_cancel_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type) {
 	dcon::province_land_construction_id c;
 	for(auto pop : state.world.province_get_pop_location(location)) {
@@ -1000,6 +1051,7 @@ void execute_cancel_land_unit_construction(sys::state& state, dcon::nation_id so
 	state.world.delete_province_land_construction(c);
 }
 
+// 删除工厂
 void delete_factory(sys::state& state, dcon::nation_id source, dcon::factory_id f) {
 
 
@@ -1010,6 +1062,7 @@ void delete_factory(sys::state& state, dcon::nation_id source, dcon::factory_id 
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以删除工厂
 bool can_delete_factory(sys::state& state, dcon::nation_id source, dcon::factory_id f) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -1022,11 +1075,13 @@ bool can_delete_factory(sys::state& state, dcon::nation_id source, dcon::factory
 		return false;
 	return true;
 }
+// 执行删除工厂
 void execute_delete_factory(sys::state& state, dcon::nation_id source, dcon::factory_id fid) {
 	// Delete existing factories
 	state.world.delete_factory(fid);
 }
 
+// 修改工厂设置
 void change_factory_settings(sys::state& state, dcon::nation_id source, dcon::factory_id f, uint8_t priority, bool subsidized) {
 
 	command_data p{ command_type::change_factory_settings, state.local_player_id };
@@ -1034,6 +1089,7 @@ void change_factory_settings(sys::state& state, dcon::nation_id source, dcon::fa
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以修改工厂设置
 bool can_change_factory_settings(sys::state& state, dcon::nation_id source, dcon::factory_id f, uint8_t priority, bool subsidized) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -1059,6 +1115,7 @@ bool can_change_factory_settings(sys::state& state, dcon::nation_id source, dcon
 
 	return true;
 }
+// 执行修改工厂设置
 void execute_change_factory_settings(sys::state& state, dcon::nation_id source, dcon::factory_id fid, uint8_t priority, bool subsidized) {
 	auto rules = state.world.nation_get_combined_issue_rules(source);
 
@@ -1082,6 +1139,7 @@ void execute_change_factory_settings(sys::state& state, dcon::nation_id source, 
 	return;
 }
 
+// 建立附庸国
 void make_vassal(sys::state& state, dcon::nation_id source, dcon::national_identity_id t) {
 
 	command_data p{ command_type::make_vassal, state.local_player_id };
@@ -1090,9 +1148,11 @@ void make_vassal(sys::state& state, dcon::nation_id source, dcon::national_ident
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以建立附庸国
 bool can_make_vassal(sys::state& state, dcon::nation_id source, dcon::national_identity_id t) {
 	return nations::can_release_as_vassal(state, source, t);
 }
+// 执行建立附庸国
 void execute_make_vassal(sys::state& state, dcon::nation_id source, dcon::national_identity_id t) {
 	nations::liberate_nation_from(state, t, source);
 	auto holder = state.world.national_identity_get_nation_from_identity_holder(t);
@@ -1107,6 +1167,7 @@ void execute_make_vassal(sys::state& state, dcon::nation_id source, dcon::nation
 	nations::adjust_prestige(state, source, state.defines.release_nation_prestige);
 }
 
+// 释放并扮演国家
 void release_and_play_as(sys::state& state, dcon::nation_id source, dcon::national_identity_id t) {
 
 	command_data p{ command_type::release_and_play_nation, state.local_player_id };
@@ -1115,12 +1176,14 @@ void release_and_play_as(sys::state& state, dcon::nation_id source, dcon::nation
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以释放并扮演国家
 bool can_release_and_play_as(sys::state& state, dcon::nation_id source, dcon::national_identity_id t, dcon::mp_player_id player) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return nations::can_release_as_vassal(state, source, t);
 }
+// 执行释放并扮演国家
 void execute_release_and_play_as(sys::state& state, dcon::nation_id source, dcon::national_identity_id t, dcon::mp_player_id player) {
 	nations::liberate_nation_from(state, t, source);
 	auto holder = state.world.national_identity_get_nation_from_identity_holder(t);
@@ -1140,13 +1203,15 @@ void execute_release_and_play_as(sys::state& state, dcon::nation_id source, dcon
 	}
 }
 
-inline bool can_change_budget_settings(sys::state& state, dcon::nation_id source, budget_settings_data const& values) {
+// 判断是否可以修改预算设置
+bool can_change_budget_settings(sys::state& state, dcon::nation_id source, budget_settings_data const& values) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return true;
 }
 
+// 修改预算设置
 void change_budget_settings(sys::state& state, dcon::nation_id source, budget_settings_data const& values) {
 
 	command_data p{ command_type::change_budget, state.local_player_id };
@@ -1154,6 +1219,7 @@ void change_budget_settings(sys::state& state, dcon::nation_id source, budget_se
 	add_to_command_queue(state, p);
 
 }
+// 执行修改预算设置
 void execute_change_budget_settings(sys::state& state, dcon::nation_id source, budget_settings_data const& values) {
 	if(values.administrative_spending != int8_t(-127)) {
 		state.world.nation_set_administrative_spending(source, std::clamp(values.administrative_spending, int8_t(0), int8_t(100)));
@@ -1203,11 +1269,13 @@ void execute_change_budget_settings(sys::state& state, dcon::nation_id source, b
 	economy::bound_budget_settings(state, source);
 }
 
+// 开始选举
 void start_election(sys::state& state, dcon::nation_id source) {
 	command_data p{ command_type::start_election, state.local_player_id };
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以开始选举
 bool can_start_election(sys::state& state, dcon::nation_id source) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -1215,10 +1283,12 @@ bool can_start_election(sys::state& state, dcon::nation_id source) {
 	auto type = state.world.nation_get_government_type(source);
 	return state.world.government_type_get_has_elections(type) && !politics::is_election_ongoing(state, source);
 }
+// 执行开始选举
 void execute_start_election(sys::state& state, dcon::nation_id source) {
 	politics::start_election(state, source);
 }
 
+// 修改影响优先级
 void change_influence_priority(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, uint8_t priority) {
 
 
@@ -1228,6 +1298,7 @@ void change_influence_priority(sys::state& state, dcon::nation_id source, dcon::
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以修改影响优先级
 bool can_change_influence_priority(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, uint8_t priority) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -1235,6 +1306,7 @@ bool can_change_influence_priority(sys::state& state, dcon::nation_id source, dc
 	// The source must be a great power, while the target must not be a great power.
 	return state.world.nation_get_is_great_power(source) && !state.world.nation_get_is_great_power(influence_target);
 }
+// 执行修改影响优先级
 void execute_change_influence_priority(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, uint8_t priority) {
 	auto rel = state.world.get_gp_relationship_by_gp_influence_pair(influence_target, source);
 	if(!rel) {
@@ -1259,6 +1331,7 @@ void execute_change_influence_priority(sys::state& state, dcon::nation_id source
 	}
 }
 
+// 败坏顾问名誉
 void discredit_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 
 	command_data p{ command_type::discredit_advisors, state.local_player_id };
@@ -1267,6 +1340,7 @@ void discredit_advisors(sys::state& state, dcon::nation_id source, dcon::nation_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以败坏顾问名誉
 bool can_discredit_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	The source must be a great power. The source must have define:DISCREDIT_INFLUENCE_COST influence points. The source may not be
@@ -1309,6 +1383,7 @@ bool can_discredit_advisors(sys::state& state, dcon::nation_id source, dcon::nat
 	return nations::influence::is_influence_level_greater_or_equal(clevel,
 			nations::influence::get_level(state, affected_gp, influence_target));
 }
+// 执行败坏顾问名誉
 void execute_discredit_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	A nation is discredited for define:DISCREDIT_DAYS. Being discredited twice does not add these durations together; it just
@@ -1339,12 +1414,14 @@ void execute_discredit_advisors(sys::state& state, dcon::nation_id source, dcon:
 	});
 }
 
+// 驱逐顾问
 void expel_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	command_data p{ command_type::expel_advisors, state.local_player_id };
 	auto data = influence_action_data{ influence_target, affected_gp };
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以驱逐顾问
 bool can_expel_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	The source must be a great power. The source must have define:EXPELADVISORS_INFLUENCE_COST influence points. The source may
@@ -1382,6 +1459,7 @@ bool can_expel_advisors(sys::state& state, dcon::nation_id source, dcon::nation_
 	return nations::influence::is_influence_level_greater_or_equal(clevel,
 			nations::influence::get_level(state, affected_gp, influence_target));
 }
+// 执行驱逐顾问
 void execute_expel_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	Expelling a nation's advisors "increases" your relationship with them by define:EXPELADVISORS_RELATION_ON_ACCEPT. This action
@@ -1412,6 +1490,7 @@ void execute_expel_advisors(sys::state& state, dcon::nation_id source, dcon::nat
 	});
 }
 
+// 禁止大使馆
 void ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 
 	command_data p{ command_type::ban_embassy, state.local_player_id };
@@ -1419,6 +1498,7 @@ void ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation_id infl
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以禁止大使馆
 bool can_ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	The source must be a great power. The source must have define:BANEMBASSY_INFLUENCE_COST influence points. The source may not
@@ -1457,6 +1537,7 @@ bool can_ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation_id 
 	return nations::influence::is_influence_level_greater_or_equal(clevel,
 			nations::influence::get_level(state, affected_gp, influence_target));
 }
+// 执行禁止大使馆
 void execute_ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	Banning a nation's embassy "increases" your relationship with them by define:BANEMBASSY_RELATION_ON_ACCEPT. This action costs
@@ -1487,6 +1568,7 @@ void execute_ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation
 	});
 }
 
+// 提升好感度
 void increase_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target) {
 
 	command_data p{ command_type::increase_opinion, state.local_player_id };
@@ -1496,6 +1578,7 @@ void increase_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以提升好感度
 bool can_increase_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target) {
 	/*
 	The source must be a great power. The source must have define:INCREASEOPINION_INFLUENCE_COST influence points. The source may
@@ -1527,6 +1610,7 @@ bool can_increase_opinion(sys::state& state, dcon::nation_id source, dcon::natio
 
 	return true;
 }
+// 执行提升好感度
 void execute_increase_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target) {
 	/*
 	Increasing the opinion of a nation costs define:INCREASEOPINION_INFLUENCE_COST influence points. Opinion can be increased to a
@@ -1550,12 +1634,14 @@ void execute_increase_opinion(sys::state& state, dcon::nation_id source, dcon::n
 	});
 }
 
+// 降低好感度
 void decrease_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	command_data p{ command_type::decrease_opinion, state.local_player_id };
 	auto data = influence_action_data{ influence_target, affected_gp };
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以降低好感度
 bool can_decrease_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	The source must be a great power. The source must have define:DECREASEOPINION_INFLUENCE_COST influence points. The source may
@@ -1603,6 +1689,7 @@ bool can_decrease_opinion(sys::state& state, dcon::nation_id source, dcon::natio
 	return nations::influence::is_influence_level_greater_or_equal(clevel,
 			nations::influence::get_level(state, affected_gp, influence_target));
 }
+// 执行降低好感度
 void execute_decrease_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	Decreasing the opinion of a nation "increases" your relationship with them by define:DECREASEOPINION_RELATION_ON_ACCEPT. This
@@ -1631,6 +1718,7 @@ void execute_decrease_opinion(sys::state& state, dcon::nation_id source, dcon::n
 	});
 }
 
+// 加入势力范围
 void add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target) {
 
 	command_data p{ command_type::add_to_sphere, state.local_player_id };
@@ -1640,6 +1728,7 @@ void add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id in
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以加入势力范围
 bool can_add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target) {
 	/*
 	The source must be a great power. The source must have define:ADDTOSPHERE_INFLUENCE_COST influence points. The source may not
@@ -1675,6 +1764,7 @@ bool can_add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_i
 
 	return true;
 }
+// 执行加入势力范围
 void execute_add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target) {
 	auto rel = state.world.get_gp_relationship_by_gp_influence_pair(influence_target, source);
 
@@ -1693,6 +1783,7 @@ void execute_add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nati
 	});
 }
 
+// 移出势力范围
 void remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 
 	command_data p{ command_type::remove_from_sphere, state.local_player_id };
@@ -1701,6 +1792,7 @@ void remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nation_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以移出势力范围
 bool can_remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	The source must be a great power. The source must have define:REMOVEFROMSPHERE_INFLUENCE_COST influence points. The source may
@@ -1737,6 +1829,7 @@ bool can_remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nat
 
 	return true;
 }
+// 执行移出势力范围
 void execute_remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp) {
 	/*
 	Removing a nation from a sphere costs define:REMOVEFROMSPHERE_INFLUENCE_COST influence points. If you remove a nation from
@@ -1773,6 +1866,7 @@ void execute_remove_from_sphere(sys::state& state, dcon::nation_id source, dcon:
 	});
 }
 
+// 将殖民地升级为州
 void upgrade_colony_to_state(sys::state& state, dcon::nation_id source, dcon::state_instance_id si) {
 
 
@@ -1782,16 +1876,19 @@ void upgrade_colony_to_state(sys::state& state, dcon::nation_id source, dcon::st
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以将殖民地升级为州
 bool can_upgrade_colony_to_state(sys::state& state, dcon::nation_id source, dcon::state_instance_id si) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return state.world.state_instance_get_nation_from_state_ownership(si) == source && province::can_integrate_colony(state, si);
 }
+// 执行将殖民地升级为州
 void execute_upgrade_colony_to_state(sys::state& state, dcon::nation_id source, dcon::state_instance_id si) {
 	province::upgrade_colonial_state(state, source, si);
 }
 
+// 投资殖民地
 void invest_in_colony(sys::state& state, dcon::nation_id source, dcon::province_id pr) {
 
 	command_data p{ command_type::invest_in_colony, state.local_player_id };
@@ -1800,6 +1897,7 @@ void invest_in_colony(sys::state& state, dcon::nation_id source, dcon::province_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以投资殖民地
 bool can_invest_in_colony(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -1810,6 +1908,7 @@ bool can_invest_in_colony(sys::state& state, dcon::nation_id source, dcon::provi
 	else
 		return province::can_invest_in_colony(state, source, state_def);
 }
+// 执行投资殖民地
 void execute_invest_in_colony(sys::state& state, dcon::nation_id source, dcon::province_id pr) {
 	auto state_def = state.world.province_get_state_from_abstract_state_membership(pr);
 	if(province::is_colonizing(state, source, state_def)) {
@@ -1840,6 +1939,7 @@ void execute_invest_in_colony(sys::state& state, dcon::nation_id source, dcon::p
 	}
 }
 
+// 放弃殖民地
 void abandon_colony(sys::state& state, dcon::nation_id source, dcon::province_id pr) {
 
 	command_data p{ command_type::abandon_colony, state.local_player_id };
@@ -1849,6 +1949,7 @@ void abandon_colony(sys::state& state, dcon::nation_id source, dcon::province_id
 
 }
 
+// 判断是否可以放弃殖民地
 bool can_abandon_colony(sys::state& state, dcon::nation_id source, dcon::province_id pr) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -1857,6 +1958,7 @@ bool can_abandon_colony(sys::state& state, dcon::nation_id source, dcon::provinc
 	return province::is_colonizing(state, source, state_def);
 }
 
+// 执行放弃殖民地
 void execute_abandon_colony(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	auto state_def = state.world.province_get_state_from_abstract_state_membership(p);
 
@@ -1867,6 +1969,7 @@ void execute_abandon_colony(sys::state& state, dcon::nation_id source, dcon::pro
 	}
 }
 
+// 完成殖民化
 void finish_colonization(sys::state& state, dcon::nation_id source, dcon::state_definition_id d) {
 
 	command_data p{ command_type::finish_colonization, state.local_player_id };
@@ -1875,6 +1978,7 @@ void finish_colonization(sys::state& state, dcon::nation_id source, dcon::state_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以完成殖民化
 bool can_finish_colonization(sys::state& state, dcon::nation_id source, dcon::state_definition_id d) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -1886,6 +1990,7 @@ bool can_finish_colonization(sys::state& state, dcon::nation_id source, dcon::st
 		return false;
 	return (*rng.begin()).get_colonizer() == source;
 }
+// 执行完成殖民化
 void execute_finish_colonization(sys::state& state, dcon::nation_id source, dcon::state_definition_id d) {
 	for(auto pr : state.world.state_definition_get_abstract_state_membership(d)) {
 		if(!pr.get_province().get_nation_from_province_ownership()) {
@@ -1903,6 +2008,7 @@ void execute_finish_colonization(sys::state& state, dcon::nation_id source, dcon
 	}
 }
 
+// 介入战争
 void intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_id w, bool for_attacker) {
 
 
@@ -1912,6 +2018,7 @@ void intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_id w,
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以介入战争
 bool can_intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_id w, bool for_attacker) {
 	/*
 	Must be a great power. Must not be involved in or interested in a crisis. Must be at least define:MIN_MONTHS_TO_INTERVENE
@@ -1998,6 +2105,7 @@ bool can_intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_i
 	}
 	return true;
 }
+// 执行介入战争
 void execute_intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_id w, bool for_attacker) {
 	if(!state.world.war_get_is_great(w)) {
 		bool status_quo_added = false;
@@ -2017,6 +2125,7 @@ void execute_intervene_in_war(sys::state& state, dcon::nation_id source, dcon::w
 	military::add_to_war(state, w, source, for_attacker);
 }
 
+// 镇压运动
 void suppress_movement(sys::state& state, dcon::nation_id source, dcon::movement_id m) {
 	command_data p{ command_type::suppress_movement, state.local_player_id };
 	auto data = movement_data{ state.world.movement_get_associated_issue_option(m), state.world.movement_get_associated_independence(m) };
@@ -2024,6 +2133,7 @@ void suppress_movement(sys::state& state, dcon::nation_id source, dcon::movement
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以镇压运动
 bool can_suppress_movement(sys::state& state, dcon::nation_id source, dcon::movement_id m) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2034,6 +2144,7 @@ bool can_suppress_movement(sys::state& state, dcon::nation_id source, dcon::move
 		return false;
 	return state.world.nation_get_suppression_points(source) >= rebel::get_suppression_point_cost(state, m);
 }
+// 执行镇压运动
 void execute_suppress_movement(sys::state& state, dcon::nation_id source, dcon::issue_option_id iopt,
 		dcon::national_identity_id tag) {
 	dcon::movement_id m;
@@ -2049,21 +2160,25 @@ void execute_suppress_movement(sys::state& state, dcon::nation_id source, dcon::
 	rebel::suppress_movement(state, source, m);
 }
 
+// 开化国家
 void civilize_nation(sys::state& state, dcon::nation_id source) {
 	command_data p{ command_type::civilize_nation, state.local_player_id };
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以开化国家
 bool can_civilize_nation(sys::state& state, dcon::nation_id source) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return state.world.nation_get_modifier_values(source, sys::national_mod_offsets::civilization_progress_modifier) >= 1.0f && !state.world.nation_get_is_civilized(source);
 }
+// 执行开化国家
 void execute_civilize_nation(sys::state& state, dcon::nation_id source) {
 	nations::make_civilized(state, source);
 }
 
+// 任命执政党
 void appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::political_party_id pa) {
 
 	command_data p{ command_type::appoint_ruling_party, state.local_player_id };
@@ -2071,6 +2186,7 @@ void appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::polit
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以任命执政党
 bool can_appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::political_party_id p) {
 	/*
 	The ideology of the ruling party must be permitted by the government form. There can't be an ongoing election. It can't be the
@@ -2102,10 +2218,12 @@ bool can_appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::p
 
 	return true;
 }
+// 执行任命执政党
 void execute_appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::political_party_id p) {
 	politics::appoint_ruling_party(state, source, p);
 }
 
+// 颁布改革
 void enact_reform(sys::state& state, dcon::nation_id source, dcon::reform_option_id r) {
 
 	command_data p{ command_type::change_reform_option, state.local_player_id };
@@ -2114,6 +2232,7 @@ void enact_reform(sys::state& state, dcon::nation_id source, dcon::reform_option
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以颁布改革
 bool can_enact_reform(sys::state& state, dcon::nation_id source, dcon::reform_option_id r) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2128,11 +2247,13 @@ bool can_enact_reform(sys::state& state, dcon::nation_id source, dcon::reform_op
 	else
 		return politics::can_enact_economic_reform(state, source, r);
 }
+// 执行颁布改革
 void execute_enact_reform(sys::state& state, dcon::nation_id source, dcon::reform_option_id r) {
 	nations::enact_reform(state, source, r);
 	event::update_future_events(state);
 }
 
+// 颁布议题
 void enact_issue(sys::state& state, dcon::nation_id source, dcon::issue_option_id i) {
 
 	command_data p{ command_type::change_issue_option, state.local_player_id };
@@ -2140,6 +2261,7 @@ void enact_issue(sys::state& state, dcon::nation_id source, dcon::issue_option_i
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以颁布议题
 bool can_enact_issue(sys::state& state, dcon::nation_id source, dcon::issue_option_id i) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2155,17 +2277,20 @@ bool can_enact_issue(sys::state& state, dcon::nation_id source, dcon::issue_opti
 	else
 		return false;
 }
+// 执行颁布议题
 void execute_enact_issue(sys::state& state, dcon::nation_id source, dcon::issue_option_id i) {
 	nations::enact_issue(state, source, i);
 	event::update_future_events(state);
 }
 
+// 对危机产生兴趣
 void become_interested_in_crisis(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::become_interested_in_crisis, state.local_player_id };
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以对危机产生兴趣
 bool can_become_interested_in_crisis(sys::state& state, dcon::nation_id source) {
 	/*
 	Not already interested in the crisis. Is a great power. Not at war. The crisis must have already gotten its initial backers.
@@ -2194,6 +2319,7 @@ bool can_become_interested_in_crisis(sys::state& state, dcon::nation_id source) 
 
 	return true;
 }
+// 执行对危机产生兴趣
 void execute_become_interested_in_crisis(sys::state& state, dcon::nation_id source) {
 	for(auto& i : state.crisis_participants) {
 		if(!i.id) {
@@ -2204,6 +2330,7 @@ void execute_become_interested_in_crisis(sys::state& state, dcon::nation_id sour
 	}
 }
 
+// 在危机中选边站
 void take_sides_in_crisis(sys::state& state, dcon::nation_id source, bool join_attacker) {
 	command_data p{ command_type::take_sides_in_crisis, state.local_player_id };
 	auto data = crisis_join_data{ join_attacker };
@@ -2211,6 +2338,7 @@ void take_sides_in_crisis(sys::state& state, dcon::nation_id source, bool join_a
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以在危机中选边站
 bool can_take_sides_in_crisis(sys::state& state, dcon::nation_id source, bool join_attacker) {
 	/*
 	Must not be involved in the crisis already. Must be interested in the crisis. Must be a great power. Must not be disarmed. The
@@ -2231,6 +2359,7 @@ bool can_take_sides_in_crisis(sys::state& state, dcon::nation_id source, bool jo
 	}
 	return false;
 }
+// 执行在危机中选边站
 void execute_take_sides_in_crisis(sys::state& state, dcon::nation_id source, bool join_attacker) {
 	for(auto& i : state.crisis_participants) {
 		if(i.id == source) {
@@ -2253,6 +2382,7 @@ void execute_take_sides_in_crisis(sys::state& state, dcon::nation_id source, boo
 	}
 }
 
+// 判断是否可以修改储备设置
 bool can_change_stockpile_settings(sys::state& state, dcon::nation_id source, dcon::commodity_id c, float target_amount,
 		bool draw_on_stockpiles) {
 	if(!state.current_scene.game_in_progress) {
@@ -2261,6 +2391,7 @@ bool can_change_stockpile_settings(sys::state& state, dcon::nation_id source, dc
 	return true;
 }
 
+// 修改储备设置
 void change_stockpile_settings(sys::state& state, dcon::nation_id source, dcon::commodity_id c, float target_amount,
 		bool draw_on_stockpiles) {
 
@@ -2271,12 +2402,14 @@ void change_stockpile_settings(sys::state& state, dcon::nation_id source, dcon::
 
 }
 
+// 执行修改储备设置
 void execute_change_stockpile_settings(sys::state& state, dcon::nation_id source, dcon::commodity_id c, float target_amount,
 		bool draw_on_stockpiles) {
 	state.world.nation_set_stockpile_targets(source, c, target_amount);
 	state.world.nation_set_drawing_on_stockpiles(source, c, draw_on_stockpiles);
 }
 
+// 通过决议
 void take_decision(sys::state& state, dcon::nation_id source, dcon::decision_id d) {
 
 	command_data p{ command_type::take_decision, state.local_player_id };
@@ -2284,6 +2417,7 @@ void take_decision(sys::state& state, dcon::nation_id source, dcon::decision_id 
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以做出决议
 bool can_take_decision(sys::state& state, dcon::nation_id source, dcon::decision_id d) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2300,6 +2434,7 @@ bool can_take_decision(sys::state& state, dcon::nation_id source, dcon::decision
 	}
 	return true;
 }
+// 执行做出决议
 void execute_take_decision(sys::state& state, dcon::nation_id source, dcon::decision_id d) {
 	nations::take_decision(state, source, d);
 	if(auto e = state.world.decision_get_effect(d); e) {
@@ -2307,6 +2442,7 @@ void execute_take_decision(sys::state& state, dcon::nation_id source, dcon::deci
 	}
 }
 
+// 判断是否可以做出事件选择
 bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_n_event_data const& e) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2324,6 +2460,7 @@ bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_hu
 	return false;
 }
 
+// 判断是否可以做出事件选择
 bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_f_n_event_data const& e) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2341,6 +2478,7 @@ bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_hu
 	return false;
 }
 
+// 判断是否可以做出事件选择
 bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_p_event_data const& e) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2358,6 +2496,7 @@ bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_hu
 }
 
 
+// 判断是否可以做出事件选择
 bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_f_p_event_data const& e) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2377,6 +2516,7 @@ bool can_make_event_choice(sys::state& state, dcon::nation_id source, pending_hu
 
 
 
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_n_event const& e, uint8_t option_id) {
 	command_data p{ command_type::make_n_event_choice, state.local_player_id };
 	auto data = pending_human_n_event_data{e.r_lo, e.r_hi, e.primary_slot, e.from_slot, e.date, e.e, option_id, e.pt, e.ft };
@@ -2384,6 +2524,7 @@ void make_event_choice(sys::state& state, event::pending_human_n_event const& e,
 	add_to_command_queue(state, p);
 
 }
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_f_n_event const& e, uint8_t option_id) {
 
 
@@ -2393,6 +2534,7 @@ void make_event_choice(sys::state& state, event::pending_human_f_n_event const& 
 	add_to_command_queue(state, p);
 
 }
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_p_event const& e, uint8_t option_id) {
 
 	command_data p{ command_type::make_p_event_choice, state.local_player_id };
@@ -2401,6 +2543,7 @@ void make_event_choice(sys::state& state, event::pending_human_p_event const& e,
 	add_to_command_queue(state, p);
 
 }
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_f_p_event const& e, uint8_t option_id) {
 
 	command_data p{ command_type::make_f_p_event_choice, state.local_player_id };
@@ -2409,15 +2552,18 @@ void make_event_choice(sys::state& state, event::pending_human_f_p_event const& 
 	add_to_command_queue(state, p);
 
 }
+// 执行做出事件选择
 void execute_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_n_event_data const& e) {
 	event::take_option(state,
 			event::pending_human_n_event {e.r_lo, e.r_hi, e.primary_slot, e.from_slot, e.date, e.e, source, e.pt, e.ft}, e.opt_choice);
 	event::update_future_events(state);
 }
+// 执行做出事件选择
 void execute_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_f_n_event_data const& e) {
 	event::take_option(state, event::pending_human_f_n_event {e.r_lo, e.r_hi, e.date, e.e, source}, e.opt_choice);
 	event::update_future_events(state);
 }
+// 执行做出事件选择
 void execute_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_p_event_data const& e) {
 	if(source != state.world.province_get_nation_from_province_ownership(e.p))
 		return;
@@ -2425,6 +2571,7 @@ void execute_make_event_choice(sys::state& state, dcon::nation_id source, pendin
 	event::take_option(state, event::pending_human_p_event {e.r_lo, e.r_hi, e.from_slot, e.date, e.e, e.p, e.ft}, e.opt_choice);
 	event::update_future_events(state);
 }
+// 执行做出事件选择
 void execute_make_event_choice(sys::state& state, dcon::nation_id source, pending_human_f_p_event_data const& e) {
 	if(source != state.world.province_get_nation_from_province_ownership(e.p))
 		return;
@@ -2433,6 +2580,7 @@ void execute_make_event_choice(sys::state& state, dcon::nation_id source, pendin
 	event::update_future_events(state);
 }
 
+// 伪造战争借口
 void fabricate_cb(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id type, dcon::state_definition_id target_state) {
 
 	command_data p{ command_type::fabricate_cb, state.local_player_id};
@@ -2441,6 +2589,7 @@ void fabricate_cb(sys::state& state, dcon::nation_id source, dcon::nation_id tar
 	add_to_command_queue(state, p);
 }
 
+// 战争借口的有效目标州
 bool valid_target_state_for_cb(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id type, dcon::state_definition_id target_state)
 {
 	auto actor = state.local_player_nation;
@@ -2487,6 +2636,7 @@ bool valid_target_state_for_cb(sys::state& state, dcon::nation_id source, dcon::
 
 	return false;
 }
+// 判断是否可以伪造战争借口
 bool can_fabricate_cb(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id type, dcon::state_definition_id target_state) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2541,6 +2691,7 @@ bool can_fabricate_cb(sys::state& state, dcon::nation_id source, dcon::nation_id
 	return true;
 }
 
+// 执行伪造战争借口
 void execute_fabricate_cb(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id type, dcon::state_definition_id target_state = dcon::state_definition_id{}) {
 	state.world.nation_set_constructing_cb_target(source, target);
 	state.world.nation_set_constructing_cb_type(source, type);
@@ -2549,6 +2700,7 @@ void execute_fabricate_cb(sys::state& state, dcon::nation_id source, dcon::natio
 	state.world.nation_set_diplomatic_points(source, current_diplo - state.defines.make_cb_diplomatic_cost);
 }
 
+// 判断是否可以取消战争借口伪造
 bool can_cancel_cb_fabrication(sys::state& state, dcon::nation_id source) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2556,12 +2708,14 @@ bool can_cancel_cb_fabrication(sys::state& state, dcon::nation_id source) {
 	return true;
 }
 
+// 取消战争借口伪造
 void cancel_cb_fabrication(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::cancel_cb_fabrication, state.local_player_id };
 	add_to_command_queue(state, p);
 
 }
+// 执行取消战争借口伪造
 void execute_cancel_cb_fabrication(sys::state& state, dcon::nation_id source) {
 	state.world.nation_set_constructing_cb_target(source, dcon::nation_id{});
 	state.world.nation_set_constructing_cb_is_discovered(source, false);
@@ -2570,6 +2724,7 @@ void execute_cancel_cb_fabrication(sys::state& state, dcon::nation_id source) {
 	state.world.nation_set_constructing_cb_type(source, dcon::cb_type_id{});
 }
 
+// 请求军事通行权
 void ask_for_military_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 	command_data p{ command_type::ask_for_military_access, state.local_player_id };
@@ -2578,6 +2733,7 @@ void ask_for_military_access(sys::state& state, dcon::nation_id asker, dcon::nat
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以请求通行权
 bool can_ask_for_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost) {
 	/*
 	Must have defines:ASKMILACCESS_DIPLOMATIC_COST diplomatic points. Must not be at war against each other. Must not already have
@@ -2601,6 +2757,7 @@ bool can_ask_for_access(sys::state& state, dcon::nation_id asker, dcon::nation_i
 
 	return true;
 }
+// 执行请求军事通行权
 void execute_ask_for_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	auto& current_diplo = state.world.nation_get_diplomatic_points(asker);
 	state.world.nation_set_diplomatic_points(asker, current_diplo - state.defines.askmilaccess_diplomatic_cost);
@@ -2614,6 +2771,7 @@ void execute_ask_for_access(sys::state& state, dcon::nation_id asker, dcon::nati
 	diplomatic_message::post(state, m);
 }
 
+// 给予军事通行权
 void give_military_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 	command_data p{ command_type::give_military_access, state.local_player_id };
@@ -2622,6 +2780,7 @@ void give_military_access(sys::state& state, dcon::nation_id asker, dcon::nation
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以给予军事通行权
 bool can_give_military_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2641,6 +2800,7 @@ bool can_give_military_access(sys::state& state, dcon::nation_id asker, dcon::na
 
 	return true;
 }
+// 执行给予军事通行权
 void execute_give_military_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	auto& current_diplo = state.world.nation_get_diplomatic_points(asker);
 	state.world.nation_set_diplomatic_points(asker, current_diplo - state.defines.givemilaccess_diplomatic_cost);
@@ -2653,6 +2813,7 @@ void execute_give_military_access(sys::state& state, dcon::nation_id asker, dcon
 	nations::adjust_relationship(state, asker, target, state.defines.givemilaccess_relation_on_accept);
 }
 
+// 请求同盟
 void ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 
@@ -2661,6 +2822,7 @@ void ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id 
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以请求同盟
 bool can_ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost) {
 	/*
 	Must not have an alliance. Must not be in a war against each other. Costs defines:ALLIANCE_DIPLOMATIC_COST diplomatic points.
@@ -2696,6 +2858,7 @@ bool can_ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation
 		return false;
 	return true;
 }
+// 执行请求同盟
 void execute_ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	if(!can_ask_for_alliance(state, asker, target))
 		return;
@@ -2712,6 +2875,7 @@ void execute_ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::na
 	diplomatic_message::post(state, m);
 }
 
+// 切换对同盟的兴趣状态
 void toggle_interested_in_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 	command_data p{ command_type::toggle_interested_in_alliance, state.local_player_id };
@@ -2720,6 +2884,7 @@ void toggle_interested_in_alliance(sys::state& state, dcon::nation_id asker, dco
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以切换对同盟的兴趣状态
 bool can_toggle_interested_in_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -2728,6 +2893,7 @@ bool can_toggle_interested_in_alliance(sys::state& state, dcon::nation_id asker,
 		return false;
 	return true;
 }
+// 执行切换对同盟的兴趣状态
 void execute_toggle_interested_in_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	if(!can_toggle_interested_in_alliance(state, asker, target))
 		return;
@@ -2737,6 +2903,7 @@ void execute_toggle_interested_in_alliance(sys::state& state, dcon::nation_id as
 	state.world.unilateral_relationship_set_interested_in_alliance(rel, !state.world.unilateral_relationship_get_interested_in_alliance(rel));
 }
 
+// 请求自由贸易协定
 void ask_for_free_trade_agreement(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 	command_data p{ command_type::ask_for_free_trade_agreement, state.local_player_id };
@@ -2744,6 +2911,7 @@ void ask_for_free_trade_agreement(sys::state& state, dcon::nation_id asker, dcon
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以请求自由贸易协定
 bool can_ask_for_free_trade_agreement(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost) {
 	/*
 	Must have defines:ASKMILACCESS_DIPLOMATIC_COST diplomatic points. Must not be at war against each other.
@@ -2797,6 +2965,7 @@ bool can_ask_for_free_trade_agreement(sys::state& state, dcon::nation_id asker, 
 
 	return true;
 }
+// 执行请求自由贸易协定
 void execute_ask_for_free_trade_agreement(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	auto& current_diplo = state.world.nation_get_diplomatic_points(asker);
 	state.world.nation_set_diplomatic_points(asker, current_diplo - state.defines.askmilaccess_diplomatic_cost);
@@ -2810,6 +2979,7 @@ void execute_ask_for_free_trade_agreement(sys::state& state, dcon::nation_id ask
 	diplomatic_message::post(state, m);
 }
 
+// 切换禁运状态
 void switch_embargo_status(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 	command_data p{ command_type::switch_embargo_status, state.local_player_id };
@@ -2817,6 +2987,7 @@ void switch_embargo_status(sys::state& state, dcon::nation_id asker, dcon::natio
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以切换禁运状态
 bool can_switch_embargo_status(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost) {
 	/*
 	Must have defines:ASKMILACCESS_DIPLOMATIC_COST diplomatic points. Must not be at war against each other.
@@ -2875,6 +3046,7 @@ bool can_switch_embargo_status(sys::state& state, dcon::nation_id asker, dcon::n
 	return true;
 }
 
+// 执行切换禁运状态
 void execute_switch_embargo_status(sys::state& state, dcon::nation_id from, dcon::nation_id to) {
 	if (state.world.nation_get_is_player_controlled(from)) {
 		auto& current_diplo = state.world.nation_get_diplomatic_points(from);
@@ -2893,6 +3065,7 @@ void execute_switch_embargo_status(sys::state& state, dcon::nation_id from, dcon
 	}
 }
 
+// 撤销贸易权
 void revoke_trade_rights(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 
@@ -2901,6 +3074,7 @@ void revoke_trade_rights(sys::state& state, dcon::nation_id source, dcon::nation
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以撤销贸易权
 bool can_revoke_trade_rights(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost) {
 	/*
 	Must have defines:ASKMILACCESS_DIPLOMATIC_COST diplomatic points. Must not be at war against each other.
@@ -2943,12 +3117,14 @@ bool can_revoke_trade_rights(sys::state& state, dcon::nation_id source, dcon::na
 
 	return true;
 }
+// 执行撤销贸易权
 void execute_revoke_trade_rights(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	auto& current_diplo = state.world.nation_get_diplomatic_points(source);
 	state.world.nation_set_diplomatic_points(source, current_diplo - state.defines.askmilaccess_diplomatic_cost);
 	nations::revoke_free_trade_agreement_one_way(state, target, source);
 }
 
+// 州转让
 void state_transfer(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::state_definition_id sid) {
 
 	command_data p{ command_type::state_transfer, state.local_player_id };
@@ -2956,6 +3132,7 @@ void state_transfer(sys::state& state, dcon::nation_id asker, dcon::nation_id ta
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以割让领土
 bool can_state_transfer(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::state_definition_id sid) {
 	/* (No state specified) To state transfer: Can't be same asker into target, both must be players. If any are great powers,
 	they can't state transfer when a crisis occurs. They can't be subjects. They can't be in a state of war */
@@ -2999,6 +3176,7 @@ bool can_state_transfer(sys::state& state, dcon::nation_id asker, dcon::nation_i
 		return false;
 	return true;
 }
+// 执行割让领土
 void execute_state_transfer(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::state_definition_id sid) {
 	if(!can_state_transfer(state, asker, target, sid))
 		return;
@@ -3012,6 +3190,7 @@ void execute_state_transfer(sys::state& state, dcon::nation_id asker, dcon::nati
 	diplomatic_message::post(state, m);
 }
 
+// 判断是否可以指挥单位
 bool can_command_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3045,6 +3224,7 @@ bool can_command_units(sys::state& state, dcon::nation_id asker, dcon::nation_id
 }
 
 
+// 指挥单位
 void command_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 	command_data p{ command_type::command_units, state.local_player_id };
@@ -3054,6 +3234,7 @@ void command_units(sys::state& state, dcon::nation_id asker, dcon::nation_id tar
 }
 
 
+// 执行指挥单位
 void execute_command_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	state.world.nation_set_overlord_commanding_units(target, true);
 	ai::remove_ai_data(state, target);
@@ -3061,6 +3242,7 @@ void execute_command_units(sys::state& state, dcon::nation_id asker, dcon::natio
 
 
 
+// 判断是否可以归还单位
 bool can_give_back_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3083,6 +3265,7 @@ bool can_give_back_units(sys::state& state, dcon::nation_id asker, dcon::nation_
 }
 
 
+// 归还单位
 void give_back_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 
 	command_data p{ command_type::give_back_units, state.local_player_id };
@@ -3091,11 +3274,13 @@ void give_back_units(sys::state& state, dcon::nation_id asker, dcon::nation_id t
 	add_to_command_queue(state, p);
 }
 
+// 执行归还单位
 void execute_give_back_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target) {
 	military::give_back_units(state, target);
 }
 
 
+// 号召武装
 void call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::war_id w, bool automatic_call) {
 
 	command_data p{ command_type::call_to_arms, state.local_player_id };
@@ -3103,6 +3288,7 @@ void call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id targ
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以号召武装
 bool can_call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::war_id w, bool ignore_cost, bool automatic_call) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3161,6 +3347,7 @@ bool can_call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id 
 
 	return true;
 }
+// 执行号召武装
 void execute_call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::war_id w, bool automatic_call) {
 	auto& current_diplo = state.world.nation_get_diplomatic_points(asker);
 	state.world.nation_set_diplomatic_points(asker, current_diplo - state.defines.callally_diplomatic_cost);
@@ -3176,6 +3363,7 @@ void execute_call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation
 	diplomatic_message::post(state, m);
 }
 
+// 回应外交消息
 void respond_to_diplomatic_message(sys::state& state, dcon::nation_id source, dcon::nation_id from, diplomatic_message::type type,
 		bool accept) {
 
@@ -3185,6 +3373,7 @@ void respond_to_diplomatic_message(sys::state& state, dcon::nation_id source, dc
 	add_to_command_queue(state, p);
 
 }
+// 执行回应外交消息
 void execute_respond_to_diplomatic_message(sys::state& state, dcon::nation_id source, dcon::nation_id from,
 		diplomatic_message::type type, bool accept) {
 	for(auto& m : state.pending_messages) {
@@ -3202,6 +3391,7 @@ void execute_respond_to_diplomatic_message(sys::state& state, dcon::nation_id so
 	}
 }
 
+// 取消军事通行权
 void cancel_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::cancel_military_access, state.local_player_id };
@@ -3209,6 +3399,7 @@ void cancel_military_access(sys::state& state, dcon::nation_id source, dcon::nat
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以取消军事通行权
 bool can_cancel_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3225,6 +3416,7 @@ bool can_cancel_military_access(sys::state& state, dcon::nation_id source, dcon:
 	else
 		return false;
 }
+// 执行取消军事通行权
 void execute_cancel_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	auto rel = state.world.get_unilateral_relationship_by_unilateral_pair(target, source);
 	if(rel)
@@ -3244,6 +3436,7 @@ void execute_cancel_military_access(sys::state& state, dcon::nation_id source, d
 	});
 }
 
+// 取消已给予的军事通行权
 void cancel_given_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::cancel_given_military_access, state.local_player_id };
@@ -3251,6 +3444,7 @@ void cancel_given_military_access(sys::state& state, dcon::nation_id source, dco
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以取消已给予的军事通行权
 bool can_cancel_given_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3276,6 +3470,7 @@ bool can_cancel_given_military_access(sys::state& state, dcon::nation_id source,
 	}
 
 }
+// 执行取消已给予的军事通行权
 void execute_cancel_given_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	auto rel = state.world.get_unilateral_relationship_by_unilateral_pair(source, target);
 	if(rel)
@@ -3297,6 +3492,7 @@ void execute_cancel_given_military_access(sys::state& state, dcon::nation_id sou
 	}
 }
 
+// 取消同盟
 void cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::cancel_alliance, state.local_player_id };
@@ -3304,6 +3500,7 @@ void cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation_id 
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以取消同盟
 bool can_cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3327,6 +3524,7 @@ bool can_cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation
 
 	return true;
 }
+// 执行取消同盟
 void execute_cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	auto& current_diplo = state.world.nation_get_diplomatic_points(source);
 	state.world.nation_set_diplomatic_points(source, current_diplo - state.defines.cancelalliance_diplomatic_cost);
@@ -3335,6 +3533,7 @@ void execute_cancel_alliance(sys::state& state, dcon::nation_id source, dcon::na
 	nations::break_alliance(state, source, target);
 }
 
+// 宣布war
 void declare_war(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id primary_cb,
 		dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation, bool call_attacker_allies, bool run_conference) {
 
@@ -3345,6 +3544,7 @@ void declare_war(sys::state& state, dcon::nation_id source, dcon::nation_id targ
 }
 
 template<bool VALIDATE>
+// 判断是否可以宣战
 bool can_declare_war(
 	sys::state& state,
 	dcon::nation_id source, dcon::nation_id target,
@@ -3378,6 +3578,7 @@ template bool can_declare_war<false>(
 	dcon::nation_id cb_secondary_nation
 );
 
+// 执行宣战
 void execute_declare_war(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id primary_cb,
 		dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation, bool call_attacker_allies, bool run_conference) {
 	auto& current_diplo = state.world.nation_get_diplomatic_points(source);
@@ -3465,6 +3666,7 @@ void execute_declare_war(sys::state& state, dcon::nation_id source, dcon::nation
 	}
 }
 
+// 添加战争目标
 void add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_id w, dcon::nation_id target, dcon::cb_type_id cb_type,
 		dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation) {
 
@@ -3476,6 +3678,7 @@ void add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_id w, dco
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以添加战争目标
 bool can_add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_id w, dcon::nation_id target, dcon::cb_type_id cb_type,
 		dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation) {
 	/*
@@ -3547,6 +3750,7 @@ bool can_add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_id w,
 
 	return true;
 }
+// 执行添加战争目标
 void execute_add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_id w, dcon::nation_id target,
 		dcon::cb_type_id cb_type, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag,
 		dcon::nation_id cb_secondary_nation) {
@@ -3565,6 +3769,7 @@ void execute_add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_i
 	military::add_wargoal(state, w, source, target, cb_type, cb_state, cb_tag, cb_secondary_nation);
 }
 
+// 开始和平提议
 void start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::war_id war, bool is_concession) {
 
 	command_data p{ command_type::start_peace_offer, state.local_player_id };
@@ -3572,6 +3777,7 @@ void start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_i
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以开始和平提议
 bool can_start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::war_id war, bool is_concession) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3616,6 +3822,7 @@ bool can_start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nati
 	auto pending = state.world.nation_get_peace_offer_from_pending_peace_offer(source);
 	return !pending;
 }
+// 执行开始和平提议
 void execute_start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::war_id war, bool is_concession) {
 	auto offer = fatten(state.world, state.world.create_peace_offer());
 	offer.set_target(target);
@@ -3624,6 +3831,7 @@ void execute_start_peace_offer(sys::state& state, dcon::nation_id source, dcon::
 	offer.set_nation_from_pending_peace_offer(source);
 }
 
+// 开始危机和平提议
 void start_crisis_peace_offer(sys::state& state, dcon::nation_id source, bool is_concession) {
 
 
@@ -3634,6 +3842,7 @@ void start_crisis_peace_offer(sys::state& state, dcon::nation_id source, bool is
 	add_to_command_queue(state, p);
 }
 template<bool VALIDATE>
+// 判断是否可以开始危机和平提议
 bool can_start_crisis_peace_offer(sys::state& state, dcon::nation_id source, bool is_concession) {
 	if(!state.current_scene.game_in_progress) {
 		return assertive_identity<VALIDATE>(false);
@@ -3649,6 +3858,7 @@ bool can_start_crisis_peace_offer(sys::state& state, dcon::nation_id source, boo
 template bool can_start_crisis_peace_offer<true>(sys::state& state, dcon::nation_id source, bool is_concession);
 template bool can_start_crisis_peace_offer<false>(sys::state& state, dcon::nation_id source, bool is_concession);
 
+// 执行开始危机和平提议
 void execute_start_crisis_peace_offer(sys::state& state, dcon::nation_id source, bool is_concession) {
 	auto offer = fatten(state.world, state.world.create_peace_offer());
 	offer.set_is_concession(is_concession);
@@ -3656,6 +3866,7 @@ void execute_start_crisis_peace_offer(sys::state& state, dcon::nation_id source,
 	offer.set_is_crisis_offer(true);
 }
 
+// 添加到和平提议
 void add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::wargoal_id goal) {
 
 	command_data p{ command_type::add_peace_offer_term, state.local_player_id };
@@ -3664,6 +3875,7 @@ void add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::wargoal
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以添加到和平提议
 bool can_add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::wargoal_id goal) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3725,11 +3937,13 @@ bool can_add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::war
 		}
 	}
 }
+// 执行添加到和平提议
 void execute_add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::wargoal_id goal) {
 	auto pending = state.world.nation_get_peace_offer_from_pending_peace_offer(source);
 	state.world.force_create_peace_offer_item(pending, goal);
 }
 
+// 添加到危机和平提议
 void add_to_crisis_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id wargoal_from, dcon::nation_id target,
 		dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag,
 		dcon::nation_id cb_secondary_nation) {
@@ -3749,6 +3963,7 @@ void add_to_crisis_peace_offer(sys::state& state, dcon::nation_id source, dcon::
 }
 
 template<bool VALIDATE>
+// 判断是否可以添加到危机和平提议
 bool can_add_to_crisis_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id wargoal_from,
 		dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag,
 		dcon::nation_id cb_secondary_nation) {
@@ -3807,6 +4022,7 @@ template bool can_add_to_crisis_peace_offer<false>(sys::state& state, dcon::nati
 	dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag,
 	dcon::nation_id cb_secondary_nation);
 
+// 执行添加到危机和平提议
 void execute_add_to_crisis_peace_offer(sys::state& state, dcon::nation_id source, crisis_invitation_data const& data) {
 	auto pending = state.world.nation_get_peace_offer_from_pending_peace_offer(source);
 
@@ -3820,11 +4036,13 @@ void execute_add_to_crisis_peace_offer(sys::state& state, dcon::nation_id source
 	wg.set_type(data.cb_type);
 }
 
+// 发送和平提议
 void send_peace_offer(sys::state& state, dcon::nation_id source) {
 	command_data p{ command_type::send_peace_offer, state.local_player_id };
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以发送和平提议
 bool can_send_peace_offer(sys::state& state, dcon::nation_id source) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3834,6 +4052,7 @@ bool can_send_peace_offer(sys::state& state, dcon::nation_id source) {
 		return false;
 	return true;
 }
+// 执行发送和平提议
 void execute_send_peace_offer(sys::state& state, dcon::nation_id source) {
 	auto pending_offer = state.world.nation_get_peace_offer_from_pending_peace_offer(source);
 	auto in_war = state.world.peace_offer_get_war_from_war_settlement(pending_offer);
@@ -3859,12 +4078,14 @@ void execute_send_peace_offer(sys::state& state, dcon::nation_id source) {
 	}
 }
 
+// 发送危机和平提议
 void send_crisis_peace_offer(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::send_crisis_peace_offer, state.local_player_id };
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以发送危机和平提议
 bool can_send_crisis_peace_offer(sys::state& state, dcon::nation_id source) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3879,6 +4100,7 @@ bool can_send_crisis_peace_offer(sys::state& state, dcon::nation_id source) {
 
 	return true;
 }
+// 执行发送危机和平提议
 void execute_send_crisis_peace_offer(sys::state& state, dcon::nation_id source) {
 	auto pending_offer = state.world.nation_get_peace_offer_from_pending_peace_offer(source);
 
@@ -3904,6 +4126,7 @@ void execute_send_crisis_peace_offer(sys::state& state, dcon::nation_id source) 
 	diplomatic_message::post(state, m);
 }
 
+// 停止陆军移动
 void stop_army_movement(sys::state& state, dcon::nation_id source, dcon::army_id army) {
 
 	command_data p{ command_type::stop_army_movement, state.local_player_id };
@@ -3913,6 +4136,7 @@ void stop_army_movement(sys::state& state, dcon::nation_id source, dcon::army_id
 
 }
 
+// 判断是否可以停止陆军移动
 bool can_stop_army_movement(sys::state& state, dcon::nation_id source, dcon::army_id army) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3925,12 +4149,14 @@ bool can_stop_army_movement(sys::state& state, dcon::nation_id source, dcon::arm
 	return true;
 }
 
+// 执行停止陆军移动
 void execute_stop_army_movement(sys::state& state, dcon::nation_id source, dcon::army_id army) {
 	military::stop_army_movement(state, army);
 }
 
 
 
+// 停止海军移动
 void stop_navy_movement(sys::state& state, dcon::nation_id source, dcon::navy_id navy) {
 
 	command_data p{ command_type::stop_navy_movement, state.local_player_id };
@@ -3939,6 +4165,7 @@ void stop_navy_movement(sys::state& state, dcon::nation_id source, dcon::navy_id
 	add_to_command_queue(state, p);
 }
 
+// 判断是否可以停止海军移动
 bool can_stop_navy_movement(sys::state& state, dcon::nation_id source, dcon::navy_id navy) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3951,10 +4178,12 @@ bool can_stop_navy_movement(sys::state& state, dcon::nation_id source, dcon::nav
 	return true;
 }
 
+// 执行停止海军移动
 void execute_stop_navy_movement(sys::state& state, dcon::nation_id source, dcon::navy_id navy) {
 	military::stop_navy_movement(state, navy);
 }
 
+// 移动陆军
 void move_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, bool reset, military::special_army_order order) {
 
 	command_data p{ command_type::move_army, state.local_player_id };
@@ -3965,6 +4194,7 @@ void move_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon:
 }
 
 
+// 判断军队是否可撤退、移动或停止
 bool can_retreat_move_or_stop_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3981,6 +4211,7 @@ bool can_retreat_move_or_stop_army(sys::state& state, dcon::nation_id source, dc
 	}
 }
 
+// 判断海军是否可移动、撤退或停止
 bool can_move_retreat_or_stop_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -3999,6 +4230,7 @@ bool can_move_retreat_or_stop_navy(sys::state& state, dcon::nation_id source, dc
 
 }
 
+// 军队撤退、移动或停止
 void move_retreat_or_stop_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, military::special_army_order order) {
 	auto army_loc = state.world.army_get_location_from_army_location(a);
 	auto battle = state.world.army_get_battle_from_army_battle_participation(a);
@@ -4015,6 +4247,7 @@ void move_retreat_or_stop_army(sys::state& state, dcon::nation_id source, dcon::
 	}
 }
 
+// 海军移动、撤退或停止
 void move_retreat_or_stop_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest) {
 	auto army_loc = state.world.navy_get_location_from_navy_location(n);
 	auto battle = state.world.navy_get_battle_from_navy_battle_participation(n);
@@ -4031,6 +4264,7 @@ void move_retreat_or_stop_navy(sys::state& state, dcon::nation_id source, dcon::
 	}
 }
 
+// 判断是否可以移动陆军
 std::vector<dcon::province_id> can_move_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, bool reset) {
 	if(!state.current_scene.game_in_progress) {
 		return std::vector<dcon::province_id>{};
@@ -4096,6 +4330,7 @@ std::vector<dcon::province_id> can_move_army(sys::state& state, dcon::nation_id 
 
 
 
+// 执行移动陆军
 void execute_move_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, bool reset, military::special_army_order special_order) {
 	auto army_owner = state.world.army_get_controller_from_army_control(a);
 
@@ -4124,6 +4359,7 @@ void execute_move_army(sys::state& state, dcon::nation_id source, dcon::army_id 
 	state.world.army_set_moving_to_merge(a, false);
 }
 
+// 移动海军
 void move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest, bool reset) {
 
 
@@ -4133,6 +4369,7 @@ void move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon:
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以移动海军
 std::vector<dcon::province_id> can_move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest, bool reset) {
 	if(!state.current_scene.game_in_progress) {
 		return std::vector<dcon::province_id>{};
@@ -4173,6 +4410,7 @@ std::vector<dcon::province_id> can_move_navy(sys::state& state, dcon::nation_id 
 }
 
 
+// 执行移动海军
 void execute_move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest, bool reset) {
 
 	auto navy_owner = state.world.navy_get_controller_from_navy_control(n);
@@ -4186,6 +4424,7 @@ void execute_move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id 
 	state.world.navy_set_moving_to_merge(n, false);
 }
 
+// 登船陆军
 void embark_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 
 	command_data p{ command_type::embark_army, state.local_player_id };
@@ -4195,6 +4434,7 @@ void embark_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	add_to_command_queue(state, p);
 }
 
+// 判断是否可以登船陆军
 bool can_embark_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4219,6 +4459,7 @@ bool can_embark_army(sys::state& state, dcon::nation_id source, dcon::army_id a)
 	}
 }
 
+// 执行登船陆军
 void execute_embark_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	auto army_owner = state.world.army_get_controller_from_army_control(a);
 	if(source != military::get_effective_unit_commander(state, a))
@@ -4247,6 +4488,7 @@ void execute_embark_army(sys::state& state, dcon::nation_id source, dcon::army_i
 	state.world.army_set_dig_in(a, 0);
 }
 
+// 合并陆军
 void merge_armies(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::army_id b) {
 
 	command_data p{ command_type::merge_armies, state.local_player_id };
@@ -4254,6 +4496,7 @@ void merge_armies(sys::state& state, dcon::nation_id source, dcon::army_id a, dc
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以合并陆军
 bool can_merge_armies(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::army_id b) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4283,6 +4526,7 @@ bool can_merge_armies(sys::state& state, dcon::nation_id source, dcon::army_id a
 	return true;
 }
 
+// 执行合并陆军
 void execute_merge_armies(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::army_id b) {
 	// take leader
 	auto a_leader = state.world.army_get_general_from_army_leadership(a);
@@ -4314,6 +4558,7 @@ void execute_merge_armies(sys::state& state, dcon::nation_id source, dcon::army_
 	military::cleanup_army(state, b);
 }
 
+// 合并海军
 void merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::navy_id b) {
 
 	command_data p{ command_type::merge_navies, state.local_player_id };
@@ -4321,6 +4566,7 @@ void merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a, dc
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以合并海军
 bool can_merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::navy_id b) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4347,6 +4593,7 @@ bool can_merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a
 	return true;
 }
 
+// 执行合并海军
 void execute_merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::navy_id b) {
 
 	military::stop_navy_movement(state, a);
@@ -4363,6 +4610,7 @@ void execute_merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_
 }
 
 
+// 解散人员不足的团
 void disband_undermanned_regiments(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 
 	command_data p{ command_type::disband_undermanned, state.local_player_id };
@@ -4371,6 +4619,7 @@ void disband_undermanned_regiments(sys::state& state, dcon::nation_id source, dc
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以解散人员不足的团队
 bool can_disband_undermanned_regiments(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4378,6 +4627,7 @@ bool can_disband_undermanned_regiments(sys::state& state, dcon::nation_id source
 	return state.world.army_get_controller_from_army_control(a) == source && !state.world.army_get_is_retreating(a) &&
 		!bool(state.world.army_get_battle_from_army_battle_participation(a));
 }
+// 执行解散人员不足的团队
 void execute_disband_undermanned_regiments(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	std::vector<dcon::regiment_id> regs;
 	for(auto r : state.world.army_get_army_membership(a)) {
@@ -4389,6 +4639,7 @@ void execute_disband_undermanned_regiments(sys::state& state, dcon::nation_id so
 		military::delete_regiment_safe_wrapper(state, r);
 }
 
+// 切换清剿叛军状态
 void toggle_rebel_hunting(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 
 	command_data p{ command_type::toggle_hunt_rebels, state.local_player_id };
@@ -4397,6 +4648,7 @@ void toggle_rebel_hunting(sys::state& state, dcon::nation_id source, dcon::army_
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 执行切换叛军猎杀
 void execute_toggle_rebel_hunting(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	auto owner = state.world.army_get_controller_from_army_control(a);
 	if(owner != source)
@@ -4421,6 +4673,7 @@ void execute_toggle_rebel_hunting(sys::state& state, dcon::nation_id source, dco
 	}
 }
 
+// 切换单位AI控制状态
 void toggle_unit_ai_control(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 
 	command_data p{ command_type::toggle_unit_ai_control, state.local_player_id };
@@ -4429,6 +4682,7 @@ void toggle_unit_ai_control(sys::state& state, dcon::nation_id source, dcon::arm
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 执行切换单位AI控制
 void execute_toggle_unit_ai_control(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	auto owner = state.world.army_get_controller_from_army_control(a);
 	if(owner != source)
@@ -4456,15 +4710,18 @@ void execute_toggle_unit_ai_control(sys::state& state, dcon::nation_id source, d
 	}
 }
 
+// 切换动员单位是否由AI控制
 void toggle_mobilized_is_ai_controlled(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::toggle_mobilized_is_ai_controlled, state.local_player_id };
 	add_to_command_queue(state, p);
 }
+// 执行切换动员单位由AI控制
 void execute_toggle_mobilized_is_ai_controlled(sys::state& state, dcon::nation_id source) {
 	state.world.nation_set_mobilized_is_ai_controlled(source, !state.world.nation_get_mobilized_is_ai_controlled(source));
 }
 
+// 更改陆军单位类型
 void change_land_unit_type(sys::state& state, dcon::nation_id source, std::span<const dcon::regiment_id> regiments, dcon::unit_type_id new_type) {
 
 
@@ -4476,6 +4733,7 @@ void change_land_unit_type(sys::state& state, dcon::nation_id source, std::span<
 	p.push_span(regiments);
 	add_to_command_queue(state, p);
 }
+// 判断是否可以更改陆军单位类型
 bool can_change_land_unit_type(sys::state& state, dcon::nation_id source, command_data& command) {
 	const auto& payload = command.get_payload<change_land_unit_type_data>();
 	size_t expected_variable_bytes_data = payload.unit_count * sizeof(dcon::regiment_id);
@@ -4494,6 +4752,7 @@ bool can_change_land_unit_type(sys::state& state, dcon::nation_id source, comman
 	return true;
 
 }
+// 执行更改陆军单位类型
 void execute_change_land_unit_type(sys::state& state, dcon::nation_id source, std::span<const dcon::regiment_id> regiments, dcon::unit_type_id new_type) {
 	for(auto regiment : regiments) {
 		military::upgrade_regiment(state, regiment, new_type);
@@ -4501,6 +4760,7 @@ void execute_change_land_unit_type(sys::state& state, dcon::nation_id source, st
 }
 
 
+// 更改海军单位类型
 void change_naval_unit_type(sys::state& state, dcon::nation_id source, std::span<const dcon::ship_id> ships, dcon::unit_type_id new_type) {
 
 
@@ -4512,6 +4772,7 @@ void change_naval_unit_type(sys::state& state, dcon::nation_id source, std::span
 	p.push_span(ships);
 	add_to_command_queue(state, p);
 }
+// 判断是否可以更改海军单位类型
 bool can_change_naval_unit_type(sys::state& state, dcon::nation_id source, command_data& command) {
 	const auto& payload = command.get_payload<change_naval_unit_type_data>();
 	size_t expected_variable_bytes_data = payload.unit_count * sizeof(dcon::ship_id);
@@ -4530,6 +4791,7 @@ bool can_change_naval_unit_type(sys::state& state, dcon::nation_id source, comma
 	return true;
 
 }
+// 执行更改海军单位类型
 void execute_change_naval_unit_type(sys::state& state, dcon::nation_id source, std::span<const dcon::ship_id> ships, dcon::unit_type_id new_type) {
 	for(auto ship : ships) {
 		military::upgrade_ship(state, ship, new_type);
@@ -4539,6 +4801,7 @@ void execute_change_naval_unit_type(sys::state& state, dcon::nation_id source, s
 
 
 
+// 切换省份选择状态
 void toggle_select_province(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 
 	command_data p{ command_type::toggle_select_province, state.local_player_id };
@@ -4547,6 +4810,7 @@ void toggle_select_province(sys::state& state, dcon::nation_id source, dcon::pro
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以切换选择省份
 bool can_toggle_select_province(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4557,10 +4821,12 @@ bool can_toggle_select_province(sys::state& state, dcon::nation_id source, dcon:
 		return false;
 	return true;
 }
+// 执行切换选择省份
 void execute_toggle_select_province(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 	sys::toggle_modifier_from_province(state, prov, state.economy_definitions.selector_modifier, sys::date{});
 }
 
+// 切换移民目标省份状态
 void toggle_immigrator_province(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 
 	command_data p{ command_type::toggle_immigrator_province, state.local_player_id };
@@ -4568,6 +4834,7 @@ void toggle_immigrator_province(sys::state& state, dcon::nation_id source, dcon:
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以切换移民目标省份状态
 bool can_toggle_immigrator_province(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4578,10 +4845,12 @@ bool can_toggle_immigrator_province(sys::state& state, dcon::nation_id source, d
 		return false;
 	return true;
 }
+// 执行切换移民目标省份状态
 void execute_toggle_immigrator_province(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 	sys::toggle_modifier_from_province(state, prov, state.economy_definitions.immigrator_modifier, sys::date{});
 }
 
+// 释放附属国
 void release_subject(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::release_subject, state.local_player_id };
@@ -4590,28 +4859,33 @@ void release_subject(sys::state& state, dcon::nation_id source, dcon::nation_id 
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以释放附庸国
 bool can_release_subject(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
 	}
 	return state.world.overlord_get_ruler(state.world.nation_get_overlord_as_subject(target)) == source;
 }
+// 执行释放附庸国
 void execute_release_subject(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 	if(!can_release_subject(state, source, target))
 		return;
 	nations::release_vassal(state, state.world.nation_get_overlord_as_subject(target));
 }
 
+// 通知控制台命令
 void notify_console_command(sys::state& state) {
 
 	command_data p{ command_type::console_command, state.local_player_id };
 	add_to_command_queue(state, p);
 }
 
+// 判断是否可以执行控制台命令
 bool can_console_command(sys::state& state) {
 	return state.network_mode == sys::network_mode_type::single_player;
 }
 
+// 执行控制台命令
 void execute_console_command(sys::state& state) {
 	std::string command;
 	{
@@ -4664,6 +4938,7 @@ void execute_console_command(sys::state& state) {
 }
 
 
+// 拆分陆军
 void split_army(sys::state& state, dcon::nation_id source, dcon::army_id a, std::span<const dcon::regiment_id> regiments_to_split, fixed_bool_t select_both_armies) {
 
 	command_data p{ command_type::split_army, state.local_player_id, sizeof(split_army_data) + regiments_to_split.size_bytes() };
@@ -4676,6 +4951,7 @@ void split_army(sys::state& state, dcon::nation_id source, dcon::army_id a, std:
 	p.push_span(regiments_to_split);
 	add_to_command_queue(state, p);
 }
+// 判断是否可以拆分陆军
 bool can_split_army(sys::state& state, dcon::nation_id source, command_data& command) {
 	const auto& payload = command.get_payload< split_army_data>();
 
@@ -4687,11 +4963,13 @@ bool can_split_army(sys::state& state, dcon::nation_id source, command_data& com
 	}
 	return military::can_split_army<command::actor::player>(state, source, payload.army, std::span<const dcon::regiment_id>(payload.regiments(), payload.regiment_count));
 }
+// 执行拆分陆军
 void execute_split_army(sys::state& state, dcon::nation_id source, command_data& command) {
 	const auto& payload = command.get_payload< split_army_data>();
 	military::split_army<command::actor::player>(state, source, payload.army, std::span<const dcon::regiment_id>(payload.regiments(), payload.regiment_count), payload.select_both_armies);
 }
 
+// 拆分海军
 void split_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a, std::span<const dcon::ship_id> ships_to_split, fixed_bool_t select_both_armies) {
 
 	command_data p{ command_type::split_navy, state.local_player_id, sizeof(split_army_data) + ships_to_split.size_bytes() };
@@ -4704,6 +4982,7 @@ void split_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a, std:
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以拆分海军
 bool can_split_navy(sys::state& state, dcon::nation_id source, command_data& command) {
 	const auto& payload = command.get_payload< split_navy_data>();
 
@@ -4715,11 +4994,13 @@ bool can_split_navy(sys::state& state, dcon::nation_id source, command_data& com
 	}
 	return military::can_split_navy<command::actor::player>(state, source, payload.navy, std::span<const dcon::ship_id>(payload.ships(), payload.ship_count));
 }
+// 执行拆分海军
 void execute_split_navy(sys::state& state, dcon::nation_id source, command_data& command) {
 	const auto& payload = command.get_payload< split_navy_data>();
 	return military::split_navy<command::actor::player>(state, source, payload.navy, std::span<const dcon::ship_id>(payload.ships(), payload.ship_count), payload.select_both_navies);
 }
 
+// 删除陆军
 void delete_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	command_data p{ command_type::delete_army, state.local_player_id };
 	auto data = army_movement_data{ };
@@ -4728,6 +5009,7 @@ void delete_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以删除陆军
 bool can_delete_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4744,6 +5026,7 @@ bool can_delete_army(sys::state& state, dcon::nation_id source, dcon::army_id a)
 			|| state.world.army_get_black_flag(a)
 		);
 }
+// 执行删除陆军
 void execute_delete_army(sys::state& state, dcon::nation_id source, dcon::army_id a) {
 	if(source == state.local_player_nation) {
 		state.ui_state.invoke_on_ui_thread([](sys::state& state, ui::ui_function_argument arg) {
@@ -4754,6 +5037,7 @@ void execute_delete_army(sys::state& state, dcon::nation_id source, dcon::army_i
 	military::cleanup_army(state, a);
 }
 
+// 删除海军
 void delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a) {
 
 	command_data p{ command_type::delete_navy, state.local_player_id };
@@ -4764,6 +5048,7 @@ void delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a) {
 
 }
 
+// 判断是否可以删除海军
 bool can_delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4773,6 +5058,7 @@ bool can_delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a)
 		embarked.begin() == embarked.end() && !bool(state.world.navy_get_battle_from_navy_battle_participation(a)) &&
 		province::has_naval_access_to_province(state, source, state.world.navy_get_location_from_navy_location(a));
 }
+// 执行删除海军
 void execute_delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a) {
 	if(source == state.local_player_nation) {
 		state.ui_state.invoke_on_ui_thread([](sys::state& state, ui::ui_function_argument arg) {
@@ -4782,6 +5068,7 @@ void execute_delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_i
 	military::cleanup_navy(state, a);
 }
 
+// 修改将军
 void change_general(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::leader_id l) {
 
 
@@ -4790,6 +5077,7 @@ void change_general(sys::state& state, dcon::nation_id source, dcon::army_id a, 
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以修改将军
 bool can_change_general(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::leader_id l) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4799,10 +5087,12 @@ bool can_change_general(sys::state& state, dcon::nation_id source, dcon::army_id
 		province::has_naval_access_to_province(state, source, state.world.army_get_location_from_army_location(a)) &&
 		(!l || state.world.leader_get_nation_from_leader_loyalty(l) == source);
 }
+// 执行修改将军
 void execute_change_general(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::leader_id l) {
 	state.world.army_set_general_from_army_leadership(a, l);
 }
 
+// 修改海军上将
 void change_admiral(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::leader_id l) {
 
 
@@ -4811,6 +5101,7 @@ void change_admiral(sys::state& state, dcon::nation_id source, dcon::navy_id a, 
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以修改海军上将
 bool can_change_admiral(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::leader_id l) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -4820,17 +5111,20 @@ bool can_change_admiral(sys::state& state, dcon::nation_id source, dcon::navy_id
 		province::has_naval_access_to_province(state, source, state.world.navy_get_location_from_navy_location(a)) &&
 		(!l || state.world.leader_get_nation_from_leader_loyalty(l) == source);
 }
+// 执行修改海军上将
 void execute_change_admiral(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::leader_id l) {
 	state.world.navy_set_admiral_from_navy_leadership(a, l);
 }
 
 
+// 从海战中撤退
 void retreat_from_naval_battle(sys::state& state, dcon::nation_id source, dcon::navy_id navy, dcon::province_id dest) {
 	command_data p{ command_type::naval_retreat, state.local_player_id };
 	auto data = retreat_from_naval_battle_data{ navy, dest };
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以从海战中撤退
 std::vector<dcon::province_id> can_retreat_from_naval_battle(sys::state& state, dcon::nation_id source, dcon::navy_id navy, military::retreat_type retreat_type, dcon::province_id dest) {
 	if(!state.world.navy_is_valid(navy)) {
 		return std::vector<dcon::province_id>{};
@@ -4863,6 +5157,7 @@ std::vector<dcon::province_id> can_retreat_from_naval_battle(sys::state& state, 
 
 	return province::make_naval_retreat_path(state, navy_owner, start_prov);
 }
+// 执行从海战中撤退
 void execute_retreat_from_naval_battle(sys::state& state, dcon::nation_id source, dcon::navy_id navy, dcon::province_id dest = dcon::province_id{ }) {
 	// This can be extended with diffrent retreat rules later, but to start this is compliant with Vic2 naval retreat behaviour
 	auto battle = state.world.navy_get_battle_from_navy_battle_participation(navy);
@@ -4886,6 +5181,7 @@ void execute_retreat_from_naval_battle(sys::state& state, dcon::nation_id source
 
 }
 
+// 从陆战中撤退
 void retreat_from_land_battle(sys::state& state, dcon::nation_id source, dcon::army_id army, military::retreat_type retreat_type, dcon::province_id dest) {
 
 	command_data p{ command_type::land_retreat, state.local_player_id };
@@ -4894,6 +5190,7 @@ void retreat_from_land_battle(sys::state& state, dcon::nation_id source, dcon::a
 	add_to_command_queue(state, p);
 }
 
+// 判断是否可以从陆战中撤退
 std::vector<dcon::province_id> can_retreat_from_land_battle(sys::state& state, dcon::nation_id source, dcon::army_id army, military::retreat_type retreat_type, dcon::province_id dest) {
 	if(!state.world.army_is_valid(army)) {
 		return std::vector<dcon::province_id>{};
@@ -4935,6 +5232,7 @@ std::vector<dcon::province_id> can_retreat_from_land_battle(sys::state& state, d
 		return province::make_land_auto_retreat_path(state, army_owner, start_prov);
 	}
 }
+// 执行从陆战中撤退
 void execute_retreat_from_land_battle(sys::state& state, dcon::nation_id source, dcon::army_id army, military::retreat_type retreat_type, dcon::province_id dest) {
 
 	const std::vector<dcon::province_id> retreat_path = can_retreat_from_land_battle(state, source, army, retreat_type, dest);
@@ -4943,6 +5241,7 @@ void execute_retreat_from_land_battle(sys::state& state, dcon::nation_id source,
 	state.world.army_set_moving_to_merge(army, false);
 }
 
+// 邀请加入危机
 void invite_to_crisis(sys::state& state, dcon::nation_id source, dcon::nation_id invitation_to, dcon::nation_id target,
 		dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag,
 		dcon::nation_id cb_secondary_nation) {
@@ -4959,6 +5258,7 @@ void invite_to_crisis(sys::state& state, dcon::nation_id source, dcon::nation_id
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以邀请加入危机
 bool can_invite_to_crisis(sys::state& state, dcon::nation_id source, dcon::nation_id invitation_to, dcon::nation_id target,
 		dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag,
 		dcon::nation_id cb_secondary_nation) {
@@ -5029,6 +5329,7 @@ bool can_invite_to_crisis(sys::state& state, dcon::nation_id source, dcon::natio
 
 	return true;
 }
+// 执行邀请加入危机
 void execute_invite_to_crisis(sys::state& state, dcon::nation_id source, crisis_invitation_data const& data) {
 	if(state.world.nation_get_is_player_controlled(source) && state.world.nation_get_diplomatic_points(source) < 1.0f)
 		return;
@@ -5052,6 +5353,7 @@ void execute_invite_to_crisis(sys::state& state, dcon::nation_id source, crisis_
 	diplomatic_message::post(state, m);
 }
 
+// 将添加战争目标加入危机队列
 void queue_crisis_add_wargoal(sys::state& state, dcon::nation_id source, sys::full_wg wg) {
 
 	command_data p{ command_type::crisis_add_wargoal, state.local_player_id };
@@ -5065,6 +5367,7 @@ void queue_crisis_add_wargoal(sys::state& state, dcon::nation_id source, sys::fu
 	add_to_command_queue(state, p);
 }
 
+// 执行危机添加战争目标
 void execute_crisis_add_wargoal(sys::state& state, dcon::nation_id source, new_war_goal_data const& data) {
 	if(state.world.nation_get_is_player_controlled(source) && state.world.nation_get_diplomatic_points(source) < 1.0f)
 		return;
@@ -5085,6 +5388,7 @@ void execute_crisis_add_wargoal(sys::state& state, dcon::nation_id source, new_w
 	state.world.nation_set_diplomatic_points(source, current_diplo - 1.0f);
 }
 
+// 判断危机中是否可以添加战争目标
 bool crisis_can_add_wargoal(sys::state& state, dcon::nation_id source, sys::full_wg wg) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -5137,6 +5441,7 @@ bool crisis_can_add_wargoal(sys::state& state, dcon::nation_id source, sys::full
 	return true;
 }
 
+// 切换动员状态
 void toggle_mobilization(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::toggle_mobilization, state.local_player_id };
@@ -5144,6 +5449,7 @@ void toggle_mobilization(sys::state& state, dcon::nation_id source) {
 
 }
 
+// 执行切换动员
 void execute_toggle_mobilization(sys::state& state, dcon::nation_id source) {
 	if(state.world.nation_get_is_mobilized(source)) {
 		military::end_mobilization(state, source);
@@ -5152,6 +5458,7 @@ void execute_toggle_mobilization(sys::state& state, dcon::nation_id source) {
 	}
 }
 
+// 启用债务
 void enable_debt(sys::state& state, dcon::nation_id source, bool debt_is_enabled) {
 
 	command_data p{ command_type::enable_debt, state.local_player_id };
@@ -5160,10 +5467,12 @@ void enable_debt(sys::state& state, dcon::nation_id source, bool debt_is_enabled
 	add_to_command_queue(state, p);
 }
 
+// 执行启用债务
 void execute_enable_debt(sys::state& state, dcon::nation_id source, bool debt_is_enabled) {
 	state.world.nation_set_is_debt_spending(source, debt_is_enabled);
 }
 
+// 迁都
 void move_capital(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 
 	command_data p{ command_type::move_capital, state.local_player_id };
@@ -5173,6 +5482,7 @@ void move_capital(sys::state& state, dcon::nation_id source, dcon::province_id p
 
 }
 
+// 判断是否可以迁都
 bool can_move_capital(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -5202,10 +5512,12 @@ bool can_move_capital(sys::state& state, dcon::nation_id source, dcon::province_
 	return true;
 }
 
+// 执行迁都
 void execute_move_capital(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	state.world.nation_set_capital(source, p);
 }
 
+// 切换地方行政状态
 void toggle_local_administration(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 
 	command_data p{ command_type::toggle_local_administration, state.local_player_id };
@@ -5214,6 +5526,7 @@ void toggle_local_administration(sys::state& state, dcon::nation_id source, dcon
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以切换地方行政
 bool can_toggle_local_administration(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -5227,6 +5540,7 @@ bool can_toggle_local_administration(sys::state& state, dcon::nation_id source, 
 	}
 	return true;
 }
+// 执行切换地方行政
 void execute_toggle_local_administration(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	dcon::administration_id existing_admin{ };
 	state.world.nation_for_each_nation_administration(source, [&](auto naid) {
@@ -5245,12 +5559,14 @@ void execute_toggle_local_administration(sys::state& state, dcon::nation_id sour
 	}
 }
 
+// 切换生产指令
 void toggle_production_directive(sys::state& state, dcon::nation_id source, dcon::state_instance_id for_state, dcon::production_directive_id directive) {
 	command_data p{ command_type::toggle_production_directive, state.local_player_id };
 	auto data = production_directive_data{ for_state, directive };
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 执行切换生产指令
 void execute_toggle_production_directive(sys::state& state, dcon::nation_id source, dcon::state_instance_id for_state, dcon::production_directive_id directive) {
 	if(!source || !directive)
 		return;
@@ -5264,6 +5580,7 @@ void execute_toggle_production_directive(sys::state& state, dcon::nation_id sour
 	}
 }
 
+// 占领省份
 void take_province(sys::state& state, dcon::nation_id source, dcon::province_id prov) {
 
 
@@ -5274,6 +5591,7 @@ void take_province(sys::state& state, dcon::nation_id source, dcon::province_id 
 
 }
 
+// 判断是否可以占领省份
 bool can_take_province(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -5304,6 +5622,7 @@ bool can_take_province(sys::state& state, dcon::nation_id source, dcon::province
 	return true;
 }
 
+// 执行占领省份
 void execute_take_province(sys::state& state, dcon::nation_id source, dcon::province_id p) {
 	auto fid = dcon::fatten(state.world, p);
 	auto owner = fid.get_province_ownership_as_province().get_nation();
@@ -5332,6 +5651,7 @@ void execute_take_province(sys::state& state, dcon::nation_id source, dcon::prov
 	fid.get_province_control_as_province().set_nation(source);
 }
 
+// 使用省份按钮
 void use_province_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::province_id i) {
 
 	command_data p{ command_type::pbutton_script, state.local_player_id };
@@ -5340,6 +5660,7 @@ void use_province_button(sys::state& state, dcon::nation_id source, dcon::gui_de
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以使用省份按钮
 bool can_use_province_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::province_id p) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -5353,12 +5674,14 @@ bool can_use_province_button(sys::state& state, dcon::nation_id source, dcon::gu
 		return true;
 	return trigger::evaluate(state, def.data.button.scriptable_enable, trigger::to_generic(p), trigger::to_generic(p), trigger::to_generic(source));
 }
+// 执行使用省份按钮
 void execute_use_province_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::province_id p) {
 	auto & def = state.ui_defs.gui[d];
 	if(def.data.button.scriptable_effect)
 		effect::execute(state, def.data.button.scriptable_effect, trigger::to_generic(p), trigger::to_generic(p), trigger::to_generic(source), uint32_t(state.current_date.value), uint32_t(p.index() ^ (d.index() << 4)));
 }
 
+// 使用国家按钮
 void use_nation_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::nation_id n) {
 
 	command_data p{ command_type::nbutton_script, state.local_player_id };
@@ -5367,6 +5690,7 @@ void use_nation_button(sys::state& state, dcon::nation_id source, dcon::gui_def_
 	add_to_command_queue(state, p);
 
 }
+// 判断是否可以使用国家按钮
 bool can_use_nation_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::nation_id n) {
 	if(!state.current_scene.game_in_progress) {
 		return false;
@@ -5380,12 +5704,14 @@ bool can_use_nation_button(sys::state& state, dcon::nation_id source, dcon::gui_
 		return true;
 	return trigger::evaluate(state, def.data.button.scriptable_enable, trigger::to_generic(n), trigger::to_generic(n), trigger::to_generic(source));
 }
+// 执行使用国家按钮
 void execute_use_nation_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::nation_id n) {
 	auto& def = state.ui_defs.gui[d];
 	if(def.data.button.scriptable_effect)
 		effect::execute(state, def.data.button.scriptable_effect, trigger::to_generic(n), trigger::to_generic(n), trigger::to_generic(source), uint32_t(state.current_date.value), uint32_t(n.index() ^ (d.index() << 4)));
 }
 
+// 发布聊天消息
 void post_chat_message(sys::state& state, ui::chat_message& m) {
 	state.ui_state.chat_messages[state.ui_state.chat_messages_index++] = m;
 	if(state.ui_state.chat_messages_index >= state.ui_state.chat_messages.size())
@@ -5403,6 +5729,7 @@ void post_chat_message(sys::state& state, ui::chat_message& m) {
 }
 
 
+// 创建并发布消息
 void create_and_post_message(sys::state& state, dcon::mp_player_id sender, std::string_view body, bool targets_everyone) {
 	ui::chat_message m{};
 	m.targets_everyone = targets_everyone;
@@ -5412,6 +5739,7 @@ void create_and_post_message(sys::state& state, dcon::mp_player_id sender, std::
 	post_chat_message(state, m);
 }
 
+// 创建并发布消息
 void create_and_post_message(sys::state& state, dcon::mp_player_id sender, std::string_view body, const network::chat_message_targets& targets) {
 	bool targets_everyone = [&]() {
 		for(auto player_id : state.world.in_mp_player) {
@@ -5429,6 +5757,7 @@ void create_and_post_message(sys::state& state, dcon::mp_player_id sender, std::
 	create_and_post_message(state, sender, body, targets_everyone);
 }
 
+// 聊天消息
 void chat_message(sys::state& state, const network::chat_message_targets& targets, std::string_view body, bool send_to_all) {
 
 	command_data p{ command_type::chat_message, state.local_player_id };
@@ -5442,6 +5771,7 @@ void chat_message(sys::state& state, const network::chat_message_targets& target
 	
 	add_to_command_queue(state, p);
 }
+// 判断是否可以发送聊天消息
 bool can_chat_message(sys::state& state, command_data& command) {
 	// TODO: bans, kicks, mutes?
 
@@ -5456,6 +5786,7 @@ bool can_chat_message(sys::state& state, command_data& command) {
 
 	return true;
 }
+// 执行聊天消息
 void execute_chat_message(sys::state& state, std::string_view body, const network::chat_message_targets& targets, dcon::mp_player_id sender) {
 	// if host is not an included target, return and dont post the message
 	if(state.network_mode == sys::network_mode_type::host) {
@@ -5466,6 +5797,7 @@ void execute_chat_message(sys::state& state, std::string_view body, const networ
 	create_and_post_message(state, sender, body, targets);
 }
 
+// 通知玩家加入
 void notify_player_joins(sys::state& state, dcon::client_id client, const sys::player_name& name, bool needs_loading, dcon::nation_id player_nation, network::selector_arg arg, bool host_execute, network::selector_function client_selector) {
 	assert(state.network_mode == sys::network_mode_type::host);
 	network::host_command_wrapper p{ command_data{ command_type::notify_player_joins, state.local_player_id}, arg, client_selector, host_execute };
@@ -5477,11 +5809,13 @@ void notify_player_joins(sys::state& state, dcon::client_id client, const sys::p
 	p.cmd_data << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以通知玩家加入
 bool can_notify_player_joins(sys::state& state, dcon::nation_id source, const sys::player_name& name, bool needs_loading, dcon::nation_id player_nation) {
 	// TODO: bans, kicks, mutes?
 	return true;
 }
 
+// 判断是否可以更改游戏规则设置
 bool can_change_gamerule_setting(sys::state& state, dcon::nation_id source, dcon::gamerule_id gamerule, uint8_t new_setting) {
 	if(!state.current_scene.is_lobby) {
 		return false;
@@ -5489,6 +5823,7 @@ bool can_change_gamerule_setting(sys::state& state, dcon::nation_id source, dcon
 	return state.world.gamerule_get_settings_count(gamerule) >= new_setting + 1 && new_setting < sys::max_gamerule_settings;
 }
 
+// 执行更改游戏规则设置
 void execute_change_gamerule_setting(sys::state& state, dcon::nation_id source, dcon::gamerule_id gamerule, uint8_t new_setting) {
 	gamerule::set_gamerule(state, gamerule, new_setting);
 	auto sub = text::substitution_map{ };
@@ -5506,6 +5841,7 @@ void execute_change_gamerule_setting(sys::state& state, dcon::nation_id source, 
 	
 }
 
+// 修改游戏规则设置
 void change_gamerule_setting(sys::state& state, dcon::nation_id source, dcon::gamerule_id gamerule, uint8_t new_setting) {
 
 	command_data p{ command_type::change_game_rule_setting, state.local_player_id };
@@ -5515,6 +5851,7 @@ void change_gamerule_setting(sys::state& state, dcon::nation_id source, dcon::ga
 
 }
 
+// 执行通知玩家加入
 dcon::mp_player_id execute_notify_player_joins(sys::state& state, dcon::client_id client, const sys::player_name& name, const sys::player_password_raw& password, bool needs_loading, dcon::nation_id player_nation) {
 #ifndef NDEBUG
 	state.console_log("receive:cmd | type:notify_player_joins | nation: " + std::to_string(player_nation.index()) + " | name: " + name.to_string());
@@ -5549,6 +5886,7 @@ dcon::mp_player_id execute_notify_player_joins(sys::state& state, dcon::client_i
 	return player_id;
 }
 
+// 通知玩家离开
 void notify_player_leaves(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id leaving_player) {
 
 	// only the host can use this command, so we use the leaving players ID here in the header
@@ -5561,9 +5899,11 @@ void notify_player_leaves(sys::state& state, dcon::nation_id source, bool make_a
 		network::add_command_to_player_buffer(state, leaving_player, std::move(p));
 	}
 }
+// 判断是否可以通知玩家离开
 bool can_notify_player_leaves(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id leaving_player) {
 	return state.world.mp_player_is_valid(leaving_player);
 }
+// 执行通知玩家离开
 void execute_notify_player_leaves(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id leaving_player) {
 	assert(leaving_player);
 
@@ -5584,6 +5924,7 @@ void execute_notify_player_leaves(sys::state& state, dcon::nation_id source, boo
 
 
 
+// 通知玩家超时
 void notify_player_timeout(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id disconnected_player) {
 
 	// only the host can use this command, so we use the disconnected players ID here in the header
@@ -5594,9 +5935,11 @@ void notify_player_timeout(sys::state& state, dcon::nation_id source, bool make_
 	// Add the command directly to the target's player send buffer, because the command will delete and start disconnecting the player once the host executes
 	network::add_command_to_player_buffer(state, disconnected_player, std::move(p));
 }
+// 判断是否可以通知玩家超时
 bool can_notify_player_timeout(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id disconnected_player) {
 	return state.world.mp_player_is_valid(disconnected_player);
 }
+// 执行通知玩家超时
 void execute_notify_player_timeout(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id disconnected_player) {
 	assert(disconnected_player);
 
@@ -5619,9 +5962,11 @@ void execute_notify_player_timeout(sys::state& state, dcon::nation_id source, bo
 	network::delete_mp_player(state, disconnected_player, make_ai);
 }
 
+// 执行更改AI国家状态
 void execute_change_ai_nation_state(sys::state& state, dcon::nation_id source, bool no_ai) 	{
 	state.world.nation_set_is_player_controlled(source, no_ai);
 }
+// 通知玩家被封禁
 void notify_player_ban(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id banned_player) {
 	// only the host can use this command, so we use the banned players ID here in the header
 	command_data p{ command_type::notify_player_ban, banned_player };
@@ -5631,12 +5976,14 @@ void notify_player_ban(sys::state& state, dcon::nation_id source, bool make_ai, 
 	// Add the command directly to the target's player send buffer, because the command will delete and start disconnecting the player once the host executes
 	network::add_command_to_player_buffer(state, banned_player, std::move(p));
 }
+// 判断是否可以通知玩家被封禁
 bool can_notify_player_ban(sys::state& state, dcon::nation_id source, dcon::mp_player_id banned_player) {
 	if(network::get_host_player(state) == banned_player) {
 		return false;
 	}
 	return state.world.mp_player_is_valid(banned_player);
 }
+// 执行通知玩家被封禁
 void execute_notify_player_ban(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id banned_player) {
 	assert(banned_player);
 	// if we are banned, then display it to the user
@@ -5662,6 +6009,7 @@ void execute_notify_player_ban(sys::state& state, dcon::nation_id source, bool m
 	network::delete_mp_player(state, banned_player, make_ai);
 }
 
+// 通知玩家被踢出
 void notify_player_kick(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id kicked_player) {
 	// only the host can use this command, so we use the kicked players ID here in the header
 	command_data p{ command_type::notify_player_kick, kicked_player };
@@ -5672,6 +6020,7 @@ void notify_player_kick(sys::state& state, dcon::nation_id source, bool make_ai,
 	network::add_command_to_player_buffer(state, kicked_player, std::move(p));
 
 }
+// 判断是否可以通知玩家被踢出
 bool can_notify_player_kick(sys::state& state, dcon::nation_id source, dcon::mp_player_id kicked_player) {
 	if(network::get_host_player(state) == kicked_player) {
 		return false;
@@ -5679,6 +6028,7 @@ bool can_notify_player_kick(sys::state& state, dcon::nation_id source, dcon::mp_
 	return state.world.mp_player_is_valid(kicked_player);
 }
 
+// 执行通知玩家被踢出
 void execute_notify_player_kick(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id kicked_player) {
 	assert(kicked_player);
 	// if we are kicked, then display it to the user
@@ -5704,6 +6054,7 @@ void execute_notify_player_kick(sys::state& state, dcon::nation_id source, bool 
 	network::delete_mp_player(state, kicked_player, make_ai);
 }
 
+// 通知玩家选择国家
 void notify_player_picks_nation(sys::state& state, dcon::nation_id source, dcon::nation_id target) {
 
 	command_data p{ command_type::notify_player_picks_nation, state.local_player_id };
@@ -5711,6 +6062,7 @@ void notify_player_picks_nation(sys::state& state, dcon::nation_id source, dcon:
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 判断是否可以通知玩家选择国家
 bool can_notify_player_picks_nation(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::mp_player_id player) {
 	// cannot pick a new nation whilst not in the looby
 	if(!state.current_scene.is_lobby) {
@@ -5723,11 +6075,13 @@ bool can_notify_player_picks_nation(sys::state& state, dcon::nation_id source, d
 	// Should support co-op now.
 	return true;
 }
+// 执行通知玩家选择国家
 void execute_notify_player_picks_nation(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::mp_player_id player) {
 	network::switch_one_player(state, target, source, player);
 }
 
 
+// 判断是否可以通知玩家不同步
 bool can_notify_player_oos(sys::state& state, command_data& command) {
 	auto player = command.header.player_id;
 	// can't notify oos if there already are oos
@@ -5737,6 +6091,7 @@ bool can_notify_player_oos(sys::state& state, command_data& command) {
 	return true;
 }
 
+// 通知玩家不同步
 void notify_player_oos(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::notify_player_oos, state.local_player_id };
@@ -5756,6 +6111,7 @@ void notify_player_oos(sys::state& state, dcon::nation_id source) {
 
 	network::log_player_nations(state);
 }
+// 执行通知玩家不同步
 void execute_notify_player_oos(sys::state& state, dcon::nation_id source, dcon::mp_player_id oos_player) {
 	state.actual_game_speed = 0; //pause host immediately
 	state.debug_save_oos_dump();
@@ -5781,6 +6137,7 @@ void execute_notify_player_oos(sys::state& state, dcon::nation_id source, dcon::
 
 
 
+// 通知游戏状态不同步
 void notify_oos_gamestate(sys::state& state, dcon::nation_id source) {
 	uint32_t size = 0;
 	auto mp_state_data = network::write_network_entire_mp_state(state, size);
@@ -5793,6 +6150,7 @@ void notify_oos_gamestate(sys::state& state, dcon::nation_id source) {
 	add_to_command_queue(state, p);
 }
 
+// 判断是否可以通知游戏状态不同步
 bool can_notify_oos_gamestate(sys::state& state, command_data& command) {
 	const auto& payload = command.get_payload<notify_oos_gamestate_data>();
 	// check that the data length is correct before reading from it
@@ -5807,6 +6165,7 @@ bool can_notify_oos_gamestate(sys::state& state, command_data& command) {
 }
 
 
+// 执行通知游戏状态不同步
 void execute_notify_oos_gamestate(sys::state& state, dcon::nation_id source, dcon::mp_player_id oos_player, const uint8_t* oos_gamestate_data, uint32_t data_size) {
 
 	std::unique_ptr<sys::state> oos_gamestate = std::make_unique<sys::state>();
@@ -5817,6 +6176,7 @@ void execute_notify_oos_gamestate(sys::state& state, dcon::nation_id source, dco
 
 
 
+// 推进tick
 void advance_tick(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::advance_tick, state.local_player_id };
@@ -5827,6 +6187,7 @@ void advance_tick(sys::state& state, dcon::nation_id source) {
 	add_to_command_queue(state, p);
 }
 
+// 执行推进游戏时间
 void execute_advance_tick(sys::state& state, dcon::nation_id source, sys::checksum_key& k, int32_t speed, sys::date new_date) {
 
 	
@@ -5884,6 +6245,7 @@ void execute_advance_tick(sys::state& state, dcon::nation_id source, sys::checks
 	}
 }
 
+// 通知存档已加载
 void notify_save_loaded(sys::state& state, network::selector_arg arg, bool host_execute, network::selector_function client_selector) {
 	network::host_command_wrapper c{ { command::command_type::notify_save_loaded, state.local_player_id }, arg, client_selector, host_execute };
 	command::notify_save_loaded_data payload{ };
@@ -5896,6 +6258,7 @@ void notify_save_loaded(sys::state& state, network::selector_arg arg, bool host_
 
 
 
+// 判断是否可以通知存档已加载
 bool can_notify_save_loaded(sys::state& state, command_data& command) {
 	const auto& payload = command.get_payload<notify_save_loaded_data>();
 	// check that the data length is correct before reading from it
@@ -5908,6 +6271,7 @@ bool can_notify_save_loaded(sys::state& state, command_data& command) {
 
 
 
+// 执行通知存档已加载
 void execute_notify_save_loaded(sys::state& state, command_data& command) {
 	state.ui_state.invoke_on_ui_thread([](sys::state& state, ui::ui_function_argument) {
 		window::change_cursor(state, window::cursor_type::busy); //show busy cursor to show the save is being loaded
@@ -5948,6 +6312,7 @@ void execute_notify_save_loaded(sys::state& state, command_data& command) {
 	command::notify_player_fully_loaded(state, state.local_player_nation); // notify that we are loaded and ready to start
 }
 
+// 通知重新加载
 void notify_reload(sys::state& state, network::selector_arg arg, bool host_execute, network::selector_function client_selector) {
 	network::host_command_wrapper p{ { command_type::notify_reload, state.local_player_id }, arg, client_selector, host_execute };
 	auto data = notify_reload_data{ };
@@ -5955,6 +6320,7 @@ void notify_reload(sys::state& state, network::selector_arg arg, bool host_execu
 	add_to_command_queue(state, p);
 
 }
+// 执行通知重新加载
 void execute_notify_reload(sys::state& state, command_data& command) {
 	state.ui_state.invoke_on_ui_thread([](sys::state& state, ui::ui_function_argument) {
 		window::change_cursor(state, window::cursor_type::busy); //show busy cursor so player doesn't question
@@ -5992,6 +6358,7 @@ void execute_notify_reload(sys::state& state, command_data& command) {
 	});
 }
 
+// 判断是否可以通知开始游戏
 bool can_notify_start_game(sys::state& state, dcon::nation_id source) {
 	if(state.network_mode == sys::network_mode_type::single_player) {
 		return bool(state.local_player_nation);
@@ -6007,6 +6374,7 @@ bool can_notify_start_game(sys::state& state, dcon::nation_id source) {
 	}
 }
 
+// 执行通知开始游戏
 void execute_notify_start_game(sys::state& state, dcon::nation_id source) {
 	assert(state.world.nation_get_is_player_controlled(state.local_player_nation));
 	
@@ -6059,24 +6427,28 @@ void execute_notify_start_game(sys::state& state, dcon::nation_id source) {
 		event::update_future_events(state);
 	}
 }
+// 通知开始游戏
 void notify_start_game(sys::state& state) {
 
 	command_data p{ command_type::notify_start_game, state.local_player_id };
 	add_to_command_queue(state, p);
 }
 
+// 通知开始游戏
 void notify_start_game(sys::state& state,network::selector_arg arg, bool host_execute,  network::selector_function client_selector) {
 
 	network::host_command_wrapper p{ network::host_command_wrapper{ command_data{ command_type::notify_start_game, state.local_player_id },arg, client_selector, host_execute } };
 	add_to_command_queue(state, p);
 }
 
+// 通知玩家正在加载
 void notify_player_is_loading(sys::state& state, dcon::mp_player_id loading_player) {
 
 	command_data p{ command_type::notify_player_is_loading, loading_player };
 	add_to_command_queue(state, p);
 }
 
+// 执行通知玩家正在加载
 void execute_notify_player_is_loading(sys::state& state, dcon::mp_player_id loading_player) {
 	assert(loading_player);
 	network::mp_player_set_fully_loaded(state, loading_player, false);
@@ -6088,12 +6460,14 @@ void execute_notify_player_is_loading(sys::state& state, dcon::mp_player_id load
 
 
 
+// 通知玩家完全加载
 void notify_player_fully_loaded(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::notify_player_fully_loaded, state.local_player_id };
 	add_to_command_queue(state, p);
 }
 
+// 执行通知玩家完全加载
 void execute_notify_player_fully_loaded(sys::state& state, dcon::nation_id source, dcon::mp_player_id loaded_player) {
 	assert(loaded_player);
 	network::mp_player_set_fully_loaded(state, loaded_player, true);
@@ -6103,6 +6477,7 @@ void execute_notify_player_fully_loaded(sys::state& state, dcon::nation_id sourc
 	
 }
 
+// 判断是否可以通知停止游戏
 bool can_notify_stop_game(sys::state& state, dcon::nation_id source) {
 	if(state.current_scene.is_lobby) {
 		return false;
@@ -6116,6 +6491,7 @@ bool can_notify_stop_game(sys::state& state, dcon::nation_id source) {
 	}
 }
 
+// 执行通知停止游戏
 void execute_notify_stop_game(sys::state& state, dcon::nation_id source) {
 	{
 		state.yield_game_state_resetting_lock = true;
@@ -6132,16 +6508,19 @@ void execute_notify_stop_game(sys::state& state, dcon::nation_id source) {
 	}
 }
 
+// 通知stop game
 void notify_stop_game(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::notify_stop_game, state.local_player_id };
 	add_to_command_queue(state, p);
 }
 
+// 执行通知暂停游戏
 void execute_notify_pause_game(sys::state& state, dcon::nation_id source) {
 	state.actual_game_speed = 0;
 }
 
+// 通知暂停游戏
 void notify_pause_game(sys::state& state, dcon::nation_id source) {
 
 	command_data p{ command_type::notify_pause_game, state.local_player_id };
@@ -6149,6 +6528,7 @@ void notify_pause_game(sys::state& state, dcon::nation_id source) {
 
 }
 
+// 网络不活动心跳检测
 void network_inactivity_ping(sys::state& state, dcon::nation_id source, sys::date date) {
 
 	command_data p{ command_type::network_inactivity_ping, state.local_player_id };
@@ -6157,6 +6537,7 @@ void network_inactivity_ping(sys::state& state, dcon::nation_id source, sys::dat
 	p << data;
 	add_to_command_queue(state, p);
 }
+// 执行网络不活动心跳
 void execute_network_inactivity_ping(sys::state& state, dcon::nation_id source, sys::date date, dcon::mp_player_id player) {
 	assert(state.network_mode == sys::network_mode_type::host);
 	// Update last seen of the client
@@ -6165,13 +6546,14 @@ void execute_network_inactivity_ping(sys::state& state, dcon::nation_id source, 
 	state.world.client_set_last_seen(client, date);
 }
 
-// host only. Sends commands to other clients to handle the resync
+// 仅主机使用。向其他客户端发送命令以处理重新同步
 void resync_lobby(sys::state& state, dcon::nation_id source) {
 	command_data p{ command_type::resync_lobby, state.local_player_id };
 	add_to_command_queue(state, p);
 }
 
 
+// 执行重新同步大厅
 void execute_resync_lobby(sys::state& state, dcon::nation_id source) {
 	network::full_reset_after_oos(state);
 	state.ui_state.recently_pressed_resync = false;
@@ -6180,6 +6562,7 @@ void execute_resync_lobby(sys::state& state, dcon::nation_id source) {
 
 
 
+// 通知mp data
 void notify_mp_data(sys::state& state, const network::selector_arg arg, bool host_execute, const network::selector_function client_selector) {
 	network::host_command_wrapper p{ {command_type::notify_mp_data, state.local_player_id }, arg, client_selector, host_execute };
 	command::notify_mp_data_data mp_data_payload{ };
@@ -6196,6 +6579,7 @@ void notify_mp_data(sys::state& state, const network::selector_arg arg, bool hos
 
 
 
+// 执行通知多人游戏数据
 void execute_notify_mp_data(sys::state& state, command_data& command) {
 	auto& data = command.get_payload<notify_mp_data_data>();
 	size_t mp_player_old_sz = state.world.mp_player_size();
@@ -6204,6 +6588,7 @@ void execute_notify_mp_data(sys::state& state, command_data& command) {
 	
 }
 
+// 判断是否可以通知多人游戏数据
 bool can_notify_mp_data(sys::state& state, command_data& command) {
 
 	auto& payload = command.get_payload<notify_mp_data_data>();
@@ -6216,6 +6601,7 @@ bool can_notify_mp_data(sys::state& state, command_data& command) {
 
 	return true;
 }
+// 判断是否可以load save game
 bool can_load_save_game(sys::state& state, const command_data& command) {
 
 	const auto& payload = command.get_payload<load_save_game_data>();
@@ -6232,6 +6618,7 @@ bool can_load_save_game(sys::state& state, const command_data& command) {
 	return true;
 }
 
+// 加载save game
 void load_save_game(sys::state& state, const std::string& filename, bool is_new_game) {
 	command_data p{ command_type::load_saved_game, state.local_player_id };
 	auto data = load_save_game_data{ };
@@ -6245,6 +6632,7 @@ void load_save_game(sys::state& state, const std::string& filename, bool is_new_
 }
 
 
+// 执行load save game
 void execute_load_save_game(sys::state& state, std::string_view filename, bool is_new_game) {
 	state.ui_state.invoke_on_ui_thread([](sys::state& state, ui::ui_function_argument) {
 		window::change_cursor(state, window::cursor_type::busy); //show busy cursor so player doesn't question
@@ -6333,10 +6721,12 @@ void execute_load_save_game(sys::state& state, std::string_view filename, bool i
 }
 
 
+// 判断游戏状态不同步通知是否为主机接收命令
 bool notify_oos_gamestate_is_host_receive_command(const sys::state& state) {
 	return state.host_settings.oos_debug_mode;
 }
 
+// 存档加载通知的执行前广播修改
 void pre_execution_broadcast_modifications_notify_save_loaded(sys::state& state, command_data& command) {
 	state.ui_state.invoke_on_ui_thread([](sys::state& state, ui::ui_function_argument) {
 		window::change_cursor(state, window::cursor_type::busy);
@@ -6357,6 +6747,7 @@ void pre_execution_broadcast_modifications_notify_save_loaded(sys::state& state,
 	});
 }
 
+// 多人游戏数据通知的执行前广播修改
 void pre_execution_broadcast_modifications_notify_mp_data(sys::state& state, command_data& command) {
 	auto& data = command.get_payload<notify_mp_data_data>();
 	auto mp_data_sz = uint32_t(sys::sizeof_mp_data(state));
@@ -6367,6 +6758,7 @@ void pre_execution_broadcast_modifications_notify_mp_data(sys::state& state, com
 }
 
 
+// 判断是否可执行命令
 bool can_perform_command(sys::state& state, command_data& c) {
 	auto source = state.world.mp_player_get_nation_from_player_nation(c.header.player_id);
 	switch(c.header.type) {
@@ -7127,6 +7519,7 @@ bool can_perform_command(sys::state& state, command_data& c) {
 	return false;
 }
 
+// 执行命令
 void execute_command(sys::state& state, command_data& c) {
 	state.tick_start_counter.fetch_add(1, std::memory_order::seq_cst);
 	auto source_nation = state.world.mp_player_get_nation_from_player_nation(c.header.player_id);
@@ -7930,6 +8323,7 @@ void execute_command(sys::state& state, command_data& c) {
 	state.tick_end_counter.fetch_add(1, std::memory_order::seq_cst);
 }
 
+// 尝试执行命令
 bool try_execute_command(sys::state& state, command_data& c) {
 	if(can_perform_command(state, c)) {
 		execute_command(state, c);
@@ -7940,6 +8334,7 @@ bool try_execute_command(sys::state& state, command_data& c) {
 	}
 }
 
+// 判断主机是否可接收该命令类型
 bool is_host_receive_command(command_type type, const sys::state& state) {
 	const auto& handler = command_type_handlers[type];
 	// have bounds checking to guard against invalid commands
@@ -7951,6 +8346,7 @@ bool is_host_receive_command(command_type type, const sys::state& state) {
 	}
 }
 
+// 判断主机是否应广播该命令
 bool is_host_broadcast_command(const sys::state& state, const command_data& command) {
 	const auto& handler = command_type_handlers[command.header.type];
 	// have bounds checking to guard against invalid commands
@@ -7964,6 +8360,7 @@ bool is_host_broadcast_command(const sys::state& state, const command_data& comm
 
 
 
+// 执行待处理命令
 void execute_pending_commands(sys::state& state) {
 	auto* c = state.singleplayer_commands.front();
 	bool command_executed = false;

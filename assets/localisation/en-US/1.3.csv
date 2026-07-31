@@ -1,0 +1,90 @@
+#Powered_by_ParaTranz
+disarming;Forced Disarmament
+HAS_NOT_RECENTLY_LOST_WAR;Has not lost a war in the last five years
+HAS_RECENTLY_LOST_WAR;Has lost a war in the last five years
+IN_SAME_SPHERE;This country is in the same sphere of influence as our country
+NOR_reactionary;Royalist Party
+ATJ_reactionary;Nationalist
+ATJ_liberal;Liberal
+ATJ_anarcho_liberal;Radical
+ATJ_socialist;Socialist
+ATJ_communist;Communist
+ATJ_fascist;Fascist
+CAL_conservative;Democratic Party
+KHI_conservative;Royalist
+KHI_liberal;Liberal
+KHI_reactionary;Nationalist
+KHI_anarcho_liberal;Radical
+KHI_socialist;Socialist
+KHI_communist;Communist
+KHI_fascist;Fascist
+MAD_conservative;Royalist
+MAD_liberal;Liberal
+MAD_reactionary;Nationalist
+MAD_anarcho_liberal;Radical
+MAD_socialist;Socialist
+MAD_communist;Communist
+MAD_fascist;Fascist
+TRI_conservative;Royalist
+TRI_liberal;Liberal
+TRI_reactionary;Nationalist
+TRI_anarcho_liberal;Radical
+TRI_socialist;Socialist
+TRI_communist;Communist
+TRI_fascist;Fascist
+TEX_communist;Communist Party
+BAD_fascist;National Socialist German Workers' Party
+BAV_fascist;National Socialist German Workers' Party
+WEI_fascist;National Socialist German Workers' Party
+WLL_fascist;Rexist Party
+NEW_fascist;Fascist Party
+DIPLOMACY_CHANCE_JOIN_WAR;May join the war: ?Y$VAL$?W
+PO_ISBETTER;Rejecting these terms will result in the following:\n?R+$MIL$?W Bellicosity, ?R+$WE$?W War Weariness
+leave_soi_title;Leave Sphere of Influence
+leave_soi_desc;We can leave this sphere of influence, but the previous controller will likely declare war to stop us.
+NEW_PARTY_AVAIL_SETUP;New Political Party
+NEW_PARTY_AVAIL_HEADER;A new political party has been established
+NEW_PARTY_AVAIL_1;$PARTY$ has been established
+NEW_PARTY_AVAIL_2;*
+NEW_PARTY_AVAIL_3;*
+NEW_PARTY_AVAIL_4;*
+NEW_PARTY_AVAIL_5;*
+NEW_PARTY_AVAIL_6;*
+NEW_PARTY_AVAIL_BTN1;OK
+NEW_PARTY_AVAIL_BTN2;OK
+NEW_PARTY_AVAIL_BTN3;View
+NEW_PARTY_AVAIL_LOG;New Political Party
+PARTY_UNAVAIL_SETUP;Party Dissolved
+PARTY_UNAVAIL_HEADER;Party Dissolved
+PARTY_UNAVAIL_1;$PARTY$ has been dissolved
+PARTY_UNAVAIL_2;*
+PARTY_UNAVAIL_3;*
+PARTY_UNAVAIL_4;*
+PARTY_UNAVAIL_5;*
+PARTY_UNAVAIL_6;*
+PARTY_UNAVAIL_BTN1;OK
+PARTY_UNAVAIL_BTN2;OK
+PARTY_UNAVAIL_BTN3;View
+PARTY_UNAVAIL_LOG;Party Dissolved
+PRODUCTION_FACTORY_DAYSRED_TOOLTIP;Time to bankruptcy: ?R$DAYS$?W
+EXPENSE_NO_AFFORD;We can only pay ?R$VAL$?W from our expenses?!
+ENG_presidential_dictatorship;Great Britain
+EVTNAME16451;Raid on Garrisons
+EVTDESC16451;In the early stages of the Texas Revolution, Texan forces raided numerous Mexican garrisons. This provided the Texan army with much-needed funds and supplies.
+CB_ALLOWED_GUNBOAT;Enforce Debt Repayment
+po_gunboat;Repay Debt
+IS_IN_DEFAULT_TO;In default to
+IS_NOT_IN_DEFAULT_TO;Not in default to
+gunboat;Repay Debt
+gunboat_desc;Force them to repay the debts they owe us
+gunboat_setup;Will force them to honor the debts they owe us
+gunboat_short;Repay Debt
+EVTNAME70002;$FROMCOUNTRY$ has gone bankrupt!
+EVTDESC70002;$FROMCOUNTRY$ has gone bankrupt and disavowed its debts to our country! We must use military force to protect our investors.
+EVTOPTA70002;OK
+USE_LEADER;Use General
+SHORTCUT;?WShortcut: ?Y
+SM_SHORTCUT;Shortcut Bar
+TUR_proletarian_dictatorship_ADJ;Turkish
+move_capital_to_moscow_title;Return to the Third Rome
+move_capital_to_moscow_desc;Glorious St. Petersburg—the city of Peter the Great—is dangerously close to the border. Perhaps it would be more prudent to move the capital back to Moscow, the "First Throne," where invading enemies would find it difficult to reach...

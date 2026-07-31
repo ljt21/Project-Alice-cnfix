@@ -1,0 +1,6493 @@
+# ============================================================================
+# dcon_generated_CN.txt - 游戏数据模型定义文件 (中文注释版)
+# ============================================================================
+# 此文件是游戏的核心数据结构定义，使用dcon DSL语言编写。
+# 它定义了游戏中所有的数据对象(object)、关系(relationship)和索引(make_index)。
+# 这些定义会被dcon编译器生成对应的C++代码，用于游戏运行时数据访问。
+# 
+# 主要关键字说明：
+# - make_index: 定义索引类型，用于快速查找对象
+# - object: 定义数据对象，类似于数据库表
+# - relationship: 定义对象之间的关系，类似于数据库外键
+# - property: 定义对象的属性/字段
+# - tag: 标记属性，用于控制数据加载和保存行为
+#   - scenario: 仅在场景初始化时加载的数据
+#   - save: 需要保存到存档的数据
+#   - local_save: 本地保存的数据（多人游戏时不参与校验和）
+#   - mp_data: 多人游戏数据
+#   - mp_checksum_excluded: 排除在多人游戏校验和计算之外的数据
+#   - keep_after_state_reload: 状态重载后保留的数据
+# ============================================================================
+
+# 全局设置：禁用隐式类型转换
+global{no-conversions}
+
+
+# 包含必要的头文件
+include{"constants_dcon.hpp"}
+include{"container_types_dcon.hpp"}
+include{"hb.h"}
+
+
+# 文本键索引，用于快速查找文本资源
+make_index{text_key}{uint32_t}
+
+# 纹理ID索引，用于快速查找纹理资源
+make_index{texture_id}{uint16_t}
+
+# 图形对象ID索引，用于快速查找图形对象
+make_index{gfx_object_id}{uint16_t}
+
+# GUI定义ID索引，用于快速查找GUI定义
+make_index{gui_def_id}{uint16_t}
+
+# 犯罪类型ID索引，用于快速查找犯罪定义
+make_index{crime_id}{uint8_t}
+
+# 单位类型ID索引，用于快速查找单位类型定义
+make_index{unit_type_id}{uint8_t}
+
+# 单位名称ID索引，用于快速查找单位名称
+make_index{unit_name_id}{uint32_t}
+
+# 国家变量ID索引，用于快速查找国家变量
+make_index{national_variable_id}{uint16_t}
+
+# 国家旗帜ID索引，用于快速查找国家旗帜
+make_index{national_flag_id}{uint16_t}
+
+# 全局旗帜ID索引，用于快速查找全局旗帜
+make_index{global_flag_id}{uint16_t}
+
+# 触发器键索引，用于快速查找触发器
+make_index{trigger_key}{uint16_t}
+
+# 效果键索引，用于快速查找效果
+make_index{effect_key}{uint16_t}
+
+# 值修改器键索引，用于快速查找值修改器
+make_index{value_modifier_key}{uint16_t}
+
+# 人口统计键索引，用于快速查找人口统计数据
+make_index{pop_demographics_key}{uint16_t}
+
+# 统计键索引，用于快速查找统计数据
+make_index{demographics_key}{uint16_t}
+
+# 省份修改器值索引，用于快速查找省份修改器值
+make_index{provincial_modifier_value}{uint8_t}
+
+# 国家修改器值索引，用于快速查找国家修改器值
+make_index{national_modifier_value}{uint8_t}
+
+# 生产指令ID索引，用于快速查找生产指令
+make_index{production_directive_id}{uint8_t}
+
+
+# 政府旗帜定义：存储政府旗帜的文件名等信息
+object {
+	name{ government_flag }
+	storage_type{ contiguous }
+	size{ 100 }
+	tag{ scenario }
+	property{
+		name{ filename } # 旗帜文件名
+		type{ text_key }
+		tag{ scenario }
+	}
+}
+
+
+# 国家身份定义：定义国家的核心属性（民族、文化、宗教等）
+object{
+	name{ national_identity }
+	storage_type{contiguous}
+	size{ 2000 }
+	tag{ scenario }
+
+	property{
+		name{ color } # 颜色（RGBA格式）
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ adjective } # 形容词形式
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ identifying_int } # 识别整数
+		type{ uint32_t }
+		tag{ scenario }
+	}
+
+	property{
+		name{ unit_names_first } # 单位名称起始索引
+		type{array{unit_type_id}{unit_name_id}}
+		tag{ scenario }
+	}
+	property{
+		name{ unit_names_count } # 单位名称数量
+		type{array{unit_type_id}{uint8_t}}
+		tag{ scenario }
+	}
+
+	property{
+		name{ political_party_first } # 政党起始索引
+		type{ political_party_id }
+		tag{ scenario }
+	}
+	property{
+		name{ political_party_count } # 政党数量
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ government_flag_type } # 各政府类型对应的旗帜
+		type{ array{government_type_id}{government_flag_id} }
+		tag{ scenario }
+	}
+	property{
+		name{ government_name } # 各政府类型的名称
+		type{ array{government_type_id}{text_key} }
+		tag{ scenario }
+	}
+	property{
+		name{ government_adjective } # 各政府类型的形容词形式
+		type{ array{government_type_id}{text_key} }
+		tag{ scenario }
+	}
+	property{
+		name{ government_ruler_name } # 各政府类型的统治者称号
+		type{ array{government_type_id}{text_key} }
+		tag{ scenario }
+	}
+	property{
+		name{ government_color } # 各政府类型的颜色
+		type{ array{government_type_id}{uint32_t} }
+		tag{ scenario }
+	}
+	property{
+		name{ primary_culture } # 主要文化
+		type{ culture_id }
+		tag{ scenario }
+	}
+	property{
+		name{ religion } # 宗教
+		type{ religion_id }
+		tag{ scenario }
+	}
+	property{
+		name{ capital } # 首都/首府
+		type{ province_id }
+		tag{ scenario }
+	}
+	property{
+		name{ is_not_releasable } # 是否不可被释放为独立国家
+		type{ bitfield }
+		tag{ scenario }
+	}
+}
+
+
+# 政党定义：定义政党的属性和立场
+object {
+	name{ political_party }
+	storage_type{contiguous}
+	size{ 15000 }
+	tag{ scenario }
+	tag{ save }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ save }
+	}
+	property{
+		name{ start_date } # 开始日期
+		type{ sys::date }
+		tag{ scenario }
+	}
+	property{
+		name{ end_date } # 结束/解散日期
+		type{ sys::date }
+		tag{ scenario }
+	}
+	property{
+		name{ ideology } # 意识形态
+		type{ ideology_id }
+		tag{ scenario }
+	}
+	property{
+		name{ party_issues } # 政党在各议题上的立场
+		type{array{issue_id}{issue_option_id}}
+		tag{ save }
+	}
+	property{
+		name{ trigger } # 触发条件/触发器
+		type{ dcon::trigger_key }
+		tag{ scenario }
+	}
+}
+
+
+# 领袖图像定义：存储将军和海军上将的头像资源
+object{
+	name{ leader_images }
+	storage_type{ contiguous }
+	size{ 126 }
+	tag{ scenario }
+
+	property{
+		name{ admirals } # 海军上将头像列表
+		type{vector_pool{2000}{gfx_object_id}}
+		tag{ scenario }
+	}
+	property{
+		name{ generals } # 将军头像列表
+		type{vector_pool{2000}{gfx_object_id}}
+		tag{ scenario }
+	}
+}
+
+
+# 宗教定义：定义宗教的属性和影响
+object{
+	name{ religion }
+	storage_type{ contiguous }
+	size{ 126 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ color } # 颜色（RGBA格式）
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ icon } # 图标索引
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ is_pagan } # 是否为异教
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ nation_modifier } # 国家修正效果
+		type{ modifier_id }
+		tag{ scenario }
+	}
+}
+
+
+# 文化组定义：定义文化组的属性
+object {
+	name{ culture_group }
+	storage_type{ contiguous }
+	size{ 255 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ is_overseas } # 是否为海外/海外文化组
+		type{ bitfield }
+		tag{ scenario }
+	}
+
+	property{
+		name{ leader } # 领袖
+		type{ leader_images_id }
+		tag{ scenario }
+	}
+}
+
+
+# 文化定义：定义文化的属性和特征
+object {
+	name{ culture }
+	storage_type{ contiguous }
+	size{ 2800 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ color } # 颜色（RGBA格式）
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ radicalism } # 激进主义倾向值
+		type{ int8_t }
+		tag{ scenario }
+	}
+
+	property{
+		name{ first_names } # 名字列表
+		type{vector_pool{18000}{unit_name_id}}
+		tag{ scenario }
+	}
+	property{
+		name{ last_names } # 姓氏列表
+		type{vector_pool{18000}{unit_name_id}}
+		tag{ scenario }
+	}
+}
+
+
+# 文化组成员关系：文化与文化组的归属关系
+relationship{
+	name{culture_group_membership}
+	tag{ scenario }
+
+	link{
+		object{culture}
+		name{member} # 成员
+		type{unique}
+	}
+	link{
+		object{culture_group}
+		name{group} # 所属组
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+
+# 文化联合关系：国家身份与文化组的文化联合关系
+relationship{
+	name{ cultural_union_of }
+	tag{ scenario }
+
+	link{
+		object{national_identity}
+		name{identity} # 身份
+		type{unique}
+	}
+	link{
+		object{culture_group}
+		name{culture_group} # 文化组
+		type{unique}
+	}
+}
+
+
+# 商品定义：定义游戏中的各种商品（资源）
+object {
+	name{ commodity }
+	storage_type{ contiguous }
+	size{ 126 }
+	tag{ scenario }
+	tag{ save }
+	
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ color } # 颜色（RGBA格式）
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ cost } # 基础成本
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ median_price } # 中位数价格
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ actually_exists_in_nature } # 是否天然存在
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ commodity_group } # 商品类别
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ is_available_from_start } # 是否从游戏开始就可用/可建造
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ is_local } # 是否为本地商品（不可贸易）
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ money_rgo } # 是否为货币型RGO产出
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ is_mine } # 是否为矿产资源
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ overseas_penalty } # 是否有海外贸易惩罚
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_amount } # RGO产出量
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_workforce } # RGO所需劳动力
+		type{ int32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_efficiency_inputs } # RGO效率所需输入商品
+		type{ economy::commodity_set }
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_efficiency_inputs_are_defined_in_content } # 效率输入是否在内容中定义
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ artisan_inputs } # 工匠生产所需输入商品
+		type{ economy::commodity_set }
+		tag{ scenario }
+	}
+	property{
+		name{ artisan_output_amount } # 工匠产出量
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ icon } # 图标索引
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ producer_payout_fraction } # 生产者报酬比例
+		type{ float }
+		
+		
+	}
+	property{
+		name{ price_record } # 价格历史记录
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property{
+		name{ is_life_need } # 是否为生活必需品
+		type{ bitfield }
+		
+	}
+	property{
+		name{ is_everyday_need } # 是否为日常必需品
+		type{ bitfield }
+		
+	}
+	property{
+		name{ is_luxury_need } # 是否为奢侈品
+		type{ bitfield }
+		
+	}
+	property{
+		name{ uses_potentials } # 是否使用潜力系统
+		type{ bitfield }
+		tag{ scenario }
+	}
+}
+
+
+# 修正定义：定义各种游戏效果修正
+object {
+	name{ modifier }
+	storage_type{ contiguous }
+	size{ 10000 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ province_values } # 省份级修正值
+		type{ sys::provincial_modifier_definition }
+		tag{ scenario }
+	}
+	property{
+		name{ national_values } # 国家级修正值
+		type{ sys::national_modifier_definition }
+		tag{ scenario }
+	}
+	property{
+		name{ icon } # 图标索引
+		type{ uint8_t }
+		tag{ scenario }
+	}
+}
+
+
+# 工厂类型定义：定义各种工厂的属性
+object {
+	name{ factory_type }
+	storage_type{ contiguous }
+	size{ 256 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ description } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ construction_costs } # 建造成本
+		type{ economy::commodity_set }
+		tag{ scenario }
+	}
+	property{
+		name{ construction_time } # 建造时间（月）
+		type{int16_t}
+		tag{ scenario }
+	}
+	property{
+		name{ is_available_from_start } # 是否从游戏开始就可用/可建造
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ is_coastal } # 是否需要沿海省份/是否沿海
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ inputs } # 生产所需输入商品
+		type{ economy::commodity_set }
+		tag{ scenario }
+	}
+	property{
+		name{ efficiency_inputs } # 效率提升所需输入商品
+		type{ economy::small_commodity_set }
+		tag{ scenario }
+	}
+	property{
+		name{ base_workforce } # 基础劳动力需求
+		type{ int32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ output } # 产出商品类型
+		type{ commodity_id }
+		tag{ scenario }
+	}
+	property{
+		name{ output_amount } # 产出量
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ factory_bonuses } # 工厂生产类型加成
+		type{ std::array<economy::production_type_bonus,economy::max_production_type_bonuses> }
+		tag{ scenario }
+	}
+	property{
+		name{ can_be_built_in_colonies } # 是否可在殖民地建造
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ factory_tier } # 工厂等级
+		type{ uint8_t }
+		tag{ scenario }
+	}
+}
+
+
+
+# 意识形态组定义：定义意识形态分类组
+object {
+	name{ ideology_group }
+	storage_type{ contiguous }
+	size{ 64 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+}
+
+
+# 意识形态定义：定义各种意识形态及其效果
+object {
+	name{ ideology }
+	storage_type{ contiguous }
+	size{ 125 }
+	tag{ scenario }
+	tag{ save }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ color } # 颜色（RGBA格式）
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ is_civilized_only } # 是否仅限文明国家
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ activation_date } # 激活日期（出现时间）
+		type{ sys::date }
+		tag{ scenario }
+	}
+	property{
+		name{ add_political_reform } # 添加的政治改革
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ remove_political_reform } # 移除的政治改革
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ add_social_reform } # 添加的社会改革
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ remove_social_reform } # 移除的社会改革
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ add_military_reform } # 添加的军事改革
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ add_economic_reform } # 添加的经济改革
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ enabled } # 是否启用
+		type{ bitfield }
+		tag{ save }
+	}
+}
+
+
+# 意识形态组成员关系：意识形态与意识形态组的归属关系
+relationship{
+	name{ ideology_group_membership }
+	tag{ scenario }
+
+	link{
+		object{ideology}
+		name{ideology} # 意识形态
+		type{unique}
+	}
+	link{
+		object{ideology_group}
+		name{ideology_group}
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 议题定义：定义国家政策议题
+object {
+	name{ issue }
+	storage_type{ contiguous }
+	size{ 120 }
+	tag{ scenario }
+	
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ options } # 选项列表
+		type{ std::array<dcon::issue_option_id,culture::max_issue_options> }
+		tag{ scenario }
+	}
+	property{
+		name{ is_next_step_only } # 是否只能逐步解锁
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ is_administrative } # 是否为行政类议题
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ issue_type } # 议题类型
+		type{ uint8_t }
+		
+	}
+}
+
+
+# 议题选项定义：定义议题的各个选项
+object {
+	name{ issue_option }
+	storage_type{ contiguous }
+	size{ 720 }
+	tag{ scenario }
+	
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ movement_name } # 相关运动名称
+		type{ text_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ rules } # 规则标志位
+		type{ uint32_t }
+		tag{ scenario }
+	}
+
+	property{
+		name{ modifier } # 修正效果
+		type{ modifier_id }
+		tag{ scenario }
+	}
+
+	property{
+		name{ war_exhaustion_effect } # 战争疲惫度影响
+		type{ float }
+		tag{ scenario }
+	}
+
+	property{
+		name{ administrative_multiplier } # 行政效率乘数
+		type{ float }
+		tag{ scenario }
+	}
+
+	property{
+		name{ allow } # 允许条件触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ on_execute_trigger } # 执行时触发条件
+		type{ trigger_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ on_execute_effect } # 执行时效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ parent_issue } # 所属议题
+		type{ issue_id }
+		
+	}
+
+	property{
+		name{ support_modifiers } # 支持度修正
+		type{ array{issue_option_id}{value_modifier_key} }
+		tag{ scenario }
+	}
+}
+
+
+# 改革定义：定义国家改革内容
+object {
+	name{ reform }
+	storage_type{ contiguous }
+	size{ 120 }
+	tag{ scenario }
+	
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ options } # 选项列表
+		type{ std::array<dcon::reform_option_id,culture::max_issue_options> }
+		tag{ scenario }
+	}
+	property{
+		name{ is_next_step_only } # 是否只能逐步解锁
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ reform_type } # 改革类型（政治/社会/军事/经济）
+		type{ uint8_t }
+		
+	}
+}
+
+
+# 改革选项定义：定义改革的各个选项
+object {
+	name{ reform_option }
+	storage_type{ contiguous }
+	size{ 720 }
+	tag{ scenario }
+	
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ rules } # 规则标志位
+		type{ uint32_t }
+		tag{ scenario }
+	}
+
+	property{
+		name{ modifier } # 修正效果
+		type{ modifier_id }
+		tag{ scenario }
+	}
+
+	property{
+		name{ technology_cost } # 科技成本影响
+		type{ int32_t }
+		tag{ scenario }
+	}
+
+	property{
+		name{ war_exhaustion_effect } # 战争疲惫度影响
+		type{ float }
+		tag{ scenario }
+	}
+
+	property{
+		name{ allow } # 允许条件触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ on_execute_trigger } # 执行时触发条件
+		type{ trigger_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ on_execute_effect } # 执行时效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ parent_reform } # 所属改革
+		type{ reform_id }
+		
+	}
+}
+
+
+# 宣战理由类型定义：定义各种战争借口的属性
+object {
+	name{cb_type}
+	storage_type{ contiguous }
+	size{ 150 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ short_desc } # 简短描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ shortest_desc } # 最简短描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ long_desc } # 详细描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ war_name } # 战争名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ type_bits } # 类型标志位
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ months } # 所需准备时间（月）
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ truce_months } # 停战期（月）
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ sprite_index } # 图标索引
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ allowed_states } # 允许的状态地区条件
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ allowed_states_in_crisis } # 危机中允许的状态地区条件
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ allowed_substate_regions } # 允许的附庸地区条件
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ allowed_countries } # 允许的国家条件
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ can_use } # 可用条件触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ on_add } # 添加时效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ on_po_accepted } # 和约被接受时效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ badboy_factor } # 恶名因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ prestige_factor } # 声望因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ peace_cost_factor } # 和约成本因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ penalty_factor } # 惩罚因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ break_truce_prestige_factor } # 破坏停战声望因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ break_truce_infamy_factor } # 破坏停战恶名因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ break_truce_militancy_factor } # 破坏停战激进度因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ good_relation_prestige_factor } # 良好关系声望因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ good_relation_infamy_factor } # 良好关系恶名因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ good_relation_militancy_factor } # 良好关系激进度因子
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ construction_speed } # 建造速度影响
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ tws_battle_factor } # 战区战斗因子
+		type{ float }
+		tag{ scenario }
+	}
+}
+
+
+# 领袖特质定义：定义将军和海军上将的特质
+object {
+	name{leader_trait}
+	storage_type{ contiguous }
+	size{ 2800 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ organisation } # 组织度加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ morale } # 士气加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ attack } # 攻击加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ defense } # 防御加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ reconnaissance } # 侦察加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ speed } # 速度加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ experience } # 经验值/经验加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ reliability } # 可靠性加成
+		type{ float }
+		tag{ scenario }
+	}
+}
+
+
+# 人口类型定义：定义各种人口阶层的属性
+object {
+	name{ pop_type }
+	storage_type{ contiguous }
+	size{ 20 }
+	tag{ scenario }
+	tag{ keep_after_state_reload }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+
+	property{
+		name{ sprite } # 图标索引
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ color } # 颜色（RGBA格式）
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ strata } # 社会阶层（上层/中层/下层）
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ state_capital_only } # 是否仅限首府省份
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ voting_forbidden } # 是否禁止投票
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ is_paid_rgo_worker } # 是否为有薪RGO工人
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ everyday_needs_income_type } # 日常需求收入类型
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ luxury_needs_income_type } # 奢侈品需求收入类型
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ life_needs_income_type } # 生活需求收入类型
+		type{ uint8_t }
+		tag{ scenario }
+	}
+
+	property{
+		name{ research_optimum } # 科研最优值
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ research_points } # 科研点数贡献
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ has_unemployment } # 是否会失业
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ migration_target } # 移民目标修正
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ migration_target_fn } # 移民目标函数指针
+		type{ uint64_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ country_migration_target } # 国家移民目标修正
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ country_migration_target_fn } # 国家移民目标函数指针
+		type{ uint64_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ issues } # 议题偏好修正
+		type{array{issue_option_id}{value_modifier_key}}
+		tag{ scenario }
+	}
+	property{
+		name{ issues_fns } # 议题偏好函数指针
+		type{array{issue_option_id}{uint64_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ ideology } # 意识形态
+		type{array{ideology_id}{value_modifier_key}}
+		tag{ scenario }
+	}
+	property{
+		name{ ideology_fns } # 意识形态偏好函数指针
+		type{array{ideology_id}{uint64_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ promotion } # 晋升概率修正
+		type{array{pop_type_id}{value_modifier_key}}
+		tag{ scenario }
+	}
+	property{
+		name{ promotion_fns } # 晋升概率函数指针
+		type{array{pop_type_id}{uint64_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ life_needs } # 生活必需品需求
+		type{array{commodity_id}{float}}
+		tag{ scenario }
+	}
+	property{
+		name{ everyday_needs } # 日常必需品需求
+		type{array{commodity_id}{float}}
+		tag{ scenario }
+	}
+	property{
+		name{ luxury_needs } # 奢侈品需求
+		type{array{commodity_id}{float}}
+		tag{ scenario }
+	}
+}
+
+
+# 叛乱类型定义：定义各种叛乱的属性和行为
+object {
+	name{ rebel_type }
+	storage_type{ contiguous }
+	size{ 127 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ title } # 头衔/标题
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ description } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ army_name } # 叛军名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ icon } # 图标索引
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ break_alliance_on_win } # 胜利时是否破坏同盟
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ area } # 影响区域类型
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ defection } # 叛变倾向
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ independence } # 独立倾向
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ ideology } # 意识形态
+		type{ ideology_id }
+		tag{ scenario }
+	}
+	property{
+		name{ occupation_multiplier } # 占领加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ defect_delay } # 叛变延迟
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ culture_restriction } # 是否有文化限制
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ ideology_restriction } # 是否有意识形态限制
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ culture_group_restriction } # 是否有文化组限制
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ will_rise } # 崛起意愿修正
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ spawn_chance } # 生成概率修正
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ movement_evaluation } # 运动评估修正
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ siege_won_trigger } # 围城胜利触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ siege_won_effect } # 围城胜利效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ demands_enforced_trigger } # 要求强制执行触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ demands_enforced_effect } # 要求强制执行效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ government_change } # 政府类型变更映射
+		type{array{government_type_id}{government_type_id}}
+		tag{ scenario }
+	}
+}
+
+
+# 政府类型定义：定义各种政府形式的属性
+object {
+	name{ government_type }
+	storage_type{ contiguous }
+	size{ 100 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ ruler_name } # 统治者称号
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ ideologies_allowed } # 允许的意识形态位掩码
+		type{ uint64_t }
+		tag{ scenario }
+	}
+	property{
+		name{ has_elections } # 是否有选举
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ can_appoint_ruling_party } # 是否可任命执政党
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ duration } # 任期时长
+		type{ int8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ flag } # 政府旗帜
+		type{ government_flag_id }
+		tag{ scenario }
+	}
+}
+
+
+# 省份定义：定义游戏中的省份属性
+object {
+	name{ province }
+	storage_type{ contiguous }
+	size{ 17000 }
+	tag{ scenario }
+	tag{ save }
+	
+
+	property{
+		name{ provid } # 省份ID（原始ID）
+		type{ uint32_t }
+		tag{ scenario }
+	}
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ save }
+	}
+	property{
+		name{ continent } # 所属大洲修正
+		type{ modifier_id }
+		tag{ scenario }
+	}
+	property{
+		name{ climate } # 气候修正
+		type{ modifier_id }
+		tag{ scenario }
+	}
+	property{
+		name{ terrain } # 地形修正
+		type{ modifier_id }
+		tag{ save }
+	}
+	property{
+		name{ life_rating } # 生活评级
+		type{ uint8_t }
+		tag{ save }
+	}
+
+	property{
+		name{ rgo } # RGO产出商品
+		type{ commodity_id }
+		tag{ save }
+	}
+	property{
+		name{ building_level } # 建筑等级数组
+		type{ array{uint8_t}{uint8_t} }
+		tag{ save }
+	}
+	property{
+		name{ is_slave } # 是否为奴隶制省份
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ naval_rally_point } # 是否为海军集结点
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ land_rally_point } # 是否为陆军集结点
+		type{ bitfield }
+		tag{ save }
+	}
+
+	property{
+		name{ is_colonial } # 是否为殖民地
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ has_major_river } # 是否有大河
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ has_minor_river } # 是否有小河
+		type{ bitfield }
+		tag{ save }
+	}
+
+	property{
+		name{ crime } # 犯罪等级
+		type{ crime_id }
+		tag{ save }
+	}
+
+	property{
+		name{ mid_point } # 省份中心点坐标（2D）
+		type{ glm::vec2 }
+		tag{ scenario }
+	}
+	property{
+		name{ mid_point_b } # 省份中心点坐标（3D）
+		type{ glm::vec3 }
+		
+	}
+
+	property{
+		name{ port_to } # 港口连接省份
+		type{ province_id }
+		tag{ scenario }
+	}
+
+	property{
+		name{ party_loyalty } # 政党忠诚度
+		type{array{ideology_id}{float}}
+		tag{ save }
+	}
+
+	property{
+		name{ modifier_values } # 修正值数组
+		type{ array{provincial_modifier_value}{float} }
+		
+	}
+
+	property {
+		name{ current_modifiers } # 当前生效的修正列表
+		type{vector_pool{90000}{sys::dated_modifier}}
+		tag{ save }
+	}
+	property {
+		name{ nationalism } # 民族主义情绪
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ connected_region_id } # 连接区域ID
+		type{ uint16_t }
+		
+	}
+	property {
+		name{ connected_coast_id } # 连接海岸ID
+		type{ uint16_t }
+		
+	}
+	property {
+		name{ state_membership } # 所属州实例
+		type{ state_instance_id }
+		
+	}
+	property {
+		name{ is_coast } # 是否沿海
+		type{ bitfield }
+		
+	}
+	property {
+		name{ demographics } # 人口统计数据
+		type{ array{demographics_key}{float} }
+	}
+	property {
+		name{ demographics_alt } # 人口统计数据（备用）
+		type{ array{demographics_key}{float} }
+	}
+	swappable{demographics}{demographics_alt} # 可交换缓冲区（双缓冲技术）
+	property {
+		name{ dominant_culture } # 主流文化
+		type{ culture_id }
+		
+	}
+	property {
+		name{ dominant_accepted_culture } # 主流接受文化
+		type{ culture_id }
+		
+	}
+	property {
+		name{ dominant_religion } # 主流宗教
+		type{ religion_id }
+		
+	}
+	property {
+		name{ dominant_ideology } # 主流意识形态
+		type{ ideology_id }
+		
+	}
+	property {
+		name{ dominant_issue_option } # 主流议题选项
+		type{ issue_option_id }
+		
+	}
+	property {
+		name{ last_control_change } # 最后控制权变更日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property {
+		name{ last_immigration } # 最后移民日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ is_owner_core } # 是否为所有者核心领土
+		type{ bitfield }
+		
+	}
+	property {
+		name{ rgo_base_size } # RGO基础规模
+		type{ float }
+		tag{ save }
+	}	
+	property{
+		name{ rgo_was_set_during_scenario_creation } # RGO是否在场景创建时设置
+		type{ bitfield }
+	}
+	property{
+		name{ rgo_size } # RGO规模
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ rgo_max_size } # RGO最大规模
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	
+	property{
+		name{ rgo_potential } # RGO潜力
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ rgo_efficiency } # RGO效率
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ rgo_max_efficiency } # RGO最大效率
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ rgo_base_efficiency } # RGO基础效率
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ rgo_target_employment } # RGO目标就业
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ rgo_output } # RGO产出
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ rgo_output_per_worker } # RGO人均产出
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+
+	property{
+		name{ factory_limit_was_set_during_scenario_creation } # 工厂上限是否在场景创建时设置
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ factory_max_size } # 工厂最大规模
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+
+	property{
+		name{ rgo_profit } # RGO利润
+		type{ float }
+		tag{ save }
+	}
+	property { 
+		name{ artisan_score } # 工匠评分
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ artisan_actual_production } # 工匠实际产出
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ artisan_profit } # 工匠利润
+		type{ float }
+		
+	}	
+	property {
+		name{ artisan_bank } # 工匠资金
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ rgo_bank } # RGO资金
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ factory_bank } # 工厂资金
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ subsistence_score } # 自给自足评分
+		type{ float }
+		
+	}
+	property{
+		name{ landowners_share } # 土地所有者份额
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ capitalists_share } # 资本家份额
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ subsistence_employment } # 自给自足就业
+		type{ float }
+		tag{ save }
+	}	
+
+	property{
+		name{ tax_base_poor } # 穷人税基
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ tax_base_middle } # 中产阶级税基
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ tax_base_rich } # 富人税基
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ daily_net_migration } # 每日净移民
+		type{ float }
+		
+	}
+	property{
+		name{ daily_net_immigration } # 每日净移入
+		type{ float }
+		
+	}
+	property{
+		name{ siege_progress } # 围城进度
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ is_blockaded } # 是否被封锁
+		type{ bitfield }
+		
+	}
+	property{
+		name{ former_controller } # 前控制者国家
+		type{ dcon::nation_id }
+		
+	}
+	property{
+		name{ former_rebel_controller } # 前叛乱控制者
+		type{ dcon::rebel_faction_id }
+		
+	}
+
+	property {
+		name{ advanced_province_building_national_size } # 高级省份建筑国家规模
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ advanced_province_building_max_national_size } # 高级省份建筑最大国家规模
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ advanced_province_building_private_size } # 高级省份建筑私人规模
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ advanced_province_building_private_savings } # 高级省份建筑私人储蓄
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ advanced_province_building_max_private_size } # 高级省份建筑最大私人规模
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ advanced_province_building_private_output } # 高级省份建筑私人产出
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+
+	property {
+		name{ service_price } # 服务价格
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ service_supply_private } # 服务私人供给
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ service_supply_public } # 服务公共供给
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ service_demand_allowed_public_supply } # 允许公共供给的服务需求
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ service_demand_forbidden_public_supply } # 禁止公共供给的服务需求
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ service_satisfaction } # 服务满意度
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ service_satisfaction_for_free } # 免费服务满意度
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ service_sold } # 服务销售量
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+
+	property {
+		name{ labor_price } # 劳动力价格
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ labor_supply } # 劳动力供给
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ labor_demand } # 劳动力需求
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ labor_demand_satisfaction } # 劳动力需求满足度
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ labor_supply_sold } # 劳动力销售量
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+
+
+	property {
+		name{ administration_employment_target } # 行政就业目标
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ pop_labor_distribution } # 人口劳动力分配
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+
+	property {
+		name{ control_scale } # 控制规模
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ control_ratio } # 控制比率
+		type{ float }
+		tag{ save }
+	}
+}
+
+
+# 省份邻接关系：定义省份之间的连接和距离
+relationship{
+	name{ province_adjacency }
+	storage_type{ compactable }
+	size{ 28000 }
+	tag{ save }
+	tag { scenario }
+	
+
+	link{
+		object{province}
+		name{connected_provinces} # 连接的省份
+		type{many}
+		index_storage{array}
+		multiple{2}
+	}
+	
+	composite_key{ # 复合键定义
+		name{province_pair} # 省份对复合键
+		index{connected_provinces}
+	}
+
+	property{
+		name{ distance } # 距离
+		type{ float }
+		
+	}
+	property{
+		name{ distance_km } # 距离（公里）
+		type{ float }
+		
+	}
+
+	property{
+		name{ canal_or_blockade_province } # 运河或封锁省份
+		type{ dcon::province_id }
+		tag{ save }
+	}
+
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ uint8_t }
+		tag{ save }
+	}
+}
+
+
+# 国家邻接关系：定义国家之间的地理邻接
+relationship{
+	name{ nation_adjacency }
+	storage_type{ compactable }
+	size{ 4000 }
+	
+
+	link{
+		object{nation}
+		name{connected_nations} # 连接的国家
+		type{many}
+		index_storage{array}
+		multiple{2}
+	}
+	
+	composite_key{ # 复合键定义
+		name{nation_adjacency_pair} # 国家邻接对复合键
+		index{connected_nations}
+	}
+}
+
+
+# 团级单位定义：定义单个军事单位（步兵营、骑兵连等）
+object {
+	name{ regiment }
+	storage_type{ erasable }
+	size{ 32000 }
+	tag{ save }
+	
+
+	property{
+		name{ name } # 名称
+		type{ unit_name_id }
+		tag{ save }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ unit_type_id }
+		tag{ save }
+	}
+	property{	
+		name{ strength } # 兵力强度/舰船强度
+		type{ float }
+		tag{ save }
+	}
+	property{	
+		name{ pending_combat_damage } # 待处理战斗伤害
+		type{ float }
+	}
+	property{	
+		name{ pending_attrition_damage } # 待处理损耗伤害
+		type{ float }
+	}
+	property{	
+		name{ org } # 组织度
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ experience } # 经验值/经验加成
+		type{ float }
+		tag{ save }
+	}
+}
+
+
+object {
+	name { automated_army_group }
+	storage_type{ erasable }
+	size { 50 }
+	tag { local_save }
+	tag { mp_checksum_excluded }
+
+	property {
+		name { owner }
+		type { nation_id }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+
+	property {
+		name { hq }
+		type { province_id }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+
+	property {
+		name { provinces_defend }
+		type { vector_pool{30000}{province_id} }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+
+	property {
+		name { provinces_enforce_control }
+		type { vector_pool{30000}{province_id} }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+
+	property {
+		name { provinces_ferry_origin }
+		type { vector_pool{30000}{province_id} }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+# 自动化集团军成员关系（团）：团与自动化集团军的归属关系
+relationship{
+	name{ automated_army_group_membership_regiment }
+	tag{ local_save }
+	tag { mp_checksum_excluded }
+
+	link{
+		object{ regiment_automation_data }
+		name{ regiment } # 团
+		type{ unique }
+	}
+	link{
+		object{ automated_army_group }
+		name{ army } # 陆军
+		type{ many }
+		index_storage{ array }
+	}
+}
+
+
+# 自动化集团军成员关系（海军）：海军与自动化集团军的归属关系
+relationship{
+	name{ automated_army_group_membership_navy }
+	tag{ local_save }
+	tag { mp_checksum_excluded }
+
+	link{
+		object{ navy }
+		name{ navy } # 海军
+		type{ unique }
+	}
+	link{
+		object{ automated_army_group }
+		name{ army } # 陆军
+		type{ many }
+		index_storage{ array }
+	}
+}
+
+
+object {
+	name { regiment_automation_data }
+	storage_type{ erasable }
+	size { 4000 }
+	tag { local_save }
+	tag { mp_checksum_excluded }
+
+	property {
+		name { status }
+		type { sys::army_group_regiment_status }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+	property {
+		name { task }
+		type { sys::army_group_regiment_task }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+	property {
+		name { await_command_execution_flag }
+		type { bitfield }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+	property {
+		name { target }
+		type { province_id }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+
+	property {
+		name { ferry_target }
+		type { province_id }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+
+	property {
+		name { ferry_origin }
+		type { province_id }
+		tag { local_save }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+
+# 自动化关系：团与自动化数据的关联
+relationship{
+	name{ automation }
+	tag{ local_save }
+	tag { mp_checksum_excluded }
+
+	link{
+		object{ regiment_automation_data }
+		name{ automation_data }
+		type{ unique }
+	}
+	link{
+		object{ regiment }
+		name{ regiment } # 团
+		type{ unique }
+	}
+}
+
+
+# 舰船定义：定义单个舰船单位
+object {
+	name{ ship }
+	storage_type{ erasable }
+	size{ 32000 }
+	tag{ save }
+	
+	
+
+	property{
+		name{ name } # 名称
+		type{ unit_name_id }
+		tag{ save }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ unit_type_id }
+		tag{ save }
+	}
+	property{	
+		name{ strength } # 兵力强度/舰船强度
+		type{ float }
+		tag{ save }
+	}
+	property{	
+		name{ org } # 组织度
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ experience } # 经验值/经验加成
+		type{ float }
+		tag{ save }
+}
+}
+
+
+# 陆军定义：定义陆军部队
+object {
+	name{ army }
+	storage_type{ erasable }
+	size{ 8000 }
+	tag{ save }
+
+	property{
+		name{ name } # 名称
+		type{ unit_name_id }
+		tag{ save }
+	}
+
+	property{
+		name{ black_flag } # 是否为黑色旗帜（海盗/私掠）
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ is_retreating } # 是否正在撤退
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ is_rebel_hunter } # 是否为平叛军
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ moving_to_merge } # 是否正在移动以合并
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ special_order } # 特殊命令
+		type{ uint8_t }
+		tag{ save }
+	}
+	property {
+		name{ dig_in } # 防御工事等级
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ path } # 移动路径
+		type{vector_pool{30000}{province_id}}
+		tag{ save }
+	}
+	property{
+		name{ arrival_time } # 到达时间
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ unused_travel_days } # 未使用旅行天数
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ ai_activity } # AI活动状态
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ ai_province } # AI目标省份
+		type{ province_id }
+		tag{ save }
+	}
+	property{
+		name{ is_ai_controlled } # 是否受AI控制
+		type{ bitfield }
+		tag{ save }
+	}
+}
+
+
+# 陆军追击关系：陆军追击关系
+relationship{
+	name{ army_pursuit }
+	tag{ save }
+
+	link{
+		object{army}
+		name{source} # 来源/来源国家
+		type{unique}
+	}
+	link{
+		object{army}
+		name{target} # 目标/目标国家
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 海军定义：定义海军部队
+object {
+	name{ navy }
+	storage_type{ erasable }
+	size{ 10000 }
+	tag{ save }
+
+	property{
+		name{ name } # 名称
+		type{ unit_name_id }
+		tag{ save }
+	}
+
+	property{
+		name{ path } # 移动路径
+		type{vector_pool{20000}{province_id}}
+		tag{ save }
+	}
+	property{
+		name{ arrival_time } # 到达时间
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ unused_travel_days } # 未使用旅行天数
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ months_outside_naval_range } # 超出海军范围月数
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ is_retreating } # 是否正在撤退
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ moving_to_merge } # 是否正在移动以合并
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ ai_activity } # AI活动状态
+		type{ uint8_t }
+		tag{ save }
+	}
+}
+
+
+# 陆军运输关系：陆军与运输舰的关系
+relationship{
+	name{ army_transport }
+	tag{ save }
+
+	link{
+		object{army}
+		name{army} # 陆军
+		type{unique}
+	}
+	link{
+		object{navy}
+		name{navy} # 海军
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 陆军控制关系：国家对陆军的控制
+relationship{
+	name{ army_control }
+	tag{ save }
+
+	link{
+		object{army}
+		name{army} # 陆军
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{controller} # 控制者
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 陆军叛乱控制关系：叛乱派对陆军的控制
+relationship{
+	name{ army_rebel_control }
+	tag{ save }
+
+	link{
+		object{army}
+		name{army} # 陆军
+		type{unique}
+	}
+	link{
+		object{rebel_faction}
+		name{controller} # 控制者
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 陆军位置关系：陆军所在的省份
+relationship{
+	name{ army_location }
+	tag{ save }
+
+	link{
+		object{army}
+		name{army} # 陆军
+		type{unique}
+	}
+	link{
+		object{province}
+		name{location} # 位置/所在地
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 陆军成员关系：团与陆军的归属关系
+relationship{
+	name{ army_membership }
+	tag{ save }
+
+	link{
+		object{regiment}
+		name{regiment} # 团
+		type{unique}
+	}
+	link{
+		object{army}
+		name{army} # 陆军
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 团来源关系：团的人口来源
+relationship{
+	name{ regiment_source }
+	tag{ save }
+
+	link{
+		object{regiment}
+		name{regiment} # 团
+		type{unique}
+	}
+	link{
+		object{pop}
+		name{pop} # 人口
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 海军控制关系：国家对海军的控制
+relationship{
+	name{ navy_control }
+	tag{ save }
+
+	link{
+		object{navy}
+		name{navy} # 海军
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{controller} # 控制者
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 海军位置关系：海军所在的省份
+relationship{
+	name{ navy_location }
+	tag{ save }
+
+	link{
+		object{navy}
+		name{navy} # 海军
+		type{unique}
+	}
+	link{
+		object{province}
+		name{location} # 位置/所在地
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 海军成员关系：舰船与海军的归属关系
+relationship{
+	name{ navy_membership }
+	tag{ save }
+
+	link{
+		object{ship}
+		name{ship}
+		type{unique}
+	}
+	link{
+		object{navy}
+		name{navy} # 海军
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 海战定义：定义海战数据
+object {
+	name{ naval_battle }
+	storage_type{ erasable }
+	size{ 1000 }
+	tag{ save }
+
+	property{
+		name{ start_date } # 开始日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ war_attacker_is_attacker } # 战争进攻方是否为战斗进攻方
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ dice_rolls } # 骰子投掷次数
+		type{ uint8_t }
+		tag{ save }
+	}
+
+	property{
+		name{ attacker_big_ships } # 进攻方大型舰船数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ attacker_small_ships } # 进攻方小型舰船数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ attacker_transport_ships } # 进攻方运输舰船数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ attacker_big_ships_lost } # 进攻方大型舰船损失数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ attacker_small_ships_lost } # 进攻方小型舰船损失数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ attacker_transport_ships_lost } # 进攻方运输舰船损失数量
+		type{ uint16_t }
+		tag{ save }
+	}
+
+	property{
+		name{ defender_big_ships } # 防御方大型舰船数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ defender_small_ships } # 防御方小型舰船数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ defender_transport_ships } # 防御方运输舰船数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ defender_big_ships_lost } # 防御方大型舰船损失数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ defender_small_ships_lost } # 防御方小型舰船损失数量
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ defender_transport_ships_lost } # 防御方运输舰船损失数量
+		type{ uint16_t }
+		tag{ save }
+	}
+
+	property{
+		name{ attacker_loss_value } # 进攻方损失值
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ defender_loss_value } # 防御方损失值
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ avg_distance_from_center_line } # 距中心线平均距离
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ slots } # 战斗槽位列表
+		type{vector_pool{6000}{military::ship_in_battle}}
+		tag{ save }
+	}
+}
+
+
+# 海战位置关系：海战发生的地点
+relationship{
+	name{ naval_battle_location }
+	tag{ save }
+
+	link{
+		object{naval_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{province}
+		name{location} # 位置/所在地
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 海战战争关系：海战所属的战争
+relationship{
+	name{ naval_battle_in_war }
+	tag{ save }
+
+	link{
+		object{naval_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{war}
+		name{war} # 战争
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 海战参与关系：海军参与的海战
+relationship{
+	name{ navy_battle_participation }
+	tag{ save }
+
+	link{
+		object{navy}
+		name{navy} # 海军
+		type{unique}
+	}
+	link{
+		object{naval_battle}
+		name{battle} # 战斗
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 进攻海军上将关系：海战中的进攻方海军上将
+relationship{
+	name{ attacking_admiral }
+	tag{ save }
+
+	link{
+		object{naval_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{leader}
+		name{admiral} # 海军上将
+		type{unique}
+	}
+}
+
+
+# 防御海军上将关系：海战中的防御方海军上将
+relationship{
+	name{ defending_admiral }
+	tag{ save }
+
+	link{
+		object{naval_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{leader}
+		name{admiral} # 海军上将
+		type{unique}
+	}
+}
+
+
+# 陆战定义：定义陆战数据
+object {
+	name{ land_battle }
+	storage_type{ erasable }
+	size{ 1000 }
+	tag{ save }
+	
+	
+
+	property{
+		name{ start_date } # 开始日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ war_attacker_is_attacker } # 战争进攻方是否为战斗进攻方
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ dice_rolls } # 骰子投掷次数
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ combat_width } # 战斗宽度
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ attacker_infantry } # 进攻方步兵数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ attacker_cav } # 进攻方骑兵数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ attacker_support } # 进攻方支援单位数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ attacker_infantry_lost } # 进攻方步兵损失数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ attacker_cav_lost } # 进攻方骑兵损失数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ attacker_support_lost } # 进攻方支援单位损失数量
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ defender_infantry } # 防御方步兵数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ defender_cav } # 防御方骑兵数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ defender_support } # 防御方支援单位数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ defender_infantry_lost } # 防御方步兵损失数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ defender_cav_lost } # 防御方骑兵损失数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ defender_support_lost } # 防御方支援单位损失数量
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ attacker_back_line } # 进攻方后线部队
+		type{ std::array<military::battle_regiment,military::max_combat_width> }
+		tag{ save }
+	}
+	property{
+		name{ attacker_front_line } # 进攻方前线部队
+		type{ std::array<military::battle_regiment,military::max_combat_width> }
+		tag{ save }
+	}
+	property{
+		name{ defender_back_line } # 防御方后线部队
+		type{ std::array<military::battle_regiment,military::max_combat_width> }
+		tag{ save }
+	}
+	property{
+		name{ defender_front_line } # 防御方前线部队
+		type{ std::array<military::battle_regiment,military::max_combat_width> }
+		tag{ save }
+	}
+
+	property{
+		name{ reserves } # 预备队列表
+		type{vector_pool{5000}{military::battle_regiment}}
+		tag{ save }
+	}
+	
+	property{
+		name{ defender_casualties } # 防御方伤亡
+		type{ float }
+		
+		
+	}
+	
+	property{
+		name{ attacker_casualties } # 进攻方伤亡
+		type{ float }
+		
+		
+	}
+}
+
+
+# 陆战位置关系：陆战发生的地点
+relationship{
+	name{ land_battle_location }
+	tag{ save }
+
+	link{
+		object{land_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{province}
+		name{location} # 位置/所在地
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 陆战战争关系：陆战所属的战争
+relationship{
+	name{ land_battle_in_war }
+	tag{ save }
+
+	link{
+		object{land_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{war}
+		name{war} # 战争
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 陆战参与关系：陆军参与的陆战
+relationship{
+	name{ army_battle_participation }
+	tag{ save }
+
+	link{
+		object{army}
+		name{army} # 陆军
+		type{unique}
+	}
+	link{
+		object{land_battle}
+		name{battle} # 战斗
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 进攻将军关系：陆战中的进攻方将军
+relationship{
+	name{ attacking_general }
+	tag{ save }
+
+	link{
+		object{land_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{leader}
+		name{general} # 将军
+		type{unique}
+	}
+}
+
+
+# 防御将军关系：陆战中的防御方将军
+relationship{
+	name{ defending_general }
+	tag{ save }
+
+	link{
+		object{land_battle}
+		name{battle} # 战斗
+		type{unique}
+	}
+	link{
+		object{leader}
+		name{general} # 将军
+		type{unique}
+	}
+}
+
+
+# 领袖定义：定义将军和海军上将
+object {
+	name{ leader }
+	storage_type{ erasable }
+	size{ 32000 }
+	tag{ save }
+
+	property{
+		name{ name } # 名称
+		type{ unit_name_id }
+		tag{ save }
+	}
+	property{
+		name{ personality } # 性格特质
+		type{ leader_trait_id }
+		tag{ save }
+	}
+	property{
+		name{ background } # 背景特质
+		type{ leader_trait_id }
+		tag{ save }
+	}
+	property{
+		name{ since } # 任职日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ prestige } # 声望
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ is_admiral } # 是否为海军上将
+		type{ bitfield }
+		tag{ save }
+	}
+}
+
+
+# 陆军领导关系：陆军的指挥官
+relationship{
+	name{ army_leadership }
+	tag{ save }
+
+	link{
+		object{army}
+		name{army} # 陆军
+		type{unique}
+	}
+	link{
+		object{leader}
+		name{general} # 将军
+		type{unique}
+	}
+}
+
+# 海军领导关系：海军的指挥官
+relationship{
+	name{ navy_leadership }
+	tag{ save }
+
+	link{
+		object{navy}
+		name{navy} # 海军
+		type{unique}
+	}
+	link{
+		object{leader}
+		name{admiral} # 海军上将
+		type{unique}
+	}
+}
+
+
+# 领袖忠诚关系：领袖所属的国家
+relationship{
+	name{ leader_loyalty }
+	tag{ save }
+
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{leader}
+		name{leader} # 领袖
+		type{unique}
+	}
+}
+
+# 战争定义：定义战争数据
+object {
+	name{ war }
+	storage_type{ erasable }
+	size{ 255 }
+	tag{ save }
+
+	property{
+		name{ primary_attacker } # 主要进攻方
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ primary_defender } # 主要防御方
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ start_date } # 开始日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ save }
+	}
+	property{
+		name{ over_state } # 争夺的州
+		type{ state_definition_id }
+		tag{ save }
+	}
+	property{
+		name{ original_target } # 原始目标国家
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ original_attacker } # 原始进攻方
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ over_tag } # 争夺的国家身份
+		type{ national_identity_id }
+		tag{ save }
+	}
+	property {
+		name{ is_great } # 是否为大战
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ is_crisis_war } # 是否为危机战争
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ number_of_battles } # 战斗次数
+		type{ uint16_t }
+		tag{ save }
+	}
+	property {
+		name{ attacker_battle_score } # 进攻方战斗分数
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ defender_battle_score } # 防御方战斗分数
+		type{ float }
+		tag{ save }
+	}
+}
+
+# 和平提议定义：定义和平条约提议
+object {
+	name{ peace_offer }
+	storage_type{ erasable }
+	size{ 100 }
+	tag{ save }
+
+	property{
+		name{ target } # 目标/目标国家
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ is_concession } # 是否为让步
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ is_crisis_offer } # 是否为危机提议
+		type{ bitfield }
+		tag{ save }
+	}
+}
+
+# 待处理和平提议关系：国家与和平提议的关系
+relationship{
+	name{ pending_peace_offer }
+	tag{ save }
+
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{unique}
+	}
+	link{
+		object{peace_offer}
+		name{peace_offer} # 和平提议
+		type{unique}
+	}
+}
+
+# 战争解决关系：战争与和平提议的关系
+relationship{
+	name{ war_settlement }
+	tag{ save }
+
+	link{
+		object{war}
+		name{war} # 战争
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{peace_offer}
+		name{peace_offer} # 和平提议
+		type{unique}
+	}
+}
+
+# 战争目标定义：定义战争目标
+object {
+	name{ wargoal }
+	storage_type{ erasable }
+	size{ 1000 }
+	tag{ save }
+
+	property{
+		name{ added_by }
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ target_nation }
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ cb_type_id }
+		tag{ save }
+	}
+	property{
+		name{ associated_tag }
+		type{ national_identity_id }
+		tag{ save }
+	}
+	property{
+		name{ secondary_nation }
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ associated_state }
+		type{ state_definition_id }
+		tag{ save }
+	}
+	property{
+		name{ ticking_war_score }
+		type{ float }
+		tag{ save }
+	}
+}
+
+# 战争参与者关系：参与战争的国家
+relationship{
+	name{ war_participant }
+	storage_type{ erasable }
+	size{ 3000 }
+	tag{ save }
+
+	link{
+		object{war}
+		name{war} # 战争
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+	property{
+		name{ is_attacker }
+		type{ bitfield }
+		tag{ save }
+	}
+}
+
+# 战争目标附属关系：战争目标所属的战争
+relationship{
+	name{ wargoals_attached }
+	tag{ save }
+
+	link{
+		object{war}
+		name{war} # 战争
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{wargoal}
+		name{wargoal} # 战争目标
+		type{unique}
+	}
+}
+
+# 和平提议条目：和平提议包含的战争目标
+relationship{
+	name{ peace_offer_item }
+	tag{ save }
+
+	link{
+		object{peace_offer}
+		name{peace_offer} # 和平提议
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{wargoal}
+		name{wargoal} # 战争目标
+		type{unique}
+	}
+}
+
+
+# 州定义：定义州的基础数据
+object {
+	name{ state_definition }
+	storage_type{ contiguous }
+	size{ 6000 }
+	tag{ scenario }
+	tag{ save }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ save }
+	}
+	property{
+		name{ colonization_temperature } # 殖民温度
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ colonization_stage } # 殖民阶段
+		type{ uint8_t }
+		tag{ save }
+	}
+}
+
+
+# 行政定义：定义行政区域
+object {
+	name{ administration }
+	storage_type{ erasable }
+	size{ 3000 }
+	tag{ save }
+
+	property{
+		name{ capital } # 首都/首府
+		type{ province_id }
+		tag{ save }
+	}
+	property{
+		name{ desired_size } # 预期规模
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ weight } # 权重
+		type{ float }
+		tag{ save }
+	}
+}
+
+
+# 国家行政关系：国家与行政区域的关系
+relationship{
+	name{ nation_administration }
+	tag{ save }
+	link{
+		object{administration}
+		name{administration} # 行政区域
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 州实例定义：定义州的运行时数据
+object {
+	name{ state_instance }
+	storage_type{ erasable }
+	size{ 6000 }
+	tag{ save }
+	
+	
+
+	property{
+		name{ definition } # 州定义
+		type{ state_definition_id }
+		tag{ save }
+	}
+	property{
+		name{ flashpoint_tag } # 焦点冲突国家身份
+		type{ national_identity_id }
+		tag{ save }
+	}
+	property {
+		name{ flashpoint_tension } # 焦点冲突紧张度
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ capital } # 首都/首府
+		type{ province_id }
+		tag{ save }
+	}
+	property{
+		name{ owner_focus } # 所有者国家焦点
+		type{ national_focus_id }
+		tag{ save }
+	}
+	property {
+		name{ demographics } # 人口统计数据
+		type{ array{demographics_key}{float} }
+	}
+	property {
+		name{ demographics_alt } # 人口统计数据（备用）
+		type{ array{demographics_key}{float} }
+	}
+	swappable{demographics}{demographics_alt} # 可交换缓冲区（双缓冲技术）
+	property {
+		name{ dominant_culture } # 主流文化
+		type{ culture_id }
+	}
+	property {
+		name{ dominant_religion } # 主流宗教
+		type{ religion_id }
+	}
+	property {
+		name{ dominant_ideology } # 主流意识形态
+		type{ ideology_id }
+	}
+	property {
+		name{ dominant_issue_option } # 主流议题选项
+		type{ issue_option_id }
+	}
+	property {
+		name{ naval_base_is_taken } # 海军基地是否被占用
+		type{ bitfield }
+	}
+	property {
+		name{ production_directive } # 生产指令
+		type{ array{production_directive_id}{bitfield} }
+		tag{ save }
+	}
+}
+
+# 殖民关系：殖民状态与殖民者的关系
+relationship{
+	name{ colonization }
+	storage_type{ erasable }
+	size{ 3000 }
+	tag{ save }
+
+	link{
+		object{state_definition}
+		name{state} # 州
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{colonizer} # 殖民者
+		type{many}
+		index_storage{array}
+	}
+	property {
+		name{ last_investment } # 最后投资日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property {
+		name{ points_invested } # 已投资点数
+		type{ uint16_t }
+		tag{ save }
+	}
+	property {
+		name{ level } # 等级/殖民等级
+		type{ uint8_t }
+		tag{ save }
+	}
+}
+
+
+
+# 州所有权关系：州的所属国家
+relationship{
+	name{ state_ownership }
+	tag{ save }
+
+	link{
+		object{state_instance}
+		name{state} # 州
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 焦点冲突关系：州与关注国家的关系
+relationship{
+	name{ flashpoint_focus }
+	tag{ save }
+
+	link{
+		object{state_instance}
+		name{state} # 州
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{unique}
+	}
+}
+
+
+# 抽象州成员关系：省份与州定义的关系
+relationship{
+	name{ abstract_state_membership }
+	tag{ scenario }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{unique}
+	}
+	link{
+		object{state_definition}
+		name{state} # 州
+		type{many}
+		index_storage{array}
+	}
+	property{
+		name{priority} # 优先级
+		type{int16_t}
+		tag{ scenario }
+	}
+}
+
+
+# 地区定义：定义地理区域
+object {
+	name{ region }
+	storage_type{ contiguous }
+	size{ 300 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+}
+
+
+# 地区成员关系：省份与地区的归属关系
+relationship{
+	name{ region_membership }
+	storage_type{ compactable }
+	size{ 25000 }
+	tag{ scenario }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{region}
+		name{region} # 地区
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 核心领土关系：省份与国家身份的核心关系
+relationship{
+	name{ core }
+	storage_type{ compactable }
+	size{ 16000 }
+	tag{ save }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{national_identity}
+		name{identity} # 身份
+		type{many}
+		index_storage{array}
+	}
+
+	composite_key{ # 复合键定义
+		name{prov_tag_key}
+		index{province}
+		index{identity}
+	}
+}
+
+
+# 身份持有者关系：国家与身份的关系
+relationship{
+	name{ identity_holder }
+	tag{ save }
+
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{unique}
+	}
+	link{
+		object{national_identity}
+		name{identity} # 身份
+		type{unique}
+	}
+}
+
+
+# 科技定义：定义科技树
+object {
+	name{ technology }
+	storage_type{ contiguous }
+	size{ 400 }
+	tag{ scenario }
+	
+	
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ modifier } # 修正效果
+		type{ modifier_id }
+		tag{ scenario }
+	}
+	property{
+		name{ plurality } # 多元性
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ image } # 图像
+		type{ dcon::gfx_object_id }
+		tag{ scenario }
+	}
+	property{
+		name{folder_index} # 文件夹索引
+		type{uint8_t}
+		tag{ scenario }
+	}
+	property{
+		name{year} # 年份
+		type{int16_t}
+		tag{ scenario }
+	}
+	property{
+		name{ ai_chance } # AI概率
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ ai_weight } # AI权重
+		type{ float }
+		
+	}
+	property{
+		name{cost} # 基础成本
+		type{int32_t}
+		tag{ scenario }
+	}
+	property{
+		name{leadership_cost} # 领导力成本
+		type{int32_t}
+		tag{ scenario }
+	}
+	property{
+		name{ colonial_points } # 殖民点数
+		type{int16_t}
+		tag{ scenario }
+	}
+	property {
+		name{ increase_building } # 增加建筑
+		type{ array{economy::province_building_type}{bitfield} }
+		tag{ scenario }
+	}
+	property{
+		name{ activate_unit } # 激活单位
+		type{array{unit_type_id}{bitfield}}
+		tag{ scenario }
+	}
+	property{
+		name{ activate_building } # 激活建筑
+		type{array{factory_type_id}{bitfield}}
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_goods_output } # RGO商品产出
+		type{vector_pool{2500}{sys::commodity_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ factory_goods_output } # 工厂商品产出
+		type{vector_pool{2500}{sys::commodity_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_size } # RGO规模
+		type{vector_pool{2500}{sys::commodity_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ modified_units } # 已修改单位
+		type{vector_pool{18500}{sys::unit_modifier}}
+		tag{ scenario }
+	}
+}
+
+
+# 发明定义：定义各种发明
+object {
+	name{ invention }
+	storage_type{ contiguous }
+	size{ 900 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ desc } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ technology_type } # 科技类型
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ colonial_points } # 殖民点数
+		type{int16_t}
+		tag{ scenario }
+	}
+	property {
+		name{ increase_building } # 增加建筑
+		type{ array{economy::province_building_type}{bitfield} }
+		tag{ scenario }
+	}
+	property{
+		name{ modifier } # 修正效果
+		type{ modifier_id }
+		tag{ scenario }
+	}
+	property{
+		name{ chance }
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ limit }
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ enable_gas_attack } # 启用毒气攻击
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ enable_gas_defense } # 启用毒气防御
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ shared_prestige } # 共享声望
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ plurality } # 多元性
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ activate_unit } # 激活单位
+		type{array{unit_type_id}{bitfield}}
+		tag{ scenario }
+	}
+	property{
+		name{ activate_crime } # 激活犯罪
+		type{array{crime_id}{bitfield}}
+		tag{ scenario }
+	}
+	property{
+		name{ activate_building } # 激活建筑
+		type{array{factory_type_id}{bitfield}}
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_goods_output } # RGO商品产出
+		type{vector_pool{2500}{sys::commodity_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ rgo_size } # RGO规模
+		type{vector_pool{2500}{sys::commodity_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ factory_goods_output } # 工厂商品产出
+		type{vector_pool{2500}{sys::commodity_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ factory_goods_throughput } # 工厂商品吞吐量
+		type{vector_pool{2500}{sys::commodity_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ modified_units } # 已修改单位
+		type{vector_pool{25000}{sys::unit_modifier}}
+		tag{ scenario }
+	}
+	property{
+		name{ rebel_org } # 叛乱组织度
+		type{vector_pool{800}{sys::rebel_org_modifier}}
+		tag{ scenario }
+	}
+}
+
+
+
+# 国家定义：定义国家的所有属性
+object {
+	name{ nation }
+	storage_type{ erasable }
+	size{ 2000 }
+	tag{ save }
+	tag{ mp_data }
+
+	property{
+		name{ color } # 颜色（RGBA格式）
+		type{ uint32_t }
+		
+		
+	}
+	property{
+		name{ masquerade_identity } # 伪装身份
+		type{ national_identity_id }
+		tag{ save }
+	}
+	property{
+		name{ primary_culture } # 主要文化
+		type{ culture_id }
+		tag{ save }
+	}
+
+	property{
+		name{ accepted_cultures } # 可接受文化
+		type{array{culture_id}{bitfield}}
+		tag{ save }
+	}
+	property{
+		name{ religion } # 宗教
+		type{ religion_id }
+		tag{ save }
+	}
+	property{
+		name{ capital } # 首都/首府
+		type{ province_id }
+		tag{ save }
+	}
+	property{
+		name{ is_civilized } # 是否为文明国家
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ marked_for_gc } # 标记为垃圾回收
+		type{ bitfield }
+		
+		
+	}
+	property{
+		name{ is_great_power } # 是否为列强
+		type{ bitfield }
+		
+		
+	}
+	property{
+		name{ national_value } # 国家价值观
+		type{ modifier_id }
+		tag{ save }
+	}
+	property{
+		name{ tech_school } # 科技学派
+		type{ modifier_id }
+		tag{ save }
+	}
+	property{
+		name{ government_type } # 政府类型
+		type{ government_type_id }
+		tag{ save }
+	}
+	property{
+		name{ plurality } # 多元性
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ prestige } # 声望
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ infamy } # 恶名
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ revanchism } # 复仇主义
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ permanent_colonial_points } # 永久殖民点数
+		type{ int16_t }
+		tag{ save }
+	}
+	property{
+		name{ active_technologies } # 已激活科技
+		type{array{technology_id}{bitfield}}
+		tag{ save }
+	}
+	property{
+		name{ active_inventions } # 已激活发明
+		type{array{invention_id}{bitfield}}
+		tag{ save }
+	}
+	property{
+		name{ ruling_party } # 执政党
+		type{ political_party_id }
+		tag{ save }
+	}
+	property{
+		name{ ruling_party_last_appointed } # 上次任命执政党日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ issues } # 议题偏好修正
+		type{array{issue_id}{issue_option_id}}
+		tag{ save }
+	}
+	property{
+		name{ reforms } # 改革设置
+		type{array{reform_id}{reform_option_id}}
+		tag{ save }
+	}
+	property {
+		name{ last_issue_or_reform_change } # 上次议题或改革变更日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ combined_issue_rules } # 组合议题规则
+		type{ uint32_t }
+	}
+	property{
+		name{ upper_house } # 上议院组成
+		type{array{ideology_id}{float}}
+		tag{ save }
+	}
+	property{
+		name{ is_substate } # 是否为附庸国
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ flag_variables } # 旗帜变量
+		type{array{national_flag_id}{bitfield}}
+		tag{ save }
+	}
+	property{
+		name{ variables } # 变量
+		type{array{national_variable_id}{float}}
+		tag{ save }
+	}
+	property{
+		name{ modifier_values } # 修正值数组
+		type{ array{national_modifier_value}{float} }
+	}
+	property{
+		name{ rgo_goods_output } # RGO商品产出
+		type{ array{commodity_id}{float} }
+	}
+	property{
+		name{ factory_goods_output } # 工厂商品产出
+		type{ array{commodity_id}{float} }
+	}
+	property{
+		name{ rgo_size } # RGO规模
+		type{ array{commodity_id}{float} }
+	}
+	property{
+		name{ factory_goods_throughput } # 工厂商品吞吐量
+		type{ array{commodity_id}{float} }
+	}
+	property{
+		name{ rebel_org_modifier } # 叛乱组织度修正
+		type{ array{rebel_type_id}{float} }
+	}
+	property{
+		name{ unit_stats } # 单位属性
+		type{array{unit_type_id}{sys::unit_variable_stats}}
+	}
+	property{
+		name{ active_unit } # 已激活单位
+		type{array{unit_type_id}{bitfield}}
+	}
+	property{
+		name{ active_crime } # 已激活犯罪
+		type{array{crime_id}{bitfield}}
+	}
+	property{
+		name{ active_building } # 已激活建筑
+		type{array{factory_type_id}{bitfield}}
+	}
+	property{
+		name{ unlocked_commodities } # 已解锁商品
+		type{array{commodity_id}{bitfield}}
+	}
+	property{
+		name{ factory_type_experience } # 工厂类型经验
+		type{array{factory_type_id}{float}}
+		tag{ save }
+	}
+	property{
+		name{ factory_type_experience_priority_national } # 工厂类型经验优先级（国家）
+		type{array{factory_type_id}{float}}
+		tag{ save }
+	}
+	property{
+		name{ factory_type_experience_priority_private } # 工厂类型经验优先级（私人）
+		type{array{factory_type_id}{float}}
+		tag{ save }
+	}
+	property{
+		name{ has_gas_attack } # 是否拥有毒气攻击能力
+		type{ bitfield }
+	}
+	property{
+		name{ has_gas_defense } # 是否拥有毒气防御能力
+		type{ bitfield }
+	}
+	property {
+		name{ max_building_level } # 最大建筑等级
+		type{ array{uint8_t}{uint8_t} }
+	}
+	property {
+		name{ current_modifiers } # 当前生效的修正列表
+		type{vector_pool{16000}{sys::dated_modifier}}
+		tag{ save }
+	}
+	property {
+		name{ in_sphere_of } # 势力范围宗主国
+		type{ nation_id }
+	}
+	property {
+		name{ rank } # 排名
+		type{ uint16_t }
+	}
+	property {
+		name{ industrial_rank } # 工业排名
+		type{ uint16_t }
+		tag { mp_checksum_excluded }
+	}
+	property {
+		name{ military_rank } # 军事排名
+		type{ uint16_t }
+		tag { mp_checksum_excluded }
+	}
+	property {
+		name{ prestige_rank } # 声望排名
+		type{ uint16_t }
+		tag { mp_checksum_excluded }
+	}
+	property {
+		name{ demographics } # 人口统计数据
+		type{ array{demographics_key}{float} }
+	}
+	property {
+		name{ demographics_alt } # 人口统计数据（备用）
+		type{ array{demographics_key}{float} }
+	}
+	swappable{demographics}{demographics_alt} # 可交换缓冲区（双缓冲技术）
+	property {
+		name{ war_exhaustion } # 战争疲惫度
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ is_at_war } # 是否处于战争状态
+		type{ bitfield }
+	}
+	property {
+		name{ is_mobilized } # 是否已动员
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ mobilization_remaining } # 剩余动员进度
+		type{ uint16_t }
+		tag{ save }
+	}
+	property {
+		name{ mobilization_schedule } # 动员时间表
+		type{vector_pool{16000}{military::mobilization_order}}
+		tag{ save }
+	}
+	property {
+		name{ is_bankrupt } # 是否破产
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ last_war_loss } # 上次战争失败日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property {
+		name{ election_ends } # 选举结束日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property {
+		name{ disarmed_until } # 解除武装截止日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property {
+		name{ reparations_until } # 赔款截止日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property {
+		name{ education_spending } # 教育支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ military_spending } # 军事支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ administrative_spending } # 行政支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ administration_employment_target_in_capital } # 首都行政就业目标
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ social_spending } # 社会支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ domestic_investment_spending } # 国内投资支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ overseas_spending } # 海外支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ land_spending } # 陆军支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ naval_spending } # 海军支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ construction_spending } # 建设支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ land_reinforcement_buffer } # 陆军增援缓冲
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ naval_reinforcement_buffer } # 海军增援缓冲
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ effective_land_spending } # 有效陆军支出
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ effective_naval_spending } # 有效海军支出
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ effective_construction_spending } # 有效建设支出
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ maximum_military_costs } # 最大军事成本
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ subsidy_token_price } # 补贴代币价格
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ subsidy_token_total } # 补贴代币总量
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ subsidies_spending } # 补贴支出等级
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ spending_level } # 支出水平
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ last_base_budget } # 上次基础预算
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ private_investment } # 私人投资
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ private_investment_effective_fraction } # 私人投资有效比例
+		type{ float }
+	}
+	property {
+		name{ total_rich_income } # 富人总收入
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ total_middle_income } # 中产阶级总收入
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ total_poor_income } # 穷人总收入
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ poor_tax } # 穷人税率
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ middle_tax } # 中产阶级税率
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ rich_tax } # 富人税率
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ tariffs_import } # 进口关税
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ tariffs_export } # 出口关税
+		type{ int8_t }
+		tag{ save }
+	}
+	property {
+		name{ last_treasury } # 上次国库余额
+		type{ float }
+	}
+	property {
+		name{ industrial_score } # 工业分数
+		type{ uint16_t }
+	}
+	property {
+		name{ military_score } # 军事分数
+		type{ uint16_t }
+	}
+	property {
+		name{ central_blockaded } # 核心地区被封锁数
+		type{ uint16_t }
+	}
+	property {
+		name{ central_rebel_controlled } # 核心地区叛乱控制数
+		type{ uint16_t }
+	}
+	property {
+		name{ owned_province_count } # 拥有省份数量
+		type{ uint16_t }
+	}
+	property {
+		name{ owned_state_count } # 拥有州数量
+		type{ uint16_t }
+	}
+	property {
+		name{ central_province_count } # 核心地区省份数量
+		type{ uint16_t }
+	}
+	property {
+		name{ rebel_controlled_count } # 叛乱控制省份数量
+		type{ uint16_t }
+	}
+	property {
+		name{ occupied_count } # 被占领省份数量
+		type{ uint16_t }
+	}
+	property {
+		name{ central_ports } # 核心地区港口数量
+		type{ uint16_t }
+	}
+	property {
+		name{ total_ports } # 总港口数量
+		type{ uint16_t }
+	}
+	property {
+		name{ central_crime_count } # 核心地区犯罪数量
+		type{ uint16_t }
+	}
+	property {
+		name{ allies_count } # 盟友数量
+		type{ uint16_t }
+	}
+	property {
+		name{ vassals_count } # 附庸国数量
+		type{ uint16_t }
+	}
+	property {
+		name{ substates_count } # 附属国数量
+		type{ uint16_t }
+	}
+	property {
+		name{ gdp } # 国内生产总值
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name { gdp_record }
+		type{ array{int32_t}{float} }
+		tag{ save }
+	}
+	property {
+		name{ stockpiles } # 储备库存
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ national_bank } # 国家银行资金
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ local_loan } # 本地贷款
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ stockpile_targets } # 储备目标
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ drawing_on_stockpiles } # 是否正在动用储备
+		type{ array{commodity_id}{bitfield} }
+		tag{ save }
+	}
+	property {
+		name{ overseas_penalty } # 是否有海外贸易惩罚
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ is_player_controlled } # 是否受玩家控制
+		type{ bitfield }
+		tag { mp_data }
+	}
+	property{
+		name{ is_debt_spending } # 是否债务支出
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ bankrupt_until } # 破产截止日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ is_colonial_nation } # 是否为殖民国家
+		type{ bitfield }
+	}
+	property {
+		name{ dominant_culture } # 主流文化
+		type{ culture_id }
+	}
+	property {
+		name{ dominant_religion } # 主流宗教
+		type{ religion_id }
+	}
+	property {
+		name{ dominant_ideology } # 主流意识形态
+		type{ ideology_id }
+	}
+	property {
+		name{ dominant_issue_option } # 主流议题选项
+		type{ issue_option_id }
+	}
+	property {
+		name{ constructing_cb_target } # 正在构建的宣战目标国家
+		type{ nation_id }
+		tag{ save }
+	}
+	property {
+		name{ constructing_cb_target_state } # 正在构建的宣战目标州
+		type{ state_definition_id }
+		tag{ save }
+	}
+	property {
+		name{ constructing_cb_progress } # 宣战构建进度
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ constructing_cb_type } # 正在构建的宣战类型
+		type{ cb_type_id }
+		tag{ save }
+	}
+	property {
+		name{ constructing_cb_is_discovered } # 宣战构建是否已被发现
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ available_cbs } # 可用宣战理由列表
+		type{vector_pool{50000}{military::available_cb}}
+		tag{ save }
+	}
+	property {
+		name{ non_colonial_population } # 非殖民人口
+		type{ float }
+	}
+	property {
+		name{ non_colonial_bureaucrats } # 非殖民官僚人口
+		type{ float }
+	}
+	property {
+		name{ administrative_efficiency } # 行政效率
+		type{ float }
+	}
+	property {
+		name{ research_points } # 科研点数贡献
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ current_research } # 当前研究科技
+		type{ technology_id }
+		tag{ save }
+	}
+	property {
+		name{ active_regiments } # 现役团数量
+		type{ uint16_t }
+	}
+	property {
+		name{ recruitable_regiments } # 可征召团数量
+		type{ uint16_t }
+	}
+	property {
+		name{ overlord_commanding_units } # 宗主国指挥单位
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ averge_land_unit_score } # 平均陆军单位分数
+		type{ float }
+	}
+	property {
+		name{ capital_ship_score } # 主力舰分数
+		type{ float }
+	}
+	property {
+		name{ suppression_points } # 镇压点数
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ diplomatic_points } # 外交点数
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ leadership_points } # 领导力点数
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ naval_supply_points } # 海军补给点数
+		type{ uint16_t }
+	}
+	property {
+		name{ used_naval_supply_points } # 已使用海军补给点数
+		type{ uint16_t }
+	}
+	property{
+		name{ has_flash_point_state } # 是否有焦点冲突州
+		type{ bitfield }
+	}
+	property{
+		name{ is_target_of_some_cb } # 是否为某些宣战目标
+		type{ bitfield }
+	}
+	property{
+		name{ is_interesting } # 是否值得关注
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ ai_is_threatened } # AI是否感到威胁
+		type{ bitfield }
+	}
+	property{
+		name{ ai_rival } # AI竞争对手
+		type{ nation_id }
+		tag{ save }
+	}
+	property{
+		name{ ai_home_port } # AI母港
+		type{ province_id }
+	}
+	property{
+		name{ mobilized_is_ai_controlled } # 动员部队是否受AI控制
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ ai_strategy } # AI战略
+		type{ int }
+		tag{ save }
+	}
+	property {
+		name{ utility_tag } # 效用标签
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ production_directive } # 生产指令
+		type{ array{production_directive_id}{bitfield} }
+		tag{ save }
+	}
+}
+
+
+object{
+	name { market }
+	storage_type{ erasable }
+	size{ 6000 }
+	tag{ save }
+	property {
+		name{ gdp } # 国内生产总值
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ income_scale } # 收入比例
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ supply } # 供给
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ demand } # 需求
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ intermediate_demand } # 中间需求
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ consumption } # 消费
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ stockpile } # 储备
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ wealth } # 财富
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ price } # 价格
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ army_demand } # 陆军需求
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ navy_demand } # 海军需求
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ construction_demand } # 建设需求
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ private_construction_demand } # 私人建设需求
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+
+
+	property {
+		name{ aggregated_demand_history } # 总需求历史
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ aggregated_supply_history } # 总供给历史
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ expected_probability_to_buy } # 预期购买概率
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ actual_probability_to_buy } # 实际购买概率
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ expected_probability_to_sell } # 预期出售概率
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ actual_probability_to_sell } # 实际出售概率
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	
+
+	property{
+		name{ life_needs_costs } # 生活需求成本
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ everyday_needs_costs } # 日常需求成本
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ luxury_needs_costs } # 奢侈品需求成本
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+
+	property{
+		name{ life_needs_scale } # 生活需求比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ everyday_needs_scale } # 日常需求比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ luxury_needs_scale } # 奢侈品需求比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+
+	property{
+		name{ satisfied_ratio_of_max_life_needs } # 生活需求最大满足比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ satisfied_ratio_of_max_everyday_needs } # 日常需求最大满足比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ satisfied_ratio_of_max_luxury_needs } # 奢侈品需求最大满足比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+
+	property{
+		name{ satisfied_ratio_of_demanded_life_needs } # 生活需求需求满足比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ satisfied_ratio_of_demanded_everyday_needs } # 日常需求需求满足比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+	property{
+		name{ satisfied_ratio_of_demanded_luxury_needs } # 奢侈品需求需求满足比例
+		type{ array{pop_type_id}{float} }
+		tag{ save }
+	}
+
+	property {
+		name{ life_needs_weights } # 生活需求权重
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ everyday_needs_weights } # 日常需求权重
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ luxury_needs_weights } # 奢侈品需求权重
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}	
+
+	property {
+		name{ import } # 进口
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ export } # 出口
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ tariff_collected } # 已征收关税
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ max_throughput } # 最大吞吐量
+		type{ float }
+		tag{ save }
+	}
+}
+
+relationship {
+	name{ local_market }
+	storage_type{ compactable }
+	size{ 6000 }
+	tag{ save }
+
+	link{
+		object{ market }
+		name{ market } # 市场
+		type{ unique }
+	}
+
+	link{
+		object{ state_instance }
+		name{ zone } # 区域
+		type{ unique }
+	}
+}
+
+
+# 贸易路线关系：市场之间的贸易路线
+relationship{
+	name{ trade_route }
+	storage_type{ compactable }
+	size{ 80000 }
+	tag{ save }
+
+	link{
+		object{market}
+		name{connected_markets} # 连接的市场
+		type{many}
+		index_storage{array}
+		multiple{2}
+	}
+	
+	composite_key{ # 复合键定义
+		name{province_pair} # 省份对复合键
+		index{connected_markets}
+	}
+
+	property{
+		name{ distance } # 距离
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ sea_distance } # 海上距离
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ land_distance } # 陆地距离
+		type{ float }
+		tag{ save }
+	}
+
+	property{
+		name{ is_sea_route } # 是否为海上路线
+		type{ bitfield }
+		tag{ save }
+	}
+
+	property{
+		name{ is_land_route } # 是否为陆地路线
+		type{ bitfield }
+		tag{ save }
+	}
+
+	property{
+		name{ is_trade_forbidden } # 是否禁止贸易
+		type{ bitfield }
+		tag{ save }
+	}
+
+
+	property{
+		name{ is_tariff_applied_0 } # 是否征收关税（方向0）
+		type{ bitfield }
+		tag{ save }
+	}
+
+	property{
+		name{ is_tariff_applied_1 } # 是否征收关税（方向1）
+		type{ bitfield }
+		tag{ save }
+	}
+
+	property {
+		name{ volume } # 贸易量
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+	property {
+		name{ stabilization_volume } # 稳定贸易量
+		type{ array{commodity_id}{float} }
+		tag{ save }
+	}
+}
+
+
+# 外交关系：国家之间的双边外交关系
+relationship{
+	name{ diplomatic_relation }
+	storage_type{ compactable }
+	size{ 50000 }
+	tag{ save }
+
+	link{
+		object{nation}
+		name{related_nations} # 相关国家
+		type{many}
+		index_storage{array}
+		multiple{2}
+	}
+	
+	composite_key{ # 复合键定义
+		name{diplomatic_pair} # 外交对复合键
+		index{related_nations}
+	}
+
+	property{
+		name{ value } # 外交关系值
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ are_allied } # 是否为同盟
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ truce_until } # 停战截止日期
+		type{ sys::date }
+		tag{ save }
+	}
+}
+
+
+# 单边关系：国家之间的单边关系（投资、债务等）
+relationship{
+	name{ unilateral_relationship }
+	storage_type{ compactable }
+	size{ 50000 }
+	tag{ save }
+
+	link{
+		object{nation}
+		name{target} # 目标/目标国家
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{source} # 来源/来源国家
+		type{many}
+		index_storage{array}
+	}
+	
+	composite_key{ # 复合键定义
+		name{unilateral_pair} # 单边关系复合键
+		index{target}
+		index{source}
+	}
+
+	property{
+		name{ foreign_investment } # 外国投资
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ owns_debt_of } # 持有债务
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ military_access } # 军事通行权
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ war_subsidies } # 战争补贴
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ reparations } # 赔款
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ interested_in_alliance } # 是否对结盟感兴趣
+		type{ bitfield }
+		tag{ save }
+	}
+	property {
+		name{ no_tariffs_until } # 免关税截止日期
+		type{ sys::date }
+		tag{ save }
+	}
+	property{
+		name{ embargo } # 禁运
+		type{ bitfield }
+		tag{ save }
+	}
+}
+
+
+# 大国关系：大国与其他国家的影响力关系
+relationship{
+	name{ gp_relationship }
+	storage_type{ compactable }
+	size{ 8000 }
+	tag{ save }
+
+	link{
+		object{nation}
+		name{influence_target} # 影响力目标
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{great_power} # 大国
+		type{many}
+		index_storage{array}
+	}
+
+	composite_key{ # 复合键定义
+		name{gp_influence_pair} # 大国影响力复合键
+		index{influence_target}
+		index{great_power}
+	}
+
+	property{
+		name{ influence } # 影响力
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ status } # 地位/状态
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ penalty_expires_date } # 惩罚到期日期
+		type{ sys::date }
+		tag{ save }
+	}
+}
+
+
+object {
+	name { factory }
+	storage_type{ erasable }
+	size{ 100000 }
+	tag{ save }
+	
+
+	property{
+		name{ building_type } # 建筑类型/工厂类型
+		type{ factory_type_id }
+		tag{ save }
+	}	
+	property{
+		name{ priority_low } # 低优先级
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ priority_high } # 高优先级
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ subsidized } # 是否受补贴
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ unprofitable } # 是否无利可图
+		type{ bitfield }
+		tag{ save }
+	}
+
+	property{
+		name{ size } # 规模/数量
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ unqualified_employment } # 不合格就业
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ primary_employment } # 主要就业
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ secondary_employment } # 次要就业
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{efficiency_level} # 效率等级
+		type{array{uint8_t}{float}}
+		tag{ save }
+	}
+	property{
+		name{technology_scale} # 科技缩放系数
+		type{float}
+		tag{ save }
+	}
+	property{
+		name{profit} # 利润
+		type{float}
+	}
+	property {
+		name{ triggered_modifiers } # 触发修正效果
+		type{ float }		
+	}	
+	property {
+		name{ output } # 产出商品类型
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ output_per_worker } # 人均产出
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ input_cost } # 投入成本
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ input_cost_per_worker } # 人均投入成本
+		type{ float }
+		tag{ save }
+	}	
+}
+
+
+# 工厂位置关系：工厂所在的省份
+relationship{
+	name{ factory_location }
+	tag{ save }
+
+	link{
+		object{factory}
+		name{factory} # 工厂
+		type{unique}
+	}
+	link{
+		object{province}
+		name{province} # 省份
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 省份所有权关系：省份的所属国家
+relationship{
+	name{ province_ownership }
+	tag{ save }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 省份控制权关系：控制省份的国家
+relationship{
+	name{ province_control }
+	tag{ save }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 省份叛乱控制关系：控制省份的叛乱派系
+relationship{
+	name{ province_rebel_control }
+	tag{ save }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{unique}
+	}
+	link{
+		object{rebel_faction}
+		name{rebel_faction}
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 省份陆军建造关系：省份中的陆军建造项目
+relationship{
+	name{ province_land_construction }
+	storage_type{ erasable }
+	size{ 32000 }
+	tag{ save }
+
+	link{
+		object{pop}
+		name{pop} # 人口
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+
+	property{
+		name{ purchased_goods } # 已购买商品
+		type{ economy::commodity_set }
+		tag{ save }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ unit_type_id }
+		tag{ save }
+	}
+	property{
+		name{ template_province } # 模板省份
+		type{ province_id }
+		tag{ save }
+	}
+	property{
+		name{ start_date } # 开始日期
+		type{ sys::date }
+		tag{ save }
+	}
+}
+
+
+# 省份海军建造关系：省份中的海军建造项目
+relationship{
+	name{ province_naval_construction }
+	storage_type{ erasable }
+	size{ 16000 }
+	tag{ save }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+
+	property{
+		name{ purchased_goods } # 已购买商品
+		type{ economy::commodity_set }
+		tag{ save }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ unit_type_id }
+		tag{ save }
+	}
+	property{
+		name{ template_province } # 模板省份
+		type{ province_id }
+		tag{ save }
+	}
+	property{
+		name{ start_date } # 开始日期
+		type{ sys::date }
+		tag{ save }
+	}
+}
+
+
+# 省份建筑建造关系：省份中的建筑建造项目
+relationship{
+	name{ province_building_construction }
+	storage_type{ erasable }
+	size{ 16000 }
+	tag{ save }
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+
+	property{
+		name{ purchased_goods } # 已购买商品
+		type{ economy::commodity_set }
+		tag{ save }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ is_pop_project } # 是否为人口发起的项目
+		type{ bitfield }
+		tag{ save }
+	}
+}
+
+
+# 工厂建造关系：工厂建造项目
+relationship{
+	name{ factory_construction }
+	storage_type{ erasable }
+	size{ 16000 }
+	tag{ save }
+
+
+	link{
+		object{province}
+		name{province} # 省份
+		type{many}
+		index_storage{array}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+
+
+	property{
+		name{ purchased_goods } # 已购买商品
+		type{ economy::commodity_set }
+		tag{ save }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ factory_type_id }
+		tag{ save }
+	}
+	property{
+		name{ is_pop_project } # 是否为人口发起的项目
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ is_upgrade } # 是否为升级
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ refit_target } # 改装目标类型
+		type{ factory_type_id }
+		tag{ save }
+	}
+}
+
+
+# 宗主国关系：宗主国与附庸国的关系
+relationship{
+	name{ overlord }
+	tag{ save }
+
+	link{
+		object{nation}
+		name{subject} # 附庸国
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{ruler} # 统治者/宗主国
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+object {
+	name { rebel_faction }
+	storage_type{ compactable }
+	size{ 8000 }
+	tag{ save }
+
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ rebel_type_id }
+		tag{ save }
+	}
+
+	property{
+		name{ defection_target } # 叛变目标国家身份
+		type{ national_identity_id }
+		tag{ save }
+	}
+	property{
+		name{ primary_culture } # 主要文化
+		type{ culture_id }
+		tag{ save }
+	}
+	property{
+		name{ primary_culture_group } # 主要文化组
+		type{ culture_group_id }
+		tag{ save }
+	}
+	property{
+		name{ religion } # 宗教
+		type{ religion_id }
+		tag{ save }
+	}
+	property{
+		name{ possible_regiments } # 可组建的团数量
+		type{ int32_t }
+		tag{ save }
+	}
+	property{
+		name{ organization } # 组织度
+		type{ float }
+		tag{ save }
+	}
+}
+
+
+# 内部叛乱关系：国家内部的叛乱派系
+relationship{
+	name{ rebellion_within }
+	tag{ save }
+
+	link{
+		object{rebel_faction}
+		name{rebels} # 叛乱派系
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{ruler} # 统治者/宗主国
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+object {
+	name { movement }
+	storage_type{ compactable }
+	size{ 8000 }
+	tag{ save }
+	
+
+	property{
+		name{ associated_issue_option } # 关联的议题选项
+		type{ issue_option_id }
+		tag{ save }
+	}
+	property{
+		name{ associated_independence } # 关联的独立目标
+		type{ national_identity_id }
+		tag{ save }
+	}
+	property{
+		name{ pop_support } # 人口支持度
+		type{ float }
+		
+	}
+	property{
+		name{ radicalism } # 激进主义倾向值
+		type{ float }
+		
+	}
+	property{
+		name{ transient_radicalism } # 暂时性激进主义
+		type{ float }
+		tag{ save }
+	}
+}
+
+
+# 内部运动关系：国家内部的社会运动
+relationship{
+	name{ movement_within }
+	tag{ save }
+
+	link{
+		object{movement}
+		name{movement} # 运动
+		type{unique}
+	}
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 人口运动成员关系：人口参与的社会运动
+relationship{
+	name{ pop_movement_membership }
+	tag{ save }
+
+	link{
+		object{pop}
+		name{pop} # 人口
+		type{unique}
+	}
+	link{
+		object{movement}
+		name{movement} # 运动
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+# 人口叛乱成员关系：人口参与的叛乱派系
+relationship{
+	name{ pop_rebellion_membership }
+	tag{ save }
+
+	link{
+		object{pop}
+		name{pop} # 人口
+		type{unique}
+	}
+	link{
+		object{rebel_faction}
+		name{rebel_faction}
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+object {
+	name { pop }
+	storage_type{ compactable }
+	size{ 300000 }
+	tag{ save }
+	
+
+	property{
+		name{ poptype } # 人口类型
+		type{ pop_type_id }
+		tag{ save }
+	}
+	property{
+		name{ religion } # 宗教
+		type{ religion_id }
+		tag{ save }
+	}
+	property{
+		name{ culture } # 文化
+		type{ culture_id }
+		tag{ save }
+	}
+	property{
+		name{ size } # 规模/数量
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ savings } # 储蓄
+		type{ float }
+		tag{ save }
+	}
+	property{
+		name{ uconsciousness } # 觉悟度（未打包）
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ umilitancy } # 激进度（未打包）
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ uliteracy } # 识字率（未打包）
+		type{ uint16_t }
+		tag{ save }
+	}
+	property{
+		name{ uemployment } # 就业率（未打包）
+		type{ uint8_t }
+		tag{ save }
+	}
+	property{
+		name{ satisfaction } # 满意度
+		type{ float }
+		tag{ save }
+	}
+	property {
+		name{ upolitical_reform_desire } # 政治改革诉求（未打包）
+		type{ uint8_t }
+		
+	}
+	property {
+		name{ usocial_reform_desire } # 社会改革诉求（未打包）
+		type{ uint8_t }
+		
+	}
+	property {
+		name{ udemographics } # 人口统计数据（未打包）
+		type{ array{pop_demographics_key}{uint8_t} }
+		tag{ save }
+	}
+	property {
+		name{ dominant_ideology } # 主流意识形态
+		type{ ideology_id }
+		
+	}
+	property {
+		name{ dominant_issue_option } # 主流议题选项
+		type{ issue_option_id }
+		
+	}
+	property {
+		name{ is_primary_or_accepted_culture } # 是否为主要或接受文化
+		type{ bitfield }
+		
+	}
+}
+
+
+# 人口位置关系：人口所在的省份
+relationship{
+	name{ pop_location }
+	tag{ save }
+
+	link{
+		object{pop}
+		name{pop} # 人口
+		type{unique}
+	}
+	link{
+		object{province}
+		name{province} # 省份
+		type{many}
+		index_storage{array}
+	}
+}
+
+
+object {
+	name { national_event }
+	storage_type{ contiguous }
+	size{ 4000 }
+	tag{ scenario }
+	tag{ keep_after_state_reload }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ description } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ is_major } # 是否为重大事件
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ image } # 图像
+		type{ dcon::gfx_object_id }
+		tag{ scenario }
+	}
+	property{
+		name{ immediate_effect } # 立即效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ options } # 选项列表
+		type{ std::array<sys::event_option,sys::max_event_options> }
+		tag{ scenario }
+	}
+	property{
+		name{ auto_choice } # 自动选择
+		type{ uint8_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ allow_multiple_instances } # 是否允许多次触发
+		type{ bitfield }
+		tag{ scenario }
+	}
+}
+
+
+object {
+	name { provincial_event }
+	storage_type{ contiguous }
+	size{ 2000 }
+	tag{ scenario }
+	tag{ keep_after_state_reload }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ description } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ immediate_effect } # 立即效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ options } # 选项列表
+		type{ std::array<sys::event_option,sys::max_event_options> }
+		tag{ scenario }
+	}
+	property{
+		name{ auto_choice } # 自动选择
+		type{ uint8_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+object {
+	name { free_national_event }
+	storage_type{ contiguous }
+	size{ 8000 }
+	tag{ scenario }
+	tag{ save }
+	tag{ keep_after_state_reload }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ description } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ only_once } # 是否只触发一次
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ has_been_triggered } # 是否已触发
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ is_major } # 是否为重大事件
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ image } # 图像
+		type{ dcon::gfx_object_id }
+		tag{ scenario }
+	}
+	property{
+		name{ trigger } # 触发条件/触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ mtth } # 平均触发时间修正
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ immediate_effect } # 立即效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ options } # 选项列表
+		type{ std::array<sys::event_option,sys::max_event_options> }
+		tag{ scenario }
+	}
+	property{
+		name{ legacy_id } # 旧版ID
+		type{ uint32_t }
+		tag{ scenario }
+	}
+	property{
+		name{ auto_choice } # 自动选择
+		type{ uint8_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+object {
+	name { free_provincial_event }
+	storage_type{ contiguous }
+	size{ 8000 }
+	tag{ scenario }
+	tag{ save }
+	tag{ keep_after_state_reload }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ description } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ only_once } # 是否只触发一次
+		type{ bitfield }
+		tag{ scenario }
+	}
+	property{
+		name{ has_been_triggered } # 是否已触发
+		type{ bitfield }
+		tag{ save }
+	}
+	property{
+		name{ trigger } # 触发条件/触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ mtth } # 平均触发时间修正
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ immediate_effect } # 立即效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ options } # 选项列表
+		type{ std::array<sys::event_option,sys::max_event_options> }
+		tag{ scenario }
+	}
+	property{
+		name{ auto_choice } # 自动选择
+		type{ uint8_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+# 国家焦点定义：定义国家焦点政策
+object {
+	name{ national_focus }
+	storage_type{ contiguous }
+	size{ 124 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ icon } # 图标索引
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ type } # 类型/连接类型/单位类型/舰船类型
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ loyalty_value } # 忠诚度值
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ ideology } # 意识形态
+		type{ ideology_id }
+		tag{ scenario }
+	}
+	property{
+		name{ limit }
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ promotion_type } # 晋升人口类型
+		type{ pop_type_id }
+		tag{ scenario }
+	}
+	property{
+		name{ promotion_amount } # 晋升数量
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ railroads } # 铁路加成
+		type{ float }
+		tag{ scenario }
+	}
+	property{
+		name{ production_focus } # 生产焦点
+		type{array{commodity_id}{float}}
+		tag{ scenario }
+	}
+	property{
+		name{ modifier } # 修正效果
+		type{ modifier_id }
+		tag{ scenario }
+	}
+}
+
+
+
+# 存储触发器定义：定义可复用的触发器
+object {
+	name{ stored_trigger }
+	storage_type{ contiguous }
+	size{ 2000 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ function } # 函数/触发器函数
+		type{ trigger_key }
+		tag{ scenario }
+	}
+}
+
+
+
+
+# 游戏规则定义：定义游戏设置选项
+object {
+	name{ gamerule }
+	storage_type{ contiguous }
+	size{ 126 }
+	tag{ scenario }
+	tag{ save }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ tooltip_explain } # 提示说明
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ default_setting } # 默认设置
+		type{ uint8_t }
+		tag{ scenario }
+	}
+	property{
+		name{ options } # 选项列表
+		type{ std::array<sys::gamerule_option,sys::max_gamerule_settings> }
+		tag{ scenario }
+	}
+	property{
+		name{ settings_count } # 设置数量
+		type{ uint8_t } 
+		tag{ scenario }
+	}
+	property{
+		name{ current_setting } # 当前设置
+		type{ uint8_t }
+		tag{ save }
+	}
+	
+}
+
+
+
+# 决议定义：定义国家决议
+object {
+	name{ decision }
+	storage_type{ contiguous }
+	size{ 8000 }
+	tag{ scenario }
+
+	property{
+		name{ name } # 名称
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ description } # 描述
+		type{ text_key }
+		tag{ scenario }
+	}
+	property{
+		name{ image } # 图像
+		type{ dcon::gfx_object_id }
+		tag{ scenario }
+	}
+	property{
+		name{ potential } # 潜在条件
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ allow } # 允许条件触发器
+		type{ trigger_key }
+		tag{ scenario }
+	}
+	property{
+		name{ effect } # 效果
+		type{ effect_key }
+		tag{ scenario }
+	}
+	property{
+		name{ ai_will_do } # AI行动意愿
+		type{ value_modifier_key }
+		tag{ scenario }
+	}
+	property{
+		name{ hide_notification } # 隐藏通知
+		type{ bitfield }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+# 本地化定义：定义语言和字体设置
+object {
+	name{ locale }
+	storage_type{ contiguous }
+	size{ 2000 }
+	tag{ keep_after_state_reload }
+	tag { mp_checksum_excluded }
+
+	property{
+		name{ native_rtl } # 是否为从右到左书写的母语
+		type{ bitfield }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ prevent_letterspace } # 是否阻止字间距调整
+		type{ bitfield }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ display_name } # 显示名称
+		type{vector_pool{5000}{uint8_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ locale_name } # 语言环境名称
+		type{vector_pool{5000}{uint8_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ fallback } # 后备语言
+		type{vector_pool{5000}{uint8_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ resolved_language } # 已解析语言
+		type{ hb_language_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ hb_script } # HarfBuzz脚本
+		type{ uint32_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ resolved_body_font } # 已解析正文字体
+		type{ uint16_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ resolved_header_font } # 已解析标题字体
+		type{ uint16_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ resolved_map_font } # 已解析地图字体
+		type{ uint16_t }
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ body_font } # 正文字体
+		type{vector_pool{5000}{uint8_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ header_font } # 标题字体
+		type{vector_pool{5000}{uint8_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ map_font } # 地图字体
+		type{vector_pool{5000}{uint8_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ body_font_features } # 正文字体特性
+		type{vector_pool{1000}{uint32_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ header_font_features } # 标题字体特性
+		type{vector_pool{1000}{uint32_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ map_font_features } # 地图字体特性
+		type{vector_pool{1000}{uint32_t}}
+		tag{ keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+# 多人玩家定义：定义多人游戏玩家
+object{
+	name{ mp_player }
+	storage_type{ erasable }
+	size{ 300 }
+	tag { keep_after_state_reload }
+	tag { mp_data }
+
+	property{
+		name{ nickname } # 昵称
+		type{ sys::player_name }
+		tag { keep_after_state_reload }
+		tag { mp_data }
+	}
+	property{
+		name{ password_salt } # 密码盐
+		type{ std::array<uint8_t,24> }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ password_hash } # 密码哈希
+		type{ std::array<uint8_t,64> }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ fully_loaded } # 是否完全加载
+		type{ bitfield }
+		tag { keep_after_state_reload }
+		tag { mp_data }
+	}
+	property{
+		name{ is_oos } # 是否不同步
+		type{ bitfield }
+		tag { keep_after_state_reload }
+		tag { mp_data }
+	}
+}
+
+
+# 玩家国家关系：玩家控制的国家
+relationship{
+	name{ player_nation }
+	tag { keep_after_state_reload }
+	tag { mp_data }
+	link{
+		object{nation}
+		name{nation} # 国家
+		type{many}
+		index_storage{array}
+	}
+
+	link{
+		object{mp_player}
+		name{mp_player}
+		type{unique}
+	}
+}
+
+
+
+
+# 客户端定义：定义网络客户端数据
+object{
+	name{ client }
+	storage_type{ erasable }
+	size{ 300 }
+	tag { keep_after_state_reload }
+	tag { mp_checksum_excluded }
+
+	property{
+		name{ socket_fd } # 套接字文件描述符
+		type{ network::socket_t }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ address } # 地址
+		type{ sockaddr_storage }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ hshake_buffer } # 握手缓冲区
+		type{ network::client_handshake_data }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ recv_count } # 接收计数
+		type{ size_t }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ total_sent_bytes } # 已发送总字节数
+		type{ size_t }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ handshake } # 握手标志
+		type{ bitfield }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+
+	property{
+		name{ receive_buffer } # 接收缓冲区
+		type{ std::array<uint8_t,network::RECV_BUFFER_SIZE> }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+
+	property{
+		name{ receiving_payload_flag } # 接收有效载荷标志
+		type{ fixed_bool_t }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ recv_buffer_size_used } # 接收缓冲区已用大小
+		type{ int }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ recv_buffer_bytes_read } # 接收缓冲区已读字节数
+		type{ int }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ client_state } # 客户端状态
+		type{ network::client_state }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ shutdown_time } # 关闭时间
+		type{ time_t }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ last_seen } # 最后在线时间
+		type{ sys::date }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ sending_payload } # 正在发送有效载荷
+		type{ uint8_t }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+	property{
+		name{ command_send_count } # 命令发送计数
+		type{ uint32_t }
+		tag { keep_after_state_reload }
+		tag { mp_checksum_excluded }
+	}
+}
+
+
+
+# 玩家客户端关系：玩家与客户端的关系
+relationship{
+	name{ player_client }
+	tag { keep_after_state_reload }
+	tag { mp_checksum_excluded }
+	link{
+		object{client}
+		name{client}
+		type{unique}
+	}
+
+	link{
+		object{mp_player}
+		name{mp_player}
+		type{unique}
+	}
+}
+
+
+
+
+
+# 场景存储：仅存储场景数据
+load_save{
+	name{store_scenario}
+	only_objects{scenario}
+	only_properties{scenario}
+}
+
+
+# 存档存储：仅存储存档数据
+load_save{
+	name{store_save}
+	only_objects{save}
+	only_properties{save}
+}
+
+
+# 完整存档存储：存储完整存档数据
+load_save{
+	name{store_full_save}
+	only_objects{save}{local_save}
+	only_properties{save}{local_save}
+}
+
+# 重载保护状态存储：存储状态重载后保留的数据
+load_save{
+	name{store_reload_protected_state}
+	only_objects{keep_after_state_reload}
+	only_properties{keep_after_state_reload}
+}
+
+
+# 多人校验排除存储：排除多人校验和计算的数据
+load_save{
+	name{store_mp_checksum_excluded}
+	exclude_objects{mp_checksum_excluded}
+	exclude_properties{mp_checksum_excluded}
+}
+
+# 多人数据存储：仅存储多人游戏数据
+load_save{
+	name{store_mp_data}
+	only_objects{mp_data}
+	only_properties{mp_data}
+}
+
+

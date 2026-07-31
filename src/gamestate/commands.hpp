@@ -587,15 +587,18 @@ struct production_directive_data {
 
 
 
+// 判断游戏状态不同步通知是否为主机接收命令
 bool notify_oos_gamestate_is_host_receive_command(const sys::state& state);
 
 
+// 存档加载通知的执行前广播修改
 void pre_execution_broadcast_modifications_notify_save_loaded(sys::state& state, command_data& command);
+// 多人游戏数据通知的执行前广播修改
 void pre_execution_broadcast_modifications_notify_mp_data(sys::state& state, command_data& command);
 
 
 struct command_handler {
-	// These are used in the command_type_handlers for cases of simple true/false being required
+	// 这些用于command_type_handlers中需要简单true/false的情况
 	static bool false_is_host_broadcast_command(const sys::state& state) {
 		return false;
 	}
@@ -624,7 +627,7 @@ constexpr uint32_t max_mp_data_size = 5000000; // max 5 MB for mp data
 constexpr uint32_t max_regiment_count = 1000; // theoretical max regiments to be able to be sent in a single command
 constexpr uint32_t max_ship_count = 1000; // theoretical max ships to be able to be sent in a single commnad
 
-// Defines max and min sizes for each command, aswell as handlers for certain functions
+// 定义每个命令的最大和最小大小，以及某些函数的处理程序
 constexpr enum_array<command_type, command_handler> command_type_handlers = {
 	{command_type::change_nat_focus, command_handler{sizeof(command::national_focus_data), sizeof(command::national_focus_data), &command_handler::true_is_host_receive_command, &command_handler::true_is_host_broadcast_command  } },
 	{command_type::start_research, command_handler{ sizeof(command::start_research_data), sizeof(command::start_research_data), &command_handler::true_is_host_receive_command, &command_handler::true_is_host_broadcast_command } },
@@ -764,77 +767,121 @@ constexpr enum_array<command_type, command_handler> command_type_handlers = {
 };
 
 
-// decides whether the host should broadcast the command or execute it only for themself
+// 判断主机是否应该广播命令或仅自身执行
 bool is_host_broadcast_command(const sys::state& state, const command_data& command);
 
+// 保存游戏
 void save_game(sys::state& state, dcon::nation_id source, bool and_quit, const std::string& filename = "");
 
+// 设置集结点
 void set_rally_point(sys::state& state, dcon::nation_id source, dcon::province_id location, bool naval, bool enable);
 
+// 判断是否为控制台命令
 bool is_console_command(command_type t);
 
+// 设置国家焦点
 void set_national_focus(sys::state& state, dcon::nation_id source, dcon::state_instance_id target_state, dcon::national_focus_id focus);
+// 判断是否可以设置国家焦点
 bool can_set_national_focus(sys::state& state, dcon::nation_id source, dcon::state_instance_id target_state, dcon::national_focus_id focus);
 
+// 开始研究
 void start_research(sys::state& state, dcon::nation_id source, dcon::technology_id tech);
+// 判断是否可以开始研究
 bool can_start_research(sys::state& state, dcon::nation_id source, dcon::technology_id tech);
 
+// 创建领袖
 void make_leader(sys::state& state, dcon::nation_id source, bool general);
+// 判断是否可以创建领袖
 bool can_make_leader(sys::state& state, dcon::nation_id source, bool general);
 
+// 设置工厂类型优先级
 void set_factory_type_priority(sys::state& state, dcon::nation_id source, dcon::factory_type_id ftid, float value);
+// 判断是否可以设置工厂类型优先级
 bool can_set_factory_type_priority(sys::state& state, dcon::nation_id source, dcon::factory_type_id ftid, float value);
 
+// 降低关系
 void decrease_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以降低关系
 bool can_decrease_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target);
 
+// 开始省份建筑建造
 void begin_province_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id p, economy::province_building_type type);
+// 判断是否可以开始省份建筑建造
 bool can_begin_province_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id p, economy::province_building_type type);
 
+// 开始工厂建造
 void begin_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type, bool is_upgrade, dcon::factory_type_id refit_target = dcon::factory_type_id{});
+// 判断是否可以开始工厂建造
 bool can_begin_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type, bool is_upgrade, dcon::factory_type_id refit_target = dcon::factory_type_id{});
 
+// 取消工厂建造
 void cancel_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type);
+// 判断是否可以取消工厂建造
 bool can_cancel_factory_building_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::factory_type_id type);
 
+// 开始海军单位建造
 void start_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type, dcon::province_id template_province = dcon::province_id{});
+// 判断是否可以开始海军单位建造
 bool can_start_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type, dcon::province_id template_province = dcon::province_id{});
+// 执行开始海军单位建造
 void execute_start_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type, dcon::province_id template_province = dcon::province_id{});
 
+// 开始陆军单位建造
 void start_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type, dcon::province_id template_province = dcon::province_id{});
 
 template <bool VALIDATE>
+// 判断是否可以开始陆军单位建造
 bool can_start_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type, dcon::province_id template_province = dcon::province_id{});
 
+// 执行开始陆军单位建造
 void execute_start_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type, dcon::province_id template_province = dcon::province_id{});
 
+// 取消海军单位建造
 void cancel_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type);
+// 判断是否可以取消海军单位建造
 bool can_cancel_naval_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::unit_type_id type);
 
+// 取消陆军单位建造
 void cancel_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type);
+// 判断是否可以取消陆军单位建造
 bool can_cancel_land_unit_construction(sys::state& state, dcon::nation_id source, dcon::province_id location, dcon::culture_id soldier_culture, dcon::unit_type_id type);
 
+// 删除工厂
 void delete_factory(sys::state& state, dcon::nation_id source, dcon::factory_id f);
+// 判断是否可以删除工厂
 bool can_delete_factory(sys::state& state, dcon::nation_id source, dcon::factory_id f);
 
+// 修改工厂设置
 void change_factory_settings(sys::state& state, dcon::nation_id source, dcon::factory_id f, uint8_t priority, bool subsidized);
+// 判断是否可以修改工厂设置
 bool can_change_factory_settings(sys::state& state, dcon::nation_id source, dcon::factory_id f, uint8_t priority, bool subsidized);
 
+// 建立附庸国
 void make_vassal(sys::state& state, dcon::nation_id source, dcon::national_identity_id t);
+// 判断是否可以建立附庸国
 bool can_make_vassal(sys::state& state, dcon::nation_id source, dcon::national_identity_id t);
 
+// 释放并扮演
 void release_and_play_as(sys::state& state, dcon::nation_id source, dcon::national_identity_id t);
+// 判断是否可以释放并扮演
 bool can_release_and_play_as(sys::state& state, dcon::nation_id source, dcon::national_identity_id t, dcon::mp_player_id player);
 
+// 给予战争补贴
 void give_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以给予战争补贴
 bool can_give_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target);
 
+// 取消战争补贴
 void cancel_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以取消战争补贴
 bool can_cancel_war_subsidies(sys::state& state, dcon::nation_id source, dcon::nation_id target);
 
+// 提升关系
 void increase_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以提升关系
 bool can_increase_relations(sys::state& state, dcon::nation_id source, dcon::nation_id target);
 
+// 创建空的预算设置
 inline budget_settings_data make_empty_budget_settings() {
 	return budget_settings_data{
 		.education_spending = int8_t(-127),
@@ -854,276 +901,434 @@ inline budget_settings_data make_empty_budget_settings() {
 		.subsidies = int8_t(-127)
 	};
 }
-// when sending new budget settings, leaving any value as int8_t(-127) will cause it to be ignored, leaving the setting the same
-// You can use the function above to easily make an instance of the settings struct that will change no values
-// Also, in consideration for future networking performance, do not send this command as the slider moves; only send it when the
-// player has stopped dragging the slider, in the case of drag, or maybe even only when the window closes / a day passes while the
-// window is open, if you think we can get away with it. In any case, we want to try to minimize how many times the command is
-// sent per average interaction with the budget.
+// 发送新的预算设置时，将任何值保留为int8_t(-127)将导致该值被忽略，保持设置不变
+// 您可以使用上面的函数轻松创建一个不会更改任何值的设置结构体实例
+// 另外，考虑到未来的网络性能，不要在滑块移动时发送此命令；仅在以下情况发送：
+// 玩家停止拖动滑块时（在拖动的情况下），或者甚至仅在窗口关闭/一天过去时
+// 窗口打开时，如果您认为我们可以侥幸逃脱的话。无论如何，我们希望尽量减少命令的发送次数
+// 每次与预算交互的平均发送次数。
 void change_budget_settings(sys::state& state, dcon::nation_id source, budget_settings_data const& values);
+// 判断是否可以修改预算设置
 inline bool can_change_budget_settings(sys::state& state, dcon::nation_id source, budget_settings_data const& values);
 
+// 开始选举
 void start_election(sys::state& state, dcon::nation_id source);
+// 判断是否可以开始选举
 bool can_start_election(sys::state& state, dcon::nation_id source);
 
+// 修改影响优先级
 void change_influence_priority(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, uint8_t priority);
+// 判断是否可以修改影响优先级
 bool can_change_influence_priority(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, uint8_t priority);
 
+// 败坏顾问名誉
 void discredit_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
+// 判断是否可以败坏顾问名誉
 bool can_discredit_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
 
+// 驱逐顾问
 void expel_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
+// 判断是否可以驱逐顾问
 bool can_expel_advisors(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
 
+// 禁止大使馆
 void ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
+// 判断是否可以禁止大使馆
 bool can_ban_embassy(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
 
+// 提升好感度
 void increase_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target);
+// 判断是否可以提升好感度
 bool can_increase_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target);
+// 执行提升好感度
 void execute_increase_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target);
 
+// 降低好感度
 void decrease_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
+// 判断是否可以降低好感度
 bool can_decrease_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
+// 执行降低好感度
 void execute_decrease_opinion(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
 
+// 加入势力范围
 void add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target);
+// 判断是否可以加入势力范围
 bool can_add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target);
+// 执行加入势力范围
 void execute_add_to_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target);
 
+// 移出势力范围
 void remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
+// 判断是否可以移出势力范围
 bool can_remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
+// 执行移出势力范围
 void execute_remove_from_sphere(sys::state& state, dcon::nation_id source, dcon::nation_id influence_target, dcon::nation_id affected_gp);
 
+// 将殖民地升级为州
 void upgrade_colony_to_state(sys::state& state, dcon::nation_id source, dcon::state_instance_id si);
+// 判断是否可以将殖民地升级为州
 bool can_upgrade_colony_to_state(sys::state& state, dcon::nation_id source, dcon::state_instance_id si);
 
+// 投资殖民地
 void invest_in_colony(sys::state& state, dcon::nation_id source, dcon::province_id p);
+// 判断是否可以投资殖民地
 bool can_invest_in_colony(sys::state& state, dcon::nation_id source, dcon::province_id p);
 
+// 放弃殖民地
 void abandon_colony(sys::state& state, dcon::nation_id source, dcon::province_id p);
+// 判断是否可以放弃殖民地
 bool can_abandon_colony(sys::state& state, dcon::nation_id source, dcon::province_id p);
 
+// 完成殖民化
 void finish_colonization(sys::state& state, dcon::nation_id source, dcon::state_definition_id d);
+// 判断是否可以完成殖民化
 bool can_finish_colonization(sys::state& state, dcon::nation_id source, dcon::state_definition_id d);
 
+// 介入战争
 void intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_id w, bool for_attacker);
+// 判断是否可以介入战争
 bool can_intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_id w, bool for_attacker);
+// 执行介入战争
 void execute_intervene_in_war(sys::state& state, dcon::nation_id source, dcon::war_id w, bool for_attacker);
 
+// 镇压运动
 void suppress_movement(sys::state& state, dcon::nation_id source, dcon::movement_id m);
+// 判断是否可以镇压运动
 bool can_suppress_movement(sys::state& state, dcon::nation_id source, dcon::movement_id m);
 
+// 开化国家
 void civilize_nation(sys::state& state, dcon::nation_id source);
+// 判断是否可以开化国家
 bool can_civilize_nation(sys::state& state, dcon::nation_id source);
+// 执行开化国家
 void execute_civilize_nation(sys::state& state, dcon::nation_id source);
 
+// 任命执政党
 void appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::political_party_id p);
+// 判断是否可以任命执政党
 bool can_appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::political_party_id p);
+// 执行任命执政党
 void execute_appoint_ruling_party(sys::state& state, dcon::nation_id source, dcon::political_party_id p);
 
+// 颁布改革
 void enact_reform(sys::state& state, dcon::nation_id source, dcon::reform_option_id r);
+// 判断是否可以颁布改革
 bool can_enact_reform(sys::state& state, dcon::nation_id source, dcon::reform_option_id r);
 
+// 颁布议题
 void enact_issue(sys::state& state, dcon::nation_id source, dcon::issue_option_id i);
+// 判断是否可以颁布议题
 bool can_enact_issue(sys::state& state, dcon::nation_id source, dcon::issue_option_id i);
 
+// 对危机产生兴趣
 void become_interested_in_crisis(sys::state& state, dcon::nation_id source);
+// 判断是否可以对危机产生兴趣
 bool can_become_interested_in_crisis(sys::state& state, dcon::nation_id source);
 
+// 在危机中选边站
 void take_sides_in_crisis(sys::state& state, dcon::nation_id source, bool join_attacker);
+// 判断是否可以在危机中选边站
 bool can_take_sides_in_crisis(sys::state& state, dcon::nation_id source, bool join_attacker);
 
+// 修改储备设置
 void change_stockpile_settings(sys::state& state, dcon::nation_id source, dcon::commodity_id c, float target_amount, bool draw_on_stockpiles);
+// 判断是否可以修改储备设置
 bool can_change_stockpile_settings(sys::state& state, dcon::nation_id source, dcon::commodity_id c, float target_amount, bool draw_on_stockpiles);
 
+// 通过决议
 void take_decision(sys::state& state, dcon::nation_id source, dcon::decision_id d);
+// 判断是否可以通过决议
 bool can_take_decision(sys::state& state, dcon::nation_id source, dcon::decision_id d);
+// 执行通过决议
 void execute_take_decision(sys::state& state, dcon::nation_id source, dcon::decision_id d);
 
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_n_event const& e, uint8_t option_id);
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_f_n_event const& e, uint8_t option_id);
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_p_event const& e, uint8_t option_id);
+// 做出事件选择
 void make_event_choice(sys::state& state, event::pending_human_f_p_event const& e, uint8_t option_id);
 
+// 伪造战争借口
 void fabricate_cb(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id type, dcon::state_definition_id target_state = dcon::state_definition_id{});
+// 判断是否可以伪造战争借口
 bool can_fabricate_cb(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id type, dcon::state_definition_id target_state = dcon::state_definition_id{});
 
+// 取消战争借口伪造
 void cancel_cb_fabrication(sys::state& state, dcon::nation_id source);
+// 判断是否可以取消战争借口伪造
 bool can_cancel_cb_fabrication(sys::state& state, dcon::nation_id source);
 
+// 请求军事通行权
 void ask_for_military_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 判断是否可以请求通行权
 bool can_ask_for_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost = false);
 
+// 给予军事通行权
 void give_military_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 判断是否可以给予军事通行权
 bool can_give_military_access(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost = false);
 
+// 请求同盟
 void ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 判断是否可以请求同盟
 bool can_ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost = false);
+// 执行请求同盟
 void execute_ask_for_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
 
+// 切换对同盟的兴趣状态
 void toggle_interested_in_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 判断是否可以切换对同盟的兴趣状态
 bool can_toggle_interested_in_alliance(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
 
+// 请求自由贸易协定
 void ask_for_free_trade_agreement(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 判断是否可以请求自由贸易协定
 bool can_ask_for_free_trade_agreement(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost = false);
 
+// 切换禁运状态
 void switch_embargo_status(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 判断是否可以切换禁运状态
 bool can_switch_embargo_status(sys::state& state, dcon::nation_id asker, dcon::nation_id target, bool ignore_cost = false);
-// AI uses the function directly
+// AI直接使用此函数
 void execute_switch_embargo_status(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
 
+// 撤销贸易权
 void revoke_trade_rights(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以撤销贸易权
 bool can_revoke_trade_rights(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost = false);
 
+// 判断是否可以归还单位
 bool can_give_back_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 归还单位
 void give_back_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
 
+// 判断是否可以指挥单位
 bool can_command_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
+// 指挥单位
 void command_units(sys::state& state, dcon::nation_id asker, dcon::nation_id target);
 
+// 号召武装
 void call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::war_id w, bool automatic_call = false);
+// 执行号召武装
 void execute_call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::war_id w, bool automatic_call);
+// 判断是否可以号召武装
 bool can_call_to_arms(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::war_id w, bool ignore_cost = false, bool automatic_call = false);
 
+// 回应外交消息
 void respond_to_diplomatic_message(sys::state& state, dcon::nation_id source, dcon::nation_id from, diplomatic_message::type type, bool accept);
 
+// 取消军事通行权
 void cancel_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以取消军事通行权
 bool can_cancel_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost = false);
 
+// 取消同盟
 void cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以取消同盟
 bool can_cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost = false);
+// 执行取消同盟
 void execute_cancel_alliance(sys::state& state, dcon::nation_id source, dcon::nation_id target);
 
+// 取消已给予的军事通行权
 void cancel_given_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target); // this is for cancelling the access someone has with you
+// 判断是否可以取消已给予的军事通行权
 bool can_cancel_given_military_access(sys::state& state, dcon::nation_id source, dcon::nation_id target, bool ignore_cost = false);
 
+// 宣战
 void declare_war(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation, bool call_attacker_allies, bool run_conference);
 template<bool VALIDATE>
+// 判断是否可以宣战
 bool can_declare_war(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation);
+// 执行宣战
 void execute_declare_war(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation, bool call_attacker_allies, bool run_conference);
 
+// 添加战争目标
 void add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_id w, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation);
+// 判断是否可以添加战争目标
 bool can_add_war_goal(sys::state& state, dcon::nation_id source, dcon::war_id w, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation);
 
+// 停止陆军移动
 void stop_army_movement(sys::state& state, dcon::nation_id source, dcon::army_id army);
+// 判断是否可以停止陆军移动
 bool can_stop_army_movement(sys::state& state, dcon::nation_id source, dcon::army_id army);
 
+// 停止海军移动
 void stop_navy_movement(sys::state& state, dcon::nation_id source, dcon::navy_id navy);
+// 判断是否可以停止海军移动
 bool can_stop_navy_movement(sys::state& state, dcon::nation_id source, dcon::navy_id navy);
 
-// NOTE: sending an invalid province id will stop movement of an army or navy;
-//     otherwise path will be appended to its current destination if any
-// Thus, if you want to move the unit to a new location from its current location,
-//     first stop its current movement and then send the new destination as a second command
-// ALSO: can returns an empty vector if no path could be made
+// 注意：发送无效的省份ID将停止陆军或海军的移动；
+//     否则，如果有当前目的地，路径将被追加到其后
+// 因此，如果您想将单位从当前位置移动到新位置，
+//     首先停止其当前移动，然后作为第二个命令发送新目的地
+// 另外：如果无法找到路径，则返回空向量
 void move_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, bool reset, military::special_army_order order = military::special_army_order::none);
+// 计算陆军路径
 std::vector<dcon::province_id> calculate_army_path(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id last_province, dcon::province_id dest);
 
+// 判断是否可以移动陆军
 std::vector<dcon::province_id> can_move_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, bool reset = true);
+// 执行移动陆军
 void execute_move_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, bool reset, military::special_army_order special_order);
 
+// 移动海军
 void move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest, bool reset);
+// 计算海军路径
 std::vector<dcon::province_id> calculate_navy_path(sys::state & state, dcon::nation_id source, dcon::navy_id n, dcon::province_id last_province, dcon::province_id dest);
+// 判断是否可以移动海军
 std::vector<dcon::province_id> can_move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest, bool reset = true);
 
 
-// Wrapper to check if a given army can either move to the specified destination, OR stop movement if the dest province is equal to the current army location
-// The movement in this function is always non-shift click behaviour, ie the old path will be cleared and a new path wil override it.
+// 包装函数：检查给定的陆军是否可以移动到指定目的地，或者如果目的省份等于当前陆军位置则停止移动
+// 此函数中的移动始终是非Shift点击行为，即旧路径将被清除，新路径将覆盖它。
 bool can_retreat_move_or_stop_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest);
 
-// Wrapper to check if a given navy can either move to the specified destination, OR stop movement if the dest province is equal to the current army location
-// The movement in this function is always non-shift click behaviour, ie the old path will be cleared and a new path wil override it.
+// 包装函数：检查给定的海军是否可以移动到指定目的地，或者如果目的省份等于当前海军位置则停止移动
+// 此函数中的移动始终是非Shift点击行为，即旧路径将被清除，新路径将覆盖它。
 bool can_move_retreat_or_stop_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest);
 
-// Wrapper to either add a stop move command to the queue if the army location is equal to the destination, or add a move command if not
-// The movement in this function is always non-shift click behaviour, ie the old path will be cleared and a new path wil override it.
+// 包装函数：如果陆军位置等于目的地，则向队列添加停止移动命令，否则添加移动命令
+// 此函数中的移动始终是非Shift点击行为，即旧路径将被清除，新路径将覆盖它。
 void move_retreat_or_stop_army(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::province_id dest, military::special_army_order order);
 
-// Wrapper to either add a stop move command to the queue if the navy location is equal to the destination, or add a move command if not
-// The movement in this function is always non-shift click behaviour, ie the old path will be cleared and a new path wil override it.
+// 包装函数：如果海军位置等于目的地，则向队列添加停止移动命令，否则添加移动命令
+// 此函数中的移动始终是非Shift点击行为，即旧路径将被清除，新路径将覆盖它。
 void move_retreat_or_stop_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest);
 
+// 执行移动海军
 void execute_move_navy(sys::state& state, dcon::nation_id source, dcon::navy_id n, dcon::province_id dest, bool reset);
 
 
-// This command is used for getting armies in/out of transports while those transports are docked in port
-// If the army is already embarked, it will disembark; if it is not embarked it will embark
-// Embarking an army onto/off a ship that is off the coast is done by moving the army into the sea/land tile instead.
+// 此命令用于在运输船停靠在港口时让陆军上下运输船
+// 如果陆军已经登船，它将下船；如果没有登船，它将登船
+// 让陆军登上/离开近海的船只的方法是将陆军移动到海洋/陆地格子。
 void embark_army(sys::state& state, dcon::nation_id source, dcon::army_id a);
+// 判断是否可以让陆军登船
 bool can_embark_army(sys::state& state, dcon::nation_id source, dcon::army_id a);
 
+// 合并陆军
 void merge_armies(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::army_id b);
+// 判断是否可以合并陆军
 bool can_merge_armies(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::army_id b);
 
+// 合并海军
 void merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::navy_id b);
+// 判断是否可以合并海军
 bool can_merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::navy_id b);
+// 执行合并海军
 void execute_merge_navies(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::navy_id b);
 
+// 拆分陆军
 void split_army(sys::state& state, dcon::nation_id source, dcon::army_id a, std::span<const dcon::regiment_id> regiments_to_split, fixed_bool_t select_both_armies = false);
 
+// 解散人员不足的团
 void disband_undermanned_regiments(sys::state& state, dcon::nation_id source, dcon::army_id a);
+// 判断是否可以解散人员不足的团
 bool can_disband_undermanned_regiments(sys::state& state, dcon::nation_id source, dcon::army_id a);
 
+// 拆分海军
 void split_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a, std::span<const dcon::ship_id> ships_to_split, fixed_bool_t select_both_armies = false);
 
+// 更改陆军单位类型
 void change_land_unit_type(sys::state& state, dcon::nation_id source, std::span<const dcon::regiment_id> regiments, dcon::unit_type_id new_type);
+// 判断是否可以更改陆军单位类型
 bool can_change_land_unit_type(sys::state& state, dcon::nation_id source, command_data& command);
+// 执行更改陆军单位类型
 void execute_change_land_unit_type(sys::state& state, dcon::nation_id source, std::span<const dcon::regiment_id> regiments, dcon::unit_type_id new_type);
 
+// 更改海军单位类型
 void change_naval_unit_type(sys::state& state, dcon::nation_id source, std::span<const dcon::ship_id> ships, dcon::unit_type_id new_type);
 
 
+// 切换清剿叛军状态
 void toggle_rebel_hunting(sys::state& state, dcon::nation_id source, dcon::army_id a);
+// 切换单位AI控制状态
 void toggle_unit_ai_control(sys::state& state, dcon::nation_id source, dcon::army_id a);
+// 切换动员单位是否由AI控制
 void toggle_mobilized_is_ai_controlled(sys::state& state, dcon::nation_id source);
 
+// 删除陆军
 void delete_army(sys::state& state, dcon::nation_id source, dcon::army_id a);
+// 判断是否可以删除陆军
 bool can_delete_army(sys::state& state, dcon::nation_id source, dcon::army_id a);
 
+// 删除海军
 void delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a);
+// 判断是否可以删除海军
 bool can_delete_navy(sys::state& state, dcon::nation_id source, dcon::navy_id a);
 
 
+// 从海战中撤退
 void retreat_from_naval_battle(sys::state& state, dcon::nation_id source, dcon::navy_id navy, dcon::province_id dest = dcon::province_id{ });
+// 判断是否可以从海战中撤退
 std::vector<dcon::province_id> can_retreat_from_naval_battle(sys::state& state, dcon::nation_id source, dcon::navy_id navy, military::retreat_type retreat_type, dcon::province_id dest = dcon::province_id{ });
 
+// 从陆战中撤退
 void retreat_from_land_battle(sys::state& state, dcon::nation_id source, dcon::army_id army, military::retreat_type retreat_type, dcon::province_id dest = dcon::province_id{ });
+// 判断是否可以从陆战中撤退
 std::vector<dcon::province_id> can_retreat_from_land_battle(sys::state& state, dcon::nation_id source, dcon::army_id army, military::retreat_type retreat_type, dcon::province_id dest = dcon::province_id{ });
 
+// 更换将军
 void change_general(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::leader_id l);
+// 判断是否可以更换将军
 bool can_change_general(sys::state& state, dcon::nation_id source, dcon::army_id a, dcon::leader_id l);
 
+// 更换海军上将
 void change_admiral(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::leader_id l);
+// 判断是否可以更换海军上将
 bool can_change_admiral(sys::state& state, dcon::nation_id source, dcon::navy_id a, dcon::leader_id l);
 
+// 邀请加入危机
 void invite_to_crisis(sys::state& state, dcon::nation_id source, dcon::nation_id invitation_to, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation);
+// 判断是否可以邀请加入危机
 bool can_invite_to_crisis(sys::state& state, dcon::nation_id source, dcon::nation_id invitation_to, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation);
 
+// 判断危机中是否可以添加战争目标
 bool crisis_can_add_wargoal(sys::state& state, dcon::nation_id source, sys::full_wg wg);
+// 将添加战争目标加入危机队列
 void queue_crisis_add_wargoal(sys::state& state, dcon::nation_id source, sys::full_wg wg);
+// 执行危机添加战争目标
 void execute_crisis_add_wargoal(sys::state& state, dcon::nation_id source, new_war_goal_data const& data);
 
+// 切换动员状态
 void toggle_mobilization(sys::state& state, dcon::nation_id source);
 
+// 启用债务
 void enable_debt(sys::state& state, dcon::nation_id source, bool debt_is_enabled);
 
+// 迁都
 void move_capital(sys::state& state, dcon::nation_id source, dcon::province_id p);
+// 判断是否可以迁都
 bool can_move_capital(sys::state& state, dcon::nation_id source, dcon::province_id p);
 
+// 切换地方行政状态
 void toggle_local_administration(sys::state& state, dcon::nation_id source, dcon::province_id p);
+// 判断是否可以切换地方行政状态
 bool can_toggle_local_administration(sys::state& state, dcon::nation_id source, dcon::province_id p);
 
+// 占领省份
 void take_province(sys::state& state, dcon::nation_id source, dcon::province_id prov);
+// 判断是否可以占领省份
 bool can_take_province(sys::state& state, dcon::nation_id source, dcon::province_id p);
+// 执行占领省份
 void execute_take_province(sys::state& state, dcon::nation_id source, dcon::province_id p);
 
+// 使用省份按钮
 void use_province_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::province_id p);
+// 判断是否可以使用省份按钮
 bool can_use_province_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::province_id p);
 
+// 使用国家按钮
 void use_nation_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::nation_id n);
+// 判断是否可以使用国家按钮
 bool can_use_nation_button(sys::state& state, dcon::nation_id source, dcon::gui_def_id d, dcon::nation_id n);
 
+// 切换生产指令
 void toggle_production_directive(sys::state& state, dcon::nation_id source, dcon::state_instance_id for_state, dcon::production_directive_id directive);
+// 执行切换生产指令
 void execute_toggle_production_directive(sys::state& state, dcon::nation_id source, dcon::state_instance_id for_state, dcon::production_directive_id directive);
 
 /*
@@ -1138,101 +1343,166 @@ flight while constructing / offering a crisis peace offer
 */
 
 void start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::war_id war, bool is_concession);
+// 判断是否可以开始和平提议
 bool can_start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::war_id war, bool is_concession);
+// 执行开始和平提议
 void execute_start_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::war_id war, bool is_concession);
 
+// 添加到和平提议
 void add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::wargoal_id goal);
+// 判断是否可以添加到和平提议
 bool can_add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::wargoal_id goal);
+// 执行添加到和平提议
 void execute_add_to_peace_offer(sys::state& state, dcon::nation_id source, dcon::wargoal_id goal);
 
+// 发送和平提议
 void send_peace_offer(sys::state& state, dcon::nation_id source);
+// 判断是否可以发送和平提议
 bool can_send_peace_offer(sys::state& state, dcon::nation_id source);
+// 执行发送和平提议
 void execute_send_peace_offer(sys::state& state, dcon::nation_id source);
 
-// CRISIS PEACE OFFER COMMANDS
+// 危机和平提议命令
 
 void start_crisis_peace_offer(sys::state& state, dcon::nation_id source, bool is_concession);
 template <bool VALIDATE>
+// 判断是否可以开始危机和平提议
 bool can_start_crisis_peace_offer(sys::state& state, dcon::nation_id source, bool is_concession);
+// 执行开始危机和平提议
 void execute_start_crisis_peace_offer(sys::state& state, dcon::nation_id source, bool is_concession);
 
+// 添加到危机和平提议
 void add_to_crisis_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id wargoal_from, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation);
 template <bool VALIDATE>
+// 判断是否可以添加到危机和平提议
 bool can_add_to_crisis_peace_offer(sys::state& state, dcon::nation_id source, dcon::nation_id wargoal_from, dcon::nation_id target, dcon::cb_type_id primary_cb, dcon::state_definition_id cb_state, dcon::national_identity_id cb_tag, dcon::nation_id cb_secondary_nation);
 
+// 发送危机和平提议
 void send_crisis_peace_offer(sys::state& state, dcon::nation_id source);
+// 判断是否可以发送危机和平提议
 bool can_send_crisis_peace_offer(sys::state& state, dcon::nation_id source);
+// 执行发送危机和平提议
 void execute_send_crisis_peace_offer(sys::state& state, dcon::nation_id source);
 
+// 切换省份选择状态
 void toggle_select_province(sys::state& state, dcon::nation_id source, dcon::province_id p);
+// 判断是否可以切换省份选择状态
 bool can_toggle_select_province(sys::state& state, dcon::nation_id source, dcon::province_id p);
 
+// 切换移民目标省份状态
 void toggle_immigrator_province(sys::state& state, dcon::nation_id source, dcon::province_id prov);
+// 判断是否可以切换移民目标省份状态
 bool can_toggle_immigrator_province(sys::state& state, dcon::nation_id source, dcon::province_id prov);
 
+// 发布聊天消息
 void post_chat_message(sys::state& state, ui::chat_message& m);
+// 创建并发布消息
 void create_and_post_message(sys::state& state, dcon::mp_player_id sender, std::string_view body, const network::chat_message_targets& targets);
+// 聊天消息
 void chat_message(sys::state& state, const network::chat_message_targets& targets, std::string_view body, bool send_to_all = false);
+// 判断是否可以发送聊天消息
 bool can_chat_message(sys::state& state, command_data& command);
 
+// 修改游戏规则设置
 void change_gamerule_setting(sys::state& state, dcon::nation_id source, dcon::gamerule_id gamerule, uint8_t new_setting);
+// 判断是否可以修改游戏规则设置
 bool can_change_gamerule_setting(sys::state& state, dcon::nation_id source, dcon::gamerule_id gamerule, uint8_t new_setting);
 
+// 释放附属国
 void release_subject(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以释放附属国
 bool can_release_subject(sys::state& state, dcon::nation_id source, dcon::nation_id target);
 
+// 州转让
 void state_transfer(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::state_definition_id sid);
+// 判断是否可以州转让
 bool can_state_transfer(sys::state& state, dcon::nation_id asker, dcon::nation_id target, dcon::state_definition_id sid);
 
+// 通知游戏状态不同步
 void notify_oos_gamestate(sys::state& state, dcon::nation_id source);
 
+// 推进游戏帧
 void advance_tick(sys::state& state, dcon::nation_id source);
+// 通知玩家被封禁
 void notify_player_ban(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id banned_player);
+// 判断是否可以通知玩家被封禁
 bool can_notify_player_ban(sys::state& state, dcon::nation_id source, dcon::mp_player_id banned_player);
+// 通知玩家被踢出
 void notify_player_kick(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id kicked_player);
+// 判断是否可以通知玩家被踢出
 bool can_notify_player_kick(sys::state& state, dcon::nation_id source, dcon::mp_player_id kicked_player);
+// 通知玩家加入
 void notify_player_joins(sys::state& state, dcon::client_id client, const sys::player_name& name, bool needs_loading, dcon::nation_id player_nation, network::selector_arg arg, bool host_execute, network::selector_function client_selector);
+// 判断是否可以通知玩家加入
 bool can_notify_player_joins(sys::state& state, dcon::nation_id source, const sys::player_name& name, const sys::player_password_raw& password, bool needs_loading, dcon::nation_id player_nation);
+// 通知玩家离开
 void notify_player_leaves(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id leaving_player);
+// 判断是否可以通知玩家离开
 bool can_notify_player_leaves(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id leaving_player);
+// 通知玩家选择国家
 void notify_player_picks_nation(sys::state& state, dcon::nation_id source, dcon::nation_id target);
+// 判断是否可以通知玩家选择国家
 bool can_notify_player_picks_nation(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::mp_player_id player);
+// 执行通知玩家选择国家
 void execute_notify_player_picks_nation(sys::state& state, dcon::nation_id source, dcon::nation_id target, dcon::mp_player_id player);
+// 通知玩家不同步
 void notify_player_oos(sys::state& state, dcon::nation_id source);
+// 通知存档已加载
 void notify_save_loaded(sys::state& state, network::selector_arg arg, bool host_execute, network::selector_function client_selector);
+// 通知重新加载
 void notify_reload(sys::state& state, network::selector_arg arg, bool host_execute, network::selector_function client_selector);
+// 判断是否可以通知开始游戏
 bool can_notify_start_game(sys::state& state, dcon::nation_id source);
+// 通知开始游戏
 void notify_start_game(sys::state& state, network::selector_arg arg, bool host_execute, network::selector_function client_selector);
+// 通知开始游戏
 void notify_start_game(sys::state& state);
+// 通知玩家正在加载
 void notify_player_is_loading(sys::state& state, dcon::mp_player_id loading_player);
+// 执行通知玩家正在加载
 void execute_notify_player_is_loading(sys::state& state, dcon::mp_player_id loading_player);
+// 通知玩家加载完成
 void notify_player_fully_loaded(sys::state& state, dcon::nation_id source);
+// 判断是否可以通知停止游戏
 bool can_notify_stop_game(sys::state& state, dcon::nation_id source);
+// 通知停止游戏
 void notify_stop_game(sys::state& state, dcon::nation_id source);
+// 通知暂停游戏
 void notify_pause_game(sys::state& state, dcon::nation_id source);
+// 重新同步大厅
 void resync_lobby(sys::state& state, dcon::nation_id source);
 
+// 通知多人游戏数据
 void notify_mp_data(sys::state& state, const network::selector_arg arg, bool host_execute, const network::selector_function client_selector);
 
+// 加载存档游戏
 void load_save_game(sys::state& state, const std::string& filename, bool is_new_game);
 
+// 通知玩家超时
 void notify_player_timeout(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id disconnected_player);
+// 判断是否可以通知玩家超时
 bool can_notify_player_timeout(sys::state& state, dcon::nation_id source, bool make_ai, dcon::mp_player_id disconnected_player);
 
+// 执行通知玩家加入
 dcon::mp_player_id execute_notify_player_joins(sys::state& state, dcon::client_id client, const sys::player_name& name, const sys::player_password_raw& password, bool needs_loading, dcon::nation_id player_nation);
 
-// executes command no matter if the player is allowed to
+// 执行命令，无论玩家是否被允许
 void execute_command(sys::state& state, command_data& c);
-// Only executes the command if the player is allowed to, and returns true if allowed, false if not
+// 仅在玩家被允许时执行命令，如果允许则返回true，否则返回false
 bool try_execute_command(sys::state& state, command_data& c);
+// 执行待处理命令
 void execute_pending_commands(sys::state& state);
+// 判断是否可执行命令
 bool can_perform_command(sys::state& state, command_data& c);
-// Returns true if the command type can be recevied by the host FROM a client. False otherwise
+// 如果命令类型可以被主机从客户端接收则返回true，否则返回false
 bool is_host_receive_command(command_type type, const sys::state& state);
 
 
+// 通知控制台命令
 void notify_console_command(sys::state& state);
+// 网络不活动心跳检测
 void network_inactivity_ping(sys::state& state, dcon::nation_id source, sys::date date);
+// 执行网络不活动心跳检测
 void execute_network_inactivity_ping(sys::state& state, dcon::nation_id source, sys::date date, dcon::mp_player_id player);
 
 

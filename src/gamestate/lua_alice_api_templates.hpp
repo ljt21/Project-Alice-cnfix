@@ -3,6 +3,7 @@
 #include "system_state.hpp"
 
 namespace lua_alice_api {
+// 按名称调用已注册的Lua函数，支持传递可变数量的DCON ID参数
 template<typename ... dcon_args>
 void call_named_function(sys::state& state, const char function_name[], dcon_args ... id_params) {
 	std::string name = function_name;

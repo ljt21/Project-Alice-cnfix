@@ -1,0 +1,356 @@
+#Powered_by_ParaTranz
+KEYNAME;Text
+news1;$TAG_2_0$government has accepted peace on the following terms: $STRING_0_1$
+battle_we_win_title_large;Great Victory at $STRING_0_3$!
+battle_we_win_large;On $DATE_LONG_0$, our invincible army once again triumphed at $STRING_0_3$! Our $VALUE_INT_0_1$ brave warriors gave the $VALUE_INT_0_3$-strong $TAG_0_3_ADJ$ army a bitter taste. Although $VALUE_INT_0_2$ of our fearless men laid down their lives, $VALUE_INT_0_4$ $TAG_0_3_ADJ$ scoundrels were killed. The enemy fled in defeat, and control of the region is now in our hands. After such a crushing defeat, $TAG_0_3$ has no choice but to beg for peace!
+battle_we_win_title_medium;Victory at $STRING_0_3$!
+battle_we_win_medium;On $DATE_LONG_0$, we defeated the $VALUE_INT_0_3$-strong $TAG_0_3_ADJ$ army at $STRING_0_3$, losing only $VALUE_INT_0_2$ men.
+battle_we_win_title_small;Victory!
+battle_we_win_small;On $DATE_LONG_0$, we defeated the $VALUE_INT_0_3$-strong $TAG_0_3_ADJ$ army at $STRING_0_3$.
+battle_we_lose_title_large;Strategic Blunder Leads to Crushing Defeat at $STRING_0_3$!
+battle_we_lose_large;On $DATE_LONG_0$, those in high command recklessly sent $VALUE_INT_0_4$ brave warriors to their deaths at $STRING_0_3$ against the $TAG_0_2$ army. Our $VALUE_INT_0_3$ elite soldiers faced the $VALUE_INT1$-strong $TAG_0_2_ADJ$ army, contending with both their own pig-headed generals and the enemy's despicable tactics. Even in this dire situation, they still inflicted $VALUE_INT_0_2$ casualties on the enemy. This paper expresses deep concern over those responsible for this war and strongly urges the government to take appropriate measures. It is not too late to mend the fold!
+battle_we_lose_title_medium;Defeat at $STRING_0_3$
+battle_we_lose_medium;On $DATE_LONG_0$, we lost the battle of $STRING_0_3$, losing $VALUE_INT_0_4$ soldiers and handing control of the region to $TAG_0_2$.
+battle_we_lose_title_small;Crushing Defeat at $STRING_0_3$
+battle_we_lose_small;On $DATE_LONG_0$, we lost the battle of $STRING_0_3$, losing $VALUE_INT_0_4$ soldiers and handing control of the region to $TAG_0_2$.
+gwar_we_win_large_title;$TAG_3_0_UPPER$ Surrenders!
+gwar_we_win_large_desc;On $DATE_LONG_1$, with our great victory, the grand war between $TAG_0_0$ and $TAG_1_0$ has come to an end. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$, with the final result being $STRINGS_LIST_4$.
+gwar_we_win_medium_title;Armistice Signed!\nVictory!
+gwar_we_win_medium_desc;On $DATE_LONG_1$, with our great victory, the grand war between $TAG_0_0$ and $TAG_1_0$ has come to an end. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$.
+gwar_we_win_small_title;Victory over $TAG_3_0$!
+gwar_we_win_small_desc;$STRING_0_0$ ended with the defeat of $TAG_3_0$.
+gwar_we_lose_large_title;Day of Shame\nPeace Treaty with $TAG_2_0_UPPER$ Signed!
+gwar_we_lose_large_desc;On $DATE_LONG_1$, the war against $TAG_2_0$ ended in our shameful defeat. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$, with the final result being $STRINGS_LIST_4$.
+gwar_we_lose_medium_title;Peace with $TAG_2_0_UPPER$!
+gwar_we_lose_medium_desc;On $DATE_LONG_1$, with our army's defeat, the grand war between $TAG_0_0$ and $TAG_1_0$ has come to an end. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$.
+gwar_we_lose_small_title;Peace with $TAG_2_0$
+gwar_we_lose_small_desc;$STRING_0_0$ has ended, and we have been defeated by $TAG_2_0$.
+war_we_win_large_title;Armistice Signed!\n$TAG_3_0_UPPER$ Surrenders
+war_we_win_large_desc;On $DATE_LONG_1$, with our great victory, the war between $TAG_0_0$ and $TAG_1_0$ has come to an end. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$, with the final result being $STRINGS_LIST_4$.
+war_we_win_medium_title;Armistice Signed!\nVictory!
+war_we_win_medium_desc;On $DATE_LONG_1$, with our great victory, the war between $TAG_0_0$ and $TAG_1_0$ has come to an end. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$.
+war_we_win_small_title;Victory over $TAG_3_0$!
+war_we_win_small_desc;$STRING_0_0$ ended with the defeat of $TAG_3_0$.
+war_we_lose_large_title;Day of Shame\nPeace Treaty with $TAG_2_0_UPPER$ Signed!
+war_we_lose_large_desc;On $DATE_LONG_1$, the war against $TAG_2_0$ ended in our shameful defeat. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$, with the final result being $STRINGS_LIST_4$.
+war_we_lose_medium_title;Shameful Peace Treaty Signed!
+war_we_lose_medium_desc;On $DATE_LONG_1$, with our army's defeat, the war between $TAG_0_0$ and $TAG_1_0$ has come to an end. This war, known as $STRING_0_0$, began on $DATE_SHORT_0$ and ended on $STRING_9_0$, with $TAG_2_0$ as the ultimate victor.
+war_we_lose_small_title;Peace with $TAG_2_0$
+war_we_lose_small_desc;$STRING_0_0$ has ended, and we have been defeated by $TAG_2_0$.
+rebels_win_small_title;Revolution!
+rebels_win_small_desc;$STRING_0_0$ has crushed $TAG_0_0$, and the entire nation is devastated. What will $STRING_0_3$$STRING_0_4$ do now?!
+some_fake_1836_title_1;Opium News Flash!
+some_fake_1836_1;An opium craze is sweeping China. The trade routes may be far, but they are absolutely worth the effort.
+some_fake_1836_title_2;Ether Frenzy
+some_fake_1836_2;More and more people are attending ether-smoking parties, and authorities claim this will consume massive amounts of gas!
+some_fake_1836_title_3;Pleasant Dreams
+some_fake_1836_3;General anesthesia is used for the first time in surgery, as American surgeons put patients to sleep during tumor removal operations.
+some_fake_1836_title_4;Character Encoding
+some_fake_1836_4;The world's first telegraph using Morse code appeared in the United States.
+some_fake_1836_title_5;Stamp Collectors' Celebration!
+some_fake_1836_5;Britain introduced a postage stamp system known as the Penny Black, bearing a portrait of the young Queen Victoria.
+some_fake_1836_title_6;Revealing Reality!
+some_fake_1836_6;"Dead Souls" is published in Russia, with critics declaring the work too absurd.
+some_fake_1836_title_7;Woodwind or Brass?
+some_fake_1836_title_8;Gold Rush!
+some_fake_1836_8;Gold has been discovered in California, drawing a massive influx of prospectors to the region!
+some_fake_1836_title_9;"The Raven" Published
+some_fake_1836_9;A somber and eerie masterpiece, this work by Edgar Allan Poe will make the hair on your neck stand on end.
+some_fake_1836_title_10;Fuller Female Figures
+some_fake_1836_10;(Readers may judge for themselves) The maximum and minimum values of women's waist and hip sizes at different periods in history. See page 5
+some_fake_1836_title_11;Editorial
+some_fake_1836_11;Liberalism will destroy Western civilization. Without a strong government, the people will starve and revert to barbarism to survive and raise their offspring. (See edition 10)
+some_fake_1850_title_1;Our Ancestors?
+some_fake_1850_1;The discovery of Neanderthal fossils in Germany has astonished scientists.
+some_fake_1850_title_2;Editorial:
+some_fake_1850_2;This paper believes that animal fat is the perfect cartridge lubricant. See how we arrived at this irrefutable conclusion (see edition 10)
+some_fake_1850_title_3;Declining Canals
+some_fake_1850_3;The once-glorious canal system, regarded as a national symbol, is in decline. Is there anything we can do? See page 4
+some_fake_1860_title_1;Lincoln Assassinated
+some_fake_1860_1;Abraham Lincoln was assassinated at Ford's Theatre, shot at point-blank range by John Wilkes Booth.
+some_fake_1860_title_2;Lincoln Safe and Sound
+some_fake_1860_2;After John Wilkes Booth's assassination attempt on Abraham Lincoln failed, the president threw him from the balcony of Ford's Theatre.
+some_fake_1860_title_3;Lack of Chivalry
+some_fake_1860_3;Military submarines, once invented, were immediately deemed dishonorable and evil weapons worldwide and should be permanently banned.
+some_fake_1860_title_4;Healthcare
+some_fake_1860_4;Florence Nightingale founded a school of nursing at St. Thomas' Hospital in London.
+some_fake_1860_title_5;Organization of the Elements
+some_fake_1860_5;Mendeleev discovered the periodic table of the elements, listing all 56 known elements.
+some_fake_1860_title_6;Bicycle Craze
+some_fake_1860_6;A bicycle craze is sweeping the Western world. Bicycles—worth having!
+some_fake_1860_title_7;Widest Sombrero in History
+some_fake_1860_7;Reportedly, an astonishing 57-inch sombrero has appeared in Mexico.
+some_fake_1860_title_8;Fire Department Founded
+some_fake_1860_8;They're new, but they're the best.
+some_fake_1860_title_9;Football Gains Popularity
+some_fake_1860_9;Attendance at Football Association matches has increased, with exciting matches especially popular among laborers and the poor.
+some_fake_1860_title_10;Editorial:
+some_fake_1860_10;Beware of women's bicycles. When women ride these machines, their skirts fluttering in the wind and their bare ankles and legs visible will mesmerize nearby men (edition 10)
+some_fake_1860_title_11;Pompeii and Herculaneum Brought to Light
+some_fake_1860_11;New excavation methods will bring these two cities, destroyed by the eruption of Mount Vesuvius in 79 AD, back to light.
+some_fake_1870_title_1;Editorial:
+some_fake_1870_1;The backward peoples of Africa warmly welcome our benevolent government. Just as many Irish people once welcomed the British monarch, these blacks yearn for white rule (edition 10)
+some_fake_1870_title_2;Literature:
+some_fake_1870_2;"Around the World in 80 Days" brings readers a delightful feast of knowledge!
+some_fake_1870_title_3;Corset Fainting
+some_fake_1870_3;What a day for the sick! Recently, our medical centers have been filled with victims of overly tight corsets.
+some_fake_1880_title_1;Test Flight Success!
+some_fake_1880_1;A military airship named "La France" became the first powered airship in history to complete a round-trip voyage.
+some_fake_1880_title_2;High-Rise Buildings
+some_fake_1880_2;"Skyscrapers" are beginning to be built in the United States. These massive steel-frame structures tower over their surroundings.
+some_fake_1880_title_3;Mint Julep Saved!
+some_fake_1880_3;Marvin C. Stone of the United States invented the "drinking straw."
+some_fake_1880_title_4;Everything Goes Your Way
+some_fake_1880_4;A cure for morphine addiction has been found in the United States: coca wine!
+some_fake_1880_title_5;Bismarck Resigns
+some_fake_1880_5;Bismarck resigned as Chancellor, and the great ship of Germany has lost its helmsman.
+some_fake_1880_title_6;Editorial:
+some_fake_1880_6;Socialism will destroy Western civilization. Why? Because it grants power to the working class and makes them believe they will live better and richer lives. Bullshit! (edition 10)
+some_fake_1880_title_7;Should the U.S. Government Act?
+some_fake_1880_7;Lynching of blacks has become commonplace in the heartland of America. Our editors cannot help but ask: should the state intervene or prevent such acts?
+some_fake_1890_title_1;Takeoff!
+some_fake_1890_1;The Ader "Éole" was a steam-powered aircraft that made a short experimental flight near Paris.
+some_fake_1890_title_2;Test Flight Success!
+some_fake_1890_2;The Daedalus glider became the world's first aircraft to successfully carry a person in flight, flying about 80 feet near Brandenburg.
+some_fake_1890_title_3;Moving Pictures!
+some_fake_1890_3;At the Brooklyn Academy of Arts and Sciences, the moving images played by the film projector astonished the audience.
+some_fake_1890_title_4;Hooray! The Gay Nineties
+some_fake_1890_4;We believe that happier days than the present have never existed and will never come again. The editors respectfully propose adding the term "Gay Nineties" to our everyday vocabulary.
+some_fake_1890_title_5;Will People Ever Fly?
+some_fake_1890_5;In this country, there are prophets who claim that one day humanity will fly through the sky using ingenious mechanical devices.
+some_fake_1890_title_6;Editorial:
+some_fake_1890_6;"If he had wanted humans to fly, he would have given us wings." Shipping magnate and major shareholder of this paper Charles Orion commented. (See edition 10)
+some_fake_1890_title_7;Wrong from the Start
+some_fake_1890_7;Renowned paleontologist O.C. Marsh revealed today that the famous elasmosaurus skeleton assembled by Professor Cope actually had its head mounted on the tail. The professor had no time to comment on this.
+some_fake_1900_title_1;Lighter Than Air
+some_fake_1900_1;The first airship completed a test flight over Lake Constance near Friedrichshafen, Germany.
+some_fake_1900_title_2;Disaster!
+some_fake_1900_2;A strong hurricane struck Galveston, Texas, United States, causing approximately 8,000 deaths.
+some_fake_1900_title_3;Disaster!
+some_fake_1900_3;In Martinique, a volcanic eruption destroyed the town of Saint-Pierre, killing at least 30,000 people.
+some_fake_1900_title_4;Disaster!
+some_fake_1900_4;Mount Vesuvius erupted, and Naples was destroyed.
+some_fake_1900_title_6;Disaster!
+some_fake_1900_6;Earthquakes and tsunamis struck Messina and Calabria. At least 70,000 people died in Sicily.
+some_fake_1900_title_7;Captain Köpenick
+some_fake_1900_7;A fraud disguised as a German army officer "ordered" soldiers to "arrest" a local council member. The man eventually surrendered to the government, saying he did it out of anger at the sluggish bureaucracy.
+some_fake_1910_title_1;Disaster!
+some_fake_1910_1;The RMS Titanic was the largest ship ever built. On its maiden voyage, it sank after striking an iceberg in the North Atlantic, claiming over 1,500 lives.
+some_fake_1910_title_2;Disaster!
+some_fake_1910_2;A North Sea storm struck the Netherlands, causing over 10,000 deaths.
+some_fake_1910_title_3;Great Discovery!
+some_fake_1910_3;Hiram Bingham rediscovered a previously unknown Inca city—Machu Picchu.
+some_fake_1910_title_4;Rejoice, Smokers!
+some_fake_1910_4;Gideon Sundback invented the zipper.
+some_fake_1910_title_5;Save Breakfast
+some_fake_1910_5;Charles Strite invented the toaster.
+some_fake_1910_title_6;Continental Drift
+some_fake_1910_6;The famous German scientist Alfred Wegener proposed a theory that the continents we live on are floating on the Earth's surface.
+some_fake_1910_title_7;General Relativity
+some_fake_1910_7;Albert Einstein published his theory of general relativity, attempting to explain the relationships between space, time, gravity, and many other forces through very complex and confusing formulas.
+some_fake_1910_title_8;Editorial:
+some_fake_1910_8;Feminism will likely destroy the entire Western civilization. Gender equality will lead to the decline of civilization. Why? Because feminism will ultimately lead to female rulers (edition 10)
+some_fake_1910_title_9;Free Fill-in:
+some_fake_1910_9;"Crossword puzzles" as a whimsical pastime will allow readers to demonstrate their powerful insight.
+some_fake_1910_title_10;"Sherlock Holmes" Ending Controversy
+some_fake_1910_10;The death of the famous detective caused an uproar among fans. The author, Sir Arthur Conan Doyle, decided to bring him back from the dead and issued a clarification to end the controversy.
+some_fake_1920_title_1;Flight Record
+some_fake_1920_1;Charles Lindbergh became the first person to fly solo from New York to Paris across the Atlantic Ocean (May 20-21, 1927).
+some_fake_1920_title_2;To the Stars!
+some_fake_1920_2;Robert Goddard conducted the world's first liquid-fuel rocket test.
+some_fake_1920_title_3;The End of Beards?
+some_fake_1920_3;American manufacturer Jacob Schick received the first patent for an electric razor.
+some_fake_1920_title_4;The Future of Music
+some_fake_1920_4;The Automatic Musical Instrument Company introduced the world's first jukebox.
+some_fake_1920_title_5;We Don't Know Why
+some_fake_1920_5;The trend of sitting on poles has swept the Western world.
+some_fake_1920_title_6;Editorial:
+some_fake_1920_6;"Television" will surely destroy Western civilization. Today it's American Idol, tomorrow it's something super... (see edition 10)
+some_fake_1920_title_7;Editorial:
+some_fake_1920_7;"Jazz" will destroy Western civilization. Never in the history of music has there been such a corrosive rhythm. This jungle music rhythm has no place in today's oppressed society (see edition 10)
+some_fake_1920_title_8;Jazz Frenzy!
+some_fake_1920_8;A new trend has awakened listeners' passion for music. Frenzied dancing, flappers, and folk elements are all byproducts of this novel music genre.
+some_fake_1920_title_9;Literary Digest: "Ulysses"
+some_fake_1920_9;Presented by the modestly famous Irishman James Joyce, "Ulysses" describes an ordinary day in the life of the protagonist, a tormented, wandering Dublin commoner (continued on edition 19)
+some_fake_1920_title_10;To Egypt!
+some_fake_1920_10;Today, more astonishing archaeological discoveries have been made in the Nile region, further fueling international fascination with Eastern things... (continued on page 2)
+some_fake_1920_title_11;Bauhaus Architecture
+some_fake_1920_11;A brand-new futuristic architectural style called Bauhaus has drawn attention in cities such as Berlin, Weimar, and Dessau.
+some_fake_1920_title_12;Two Eccentrics Cause Chaos
+some_fake_1920_12;Two people—one fat, one thin—appeared in court, accused of pranks and various mischief. Given the seriousness of the case, involving property damage and donkey theft, prosecutors are expected to seek the death penalty for the defendants.
+some_fake_ANY_title_1;Dog Bites Child
+some_fake_ANY_1;The vicious animal attack has shocked the community, and parents are demanding action out of concern for their children's safety.
+some_fake_ANY_title_2;Global Cooling
+some_fake_ANY_2;As temperature records decline year by year, scientists warn that the next ice age is approaching.
+some_fake_ANY_title_3;Missing Child Found
+some_fake_ANY_3;He was hiding in a barn! After a thorough search, the missing child was found by local volunteers, hiding in an abandoned building nearby.
+some_fake_ANY_title_5;Girl Tragically Killed
+some_fake_ANY_5;Yesterday, a horrifically mutilated girl's body was found tied to railroad tracks. The government is asking citizens to help find a man with a beard, wearing a top hat and black cloak.
+some_fake_ANY_title_6;Rabbit Out of a Hat
+some_fake_ANY_6;A man claims to have witnessed a mysterious force—he saw a rabbit come out of a hat yesterday. He is currently being investigated on suspicion of supernatural phenomena.
+some_fake_ANY_title_7;Glimpse at the Year 2000
+some_fake_ANY_7;A renowned prophet has peered into the distant year 2000. Speaking of the future, he said: "In the year 2000, every gentleman with land will own at least five hot air balloons."
+some_fake_ANY_title_8;Fake News!
+some_fake_ANY_8;An Irishman, a Pole, and a Prussian were arrested yesterday in an investigation trying to uncover a conspiracy to create fake news.
+some_fake_ANY_title_9;Kills 12!
+some_fake_ANY_9;Yesterday, an angry bull caused the deaths of 5 men and 7 women. The normally gentle bull was eventually beheaded by a chimney sweep.
+some_fake_ANY_title_10;Bridge Collapse!
+some_fake_ANY_10;The collapse of a bridge near our capital nearly cost a butcher his life! The butcher is now the talk of the town. Fortunately, he was saved by his brother, a baker, and a young man who makes and sells candlesticks.
+some_fake_ANY_title_11;Peaceful Balkans
+some_fake_ANY_11;Serbia, Croatia, Bosnia, Turkey, Bulgaria, Romania, Albania, and Greece all celebrated the great peace that befell the Balkans last Sunday.
+some_fake_ANY_title_12;Letter to the Editor
+some_fake_ANY_12;A reader is calling attention to those ferry captains who, disregarding passenger safety, recklessly push the throttle to the max and speed about desperately.
+some_fake_ANY_title_13;Weather Forecast
+some_fake_ANY_13;Next week may bring: rain, northerly and northeasterly winds, and a drop in temperature.
+some_fake_ANY_title_14;Tragic City Fire
+some_fake_ANY_14;The fire department was criticized for lacking discipline and efficiency, allowing the fire to spread across multiple blocks, causing the largest and most devastating fire to date.
+some_fake_ANY_title_15;Fishing Rod Thief!
+some_fake_ANY_15;Police tell us that a thief stole a large sum of money from a local bank teller's desk. While the teller was distracted by the thief's accomplice, the money was cleaned out by the thief using a fishing rod and line in the blink of an eye.
+some_fake_ANY_title_16;Let Them Jump!
+some_fake_ANY_16;Scientists claim that making children stay still is a form of torture. At this age, restlessness is children's way of expressing joy, so it should be encouraged rather than prohibited.
+some_fake_ANY_title_17;Wooden Sidewalks
+some_fake_ANY_17;A new chemical process for hardening wood has been invented, reportedly making wood more durable than traditional building materials. Perhaps the city council should consider paving streets with wood?
+some_fake_ANY_title_18;Survive Without Food?
+some_fake_ANY_18;Someone claims they can go 30 days without eating and still maintain physical and mental health. Shocked physicians say they will test the claimed ability.
+some_fake_ANY_title_19;Deadly Disease
+some_fake_ANY_19;A brig recently returned from the tropics, with reports that two crew members died of unknown fevers. They first experienced severe chills, then extreme thirst and hallucinations, until death finally came.
+some_fake_ANY_title_20;Artificial Diamonds
+some_fake_ANY_20;A European chemist claims that through a process known only to himself, he can coat ordinary crystal surfaces with a layer that resembles real diamond on all sides.
+some_fake_ANY_title_22;Letter from God
+some_fake_ANY_22;A poor member of our association received a charity letter marked "From God." His reply expressed gratitude for the money and reminded "God" to be careful of taxes and postal theft.
+some_fake_ANY_title_23;Medical News
+some_fake_ANY_23;Top European doctors speculate that children's respiratory problems may be linked to increased factory smoke emissions.
+some_fake_ANY_title_24;Vampire Frenzy
+some_fake_ANY_24;Another "vampire frenzy" has broken out in the Romania region. Superstitious peasants have begun smearing garlic on their necks to ward off evil ghouls.
+some_fake_ANY_title_25;Wolves Kill Four
+some_fake_ANY_25;Wolves raided a town in Siberia last week, killing four residents. Armed police have been sent to the area to hunt down these beasts.
+some_fake_ANY_title_26;Terrible Puppets
+some_fake_ANY_26;Terrible puppets have gradually been accepted as part of daily life. Recently, the existence of such toys has drawn attention again—a puppet called "Bimbo" has hit the market. Bimbo is a wooden boy with a frozen smile on his face.
+some_fake_ANY_title_27;Drinking Contest
+some_fake_ANY_27;At a drinking contest in New York last week, Irishman Bill Whelan defeated opponents from Russia and Scotland. From his hospital bed, he attributed the victory to "a great love of heavy drinking."
+some_fake_ANY_title_28;Longest-Lived Person
+some_fake_ANY_28;The honorable gentleman Jimmy Williams is known as the oldest living person. Williams, from the Deep South of the United States, politely asked our reporter to leave his lawn gracefully.
+some_fake_ANY_title_29;Bank Robbery!
+some_fake_ANY_29;A local bank in $ANYPROVINCE$ was invaded by a masked loafer. Police are searching for the criminal and offering a reward for any information leading to his capture.
+some_fake_ANY_title_30;Piano Cat Tours
+some_fake_ANY_30;A famous cat pianist (known as "Piano Cat" for short) is scheduled to arrive in $OURCAPITAL$ this week. This feline artist may perform some classical pieces.
+some_fake_ANY_title_31;Lecture Series
+some_fake_ANY_31;The $OURCAPITAL$ Scientific Committee will launch a series of lectures on the origins of civilization in the Fertile Crescent. A display of pottery fragments from Tyre is also planned.
+some_fake_ANY_title_32;Attention! Attention!
+some_fake_ANY_32;A massive storm is approaching. Public safety officials advise: do not clean chimneys during a storm. Ignoring this warning may lead to accidents.
+some_fake_ANY_title_34;Trade Summit
+some_fake_ANY_34;A conference discussing current European and international tariffs and trade protection will be held at $OURCAPITAL$ next Thursday.
+some_fake_ANY_title_35;International Postal Convention
+some_fake_ANY_35;Today, the government of $OURCOUNTRY$ and foreign governments gathered to discuss international postage rates.
+some_fake_ANY_title_36;Modern Coal Trade
+some_fake_ANY_36;Local chambers of commerce are today discussing the free trade of coal for trains and ships in the Western world.
+some_fake_ANY_title_37;Unlikely Cardinal
+some_fake_ANY_37;The Pope condemned the soon-to-be-promoted archbishop as too young in the inner circle of the Vatican.
+some_fake_ANY_title_38;General's Funeral
+some_fake_ANY_38;The funeral of a famous figure, who was once a general and a banker, will be held today. He died at home last week. The funeral will be attended only by his relatives and friends.
+some_fake_ANY_title_39;Born on the Mountaintop
+some_fake_ANY_39;A woman suddenly felt unwell while climbing to the summit. After two traveling companions helped her reach a shelter at over 4,000 feet elevation, she successfully gave birth to a healthy baby boy.
+some_fake_ANY_title_40;Moral Imperialism?
+some_fake_ANY_40;Should we record in history that we subjected foreigners to our rule and crushed their dreams of freedom? How can we rule them without their support?
+some_fake_ANY_title_41;Extortionist Arrested
+some_fake_ANY_41;A former actor and a deserter were thrown into prison today for attempting to extort money from an actress.
+some_fake_ANY_title_42;Abandoning Vices
+some_fake_ANY_42;A doctor claims that floor-length dresses make it easy to bring dust from the sidewalk into the home, and is calling on ladies to abandon the recent trend of floor-length dresses for the sake of health.
+some_fake_ANY_title_43;Faith Healing Kills Child
+some_fake_ANY_43;A 12-year-old girl died of dysentery at a local hospital because her parents demanded replacing the family doctor with a faith healer.
+some_fake_ANY_title_44;Honored by Yadi!
+some_fake_ANY_44;A local man from $ANYPROVINCE$ reportedly knocked down several armed men bare-handed in a bar. The man claimed that the attackers had put themselves at a disadvantage by using weapons.
+some_fake_ANY_title_45;Article Censorship
+some_fake_ANY_45;Articles in the newspaper are subject to review by a special committee to determine their accuracy and authenticity. An unrelated note: the reporter who wrote about wooden sidewalks has disappeared.
+some_fake_ANY_title_46;Discussing Law
+some_fake_ANY_46;Lawyers from across the country gathered in $OURCAPITAL$ today to discuss how to improve the civil and criminal justice systems.
+some_fake_ANY_title_48;History of $OURCOUNTRY$
+some_fake_ANY_48;A comprehensive authoritative history series has been completed and published. The series surveys the history of $OURCOUNTRY_ADJ$ civilization, recognized by many historians as the best historical reference available, with its narrative fully faithful to our country's glorious history.
+some_fake_ANY_title_49;Bach Concert
+some_fake_ANY_49;A surprise for nostalgic music lovers: next week, the $OURCOUNTRY_ADJ$ National Symphony Orchestra will perform the works of Bach at the Grand Concert Hall in $OURCAPITAL$.
+some_fake_ANY_title_50;Stones Arrive
+some_fake_ANY_50;Residents of $ANYPROVINCE$ are puzzled by several massive marble blocks recently shipped from abroad. Rumors suggest a grand monument will be erected in the capital square.
+some_fake_ANY_title_51;Mechanical Devices
+some_fake_ANY_51;A senior researcher leading the engineering department at $OURCAPITAL$ University pointed out: various small mechanical devices will play an increasingly important role in daily life.
+some_fake_ANY_title_52;Blacksmith's Death
+some_fake_ANY_52;Yesterday in $ANYPROVINCE$, a blacksmith was kicked to death by a horse while trying to shoe it.
+some_fake_ANY_title_53;Eclipse
+some_fake_ANY_53;We wish to politely remind our readers that there will be an eclipse this Friday. This is a temporary natural phenomenon; there is no need to panic or stop work.
+some_fake_ANY_title_54;Monocle Sales Stabilize
+some_fake_ANY_54;Monocle sales, which have been rising for decades, seem to be stabilizing. Orders in the last quarter have remained steady.
+some_fake_ANY_title_55;Time Travel
+some_fake_ANY_55;An eminent cheap horror novelist proposed an idea: humans might be able to move back and forth along the timeline, appearing at different points in the past or future.
+some_fake_ANY_title_56;Literacy Rate
+some_fake_ANY_56;Latest data shows that literacy rates have improved globally. In the past, literacy was the exclusive domain of parish clergy and nobles, but now it has spread to ordinary laborers and women.
+some_fake_ANY_title_57;Public Science Lecture
+some_fake_ANY_57;An aspiring natural scientist is preparing to give a lecture on geology or rock formations, expected to be held at the $OURCAPITAL$ Auditorium next Tuesday. Admission fee is?!
+some_fake_ANY_title_58;Meeting Interrupted
+some_fake_ANY_58;A political club was invaded by activists advocating gender equality. The husbands of the women were blamed for failing to control their wives.
+some_fake_ANY_title_59;The English
+some_fake_ANY_59;The English have always been steadfast, with a strong sense of fair play and a love of freedom. They are creative, elegant, and witty, standing out among many nations.
+some_fake_ANY_title_60;Flu Pandemic
+some_fake_ANY_60;Flu is sweeping $OURCOUNTRY$. Cases have been reported in multiple places across the land. Laypeople fear a major outbreak, while experts assure this is just an ordinary seasonal event.
+some_fake_ANY_title_61;Treasure Trove Discovered
+some_fake_ANY_61;An ancient coin hoard was discovered in $ANYPROVINCE$ this week. Officials revealed that the large amount of gold coins found was initially discovered by a farmer plowing his fields after rain.
+some_fake_ANY_title_62;Useless Metric System
+some_fake_ANY_62;A British politician proposed that the imperial system is the future and claimed: "This useless French metric system will never catch up!"
+GOODS_PRICE_UP_TITLE_LARGE;Price Surge!
+GOODS_PRICE_UP_LARGE;Over the past $VALUE_INT_0_0$ months, the price of $STRING_0_1$ has risen steadily. Global capitalists and artisans are competing to produce more $STRING_0_1$ to meet the growing market demand.
+GOODS_PRICE_UP_TITLE_MEDIUM;Price Surge!
+GOODS_PRICE_UP_MEDIUM;Over the past $VALUE_INT_0_0$ months, the price of $STRING_0_1$ has risen steadily. Global capitalists and artisans are competing to produce more $STRING_0_1$ to meet the growing market demand.
+GOODS_PRICE_UP_TITLE_SMALL;Price Surge!
+GOODS_PRICE_UP_SMALL;Over the past $VALUE_INT_0_0$ months, the price of $STRING_0_1$ has risen steadily!
+GOODS_PRICE_DOWN_TITLE_LARGE;Price Crash!
+GOODS_PRICE_DOWN_LARGE;Over the past $VALUE_INT_0_0$ months, the price of $STRING_0_1$ has plummeted to nothing! Worldwide, producers of $STRING_0_1$ are trying to switch to other goods to compensate for their losses.
+GOODS_PRICE_DOWN_TITLE_MEDIUM;Price Crash!
+GOODS_PRICE_DOWN_MEDIUM;Over the past $VALUE_INT_0_0$ months, the price of $STRING_0_1$ has plummeted to nothing! Worldwide, producers of $STRING_0_1$ are trying to switch to other goods to compensate for their losses.
+GOODS_PRICE_DOWN_TITLE_SMALL;Price Crash!
+GOODS_PRICE_DOWN_SMALL;Over the past $VALUE_INT_0_0$ months, the price of $STRING_0_1$ has plummeted to nothing!
+REVOLUTION_NEWS_TITLE_LARGE;$TAG_0_0_UPPER$ Revolution!
+REVOLUTION_NEWS_LARGE;A revolution has broken out in $TAG_0_0$! $STRING_0_0$ has crushed the government forces and renewed the face of the entire nation. $TAG_0_0$ is now under the control of $STRING_0_4$. "With us taking control of the government, the people will witness a series of upheavals reflecting $STRING_0_3$ values," they announced. "We are not a rogue regime; we only intend to pursue more equal relations with our international partners." A government official's statement indicates the new government's intention to abandon some treaties and guarantees made by the old regime.
+REVOLUTION_NEWS_TITLE_MEDIUM;$TAG_0_0_UPPER$ Revolution!
+REVOLUTION_NEWS_MEDIUM;A revolution has broken out in $TAG_0_0$! $STRING_0_0$ has crushed the government forces and renewed the face of the entire nation. $TAG_0_0$ is now under the control of $STRING_0_4$. "With us taking control of the government, the people will witness a series of upheavals reflecting $STRING_0_3$ values," they announced.
+REVOLUTION_NEWS_TITLE_SMALL;Revolution!
+REVOLUTION_NEWS_SMALL;A revolution has broken out in $TAG_0_0$! $STRING_0_0$ has crushed the government forces and renewed the face of the entire nation.
+INVENTION_NEWS_TITLE_LARGE;Invention!
+INVENTION_NEWS_LARGE;Scientists and engineers in $TAG_0_0$ have reportedly invented $STRING_0_1$.
+INVENTION_NEWS_TITLE_MEDIUM;Invention!
+INVENTION_NEWS_MEDIUM;Scientists and engineers in $TAG_0_0$ have reportedly invented $STRING_0_1$.
+INVENTION_NEWS_TITLE_SMALL;Invention!
+INVENTION_NEWS_SMALL;Scientists and engineers in $TAG_0_0$ have reportedly invented $STRING_0_1$.
+INVENTION_SUFFIX1;Progressing smoothly!
+INVENTION_SUFFIX2;Truly a light of the future!
+INVENTION_SUFFIX3;This will be our doom!
+INVENTION_SUFFIX4;Good news, everyone!
+INVENTION_SUFFIX5;This is the dawn of a new era!
+INVENTION_SUFFIX6;Today's progress springs from yesterday's planning.
+INVENTION_SUFFIX7;Let us pray it is used for good.
+INVENTION_SUFFIX8;Science never sleeps!
+INVENTION_SUFFIX_LONG1;But what is the cost?
+INVENTION_SUFFIX_LONG2;What ideas will they come up with next?
+INVENTION_SUFFIX_LONG3;It can never be surpassed.
+INVENTION_SUFFIX_LONG4;They obviously plagiarized our ideas.
+PARTY_NEWS_TITLE_LARGE;New Party Emerges in $TAG_0_0_UPPER$
+PARTY_NEWS_LARGE;A new $STRING_0_2$ party—$STRING_0_0$—has been founded in $TAG_0_0$. "We are recruiting members and building the internal organization necessary for a modern party," said an official from within the party. They have united many disaffected political activists and malcontents from other parties. The new party announced plans to participate in parliament, intending to get their representatives elected on this platform. They claim to be optimistic about their party's future rise to power, though the odds remain slim.
+PARTY_NEWS_TITLE_MEDIUM;New Party Emerges in $TAG_0_0_UPPER$
+PARTY_NEWS_MEDIUM;A new $STRING_0_2$ party—$STRING_0_0$—has been founded in $TAG_0_0$. "We are recruiting members and building the internal organization necessary for a modern party," said an official from within the party. They have united many disaffected political activists and malcontents from other parties. The new party announced plans to participate in parliament.
+PARTY_NEWS_TITLE_SMALL;New Party
+PARTY_NEWS_SMALL;A new $STRING_0_2$ party—$STRING_0_0$—has been founded in $TAG_0_0$. They claim to be optimistic about their party's future rise to power, though the odds remain slim.
+PROVINCE_NEWS_TITLE_LARGE;$TAG_0_1_UPPER$ Expansion!
+PROVINCE_NEWS_LARGE;$STRING_0_0$ province now belongs to $TAG_0_1$. The $TAG_0_1_ADJ$ Foreign Minister stated that "$STRING_0_0$ is an inalienable part of $TAG_0_1$" and "$TAG_0_0$ has no claim to it; it has merely returned to its rightful owner."
+PROVINCE_NEWS_TITLE_MEDIUM;$TAG_0_1_UPPER$ Expansion!
+PROVINCE_NEWS_MEDIUM;$STRING_0_0$ province now belongs to $TAG_0_1$. The $TAG_0_1_ADJ$ Foreign Minister stated that "$STRING_0_0$ is an inalienable part of $TAG_0_1$"
+PROVINCE_NEWS_TITLE_SMALL;$TAG_0_1$ Expansion!
+PROVINCE_NEWS_SMALL;$STRING_0_0$ province now belongs to $TAG_0_1$. The $TAG_0_1_ADJ$ Foreign Minister recently could not hide his pleasure when interviewed.
+RESEARCH_NEWS_TITLE_LARGE;$TAG_0_0_ADJ$ Research Complete!
+RESEARCH_NEWS_LARGE;Scientists in $TAG_0_0$ have recently completed research on $STRING_0_1$. With more inventions in this field to come in the future, this breakthrough will surely bring many advantages to $TAG_0_0$.
+RESEARCH_NEWS_TITLE_MEDIUM;$TAG_0_0_ADJ$ Research Complete!
+RESEARCH_NEWS_MEDIUM;Scientists in $TAG_0_0$ have recently completed research on $STRING_0_1$. With more inventions in this field to come in the future, this breakthrough will surely bring many advantages to $TAG_0_0$.
+RESEARCH_NEWS_TITLE_SMALL;$TAG_0_0_ADJ$ Research Complete!
+RESEARCH_NEWS_SMALL;Scientists in $TAG_0_0$ have recently completed research on $STRING_0_1$.
+WAR_NEWS_TITLE_LARGE;$TAG_0_0_UPPER$ Declares War on $TAG_0_1_UPPER$!
+WAR_NEWS_LARGE;On $DATE_LONG_0$, $TAG_0_0$ announced that they were at war with $TAG_0_1$. When the $TAG_0_0_ADJ$ Foreign Minister was asked about the reason for the war, he explained the necessity of "$STRING_0_1$." "We only intend to recover previously lost territories unjustly seized and restore peace and stability to the region," he added. The $TAG_0_1_ADJ$ Foreign Minister also responded, saying "this illegal aggression is unbearable" and called on the international community to condemn the aggressor. May God have mercy on them.
+WAR_NEWS_TITLE_MEDIUM;$TAG_0_0_UPPER$ Goes to War!
+WAR_NEWS_MEDIUM;On $DATE_LONG_0$, $TAG_0_0$ announced that they were at war with $TAG_0_1$. They claimed the reason for the declaration of war was "$STRING_0_1$." "This illegal aggression is unbearable!" said the $TAG_0_1_ADJ$ Foreign Minister.
+WAR_NEWS_TITLE_SMALL;$TAG_0_0_$ Declares War!
+WAR_NEWS_SMALL;On $DATE_LONG_0$, $TAG_0_0$ announced that they were at war with $TAG_0_1$.

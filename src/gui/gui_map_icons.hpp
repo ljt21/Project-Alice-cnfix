@@ -668,6 +668,34 @@ public:
 	std::vector<uint8_t> active_battles{ };
 	std::vector<uint8_t> active_siege{ };
 
+	// 语言切换时强制重置所有文本布局缓存，确保所有强度、伤亡数字用新语言重新生成
+	void reset_all_caches() {
+		// 使用不可能的数值强制下次 on_update 时重新生成所有布局
+		constexpr float impossible_value = -1.0e30f;
+		for(auto& v : strength_cache)
+			v = impossible_value;
+		for(auto& v : strength_right_cache)
+			v = impossible_value;
+		for(auto& v : casualties_cache)
+			v = impossible_value;
+		for(auto& v : casualties_right_cache)
+			v = impossible_value;
+
+		// 清空所有文本布局内容（不要解除 external_layout 绑定，
+		// 因为 set_province() 已经将它们绑定到对应布局对象的地址上，
+		// 地址没变，清空内容后 on_update 会立即用新语言重新填充）
+		auto clear_layout = [](text::layout& l) {
+			l.contents.clear();
+			l.number_of_lines = 0;
+		};
+		for(auto& l : strength_layout_cache) clear_layout(l);
+		for(auto& l : strength_layout_small_cache) clear_layout(l);
+		for(auto& l : strength_right_layout_cache) clear_layout(l);
+		for(auto& l : strength_right_layout_small_cache) clear_layout(l);
+		for(auto& l : casualties_layout_cache) clear_layout(l);
+		for(auto& l : casualties_right_layout_cache) clear_layout(l);
+	}
+
 	std::vector<GLuint> flag_texture_handles{ };
 	std::vector<GLuint> flag_right_texture_handles{ };
 

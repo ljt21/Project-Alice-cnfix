@@ -1,0 +1,32 @@
+#Powered_by_ParaTranz
+JAN_reactionary;Reactionary
+EXILED_DESC;This unit is ?Rstranded abroad?! It is on foreign territory without military access during peacetime. Stranded units cannot participate in battle, and their reconnaissance ability is also reduced, but they can return home through foreign territory. Move your unit to the nearest home province!
+TWS_FULFILLED;Fulfilled at $PERC$
+TWS_NOT_FULFILLED;?RNot fulfilled?!
+TICKING_WARSCORE_DESC_CURR;Currently $VAL$
+UNIT_BORROWED;This unit is temporarily under our command
+DISBAND_TOO_SMALL_UNIT;Disband Undermanned Brigade
+DISBAND_TOO_SMALL_UNIT_DRO;This option will disband all brigades not currently supported by full-strength soldier pops
+CONFIRM_DISBAND_TOO_SMALL_TITLE;Do you wish to disband all undermanned brigades?
+CONFIRM_DISBAND_TOO_SMALL_DESC;This will disband all brigades not currently supported by full-strength soldier pops, and you will no longer have to pay maintenance for them. Any remaining manpower in these brigades will return to the pool.
+MODIFIER_RESEARCH_POINTS_ON_CONQUER;Research points bonus from conquest
+colonial_negotiations;Colonial Negotiations
+colonial_negotiations_desc;"At any rate, we got the Maxim gun, and they did not"\n\nMachine guns allow armies to deliver devastating blows against military powers using human wave tactics, a tactic especially useful against those anti-colonial "savage" nations.
+PRODUCTION_BONUS_POSSIBLE;Possible bonus sources:
+COLONIZE_PHASE_INITIAL_INTEREST;Send Expedition
+COLONIZE_PHASE_INITIAL_INTEREST_DESC;The first step to establishing influence in a region is to send an expedition. If uncontested after ?Y$DAYS$?!, you will be allowed to create a protectorate.
+INITIAL_COLONIZE_DEFAULT_TIME;If no nation contests your expedition by ?Y$DATE$?!, you can directly create a protectorate
+COUNTRYALERT_ColonialGood_protectorate;We can create a protectorate in ?G$REGION$?Y?!
+COUNTRYALERT_ColonialGood_colony;We can advance colonial progress in ?G$REGION$?Y?!
+COUNTRYALERT_ColonialGood_state;We can incorporate ?G$REGION$?Y into the homeland?!
+COUNTRYALERT_ColonialBad_colonizationtimer;?RWe need to advance colonial progress in ?Y$REGION$?!R before ?Y$DATE$?!R or we will lose it?!
+COUNTRYALERT_ColonialBad_influence;?RWe will lose the colonial competition for ?Y$REGION$?!
+NON_COLONIAL_POWER;As we are neither a secondary power nor a great power, we have no colonial power
+CRISIS_DESCRIPTION_COLONIZE;Colonial Crisis
+colonial_competition;Colonial Demands
+colonial_competition_desc;Gain a ?YColonial Region?!
+colonial_competition_short;Gain $REGION$ Colony
+colonial_competition_setup;Gain $REGION$ Colony
+CB_COLONY_CLAIMS;Colonial Demands
+COLONY_TENSION_DRIFT;Fluctuation: ?Y$VAL$?!
+COLONY_IN_CRISIS;Currently involved in a colonial crisis

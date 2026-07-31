@@ -11,6 +11,7 @@
 
 namespace diplomatic_message {
 
+// 拒绝外交消息
 void decline(sys::state& state, message const& m) {
 	switch(m.type) {
 	case type::none:
@@ -140,6 +141,7 @@ void decline(sys::state& state, message const& m) {
 	}
 }
 
+// 判断是否可以接受危机参战提议
 bool can_accept_crisis_offer(sys::state& state, dcon::nation_id from, dcon::nation_id to, sys::full_wg offer) {
 	if(state.current_crisis_state != sys::crisis_state::heating_up)
 		return false;
@@ -191,6 +193,7 @@ bool can_accept_crisis_offer(sys::state& state, dcon::nation_id from, dcon::nati
 	return true;
 }
 
+// 带着战争目标加入危机
 void add_to_crisis_with_offer(sys::state& state, dcon::nation_id from, dcon::nation_id to, sys::full_wg offer) {
 
 	for(auto& par : state.crisis_participants) {
@@ -214,6 +217,7 @@ void add_to_crisis_with_offer(sys::state& state, dcon::nation_id from, dcon::nat
 	state.world.nation_set_infamy(from, state.world.nation_get_infamy(from) + infamy);
 }
 
+// 判断是否可以接受危机和平提议
 bool can_accept_crisis_peace_offer(sys::state& state, dcon::nation_id from, dcon::nation_id to, dcon::peace_offer_id peace) {
 	if(state.current_crisis_state != sys::crisis_state::heating_up)
 		return false;
@@ -257,6 +261,7 @@ bool can_accept_crisis_peace_offer(sys::state& state, dcon::nation_id from, dcon
 	return true;
 }
 
+// 判断是否可以接受外交消息
 bool can_accept(sys::state& state, message const& m) {
 	switch(m.type) {
 	case type::none:
@@ -283,6 +288,7 @@ bool can_accept(sys::state& state, message const& m) {
 	return true;
 }
 
+// 接受外交消息
 void accept(sys::state& state, message const& m) {
 	if(!can_accept(state, m))
 		return;
@@ -389,12 +395,7 @@ void accept(sys::state& state, message const& m) {
 	}
 }
 
-/// <summary>
-/// Returns the appropriate acceptance evaluation for a given diplomatic message. It is required to define a new case and method for new diplomatic requests.
-/// </summary>
-/// <param name="state"></param>
-/// <param name="m"></param>
-/// <returns></returns>
+// 评估AI是否会接受给定的外交消息。新的外交请求需要定义新的case和处理方法。
 bool ai_will_accept(sys::state& state, message const& m) {
 	if(state.world.nation_get_is_player_controlled(m.from) && state.cheat_data.always_accept_deals)
 		return true;
@@ -441,11 +442,7 @@ bool ai_will_accept(sys::state& state, message const& m) {
 	return false;
 }
 
-/// <summary>
-/// Pushes a diplomatic message to the list of pending diplomatic requests for the specified recipient (m.to), will simply skip and evaluate a response immediately if the recipient is AI-controlled.
-/// </summary>
-/// <param name="state"></param>
-/// <param name="m"></param>
+// 将外交消息推送到指定接收方（m.to）的待处理外交请求列表中；如果接收方由AI控制，则直接评估并立即响应。
 void post(sys::state& state, message const& m) {
 	// a subject should be forced to accept military access,s and being called into wars from its overlord
 	if(nations::is_nation_subject_of(state, m.to, m.from)) {
@@ -481,6 +478,7 @@ void post(sys::state& state, message const& m) {
 	}
 }
 
+// 更新待处理的外交消息（过期则拒绝）
 void update_pending(sys::state& state) {
 	for(auto& m : state.pending_messages) {
 		if(m.type != type::none && m.when + int32_t(state.defines.alice_message_expiration_days) <= state.current_date) {

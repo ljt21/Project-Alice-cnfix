@@ -11,6 +11,8 @@
 #include "system_state.hpp"
 #include "constants.hpp"
 #include "military.hpp"
+#include "gui_map_icons.hpp"
+#include "ui_state.hpp"
 #ifdef _WIN32
 #include <icu.h>
 #else
@@ -520,6 +522,22 @@ void font_manager::change_locale(sys::state& state, dcon::locale_id l) {
 	state.load_locale_strings(localename_sv);
 
 	military::rename_all_units(state);
+
+	// 清空地图单位计数器的文本布局缓存，强制语言切换后重新生成所有文本布局
+	if(state.ui_state.unit_counter_box) {
+		auto counter = static_cast<ui::unit_counter_window*>(state.ui_state.unit_counter_box.get());
+		counter->reset_all_caches();
+	}
+
+	// 清空地图文本数据，强制使用新字体重新生成所有地图标签（省份名、港口名等）
+	// 否则 map_data.text_data / province_text_data 中的字形索引仍对应旧字体，导致地图文本乱码
+	{
+		state.map_state.map_data.text_data.clear();
+		state.map_state.map_data.province_text_data.clear();
+		state.map_state.province_labels_require_lines = true;
+		state.map_state.province_labels_require_text_changes = true;
+		state.map_state.map_labels_current_state = map::map_labels_state::generate_text;
+	}
 }
 
 // 根据字体选择类型获取对应的字体对象

@@ -1,0 +1,14 @@
+#Powered_by_ParaTranz
+badboy;Bad Reputation
+EVTNAME60150;Women's Suffrage Abolished
+EVTDESC60150;In recent electoral reforms, women have lost the right to vote.
+EVTOPTA60150;Back to the kitchen!
+EVTNAME31102;Relocate from Istanbul
+EVTDESC31102;Istanbul is no longer safe. We should move the government to a safer location.
+EVTOPTA31102;We have finally been driven out of Europe...
+OL_REBEL_OCCUPATIONS;Rebel Occupations
+OL_REBEL_OCCUPATIONS_TOOLTIP;?Y$PROVINCE$?W is being occupied by rebels!
+OL_VIEW_REBEL_OCCUPATIONS;Open the ?YRebel Occupations?W interface
+POP_MIL_CHANGE_REBEL;This population lives under rebel occupation in ?Y$PROV$?W\nMilitancy change cannot be estimated
+POP_CON_CHANGE_REBEL;This population lives under rebel occupation in ?Y$PROV$?W\nConsciousness change cannot be estimated
+PROJECT_STATE_NAME_DESC;Planned construction in ?Y$PROV$?W

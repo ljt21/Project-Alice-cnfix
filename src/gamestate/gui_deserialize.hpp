@@ -10,24 +10,29 @@
 #include "container_types_ui.hpp"
 
 namespace template_project {
+// UI模板元素类型
 enum class template_type : uint8_t {
 	none, background, color, icon, label, button, progress_bar, window, iconic_button, layout_region, mixed_button, toggle_button, table, table_header, table_row
 };
 }
 
+// AUI背景类型
 enum class aui_background_type : uint8_t {
 	none, texture, bordered_texture, existing_gfx
 };
+// AUI文本类型
 enum class aui_text_type : uint8_t {
 	body,
 	header
 };
+// AUI容器类型
 enum class aui_container_type : uint8_t {
 	none,
 	list,
 	grid
 };
 
+// AUI元素属性标识
 enum class aui_property : uint8_t {
 	texture = 1,
 	tooltip_text_key = 2,
@@ -81,6 +86,7 @@ enum class aui_property : uint8_t {
 	icon = 49
 };
 
+// 从字节数据中解析窗口，将各窗口的待处理字节存入映射表
 inline void bytes_to_windows(char const* bytes, size_t size, std::string const& project_name, ankerl::unordered_dense::map<std::string, sys::aui_pending_bytes>& map) {
 	serialization::in_buffer buffer(bytes, size);
 	auto header_section = buffer.read_section();
@@ -99,6 +105,7 @@ inline void bytes_to_windows(char const* bytes, size_t size, std::string const& 
 	}
 }
 
+// AUI窗口数据：描述一个窗口的基本属性
 struct aui_window_data {
 	std::string_view texture;
 	std::string_view alt_texture;
@@ -119,6 +126,7 @@ struct aui_window_data {
 };
 
 namespace ogl {
+// RGBA浮点颜色
 struct color4f {
 	float r = 0.0f;
 	float g = 0.0f;
@@ -137,6 +145,7 @@ struct color4f {
 };
 }
 
+// 表格显示列定义
 struct table_display_column {
 	std::string_view header_key;
 	std::string_view header_tooltip_key;
@@ -148,6 +157,7 @@ struct table_display_column {
 	text::alignment text_alignment = text::alignment::center;
 };
 
+// AUI元素数据：描述一个UI子元素的完整属性
 struct aui_element_data {
 	std::vector<table_display_column> table_columns;
 	std::string_view name;
@@ -177,6 +187,7 @@ struct aui_element_data {
 	bool is_lua;
 };
 
+// 从字节数据中读取窗口数据，并将子元素的待处理字节收集到输出向量
 inline aui_window_data read_window_bytes(char const* bytes, size_t size, std::vector<sys::aui_pending_bytes>& children_out) {
 	aui_window_data result;
 
@@ -229,6 +240,7 @@ inline aui_window_data read_window_bytes(char const* bytes, size_t size, std::ve
 	return result;
 }
 
+// 从字节数据中读取子元素数据
 inline aui_element_data read_child_bytes(char const* bytes, size_t size) {
 	aui_element_data result;
 	serialization::in_buffer window_section(bytes, size);

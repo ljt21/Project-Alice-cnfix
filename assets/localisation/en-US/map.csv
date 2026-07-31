@@ -1,3 +1,5 @@
+#Powered_by_ParaTranz;;;;;;;;;;;;;x
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;x
 compose_dynamic_adj_state;$adj$ $state$
 map_remove_prefix;The ;
 map_expand_acronym;USA

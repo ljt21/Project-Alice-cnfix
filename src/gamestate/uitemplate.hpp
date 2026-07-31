@@ -12,27 +12,31 @@
 
 namespace template_project {
 
+// AUI文本对齐方式
 enum class aui_text_alignment : uint8_t {
 	left, right, center
 };
 
+// 背景定义：包含SVG文件名和渲染信息
 struct background_definition {
 	std::string file_name;
 
 	int32_t base_x = 1000;
 	int32_t base_y = 1000;
 
-	// not to save -- rendering info
+	// 不保存——渲染信息
 	asvg::svg renders;
 };
 
+// 图标定义：包含SVG文件名和渲染信息
 struct icon_definition {
 	std::string file_name;
 
-	// not to save -- rendering info
+	// 不保存——渲染信息
 	asvg::simple_svg renders;
 };
 
+// 颜色定义：RGBA浮点颜色
 struct color_definition {
 	float r = 0.0f;
 	float g = 0.0f;
@@ -44,16 +48,19 @@ struct color_definition {
 	}
 };
 
+// 尺寸相对基准
 enum class dimension_relative : uint8_t {
 	height, width, smaller, larger, diagonal, pixel
 };
 
 
+// 仿射变换：缩放加偏移，基于指定维度
 struct affine_transform {
 	float scale = 1.0f;
 	float offset = 0.0f;
 	dimension_relative dimension = dimension_relative::width;
 
+	// 根据给定维度解析变换后的值
 	inline float resolve(float x_dim, float y_dim, float grid_size) {
 		switch(dimension) {
 			case dimension_relative::height: return y_dim * scale + offset * grid_size;
@@ -66,6 +73,7 @@ struct affine_transform {
 	}
 };
 
+// 文本区域模板
 struct text_region_template {
 	int32_t bg = -1;
 	int32_t text_color = 0;
@@ -77,6 +85,7 @@ struct text_region_template {
 	aui_text_alignment v_text_alignment = aui_text_alignment::left;
 };
 
+// 图标区域模板
 struct icon_region_template {
 	int32_t bg = -1;
 	int32_t icon_color = 0;
@@ -86,6 +95,7 @@ struct icon_region_template {
 	affine_transform icon_right = affine_transform{ 1.0f, 0.0f, dimension_relative::width };
 };
 
+// 布局区域模板（含分页按钮）
 struct layout_region_template {
 	text_region_template page_number_text;
 	int32_t bg = -1;
@@ -95,6 +105,7 @@ struct layout_region_template {
 	int32_t right_button_icon = -1;
 };
 
+// 窗口模板
 struct window_template {
 	int32_t bg = -1;
 	int32_t layout_region_definition = -1;
@@ -104,22 +115,26 @@ struct window_template {
 	float v_close_button_margin = 0.0f;
 };
 
+// 标签模板
 struct label_template {
 	text_region_template primary;
 };
 
+// 按钮模板（含正常/激活/禁用状态）
 struct button_template {
 	text_region_template primary;
 	text_region_template active;
 	text_region_template disabled;
 	bool animate_active_transition = false;
 };
+// 图标按钮模板（含正常/激活/禁用状态）
 struct iconic_button_template {
 	icon_region_template primary;
 	icon_region_template active;
 	icon_region_template disabled;
 	bool animate_active_transition = false;
 };
+// 混合区域模板（含图标和文本）
 struct mixed_region_template {
 	int32_t bg = -1;
 	int32_t shared_color = 0;
@@ -134,12 +149,14 @@ struct mixed_region_template {
 	affine_transform icon_bottom = affine_transform{ 1.0f, 0.0f, dimension_relative::height };
 	affine_transform icon_right = affine_transform{ 1.0f, 0.5f, dimension_relative::height };
 };
+// 混合按钮模板（含正常/激活/禁用状态）
 struct mixed_template {
 	mixed_region_template primary;
 	mixed_region_template active;
 	mixed_region_template disabled;
 	bool animate_active_transition = false;
 };
+// 进度条模板
 struct progress_bar_template {
 	int32_t bg_a = -1;
 	int32_t bg_b = -1;
@@ -153,10 +170,12 @@ struct progress_bar_template {
 
 	bool display_percentage_text = false;
 };
+// 颜色区域
 struct color_region {
 	int32_t bg = -1;
 	int32_t color = 0;
 };
+// 切换区域（含正常/激活/禁用状态及文本布局）
 struct toggle_region {
 	color_region primary;
 	color_region active;
@@ -170,12 +189,14 @@ struct toggle_region {
 	affine_transform text_margin_top = affine_transform{ 0.0f, 0.0f, dimension_relative::height };
 	affine_transform text_margin_bottom = affine_transform{ 0.0f, 0.0f, dimension_relative::height };
 };
+// 切换按钮模板（含开启和关闭状态）
 struct toggle_button_template {
 	toggle_region on_region;
 	toggle_region off_region;
 	bool animate_active_transition = false;
 };
 
+// 表格模板
 struct table_template {
 	int32_t arrow_increasing = -1;
 	int32_t arrow_decreasing = -1;
@@ -184,6 +205,7 @@ struct table_template {
 	int32_t active_header_bg = -1;
 };
 
+// 堆叠条模板
 struct stacked_bar_template {
 	int32_t overlay_bg = -1;
 	float l_margin = 0.0f;
@@ -193,6 +215,7 @@ struct stacked_bar_template {
 };
 
 
+// 下拉菜单模板
 struct drop_down_template {
 
 	int32_t primary_bg = -1;
@@ -211,6 +234,7 @@ struct drop_down_template {
 	bool animate_active_transition = false;
 };
 
+// UI模板项目：包含所有UI模板定义和资源索引
 struct project {
 	std::u16string svg_directory;
 	std::vector<label_template> label_t;
@@ -233,18 +257,21 @@ struct project {
 	ankerl::unordered_dense::map<std::string, int32_t> backgrounds_by_name;
 };
 
+// 按名称查找图标，找不到返回-1
 inline int32_t icon_by_name(project const& p, std::string_view name) {
 	if(auto it = p.icons_by_name.find(std::string(name)); it != p.icons_by_name.end()) {
 		return it->second;
 	}
 	return -1;
 }
+// 按名称查找颜色，找不到返回-1
 inline int32_t color_by_name(project const& p, std::string_view name) {
 	if(auto it = p.colors_by_name.find(std::string(name)); it != p.colors_by_name.end()) {
 		return it->second;
 	}
 	return -1;
 }
+// 按名称查找背景，找不到返回-1
 inline int32_t background_by_name(project const& p, std::string_view name) {
 	if(auto it = p.backgrounds_by_name.find(std::string(name)); it != p.backgrounds_by_name.end()) {
 		return it->second;
@@ -252,6 +279,7 @@ inline int32_t background_by_name(project const& p, std::string_view name) {
 	return -1;
 }
 
+// 从序列化缓冲区中读取并解析UI模板项目数据
 project bytes_to_project(serialization::in_buffer& buffer);
 
 }

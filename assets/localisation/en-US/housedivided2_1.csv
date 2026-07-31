@@ -1,0 +1,27 @@
+#Powered_by_ParaTranz
+PV_INTERNAL_IMMIGRATION;Internal Migration:
+PV_EXTERNAL_IMMIGRATION;External Migration:
+COUNTRYALERT_CanRemoveFromSphere;We can remove this country from our ?Ysphere of influence?!
+PV_CLERGY_LIT_DESC1;$NUM$ of $LOC$'s population are clergy
+PV_CLERGY_LIT_DESC2;The optimal number is $OPT$
+PV_CLERGY_LIT_DESC3;Monthly base change: $VAL$
+IN_SOCIAL_MOVEMENT;In social movement
+NOT_IN_SOCIAL_MOVEMENT;No social movement
+IN_POLITICAL_MOVEMENT;In political movement
+NOT_IN_POLITICAL_MOVEMENT;No political movement
+the_meiji_restoration2_title;Early Meiji Restoration
+the_meiji_restoration2_desc;According to legend, Emperor Jimmu founded Japan in 660 BC, and the imperial bloodline has remained unbroken ever since. During the Edo period, the imperial family was still held in high esteem but had no real power. By restoring imperial authority and pursuing rapid industrialization, constitutionalism, and economic liberalism, Japan can shatter the shackles imposed upon her by the Western world!
+TPG;Taiping Heavenly Kingdom
+TPG_democracy;Taiping Republic
+TPG_bourgeois_dictatorship;Taiping Republic
+TPG_proletarian_dictatorship;Taiping People's Republic
+TPG_fascist_dictatorship;Taiping Republic
+TPG_presidential_dictatorship;Taiping Warlord
+TPG_ADJ;Taiping Heavenly Kingdom's
+TPG_conservative;Western King
+TPG_liberal;Wing King
+TPG_reactionary;Eastern King
+TPG_socialist;Northern King
+TPG_anarcho_liberal;Radical Faction
+TPG_communist;Communist Faction
+TPG_fascist;Fascist Faction

@@ -11,7 +11,8 @@
 
 namespace sys {
 
-void on_mouse_wheel(sys::state& state, int32_t x, int32_t y, key_modifiers mod, float amount) { // an amount of 1.0 is one "click" of the wheel
+// 处理鼠标滚轮事件，amount 值为 1.0 表示滚轮滚动一"格"
+void on_mouse_wheel(sys::state& state, int32_t x, int32_t y, key_modifiers mod, float amount) {
 	ui::element_base* root_elm = state.current_scene.get_root(state);
 	auto probe_result = root_elm->impl_probe_mouse(state,
 		int32_t(state.mouse_x_position / state.user_settings.ui_scale),
@@ -45,6 +46,7 @@ void on_mouse_wheel(sys::state& state, int32_t x, int32_t y, key_modifiers mod, 
 	}
 }
 
+// 处理错误弹出窗口队列
 void process_errorpopup_boxes(sys::state& state) {
 	auto* lr = state.error_windows.front();
 	while(lr) {
@@ -54,6 +56,7 @@ void process_errorpopup_boxes(sys::state& state) {
 	}
 }
 
+// 处理各类对话框（事件、战斗报告、外交消息、日志消息等）
 void process_dialog_boxes(sys::state& state) {
 	// National events
 	auto* c1 = state.new_n_event.front();
@@ -303,6 +306,7 @@ void process_dialog_boxes(sys::state& state) {
 	}
 }
 
+// 打开指定国家的外交窗口
 void open_diplomacy_window(sys::state& state, dcon::nation_id target) {
 	if(state.ui_state.diplomacy_subwindow != nullptr) {
 		if(state.ui_state.topbar_subwindow != nullptr) {

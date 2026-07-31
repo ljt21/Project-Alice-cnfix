@@ -1,0 +1,324 @@
+#Powered_by_ParaTranz
+RECRUITED_PERCENTAGE_LESS_THAN;Fewer than ?Y$VAL$?W% of soldiers have been recruited\n
+RECRUITED_PERCENTAGE_MORE_THAN;At least ?Y$VAL$?W% of soldiers have been recruited\n
+SEPARATISM_TECH;Separatism
+INC_RES_TECH;Research Points
+TOTAL_POPS_NOT_TR;Fewer than ?Y$VAL$?W Pops in $WHERE$
+TOTAL_POPS_TR;More than ?Y$VAL$?W Pops in $WHERE$
+IS_CRIME_NOT_HIGHER_THAN_EDU_TR;Spending on ?YEducation?W exceeds spending on Administration
+IS_CRIME_HIGHER_THAN_EDU_TR;Spending on ?YAdministration?W exceeds spending on Education
+ANY_AT_WAR_STARTS;Countries at war
+REBEL_POWER_LESS_THAN;Rebellion risk below ?Y$VAL$%?W
+REBEL_POWER_MORE_THAN;Rebellion risk above ?Y$VAL$%?W
+POP_TYPE_PERC_NOT;$NAME$ below ?Y$VAL$%?W\n
+POP_TYPE_PERC;$NAME$ above ?Y$VAL$%?W\n
+MAJORITY_IS;Majority pops are
+MAJORITY_IS_NOT;Majority pops are not
+ICL;Iceland
+ICL_ADJ;Icelandic
+ISR;Israel
+ISR_ADJ;Israeli
+BYZ;Byzantium
+BYZ_ADJ;Byzantine
+BYZ_conservative;Nationalist Party
+BYZ_reactionary;Palaiologos Faction
+BYZ_liberal;Liberal Party
+BYZ_anarcho_liberal;New Party
+BYZ_socialist;Byzantine Socialist Party
+BYZ_communist;Byzantine Communist Party
+BYZ_fascist;Roman Revival Party
+ISR_conservative;Liberal Faction
+ISR_reactionary;Religious United Front
+ISR_liberal;Progressive Party
+ISR_anarcho_liberal;General Zionist
+ISR_socialist;Israeli Land Workers' Party
+ISR_communist;Israeli Communist Party
+ISR_fascist;Union of the Strong
+ICL_conservative;Independence Party
+ICL_reactionary;Citizens' Party
+ICL_liberal;Progressive Party
+ICL_anarcho_liberal;The Best Party
+ICL_socialist;Social Democratic Party
+ICL_communist;Icelandic Communist Party
+ICL_fascist;Nationalist Party
+ANY_CORE_LIMITED;Partial core provinces\n
+ANY_CORE_NORMAL;All core provinces\n
+POLITICS_NOT_BEFORE;We cannot change the ruling party before ?Y$DATE$?W
+POLITICS_NOT_ACCEPTED;Our government system does not allow the ?Y$WHICH$?W party
+RELEASE_PRESTIGE;Prestige:
+RELEASE_INFAMY;Infamy:
+PROV3247;Xixia Hawaii
+PROV3248;Strait of Magellan West
+EVTDESC1002;A group of liberals, displeased by their lack of economic freedom and the stagnation of parliamentary reform, have decided to form a new $COUNTRY_ADJ$ party. Anarcho-liberals are forward-thinking liberals who will not hesitate to use all necessary means to achieve freedom of thought and freedom of trade within and without $COUNTRY$.
+SOMEONE_HAS_ADDED_STATUS_QUO;Once a party has added the ?YStatus Quo?W war goal, we can no longer add war goals
+NO_INTERVENTION_NOT_ENOUGH_OPINION;To intervene in a war, the target country must have an opinion of us of at least ?Y$REQLEVEL$?W
+peking_convention_title;Treaty of Beijing between China and Russia
+peking_convention_desc;Since the Treaty of Nerchinsk (1689), the Russian Empire had recognized the Argun River and the Outer Khingan Mountains as the natural border between Russia and China. In the mid-19th century, Russia extended its sphere of influence beyond this border, seizing vast territories around the Outer Khingan Mountains and the Amur River. Later, the Second Opium War broke out between Western powers and China, resulting in the burning of the Chinese Emperor's Summer Palace and the occupation of Beijing. A cunning major general named Nikolay Ignatiev deceived the Chinese into believing that only Russian support could get the allied forces to withdraw from Beijing. The price was the Treaty of Beijing, recognizing the territories occupied by Muravyov, and ceding the land between the Ussuri River and the Pacific Ocean to Russia. Thus, Russia acquired approximately 350,000 square kilometers of territory without firing a single shot.
+russian_vladivostok_title;Ruler of the East
+russian_vladivostok_desc;In July 1860, a city was born near the Korean border—Vladivostok (or "Ruler of the East"). It would become an important trading port and a shipbuilding base. Eventually, it would become a hub for a transcontinental railway and an important scientific, cultural, and industrial center. The Tsar dreamed that this hub city would become the node connecting the West and the East. Will Vladivostok, with its railway connection, eventually replace the Suez Canal in transporting raw materials between East and West?
+EVTNAME80000;Treaty of Beijing
+EVTDESC80000;Russia has demanded that we recognize their occupation of our inherent territories. This is intolerable, but we may have no choice but to accept their demands. If we do so, they will help us secure our sovereignty. Furthermore, if Russia decides to resolve this issue by force, we may not be able to defeat them.
+EVTOPTA80000;We have no choice but to sign the treaty.
+EVTOPTB80000;To hell with the Tsar!
+EVTNAME80001;China Rejects the Treaty
+EVTDESC80001;Ungrateful China would rather see their cities burned than agree to our demands. It seems we need to adapt to the capriciousness of our Asian neighbors.
+EVTOPTA80001;Once the Russian flag is raised, it will never be lowered!
+OL_SIEGES;Sieges
+IS_NOT_BIG_PROD_TRIG;Not a major producer of ?Y$VAL$?W\n
+IS_BIG_PROD_TRIG;Is a major producer of ?Y$VAL$?W\n
+HAVE_LOWER_RANK_THAN;Has lower rank than
+HAVE_HIGHER_RANK_THAN;Has higher rank than
+MUST_NEGOTIATE_WITH_WAR_LEADER_STATUS_QUO;When we add war goals and the enemy has proposed the ?YStatus Quo?W war goal, we must negotiate with the enemy ?YWar Leader?W
+law_of_guarantees_title;Law of Guarantees
+law_of_guarantees_desc;In 1870, Italy passed a law aimed at resolving the "Roman Question"—the Law of Guarantees—which granted the Pope king-like privileges, including the right to send and receive ambassadors. Pope Pius IX refused to accept it, arguing it violated the independence of the Holy See and his successors. Although the issue was not resolved until the Lateran Pacts of 1929, this meant the young kingdom could finally establish its capital in Rome.
+form_byzantine_empire_title;King of Kings
+form_byzantine_empire_desc;With the collapse of the Byzantine Empire, the Ottoman Empire rose. That dark history beginning in 1453 is about to become the past. Constantinople, the city of desire, returns to Greek hands after being occupied by the Turks for so long! Time passes, the world changes, and the empire rises again!
+form_israel_title;Balfour Declaration
+form_israel_desc;"His Majesty's Government view with favour the establishment in Palestine of a national home for the Jewish people, and will use their best endeavours to facilitate the achievement of this object... "\n\nWe have exerted significant influence over the people living in the ancient homeland of the Jewish nation, and we can now issue a statement expressing our friendly attitude toward the idea of establishing a Jewish national home.
+BYZ_absolute_monarchy;Byzantine Empire
+BYZ_proletarian_dictatorship;Red Theme League
+BAB;Babylon
+BAB_ADJ;Babylonian
+BAB_conservative;Code Party
+BAB_liberal;Hanging Gardens Party
+BAB_reactionary;Helper of Hammurabi
+BAB_communist;Ziggurat Faction - Marxism-Leninism
+BAB_anarcho_liberal;Free People's Front
+BAB_socialist;Tower Builders
+BAB_fascist;Babylonian Regiment
+build_the_tower_of_babylon_title;Tower of Babel
+build_the_tower_of_babylon_desc;Over the past thousands of years, the largest construction project initiated by our proud ancestors has made little progress. Due to Iraq's recent power development and its position in the world, there are some rumors... although these rumors have become hard to understand... the Tower of Babel project has been launched again! Can miracles be achieved using modern technology?
+EVTNAME4430;Pressure for Reform
+EVTDESC4430;"And love asks us to change our views of ourselves."\n— Queen\n\nThe political climate in $COUNTRY$ has been deteriorating, and more and more of our loyal subjects are beginning to question whether the members of our upper house have lost their minds. The upper house is seen as responsible for all the suffocating political reforms and measures, and the people are demanding that the institution's founding charter be restructured to make it more broadly representative.
+EVTOPTA4430;What is pressure? Let us howl to the heavens!
+EVTOPTB4430;Why don't we give ourselves more opportunities?
+RELEASE_PLAY_AS;Play as
+EGY_921;Palestine
+raise_the_bonnie_blue_flag_title;The Bonnie Blue Flag!
+raise_the_bonnie_blue_flag_desc;"Hoorah! Hoorah!\nFor Southern rights, march on!\nThe Bonnie Blue Flag with its single star!"\n\n"The Bonnie Blue Flag" was the first unofficial flag of the Confederate States and also the name of a popular Confederate marching song from 1861, whose author Harry McCarthy greatly praised this flag. Hoist the Bonnie Blue Flag and let the soldiers gather under our banner!
+the_bonnie_blue_flag;The Bonnie Blue Flag
+the_bonnie_blue_flag_desc;A white star on blue leads us to victory.
+trinket_wage;Trinket Minimum Wage
+tut_2b_15;If building factories depends on the political system. For example, under "Laissez-Faire," all your factories will be built by capitalists. Under Belgium's current system, both the government and capitalists can build factories. Building more factories is the best way to develop our economy. Go ahead and click the "Build Factory" button in Wallonia, Belgium.
+webster_ashburton_treaty_title;Webster-Ashburton Treaty
+webster_ashburton_treaty_desc;After the undeclared Aroostook War, Britain and the United States signed the Webster-Ashburton Treaty in 1842, which finally established the border between Maine and New Brunswick, regulated the joint use of the Great Lakes, reaffirmed the 49th parallel boundary, and called for a joint commitment to end the Atlantic slave trade.
+SPA_2209;Cuba
+ENG_203;Caribbean Islands
+PV_CLERGY_LIT_PROVIDES;Clergy provides: $VAL$
+PV_CLERGY_LIT_NUM;$NUM$ of your population is clergy (best: $OPT$): $VAL$
+PV_CLERGY_SETTING;Education spending is $SETTING$: $VAL$
+PV_CLERGY_TECH;From technology: $VAL$
+EVTNAME13357;Doctrine of Lapse
+EVTDESC13357;The Doctrine of Lapse was a British policy aimed at the princely states of British India, which stipulated that if a princely state ruler had no direct heir to the throne or was found to be "manifestly incompetent," the state would be directly annexed to the rule of the East India Company. This policy was historically used to annex several princely states such as Satara, Sambalpur, Nagpur, Jhansi, and Awadh. Given our current situation, officials of the East India Company today declare our ruler's powers to be forfeit.
+EVTOPTA13357;No!
+EVTNAME13358;Doctrine of Lapse
+EVTDESC13358;The Doctrine of Lapse was a British policy aimed at the princely states of British India, which stipulated that if a princely state ruler had no direct heir to the throne or was found to be "manifestly incompetent," the state would be directly annexed to the rule of the East India Company. This policy was historically used to annex several princely states such as Satara, Sambalpur, Nagpur, Jhansi, and Awadh, among which the annexation of Awadh became one of the triggers of the Indian Mutiny of 1857. Given the tragic situation of the $FROMCOUNTRY$ government, the East India Company today declares that country's independence to be forfeit.
+EVTOPTA13358;Excellent!
+EVTOPTB13358;Pleasant enough to eat, but too good to throw away
+RUS_absolute_monarchy;Russian Empire
+RUS_prussian_constitutionalism;Russian Empire
+ENG_absolute_monarchy;British Empire
+ENG_prussian_constitutionalism;British Empire
+GER_absolute_monarchy;German Empire
+GER_prussian_constitutionalism;German Empire
+the_vega_expedition_title;Vega Expedition
+the_vega_expedition_desc;In 1878-1880, Baron Adolf Erik Nordenskiold, sponsored by King Oscar II, became the first person to complete a circumnavigational expedition of Eurasia. Although the existence of the Northeast Passage had been confirmed by the mid-century, he was the first to traverse its entire length. In 1880, he returned to Stockholm to a hero's welcome.
+ENG_2068;Zambezi
+rhodesia_charter_title;British South Africa Company
+rhodesia_charter_desc;The company was founded in 1889 by mining magnate Cecil Rhodes with a royal charter. It was modeled after the British East India Company, aiming to promote the further development of central and southern Africa. The region was formerly known as Zambezi, named after a river, and later became widely known as "Rhodesia" during the colonial era, whose development promoted British interests.
+TUR_proletarian_dictatorship;Turkey
+GER_2530;North New Guinea
+AST_2528;South New Guinea
+kaiser_wilhelms_land_title;Kaiser Wilhelm Land
+kaiser_wilhelms_land_desc;"Kaiser Wilhelm Land" was the name given by the Germans to northeastern New Guinea, which together with the Bismarck Archipelago and other Pacific islands formed the German colony of New Guinea. During World War I, Australian forces occupied the area and received a League of Nations mandate to administer it until 1975.
+megali_idea_title;Megali Idea
+megali_idea_desc;The Megali Idea refers to Greek irredentist ideology. Its core was the restoration of the Byzantine Empire and the establishment of a Greater Greek nation-state with Constantinople (Istanbul) as its capital and Athens as its economic center. This ideology began to germinate in the 19th century when Greece was still part of the Ottoman Empire, and was nearly realized in the treaties signed at the end of World War I. Although the treaty granted Greece many benefits, it also triggered the war between Greece and Turkey from 1919 to 1921. But more is always better, right?
+DIFFICULTY_LABEL;Difficulty
+expand_motala_verkstad_title;Motala Verkstad
+expand_motala_verkstad_desc;Motala Verkstad was founded by Baltazar von Platen in 1822. From 1843 to 1870, Motala became one of Sweden's most internationally renowned industrial groups. Jules Verne's novel "20,000 Leagues Under the Sea" mentions it as manufacturer of parts for the fictional "Nautilus" submarine.
+motala_verkstad;Motala Verkstad
+desc_motala_verkstad;Motala Verkstad was founded by Baltazar von Platen in 1822. From 1843 to 1870, Motala became one of Sweden's most internationally renowned industrial groups.
+court_yard_speech_title;Courtyard Crisis!
+court_yard_speech_desc;The Courtyard Crisis (Swedish: Borggardskrisen) was a constitutional crisis in Sweden, when the Prime Minister was Karl Staaff, who formed a Liberal government. On February 6, 1914, King Gustaf V delivered an impassioned speech supporting increased defense spending, and about thirty thousand people came from across the country to show their support. This was the last time a Swedish monarch violated the sacred principle of non-interference in government.
+international_negotiations;International Pressure
+desc_international_negotiations;We are under international pressure from relevant countries on a specific issue.
+EVTNAME23300;Mysterious Whale Sinks Ships!
+EVTDESC23300;"People must still remember a strange, mysterious, and unexplained incident that occurred at sea in $YEAR$. (...) The general story is this: not long ago, several large ships encountered a 'giant' at sea, a very long object, spindle-shaped, sometimes emitting phosphorescence, much larger than a whale, and moving much faster than a whale."\n\nSeveral merchant ships have mysteriously disappeared at sea in the past year, which many believe was caused by an unknown giant whale. The renowned marine biologist Pierre Aronnax is willing to join a scientific expedition to investigate this monster in the ocean. Furthermore, rumors say that several countries are also planning to organize their own expeditions to solve the mystery.
+EVTOPTA23300;This threat to the high seas must be put to an end!
+EVTOPTB23300;This is a fairy tale story, I'm not interested.
+EVTNAME23301;Mysterious Whale Sinks Ships!
+EVTDESC23301;"People must still remember a strange, mysterious, and unexplained incident that occurred at sea in $YEAR$. (...) The general story is this: not long ago, several large ships encountered a 'giant' at sea, a very long object, spindle-shaped, sometimes emitting phosphorescence, much larger than a whale, and moving much faster than a whale."\n\nSeveral merchant ships have mysteriously disappeared at sea in the past year, which many believe was caused by an unknown giant whale. Rumors say that several countries are already investigating this matter, but perhaps we should also send our own expedition?
+EVTOPTA23301;This threat to the high seas must be put to an end!
+EVTOPTB23301;This is a fairy tale story, I'm not interested.
+EVTNAME23302;Professor Aronnax Washed Ashore!
+EVTDESC23302;The renowned French marine biologist Pierre Aronnax appeared today on the beaches of $COUNTRY$. The professor had been missing for some time, having joined an expedition to discover the truth behind the mysterious whale that could devour ships on the high seas. The professor was deeply shaken by his experience, and his story is truly extraordinary. Aronnax claims that after a close encounter between his ship and an unknown creature, he was washed overboard, only to discover that the unknown creature was actually a human vessel capable of underwater navigation. Professor Aronnax insists that the ship's captain is a freedom-loving hero who has severed ties with the world on land and enjoys a free life at sea. Whatever the truth, Professor Aronnax has detailed many novel life forms (encountered, he says, during a voyage as a guest aboard this strange ship), which will be of great benefit to scientific endeavors for years to come.
+EVTOPTA23302;Those who offend us must be punished!
+italia_irredenta_title;Greater Italy
+italia_irredenta_desc;The goal of the Italian irredentist movement has extended beyond Italy's current territories to lands inhabited by large numbers of Italians abroad, which also signifies the rise of a new expansionism.
+the_heligoland_question_title;Heligoland Question
+the_heligoland_question_desc;This small North Sea island currently belongs to Britain, having been occupied during the Napoleonic Wars. Germany has coveted it ever since unification, after all, most of the island's inhabitants are German.
+miskatonic_university_title;Miskatonic University
+miskatonic_university_desc;In beautiful Essex County, there is the Miskatonic River whispering in the dark, and beside it lies the scenic town of Arkham, where the campus of Miskatonic University is situated. Miskatonic University is one of the most prestigious higher education institutions in New England, renowned for its extensive unique collections on ancient and occult studies. Fragments of the legendary Book of Eibon, and the original copy of Friedrich Wilhelm von Junz's authoritative work the Unaussprechlichen Kulten, are among the university's greatest treasures.
+miskatonic_campus;Miskatonic University
+desc_miskatonic_campus;Where Science Meets Myth
+construct_the_walhalla_title;Valhalla Temple
+construct_the_walhalla_desc;The Valhalla Temple is a hall of fame built between 1830 and 1842 in Regensburg, Bavaria. It is a neoclassical temple overlooking the Danube River. Ludwig I wished to build this temple to commemorate famous figures from German history, from Arminius to Copernicus.
+the_walhalla;Valhalla Temple
+desc_the_walhalla;The Valhalla Temple commemorates famous figures from German history, from Arminius to Copernicus.
+introduce_the_presbyteries_title;Introduce Presbyterianism
+introduce_the_presbyteries_desc;In 1848, the Kingdom of Hanover strengthened popular representation in its Lutheran state church by introducing Presbyterianism, which established a church council elected by the people to manage church affairs.
+build_gotthard_tunnel_title;Build the Gotthard Tunnel
+build_gotthard_tunnel_desc;The Gotthard Rail Tunnel was built between 1871 and 1881, connecting the towns of Goschenen and Airolo. The Gotthard Tunnel was the first tunnel to cross the Gotthard Pass and was considered an architectural achievement made possible by modern technology at the time.
+the_lambert_charter_title;Lambert Charter
+the_lambert_charter_desc;The Lambert Charter was a document used by France to justify its repeated attempts to eventually annex the independent island nation of Madagascar. The document was signed by Radama II, heir to the throne of Madagascar, who had grown up under the influence of French expatriates, granting France the right to exploit minerals and other natural resources in the country. In return, the Madagascan royal family was given a 10% share.
+end_the_merina_monarchy_title;End the Merina Monarchy
+end_the_merina_monarchy_desc;After a disturbance in 1897, France, which had long claimed Madagascar as its sphere of influence, formally expelled the royal family and annexed the island nation.
+REVOLTALLIANCE_SETUP;When a nation tears up its alliance with our country due to revolution
+REVOLTALLIANCE_HEADER;Foreign Minister's Report
+REVOLTALLIANCE_1;Foreign Revolution!
+REVOLTALLIANCE_2;$MONARCHTITLE$
+REVOLTALLIANCE_3;?Y$ACTOR$?W
+REVOLTALLIANCE_4;A revolution has occurred!
+REVOLTALLIANCE_5;Their alliance with our country has been torn up, and our influence over them has been exhausted at the same time.
+REVOLTALLIANCE_6;*
+REVOLTALLIANCE_BTN1;OK
+REVOLTALLIANCE_BTN2;OK
+REVOLTALLIANCE_BTN3;View
+RHO;Southern Rhodesia
+RHO_proletarian_dictatorship;Zimbabwe
+RHO_absolute_monarchy;Southern Rhodesia
+RHO_hms_government;Southern Rhodesia
+RHO_ADJ;Rhodesian
+RHO_conservative;Rhodesia Party
+RHO_liberal;United Federal Party
+RHO_reactionary;Rhodesia Front
+RHO_socialist;Zimbabwe African National Union
+RHO_communist;Zimbabwe African People's Union
+RHO_anarcho_liberal;Responsible Government Association
+RHO_fascist;"We Were Once Great"
+EGY_1842;Darfur
+EGY_1838;Kordofan
+EGY_915;Lebanon
+CHI_2562;Taiwan
+BEL_1977;Lower Congo
+BEL_1987;Katanga
+BEL_1990;East Congo
+BEL_1984;Kasai
+POR_1999;North Angola
+ENG_1956;South Cameroon
+ENG_1960;North Cameroon
+ENG_1868;Somaliland
+ENG_2026;Great Rift Valley
+ENG_2024;Kenya
+ENG_2019;Uganda
+TRN_2108;Transvaal
+POR_2060;Mozambique
+FRA_1884;Sierra Leone
+FRA_1813;Niger
+FRA_1892;East Ivory Coast
+FRA_1893;West Ivory Coast
+FRA_1788;Gambia
+FRA_1783;Senegal
+FRA_1775;Mauritanian Coast
+MOR_1696;West Morocco
+POR_2003;South Angola
+POR_2006;East Angola
+ALD_1718;East Central Sahara
+ALD_1714;West Central Sahara
+TRI_1739;Libyan Desert
+EGY_1754;Libyan Coast
+FRA_1780;Inner Mauritania
+ORA_2103;Free State
+ENG_2092;Northern Cape
+ENG_2083;Namaqualand
+ENG_2096;Eastern Cape
+ENG_2087;Cape Colony
+BEL_1992;Equator
+FRA_1978;Congo
+CNG;Congo
+CNG_absolute_monarchy;Congo Free State
+CNG_presidential_dictatorship;Zaire
+CNG_hms_government;Congo
+CNG_democracy;Zaire
+CNG_ADJ;Congolese
+the_congo_conference_title;Host the Congo Conference
+the_congo_conference_desc;The Congo Conference, also known as the "Berlin Conference," was an international conference initiated in 1884 by German Chancellor Otto von Bismarck. The direct result of the conference's General Act was the formalization of norms for colonial expansion in Africa, while confirming the Congo Free State as the private property of King Leopold II of Belgium. What will be the final outcome of this? Host the Congo Conference and let the dice of fate begin to roll! We will be able to issue invitations to other countries in the months following the adoption of this resolution.
+EVTNAME19330;$CAPITAL$ Conference
+EVTDESC19330;"I do not want to miss a good opportunity to get a piece of the African cake."\n— King Leopold II of Belgium\n\nA large international conference to determine colonial policy in Africa has been preparing in $COUNTRY$ for some time, and today $MONARCHTITLE$ is ready to issue invitations to other civilized nations and relevant parties around the world. The main topic on the negotiating table is how to resolve the Congo question. One participating nation will be given exclusive rights to control and develop the Congo colony. Secondary powers, nations without colonies, and nations already having claims in Congo will be given priority in the negotiations.
+EVTOPTA19330;Excellent, issue the invitations.
+EVTOPTB19330;I think it's best if this matter doesn't exist...
+EVTNAME19335;Congo Conference
+EVTDESC19335;$MONARCHTITLE$, $FROMCOUNTRY$ is holding a large international conference to determine the policy and method for further colonizing Africa. The main topic of the conference will be how to resolve the Congo question, with the possible consequence of recognizing a participating nation's claim to the entire Congo as its territory. Although most civilized nations in the world will send delegations to the conference, the potential benefits of sending a delegation may not be worth the cost of our delegation.
+EVTOPTA19335;I don't want to miss a good opportunity to get a piece of the African cake!
+EVTOPTB19335;I don't think such an unimportant matter deserves our attention.
+EVTNAME19340;Congo Free State!
+EVTDESC19340;"The Congo Free State is unique in its kind. It has nothing to hide, no secrets, and is subject to no one except its founder."\n— King Leopold II of Belgium\n\nThe Congo Conference, which has been in session for some time, has reached a resolution on the Congo question. In the General Act published today, the conference grants $COUNTRY$ the right to rule, develop, and colonize the Congo. Although $COUNTRY$ rules the Congo Free State, it is formally administering an independent state. Other nations will undoubtedly accelerate the establishment of trade relations with the Congo and conduct a comprehensive study of its economic potential.
+EVTOPTA19340;Oh, how delightful!
+CNG_liberal;Liberal Party
+CNG_conservative;Conservative Party
+CNG_socialist;Socialist Party
+CNG_communist;Communist Party
+CNG_reactionary;Reactionary Party
+CNG_fascist;Fascist Party
+CNG_anarcho_liberal;Anarchist Party
+EVTNAME70000;$STATE$ has received Native Status!
+EVTNAME70001;$STATE$ has received Native Status!
+IS_SECONDARY_NATION;Is a Secondary Power
+IS_NOT_SECONDARY_NATION;Is not a Secondary Power
+SET_PRIMARY_CULTURE;?Y$CULTURE$?W becomes the primary culture\n
+CB_ASSERT_HEGEMONY;Claim Hegemony\n
+unification_humiliate_cb_setup;Force another Great Power to recognize your leadership in this cultural sphere
+unification_humiliate_cb_desc;Force another Great Power to recognize your leadership in this cultural sphere, while that nation loses influence over all nations in this cultural sphere
+EVTNAME19345;Congo Rubber!
+EVTDESC19345;The soil of the Congo Basin is fertile, perfect for growing natural rubber. Sadly, this desolate but lush land is mostly asleep, unexplored and unused, firmly held by savage and backward peoples. Powerful economic interests within $COUNTRY$ only wish for the opportunity to develop and exploit the natural wealth of the Congo Free State, this black cornucopia, and not doing so might send dangerous signals to the natives. What do you say, Your Majesty?
+EVTOPTA19345;I'm sure the natives will help!
+EVTOPTB19345;We bring civilization, not plunder.
+EVTNAME19350;Congo Reform Association
+EVTDESC19350;Several eyewitness reports over the past few years have exposed abuses against $COUNTRY_ADJ$ colonial subjects in the Congo Free State. According to reports, widespread atrocities, corporal punishment, and even massacres have often been used as tools of colonial oppression, and these reports have begun to cast $COUNTRY_ADJ$'s colonial policies in a very unfavorable light. An international organization called the "Congo Reform Association" has been established, claiming its purpose is to restore the personal dignity of $COUNTRY$'s colonial subjects. Several famous writers and international humanitarians have joined forces to advocate for this cause.
+EVTOPTA19350;Damn it!
+annex_the_congo_title;Annex the Congo
+annex_the_congo_desc;The issue of the Congo Free State has drawn increasing international pressure. As the private property of our king, the free state is facing widespread criticism from international opinion regarding its bloody colonial policies. Perhaps our best option at this stage is to annex the free state and reform its governance.
+the_congo_reform_association;Congo Reform Association
+the_congo_refrom_association_desc;An international humanitarian organization is exposing our colonial policies in the Congo.
+MODIFIER_BADBOY;Infamy
+rename_the_congo_title;Explore the Congo!
+rename_the_congo_desc;Now that the Congo Free State has been recognized as the private property of King Leopold II, our exploration of this region seems perfectly justified. Perhaps leaving a personal mark wouldn't hurt?
+PROV2049;Lourenço Marques
+brazzas_expedition_title;Brazza Expedition
+brazzas_expedition_desc;Pierre Savorgnan de Brazza, a French-Italian explorer, explored the Congo region in the 1870s and 1880s, opening the door for French colonization of Central Africa and the right bank of the Congo River. Brazzaville in French Congo was named after him.
+USA_prussian_constitutionalism;Kingdom of America
+von_moltkes_staff_reforms_title;Von Moltke's Staff Reforms
+von_moltkes_staff_reforms_desc;Helmuth von Moltke began implementing reforms shortly after being appointed Chief of Staff of the Prussian General Staff in 1857. His ideas included establishing a department to study history and conduct numerous war simulations, and a special department dedicated to cataloging and researching telegraph and railway networks. As a result of these reforms, during the Franco-Prussian War, the Prussian General Staff was considered the most effective in Europe, and its methods were quickly widely adopted by other nations. Moltke remained Chief of the Prussian General Staff for the next 30 years. He is also regarded as one of the most outstanding military strategists of the 19th century.
+prussian_general_staff;Prussian General Staff
+desc_prussian_general_staff;The Prussian General Staff is the most efficient in Europe, but other nations will catch up sooner or later.
+kanun_i_esasi_title;Kanun-i-Easasi (Organic Law)
+kanun_i_esasi_desc;The Kanun-i-Easasi (Organic Law) passed in 1876 was an attempt to grant a constitution to the Ottoman Empire. Although the law was in effect for only two years before being abolished by Sultan Abdul Hamid II, it remains an important precursor to later Ottoman and Turkish constitutional development.
+the_ruhr_boom_title;Encourage Ruhr-style Development
+the_ruhr_boom_desc;The Ruhr region was once part of the counties of Berg, Mark, and Cleves, but now it is changing rapidly. Every day new pits, mines, and shafts are being built to support the expanding Prussian railway network, and soon, after the introduction of British industrial technology, factories will spring up like mushrooms. The Ruhr is flourishing, and this example can easily be extended to other parts of Germany with just a gentle push.
+ruhr_boom;Ruhr-style Development
+desc_ruhr_boom;The example of the Ruhr's industrial prosperity encourages towns across Germany to develop from ordinary townships into modern industrial centers.
+support_ruhr_industrialism_title;Support the Krupp Family
+DIPLOMACY_NO_ALLIES_CIVIL_WAR;Cannot summon allies to join the civil war.
+the_rhine_crisis_title;Left Bank
+the_rhine_crisis_desc;When Napoleon redrew the map of Europe, the left bank of the Rhine was incorporated into French territory. In 1840, French Prime Minister Adolphe Thiers publicly declared that in his view the Rhine remained France's natural eastern border. At a time when the sufferings of the Napoleonic Wars were still fresh in memory, this view caused an uproar in Germany, triggering what became known as the "Rhine Crisis."
+build_the_eiffel_tower_title;Build the Eiffel Tower
+build_the_eiffel_tower_desc;The Eiffel Tower was originally built as the entrance arch to the 1889 World's Fair and is one of the most enduring iconic symbols of Paris and French architecture. The tower takes its name from its designer Gustave Eiffel. Before the Chrysler Building in New York City was completed in 1930, the Eiffel Tower was the tallest man-made structure in the world.
+the_eiffel_tower;Eiffel Tower
+desc_eiffel_tower;The whole world looks with awe at the magnificent iron lattice tower built by Mr. Eiffel!
+confiscations_of_mendizabal_title;Mendizabal Confiscations
+confiscations_of_mendizabal_desc;The Ecclesiastical Confiscations of Mendizabal were a series of decrees passed between 1835 and 1837, aimed at seizing and privatizing the lands and properties of Spanish monasteries. The decrees were a product of anti-clerical liberalism and the polarization of Spanish society during the Carlist Wars, leading to the abandonment of many ancient Spanish monasteries.
+haussmanns_renovations_title;Haussmann's Renovations
+haussmanns_renovations_desc;The Haussmann Plan, implemented from 1852 to 1870, was a project aimed at the modernization and urban renewal of Paris. The project began during a period of rapid growth in Paris, when the old city center had proven unable to meet the infrastructure needs of a developing city. The long, wide boulevards built under Haussmann's support have since become a characteristic feature of Paris's street layout.
+SM_COUNTERDISTANCE;Map units display maximum distance
+OL_GP_INFLUENCE;Influence
+OL_VIEW_GP_INFLUENCE;Lock ?YInfluence?W interface
+CB_EXPIRE_DATE;Expiration date: ?Y$DATE$?W
+BUDGET_CANT_LOAN_DESC;Banks will only lend to you if you pay interest normally and are not a hostile nation. Foreign banks for security reasons typically won't lend you more than $MAXLOAN$?! of their total liquid funds.
+MUST_NEGOTIATE_WITH_WAR_LEADER_STATUS_QUO_OUR_SIDE;We cannot negotiate with the enemy ?YWar Leader?W unless we are the object of war goals or our War Leader has proposed the ?YStatus Quo?W war goal
+witwatersrand_gold_rush;Witwatersrand Gold Rush
+desc_witwatersrand_gold_rush;A gold rush in Witwatersrand has made us world-famous.
+ENG_bourgeois_dictatorship;Britannia Republic
+DIPLOMACY_CANNOT_SET_PRIO_TRUCE;We cannot influence nations with which we have a truce agreement
+MEX_absolute_monarchy;Mexican Empire
+MEX_prussian_constitutionalism;Mexican Empire
+MEX_hms_government;Mexican Empire

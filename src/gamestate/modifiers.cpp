@@ -12,6 +12,7 @@
 namespace sys {
 
 // NOTE: these functions do not add or remove a modifier from the list of modifiers for an entity
+// 将修饰器值应用到国家
 void apply_modifier_values_to_nation(sys::state& state, dcon::nation_id target_nation, dcon::modifier_id mod_id) {
 	auto& nat_values = state.world.modifier_get_national_values(mod_id);
 	for(uint32_t i = 0; i < sys::national_modifier_definition::modifier_definition_size; ++i) {
@@ -25,6 +26,7 @@ void apply_modifier_values_to_nation(sys::state& state, dcon::nation_id target_n
 	}
 }
 
+// 将按比例缩放的修饰器值应用到国家
 void apply_scaled_modifier_values_to_nation(sys::state& state, dcon::nation_id target_nation, dcon::modifier_id mod_id,
 		float scale) {
 	auto& nat_values = state.world.modifier_get_national_values(mod_id);
@@ -39,6 +41,7 @@ void apply_scaled_modifier_values_to_nation(sys::state& state, dcon::nation_id t
 	}
 }
 
+// 将修饰器值应用到省份
 void apply_modifier_values_to_province(sys::state& state, dcon::province_id target_prov, dcon::modifier_id mod_id) {
 	auto& prov_values = state.world.modifier_get_province_values(mod_id);
 	auto owner = state.world.province_get_nation_from_province_ownership(target_prov);
@@ -65,6 +68,7 @@ void apply_modifier_values_to_province(sys::state& state, dcon::province_id targ
 	}
 }
 
+// 向国家添加修饰器
 void add_modifier_to_nation(sys::state& state, dcon::nation_id target_nation, dcon::modifier_id mod_id, sys::date expiration) {
 	assert(state.world.nation_is_valid(target_nation) && "Invalid write incoming!");
 	auto lst = state.world.nation_get_current_modifiers(target_nation);
@@ -78,6 +82,7 @@ void add_modifier_to_nation(sys::state& state, dcon::nation_id target_nation, dc
 	}
 	lst.push_back(sys::dated_modifier{expiration, mod_id});
 }
+// 向省份添加修饰器
 void add_modifier_to_province(sys::state& state, dcon::province_id target_prov, dcon::modifier_id mod_id, sys::date expiration) {
 	assert(state.world.province_is_valid(target_prov) && "Invalid write incoming!");
 	auto lst = state.world.province_get_current_modifiers(target_prov);
@@ -91,6 +96,7 @@ void add_modifier_to_province(sys::state& state, dcon::province_id target_prov, 
 	}
 	lst.push_back(sys::dated_modifier{expiration, mod_id});
 }
+// 从国家移除修饰器
 void remove_modifier_from_nation(sys::state& state, dcon::nation_id target_nation, dcon::modifier_id mod_id) {
 	auto modifiers_range = state.world.nation_get_current_modifiers(target_nation);
 	auto count = modifiers_range.size();
@@ -102,6 +108,7 @@ void remove_modifier_from_nation(sys::state& state, dcon::nation_id target_natio
 	}
 }
 
+// 从省份移除修饰器
 void remove_modifier_from_province(sys::state& state, dcon::province_id target_prov, dcon::modifier_id mod_id) {
 	auto modifiers_range = state.world.province_get_current_modifiers(target_prov);
 	auto count = modifiers_range.size();
@@ -113,6 +120,7 @@ void remove_modifier_from_province(sys::state& state, dcon::province_id target_p
 	}
 }
 
+// 切换省份修饰器状态
 void toggle_modifier_from_province(sys::state& state, dcon::province_id target_prov, dcon::modifier_id mod_id, sys::date expiration) {
 	assert(state.world.province_is_valid(target_prov) && "Invalid write incoming!");
 	auto lst = state.world.province_get_current_modifiers(target_prov);
@@ -127,6 +135,7 @@ void toggle_modifier_from_province(sys::state& state, dcon::province_id target_p
 	lst.push_back(sys::dated_modifier{ expiration, mod_id });
 }
 
+// 批量向符合条件的国家应用修饰器
 template<typename F>
 void bulk_apply_masked_modifier_to_nations(sys::state& state, dcon::modifier_id m, F const& mask_functor) {
 	auto& nat_values = state.world.modifier_get_national_values(m);
@@ -144,6 +153,7 @@ void bulk_apply_masked_modifier_to_nations(sys::state& state, dcon::modifier_id 
 	}
 }
 
+// 批量向国家应用按比例缩放的修饰器
 template<typename F>
 void bulk_apply_scaled_modifier_to_nations(sys::state& state, dcon::modifier_id m, F const& scale_functor) {
 	auto& nat_values = state.world.modifier_get_national_values(m);
@@ -160,6 +170,7 @@ void bulk_apply_scaled_modifier_to_nations(sys::state& state, dcon::modifier_id 
 	}
 }
 
+// 批量向符合条件的省份应用修饰器
 template<typename F>
 void bulk_apply_masked_modifier_to_provinces(sys::state& state, dcon::modifier_id mod_id, F const& mask_functor) {
 	auto& prov_values = state.world.modifier_get_province_values(mod_id);
@@ -199,6 +210,7 @@ void bulk_apply_masked_modifier_to_provinces(sys::state& state, dcon::modifier_i
 	}
 }
 
+// 批量向所有省份应用修饰器
 void bulk_apply_modifier_to_provinces(sys::state& state, dcon::modifier_id mod_id) {
 	auto& prov_values = state.world.modifier_get_province_values(mod_id);
 
@@ -216,6 +228,7 @@ void bulk_apply_modifier_to_provinces(sys::state& state, dcon::modifier_id mod_i
 	}
 }
 
+// 批量向省份应用按比例缩放的修饰器
 template<typename F>
 void bulk_apply_scaled_modifier_to_provinces(sys::state& state, dcon::modifier_id mod_id, F const& scale_functor) {
 	auto& prov_values = state.world.modifier_get_province_values(mod_id);
@@ -253,6 +266,7 @@ void bulk_apply_scaled_modifier_to_provinces(sys::state& state, dcon::modifier_i
 	}
 }
 
+// 重新计算所有国家修饰器
 void recreate_national_modifiers(sys::state& state) {
 	concurrency::parallel_for(uint32_t(0), sys::national_mod_offsets::count, [&](uint32_t i) {
 		dcon::national_modifier_value mid{dcon::national_modifier_value::value_base_t(i)};
@@ -429,6 +443,7 @@ void recreate_national_modifiers(sys::state& state) {
 	}
 }
 
+// 更新单个国家的修饰器
 void update_single_nation_modifiers(sys::state& state, dcon::nation_id n) {
 
 	for(uint32_t i = uint32_t(0); i < sys::national_mod_offsets::count; ++i) {
@@ -562,6 +577,7 @@ void update_single_nation_modifiers(sys::state& state, dcon::nation_id n) {
 	}
 }
 
+// 重新计算所有省份修饰器
 void recreate_province_modifiers(sys::state& state) {
 	
 	concurrency::parallel_for(uint32_t(0), sys::provincial_mod_offsets::count, [&](uint32_t i) {
@@ -645,7 +661,7 @@ void recreate_province_modifiers(sys::state& state) {
 	}
 }
 
-// removes province modifiers which has expired, should be used on daily update
+// 清除已过期的省份修饰器，应在每日更新时使用
 void purge_expired_province_modifiers(sys::state& state) {
 	// purge expired triggered modifiers
 	province::for_each_land_province(state, [&](dcon::province_id p) {
@@ -658,6 +674,7 @@ void purge_expired_province_modifiers(sys::state& state) {
 	});
 }
 
+// 清除过期的国家修饰器
 void purge_expired_national_province_modifiers(sys::state& state) {
 	// purge expired triggered modifiers
 	for(auto n : state.world.in_nation) {
@@ -671,12 +688,12 @@ void purge_expired_national_province_modifiers(sys::state& state) {
 	}
 }
 
-// restores values after loading a save
+// 加载存档后恢复修饰器值
 void repopulate_modifier_effects(sys::state& state) {
 	recreate_national_modifiers(state);
 	recreate_province_modifiers(state);
 }
-// this is ran on update
+// 在更新时执行
 void update_modifier_effects(sys::state& state) {
 	purge_expired_national_province_modifiers(state);
 	recreate_national_modifiers(state);

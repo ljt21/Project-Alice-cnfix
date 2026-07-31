@@ -1,0 +1,90 @@
+# ============================================================================
+# bmfont_defs_CN.txt - BMFont字体定义解析器DSL (中文注释版)
+# ============================================================================
+# 此文件定义了BMFont位图字体文件的解析规则，用于ParserGenerator生成解析器代码。
+# 生成的解析器代码保存在 bmfont_defs_generated.hpp 中。
+#
+# DSL格式说明：
+#   第一行：根结构名称
+#   后续行：字段定义，格式为
+#       字段名  值类型  数据类型  处理方式
+#
+# 值类型(value)：该字段是一个值属性（key = value 形式）
+# 组类型(group)：该字段是一个分组（key { ... } 形式，内含子字段）
+# 无类型(none)：该字段无值，仅作为标记
+#
+# 处理方式：
+#   member_fn：调用成员函数处理
+#   member：直接赋值给成员变量
+#   discard：忽略该字段，不处理
+#
+# 注意：此文件为注释版副本，原始文件为 bmfont_defs.txt
+#       请勿将本文件作为ParserGenerator的输入使用
+# ============================================================================
+
+# 根结构：BMFont文件解析器
+bmfont_file
+	# 字符在纹理中的X坐标（值类型，整数，成员函数处理）
+	x                               value      int                               member_fn
+	# 字符在纹理中的Y坐标（值类型，整数，成员函数处理）
+	y                               value      int                               member_fn
+	# 字符前进量（字符宽度+间距，值类型，整数，成员函数处理）
+	xadvance                        value      int                               member_fn
+	# 字符X偏移量（渲染时的水平偏移，值类型，整数，成员函数处理）
+	xoffset                         value      int                               member_fn
+	# 字符Y偏移量（渲染时的垂直偏移，值类型，整数，成员函数处理）
+	yoffset                         value      int                               member_fn
+	# 字符所在纹理页码（值类型，整数，成员函数处理）
+	page                            value      int                               member_fn
+	# 字符宽度（像素，值类型，整数，成员函数处理）
+	width                           value      int                               member_fn
+	# 字符高度（像素，值类型，整数，成员函数处理）
+	height                          value      int                               member_fn
+	# 字距对第一个字符（值类型，整数，成员函数处理）
+	first                           value      int                               member_fn
+	# 字距对第二个字符（值类型，整数，成员函数处理）
+	second                          value      int                               member_fn
+	# 字距调整量（值类型，整数，成员函数处理）
+	amount                          value      int                               member_fn
+	# 字符ID（ASCII码，值类型，整数，成员函数处理）
+	id                              value      int                               member_fn
+	# 行高（值类型，整数，成员函数处理）
+	lineheight                      value      int                               member_fn
+	# 纹理页数（值类型，整数，忽略不处理）
+	pages                           value      int                               discard
+	# 纹理缩放宽度（值类型，整数，忽略不处理）
+	scalew                          value      int                               discard
+	# 纹理缩放高度（值类型，整数，忽略不处理）
+	scaleh                          value      int                               discard
+	# 字符数量（值类型，整数，忽略不处理）
+	count                           value      int                               discard
+	# 字体名称（值类型，文本，忽略不处理）
+	face                            value      text                              discard
+	# 字体大小（值类型，整数，忽略不处理）
+	size                            value      int                               discard
+	# 是否粗体（值类型，布尔，忽略不处理）
+	bold                            value      bool                              discard
+	# 是否斜体（值类型，布尔，忽略不处理）
+	italic                          value      bool                              discard
+	# 字符集（值类型，文本，忽略不处理）
+	charset                         value      text                              discard
+	# 水平拉伸（值类型，整数，忽略不处理）
+	stretchh                        value      int                               discard
+	# 是否平滑（值类型，整数，忽略不处理）
+	smooth                          value      int                               discard
+	# 抗锯齿等级（值类型，整数，忽略不处理）
+	aa                              value      int                               discard
+	# 内边距（值类型，文本，忽略不处理）
+	padding                         value      text                              discard
+	# 字符间距（值类型，文本，忽略不处理）
+	spacing                         value      text                              discard
+	# info分组标记（无值，忽略不处理）
+	info                            value      none                              discard
+	# common分组标记（无值，忽略不处理）
+	common                          value      none                              discard
+	# char分组标记（无值，忽略不处理）
+	char                            value      none                              discard
+	# kernings分组标记（无值，忽略不处理）
+	kernings                        value      none                              discard
+	# kerning分组标记（无值，忽略不处理）
+	kerning                         value      none                              discard

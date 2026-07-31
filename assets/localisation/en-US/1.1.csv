@@ -1,0 +1,55 @@
+#Powered_by_ParaTranz
+AUS_734;South Tyrol
+BUDGET_STOCKPILE_YESTERDAYS;Yesterday's stockpile purchases:
+CAL_absolute_monarchy;Kingdom of California
+CAL_hms_government;Kingdom of California
+CSA_bourgeois_dictatorship;Confederate States of America
+CSA_democracy;Confederate States of America
+CSA_fascist_dictatorship;Confederate States of America
+CSA_presidential_dictatorship;Confederate States of America
+CSA_proletarian_dictatorship;Confederate States of America
+CSA_prussian_constitutionalism;Confederate States of America
+DOM_absolute_monarchy;Santo Domingo
+DOM_hms_government;Santo Domingo
+ENG_democracy;Great Britain
+EVTDESC23212;A comet seen in the sky is regarded by some as an omen, others think it is actually a kingdom of spirits floating in the sky, and still others believe the comet is a giant ice ball grazing across the sky with its tail created by the sun's energy. All three views have promoted our nation's quest for knowledge.
+EVTDESC60140;As the liberals firmly control our country, they believe it is time to convene a constitutional convention. Everyone, or at least the most important among them, will gather here to deliberate and decide the path of our nation.
+EVTNAME23212;Comet Sighted
+EVTNAME60140;Constitutional Convention
+EVTOPTA23212;Thank goodness, we live in a civilized era.
+EVTOPTA60140;All people can use this method
+GUNBOAT_OTHER_ACCEPT_LOG;$ACTOR$ uses gunboat diplomacy to force $RECIPIENT$ to repay debts!
+GUNBOAT_THEY_ACCEPT_LOG;We use gunboat diplomacy to force $RECIPIENT$ to repay debts!
+GUNBOAT_WE_ACCEPT_LOG;$ACTOR$ uses gunboat diplomacy to force us to repay debts!
+HAVE_LESS_POPS_WANTING_POLITICAL_REFORM_THAN;Less than $VAL$ want political reform
+HAVE_LESS_POPS_WANTING_SOCIAL_REFORM_THAN;Less than $VAL$ want social reform
+HAVE_MILITARY_SCORE_LESS_THAN;Military score below:
+HAVE_MORE_POPS_WANTING_POLITICAL_REFORM_THAN;At least $VAL$ want political reform
+HAVE_MORE_POPS_WANTING_SOCIAL_REFORM_THAN;At least $VAL$ want social reform
+LAG_DECREASE_SPEED;$PLAYER$ has slowed down
+LAG_PAUSE;$PLAYER$ has paused the game
+MODIFIER_CORE_POP_CONSCIOUSNESS_MODIFIER;Non-colonial nation consciousness
+MODIFIER_CORE_POP_MILITANCY_MODIFIER;Non-colonial nation militancy
+MODIFIER_NON_ACCEPTED_POP_CONSCIOUSNESS_MODIFIER;Non-accepted nation consciousness
+MODIFIER_NON_ACCEPTED_POP_MILITANCY_MODIFIER;Non-accepted nation militancy
+MOR_1683;Taza
+PAUSED_BY;?Y$PLAYER$?W has paused the game
+PROV3041;Argentina Seamount
+REMOVE_USA_prussian_constitutionalism;United States of America
+STRATA_NEED_LESS_THAN;Necessity sufficiency less than
+STRATA_NEED_MORE_THAN;Necessity sufficiency at least
+TECH_DAILY_LEADERSHIP_BASE_TOOLTIP;Monthly base leadership: ?Y$VALUE$?W
+TECH_DAILY_LEADERSHIP_TOOLTIP;$POPTYPE$ provides ?G$VALUE$?W leadership\n(?Y$FRACTION$%?W of population, optimal is $OPTIMAL$%)
+TECH_DAILY_LEADERSHIP_TOTAL_TOOLTIP;Monthly leadership: ?G+$VALUE$?W
+TUR_806;Northern Macedonia
+TUR_819;Western Macedonia
+USA_bourgeois_dictatorship;United States of America
+USA_democracy;United States of America
+USA_fascist_dictatorship;United States of America
+USA_presidential_dictatorship;United States of America
+WARGOAL_OTHER_ACCEPT_SETUP;When a country adds war goals in war
+WARGOAL_THEY_ACCEPT_SETUP;When our country adds war goals against another country
+WARGOAL_WE_ACCEPT_SETUP;When a country adds war goals against our country
+become_guatemala_desc;The dream of a united Central America is dead. The other provinces cared too much about being dominated by Guatemala to recognize the sacrifices we made to maintain the federation. No more, we and they are done. Guatemala will find its own destiny.
+become_guatemala_title;Become Guatemala
+status_quo_setup;We seek nothing but non-intervention

@@ -23,6 +23,7 @@ ui::mouse_probe recalculate_mouse_probe_unitless(sys::state& state, ui::mouse_pr
 ui::mouse_probe recalculate_tooltip_probe_unitless(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe);
 void notify_production_map_movement_stopped(sys::state& state);
 
+// 切换游戏场景
 void switch_scene(sys::state& state, scene_id ui_scene) {
 
 	switch(ui_scene) {
@@ -122,17 +123,22 @@ void switch_scene(sys::state& state, scene_id ui_scene) {
 	state.game_state_updated.store(true, std::memory_order_release);
 }
 
+// 通知生产界面地图移动停止
 void notify_production_map_movement_stopped(sys::state& state) {
 	alice_ui::display_at_front<alice_ui::make_production_rh_view>(state, alice_ui::display_closure_command::return_pointer)->impl_on_update(state);
 }
 
+// 空操作（省份目标）
 void do_nothing_province_target(sys::state& state,
 		dcon::nation_id nation,
 		dcon::province_id target,
 		sys::key_modifiers mod) { }
+// 空操作
 void do_nothing(sys::state& state) { }
+// 空操作（屏幕坐标）
 void do_nothing_screen(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) { }
 
+// 检查元素是否属于地图层
 bool belongs_on_map(sys::state& state, ui::element_base* checked_element) {
 	while(checked_element != nullptr) {
 		if(checked_element == state.ui_state.units_root.get())
@@ -146,14 +152,17 @@ bool belongs_on_map(sys::state& state, ui::element_base* checked_element) {
 	return false;
 }
 
+// 获取地图投影模式
 sys::projection_mode get_view(sys::state& state) {
 	return state.user_settings.map_is_globe;
 }
 
+// 获取音效音量
 float get_effects_volume(sys::state& state) {
 	return state.user_settings.effects_volume * state.user_settings.master_volume;
 }
 
+// 控制已选中单位的移动
 void selected_units_control(
 	sys::state& state,
 	dcon::nation_id nation,
@@ -213,6 +222,7 @@ void selected_units_control(
 	}
 }
 
+// 打开外交界面
 void open_diplomacy(
 	sys::state& state,
 	dcon::nation_id nation,
@@ -227,6 +237,7 @@ void open_diplomacy(
 	}
 }
 
+// 选择生产州
 void select_production_state(sys::state& state) {
 	auto si = state.world.province_get_state_membership(state.map_state.selected_province);
 	if(si.get_nation_from_state_ownership() == state.local_player_nation) {
@@ -242,6 +253,7 @@ void select_production_state(sys::state& state) {
 	}
 }
 
+// 从选中省份选择玩家国家
 void select_player_nation_from_selected_province(sys::state& state) {
 	auto owner = state.world.province_get_nation_from_province_ownership(state.map_state.selected_province);
 	if(owner) {
@@ -252,6 +264,7 @@ void select_player_nation_from_selected_province(sys::state& state) {
 	}
 }
 
+// 从选中省份选择战争目标州
 void select_wargoal_state_from_selected_province(sys::state& state) {
 	auto prov = state.map_state.selected_province;
 	auto sdef = state.world.province_get_state_from_abstract_state_membership(prov);
@@ -259,17 +272,20 @@ void select_wargoal_state_from_selected_province(sys::state& state) {
 }
 
 
+// 从选中省份选择国家身份
 void select_national_identity_from_selected_province(sys::state& state) {
 	auto prov = state.map_state.selected_province;
 	state.national_identity_select(prov);
 }
 
+// 发送选中省份到省份窗口
 void send_selected_province_to_province_window(sys::state& state) {
 	if(state.ui_state.province_window) {
 		static_cast<ui::province_view_window*>(state.ui_state.province_window)->set_active_province(state, state.map_state.selected_province);
 	}
 }
 
+// 开始拖动选择
 void start_dragging(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	state.x_drag_start = x;
 	state.y_drag_start = y;
@@ -277,6 +293,7 @@ void start_dragging(sys::state& state, int32_t x, int32_t y, sys::key_modifiers 
 	window::change_cursor(state, window::cursor_type::drag_select);
 }
 
+// 停止拖动
 void stop_dragging(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	state.is_dragging = false;
 	if(state.ui_state.drag_target) {
@@ -284,10 +301,12 @@ void stop_dragging(sys::state& state, int32_t x, int32_t y, sys::key_modifiers m
 	}
 }
 
+// 通用地图渲染
 void render_map_generic(sys::state& state) {
 	state.map_state.render(state, state.x_size, state.y_size);
 }
 
+// UI右键点击处理
 void ui_rbutton(sys::state& state, sys::key_modifiers mod) {
 	state.ui_state.under_mouse->impl_on_rbutton_down(
 		state,
@@ -296,6 +315,7 @@ void ui_rbutton(sys::state& state, sys::key_modifiers mod) {
 		mod
 	);
 }
+// UI左键点击处理
 void ui_lbutton(sys::state& state, sys::key_modifiers mod) {
 	auto result = state.ui_state.under_mouse->impl_on_lbutton_down(
 		state,
@@ -309,18 +329,22 @@ void ui_lbutton(sys::state& state, sys::key_modifiers mod) {
 	state.ui_state.left_mouse_hold_target = state.ui_state.under_mouse;
 }
 
+// 地图右键按下处理
 void on_rbutton_down_map(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	state.map_state.on_rbutton_down(state, x, y, state.x_size, state.y_size, mod);
 }
 
+// 地图左键按下处理
 void on_lbutton_down_map(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	state.map_state.on_lbutton_down(state, x, y, state.x_size, state.y_size, mod);
 }
 
+// 地图左键松开处理
 void on_lbutton_up_map(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	state.map_state.on_lbutton_up(state, x, y, state.x_size, state.y_size, mod);
 }
 
+// 处理地图右键交互
 void handle_rbutton_down_map_interaction(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	auto current_view = get_view(state);
 	screen_space::point_ui mouse_pos = {glm::vec2(x, y)};
@@ -345,11 +369,13 @@ void handle_rbutton_down_map_interaction(sys::state& state, int32_t x, int32_t y
 	on_rbutton_down_map(state, x, y, mod);
 }
 
+// 处理地图左键交互
 void handle_lbutton_down_map_interaction(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	on_lbutton_down_map(state, x, y, mod);
 	state.current_scene.on_drag_start(state, x, y, mod);
 }
 
+// 右键按下事件处理
 void on_rbutton_down(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	// Lose focus on text
 	state.ui_state.set_focus_target(state, nullptr);
@@ -369,6 +395,7 @@ void on_rbutton_down(sys::state& state, int32_t x, int32_t y, sys::key_modifiers
 	handle_rbutton_down_map_interaction(state, x, y, mod);
 }
 
+// 左键按下事件处理
 void on_lbutton_down(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	// Lose focus on text
 
@@ -385,6 +412,7 @@ void on_lbutton_down(sys::state& state, int32_t x, int32_t y, sys::key_modifiers
 	handle_lbutton_down_map_interaction(state, x, y, mod);
 }
 
+// 左键松开UI点击按住释放处理
 void on_lbutton_up_ui_click_hold_and_release(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	auto rel_x = state.ui_state.relative_mouse_location.x;
 	auto rel_y = state.ui_state.relative_mouse_location.y;
@@ -414,12 +442,13 @@ void on_lbutton_up_ui_click_hold_and_release(sys::state& state, int32_t x, int32
 	}
 }
 
-// Should be called only from the UI thread
+// 仅应从UI线程调用
 void deselect_units(sys::state& state) {
 	state.selected_armies.clear();
 	state.selected_navies.clear();
 }
 
+// 检查省份中点是否在选择框内
 bool province_mid_point_is_in_selection(sys::state& state, int32_t x, int32_t y, dcon::province_id province) {
 	auto mid_point = state.world.province_get_mid_point(province);
 	auto map_pos = state.map_state.normalize_map_coord(mid_point);
@@ -434,6 +463,7 @@ bool province_mid_point_is_in_selection(sys::state& state, int32_t x, int32_t y,
 	return false;
 }
 
+// 检查省份港口是否在选择框内
 bool province_port_is_in_selection(sys::state& state, int32_t x, int32_t y, dcon::province_id province) {
 	auto port_to = state.world.province_get_port_to(province);
 	auto adj = state.world.get_province_adjacency_by_province_pair(province, port_to);
@@ -460,11 +490,13 @@ bool province_port_is_in_selection(sys::state& state, int32_t x, int32_t y, dcon
 	return false;
 }
 
+// 检查陆军是否在选择框内
 bool army_is_in_selection(sys::state& state, int32_t x, int32_t y, dcon::army_id a) {
 	auto province = state.world.army_get_location_from_army_location(a);
 	return province_mid_point_is_in_selection(state, x, y, province);
 }
 
+// 检查海军是否在选择框内
 bool navy_is_in_selection(sys::state& state, int32_t x, int32_t y, dcon::navy_id n) {
 	auto loc = state.world.navy_get_location_from_navy_location(n);
 	if(loc.index() >= state.province_definitions.first_sea_province.index()) {
@@ -480,6 +512,7 @@ bool navy_is_in_selection(sys::state& state, int32_t x, int32_t y, dcon::navy_id
 }
 
 
+// 选择陆地单位
 bool select_land_units(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	bool selected_anything = false;
 	if((int32_t(sys::key_modifiers::modifiers_ctrl) & int32_t(mod)) == 0) {
@@ -494,6 +527,7 @@ bool select_land_units(sys::state& state, int32_t x, int32_t y, sys::key_modifie
 	}
 	return selected_anything;
 }
+// 选择海军单位
 bool select_naval_units(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	bool selected_anything = false;
 	for(auto a : state.world.in_navy) {
@@ -507,6 +541,7 @@ bool select_naval_units(sys::state& state, int32_t x, int32_t y, sys::key_modifi
 	return selected_anything;
 }
 
+// 选择单位（陆地或海军）
 void select_units(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	// Hide selected province
 	if(state.ui_state.province_window) {
@@ -550,6 +585,7 @@ void select_units(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mo
 	state.game_state_updated.store(true, std::memory_order_release);
 }
 
+// 处理拖动停止
 void handle_drag_stop(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	bool insignificant_movement =
 		std::abs(x - state.x_drag_start) <= int32_t(std::ceil(state.x_size * 0.0025))
@@ -580,6 +616,7 @@ void handle_drag_stop(sys::state& state, int32_t x, int32_t y, sys::key_modifier
 	}
 }
 
+// 左键松开事件处理
 void on_lbutton_up(sys::state& state, int32_t x, int32_t y, sys::key_modifiers mod) {
 	stop_dragging(state, x, y, mod);
 	if(state.user_settings.left_mouse_click_hold_and_release && state.ui_state.left_mouse_hold_target) {
@@ -604,6 +641,7 @@ void on_lbutton_up(sys::state& state, int32_t x, int32_t y, sys::key_modifiers m
 	handle_drag_stop(state, x, y, mod);
 }
 
+// 地图移动键码映射
 sys::virtual_key replace_keycodes_map_movement(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	//Emulating autohotkey
 	if(!state.ui_state.edit_target_internal && state.user_settings.wasd_for_map_movement) {
@@ -619,10 +657,12 @@ sys::virtual_key replace_keycodes_map_movement(sys::state& state, sys::virtual_k
 	return keycode;
 }
 
+// 恒等键码映射（不做转换）
 sys::virtual_key replace_keycodes_identity(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	return keycode;
 }
 
+// 键码替换总入口
 sys::virtual_key replace_keycodes(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(keycode == sys::virtual_key::MINUS)
 		return sys::virtual_key::SUBTRACT;
@@ -633,6 +673,7 @@ sys::virtual_key replace_keycodes(sys::state& state, sys::virtual_key keycode, s
 }
 
 
+// 国家选择界面热键处理
 void nation_picker_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.nation_picker->impl_on_key_down(state, keycode, mod) != ui::message_result::consumed) {
 		if(keycode == sys::virtual_key::ESCAPE) {
@@ -644,6 +685,7 @@ void nation_picker_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key
 	}
 }
 
+// 州选择界面热键处理
 void state_selector_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.select_states_legend->impl_on_key_down(state, keycode, mod) != ui::message_result::consumed) {
 		state.map_state.on_key_down(keycode, mod);
@@ -657,6 +699,7 @@ void state_selector_hotkeys(sys::state& state, sys::virtual_key keycode, sys::ke
 	}
 }
 
+// 国家身份选择界面热键处理
 void nation_identity_selector_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.select_national_identity_root->impl_on_key_down(state, keycode, mod) != ui::message_result::consumed) {
 		state.map_state.on_key_down(keycode, mod);
@@ -670,6 +713,7 @@ void nation_identity_selector_hotkeys(sys::state& state, sys::virtual_key keycod
 	}
 }
 
+// 军事界面左键松开处理
 void military_screen_on_lbutton_up(sys::state& state) {
 	auto selected_group = state.selected_army_group;
 	auto selected_province = state.map_state.selected_province;
@@ -691,6 +735,7 @@ void military_screen_on_lbutton_up(sys::state& state) {
 	}
 }
 
+// 军事界面热键处理
 void military_screen_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	auto selected_group = state.selected_army_group;
 	auto selected_province = state.map_state.selected_province;
@@ -725,6 +770,7 @@ void military_screen_hotkeys(sys::state& state, sys::virtual_key keycode, sys::k
 	}
 }
 
+// 经济界面热键处理
 void economy_screen_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.select_states_legend->impl_on_key_down(state, keycode, mod) != ui::message_result::consumed) {
 		state.map_state.on_key_down(keycode, mod);
@@ -736,6 +782,7 @@ void economy_screen_hotkeys(sys::state& state, sys::virtual_key keycode, sys::ke
 	}
 }
 
+// 生产界面热键处理
 void production_screen_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.select_states_legend->impl_on_key_down(state, keycode, mod) != ui::message_result::consumed) {
 		state.map_state.on_key_down(keycode, mod);
@@ -746,6 +793,7 @@ void production_screen_hotkeys(sys::state& state, sys::virtual_key keycode, sys:
 	}
 }
 
+// 基础界面ESC键处理
 void handle_escape_basic(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.console_window->is_visible()) {
 		ui::console_window::show_toggle(state);
@@ -757,6 +805,7 @@ void handle_escape_basic(sys::state& state, sys::virtual_key keycode, sys::key_m
 	}
 }
 
+// 居中显示首都
 void center_on_capital(sys::state& state, dcon::nation_id nation) {
 	if(auto cap = state.world.nation_get_capital(nation); cap) {
 		if(state.map_state.get_zoom() < map::zoom_very_close)
@@ -765,6 +814,7 @@ void center_on_capital(sys::state& state, dcon::nation_id nation) {
 	}
 }
 
+// 游戏内热键处理
 void in_game_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.root->impl_on_key_down(state, keycode, mod) != ui::message_result::consumed) {
 		uint32_t ctrl_group = 0;
@@ -850,11 +900,13 @@ void in_game_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modif
 	}
 }
 
+// 空操作热键处理
 void do_nothing_hotkeys(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	return;
 }
 
 
+// 按键按下事件处理
 void on_key_down(sys::state& state, sys::virtual_key keycode, sys::key_modifiers mod) {
 	if(state.ui_state.edit_target_internal && keycode != sys::virtual_key::ESCAPE) {
 		state.ui_state.edit_target_internal->impl_on_key_down(state, keycode, mod);
@@ -864,6 +916,7 @@ void on_key_down(sys::state& state, sys::virtual_key keycode, sys::key_modifiers
 	}
 }
 
+// 其他控制台日志输出
 void console_log_other(sys::state& state, std::string_view message) {
 	auto msg = std::string(message);
 	auto dt = state.current_date.to_ymd(state.start_date);
@@ -882,6 +935,7 @@ void console_log_other(sys::state& state, std::string_view message) {
 }
 
 
+// 渲染单位
 void render_units(sys::state& state) {
 	if(state.ui_state.units_root) {
 		state.ui_state.units_root->impl_render(state, 0, 0);
@@ -894,21 +948,25 @@ void render_units(sys::state& state) {
 	counter->impl_render(state, 0, 0);
 }
 
+// 渲染单位信息框
 void render_units_info_box(sys::state& state) {
 	if(state.ui_state.unit_details_box && state.ui_state.unit_details_box->is_visible()) {
 		state.ui_state.unit_details_box->impl_render(state, state.ui_state.unit_details_box->base_data.position.x, state.ui_state.unit_details_box->base_data.position.y);
 	}
 }
 
+// 军事界面UI渲染
 void render_ui_military(sys::state& state) {
 	render_units(state);
 }
 
+// 选择界面UI渲染
 void render_ui_selection_screen(sys::state& state) {
 	render_units(state);
 	render_units_info_box(state);
 }
 
+// 游戏内UI渲染
 void render_ui_ingame(sys::state& state) {
 	state.iui_state.frame_start(state);
 	if(state.ui_state.tl_chat_list) {
@@ -1001,6 +1059,7 @@ void render_ui_ingame(sys::state& state) {
 	state.iui_state.frame_end();
 }
 
+// 无单位游戏内UI渲染
 void render_unitless_ui_ingame(sys::state& state) {
 	if(state.ui_state.tl_chat_list) {
 		state.ui_state.root->move_child_to_back(state.ui_state.tl_chat_list);
@@ -1025,10 +1084,12 @@ void render_unitless_ui_ingame(sys::state& state) {
 	}
 }
 
+// 恒等鼠标探测（不做转换）
 ui::mouse_probe recalculate_mouse_probe_identity(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	return mouse_probe;
 }
 
+// 单位详情鼠标探测
 ui::mouse_probe recalculate_mouse_probe_units_details(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	float scaled_mouse_x = state.mouse_x_position / state.user_settings.ui_scale;
 	float scaled_mouse_y = state.mouse_y_position / state.user_settings.ui_scale;
@@ -1043,6 +1104,7 @@ ui::mouse_probe recalculate_mouse_probe_units_details(sys::state& state, ui::mou
 	);
 }
 
+// 单位鼠标探测
 ui::mouse_probe recalculate_mouse_probe_units(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	float scaled_mouse_x = state.mouse_x_position / state.user_settings.ui_scale;
 	float scaled_mouse_y = state.mouse_y_position / state.user_settings.ui_scale;
@@ -1068,6 +1130,7 @@ ui::mouse_probe recalculate_mouse_probe_units(sys::state& state, ui::mouse_probe
 	return mouse_probe;
 }
 
+// 单位及详情鼠标探测
 ui::mouse_probe recalculate_mouse_probe_units_and_details(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	if(state.ui_state.unit_details_box && state.ui_state.unit_details_box->is_visible()) {
 		mouse_probe = recalculate_mouse_probe_units_details(state, mouse_probe, tooltip_probe);
@@ -1079,10 +1142,12 @@ ui::mouse_probe recalculate_mouse_probe_units_and_details(sys::state& state, ui:
 	return mouse_probe;
 }
 
+// 无单位鼠标探测
 ui::mouse_probe recalculate_mouse_probe_unitless(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	return mouse_probe;
 }
 
+// 基础游戏鼠标探测
 ui::mouse_probe recalculate_mouse_probe_basic(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	if(!state.ui_state.units_root || state.ui_state.ctrl_held_down) {
 		return mouse_probe;
@@ -1096,6 +1161,7 @@ ui::mouse_probe recalculate_mouse_probe_basic(sys::state& state, ui::mouse_probe
 	return recalculate_mouse_probe_units_and_details(state, mouse_probe, tooltip_probe);
 }
 
+// 军事界面鼠标探测
 ui::mouse_probe recalculate_mouse_probe_military(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	if(!state.ui_state.military_root) {
 		return mouse_probe;
@@ -1112,11 +1178,13 @@ ui::mouse_probe recalculate_mouse_probe_military(sys::state& state, ui::mouse_pr
 	);
 }
 
+// 无单位提示框探测
 ui::mouse_probe recalculate_tooltip_probe_unitless(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	return tooltip_probe;
 }
 
 
+// 单位及详情提示框探测
 ui::mouse_probe recalculate_tooltip_probe_units_and_details(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	float scaled_mouse_x = state.mouse_x_position / state.user_settings.ui_scale;
 	float scaled_mouse_y = state.mouse_y_position / state.user_settings.ui_scale;
@@ -1152,6 +1220,7 @@ ui::mouse_probe recalculate_tooltip_probe_units_and_details(sys::state& state, u
 	return tooltip_probe;
 }
 
+// 基础游戏提示框探测
 ui::mouse_probe recalculate_tooltip_probe_basic(sys::state& state, ui::mouse_probe mouse_probe, ui::mouse_probe tooltip_probe) {
 	if(!state.ui_state.units_root || state.ui_state.ctrl_held_down) {
 		return tooltip_probe;
@@ -1168,6 +1237,7 @@ ui::mouse_probe recalculate_tooltip_probe_basic(sys::state& state, ui::mouse_pro
 	return recalculate_tooltip_probe_units_and_details(state, mouse_probe, tooltip_probe);
 }
 
+// 清理选中的陆军和海军
 void clean_up_selected_armies_and_navies(sys::state& state) {
 	// Allow player to select single enemy army or enemy navy to view them
 	if(state.selected_armies.size() == 1) {
@@ -1194,6 +1264,7 @@ void clean_up_selected_armies_and_navies(sys::state& state) {
 	}
 }
 
+// 清理基础游戏场景
 void clean_up_basic_game_scene(sys::state& state) {
 	if(state.ui_state.change_leader_window && state.ui_state.change_leader_window->is_visible()) {
 		ui::leader_selection_window* win = static_cast<ui::leader_selection_window*>(state.ui_state.change_leader_window);
@@ -1224,10 +1295,12 @@ void clean_up_basic_game_scene(sys::state& state) {
 	}
 }
 
+// 更新陆军集团军选择UI
 void update_army_group_selection_ui(sys::state& state) {
 	state.ui_state.army_group_window_land->set_visible(state, bool(state.selected_army_group));
 }
 
+// 更新单位选择UI
 void update_unit_selection_ui(sys::state& state) {
 	// Change window visibility and pass unit ids down.
 	if(state.selected_armies.size() + state.selected_navies.size() > 1) {
@@ -1261,6 +1334,7 @@ void update_unit_selection_ui(sys::state& state) {
 	}
 }
 
+// 更新单位详情UI
 void update_ui_unit_details(sys::state& state) {
 	if(state.ui_state.unit_details_box && state.ui_state.unit_details_box->is_visible()) {
 		state.ui_state.unit_details_box->impl_on_update(state);
@@ -1272,6 +1346,7 @@ void update_ui_unit_details(sys::state& state) {
 	}
 }
 
+// 更新基础游戏UI状态
 void update_ui_state_basic(sys::state& state) {
 	map_mode::update_map_mode(state);
 	ui::close_expired_event_windows(state);
@@ -1285,6 +1360,7 @@ void update_ui_state_basic(sys::state& state) {
 	}	
 }
 
+// 更新基础游戏场景
 void update_basic_game_scene(sys::state& state) {
 	if(state.ui_state.army_combat_window && state.ui_state.army_combat_window->is_visible()) {
 		ui::land_combat_window* win = static_cast<ui::land_combat_window*>(state.ui_state.army_combat_window);
@@ -1296,44 +1372,53 @@ void update_basic_game_scene(sys::state& state) {
 	state.map_state.map_data.update_borders(state);
 }
 
+// 更新军事游戏场景
 void update_military_game_scene(sys::state& state) {
 	update_army_group_selection_ui(state);
 	state.map_state.map_data.update_borders(state);
 }
 
+// 更新添加单位游戏场景
 void update_add_units_game_scene(sys::state& state) {
 	update_unit_selection_ui(state);
 	state.map_state.map_data.update_borders(state);
 }
 
+// 通用地图场景更新
 void generic_map_scene_update(sys::state& state) {
 	state.map_state.map_data.update_borders(state);
 }
 
+// 经济场景更新
 void economy_scene_update(sys::state& state) {
 	ui::close_expired_event_windows(state);
 	economy_viewer::update(state);
 }
 
+// 游戏中打开聊天
 void open_chat_during_game(sys::state& state) {
 	ui::open_chat_during_game(state);
 }
+// 游戏前打开聊天
 void open_chat_before_game(sys::state& state) {
 	ui::open_chat_before_game(state);
 }
 
+// 高亮玩家国家
 void highlight_player_nation(sys::state& state, std::vector<uint32_t>& data, dcon::province_id selected_province) {
 	for(const auto pc : state.world.nation_get_province_ownership_as_nation(state.local_player_nation)) {
 		data[province::to_map_id(pc.get_province())] = 0x2B2B2B2B;
 	}
 }
 
+// 高亮指定省份
 void highlight_given_province(sys::state& state, std::vector<uint32_t>& data, dcon::province_id selected_province) {
 	if(selected_province) {
 		data[province::to_map_id(selected_province)] = 0x2B2B2B2B;
 	}
 }
 
+// 高亮指定州
 void highlight_given_state(sys::state& state, std::vector<uint32_t>& data, dcon::province_id selected_province) {
 	if(selected_province) {
 		if(auto si = state.world.province_get_state_membership(selected_province); si) {
@@ -1344,6 +1429,7 @@ void highlight_given_state(sys::state& state, std::vector<uint32_t>& data, dcon:
 	}
 }
 
+// 高亮防御位置
 void highlight_defensive_positions(sys::state& state, std::vector<uint32_t>& data, dcon::province_id selected_province) {
 	if(state.selected_army_group) {
 
@@ -1361,38 +1447,47 @@ void highlight_defensive_positions(sys::state& state, std::vector<uint32_t>& dat
 	}
 }
 
+// 获取结束画面根元素
 ui::element_base* root_end_screen(sys::state& state){
 	return state.ui_state.end_screen.get();
 }
 
+// 获取国家选择根元素
 ui::element_base* root_pick_nation(sys::state& state) {
 	return state.ui_state.nation_picker.get();
 }
 
+// 获取基础游戏根元素
 ui::element_base* root_game_basic(sys::state& state) {
 	return state.ui_state.root.get();
 }
 
+// 获取作战计划编辑器根元素
 ui::element_base* root_game_battleplanner(sys::state& state) {
 	return state.ui_state.military_root.get();
 }
 
+// 获取作战计划添加军队根元素
 ui::element_base* root_game_battleplanner_add_army(sys::state& state) {
 	return state.ui_state.army_group_selector_root.get();
 }
 
+// 获取作战计划单位选择根元素
 ui::element_base* root_game_battleplanner_unit_selection(sys::state& state) {
 	return state.ui_state.army_group_selector_root.get();
 }
 
+// 获取经济查看器根元素
 ui::element_base* root_game_economy_viewer(sys::state& state) {
 	return state.ui_state.economy_viewer_root.get();
 }
 
+// 获取战争目标州选择根元素
 ui::element_base* root_game_wargoal_state_selection(sys::state& state) {
 	return state.ui_state.select_states_legend.get();
 }
 
+// 获取国家身份选择根元素
 ui::element_base* root_game_national_identity_selection(sys::state& state) {
 	return state.ui_state.select_national_identity_root.get();
 }

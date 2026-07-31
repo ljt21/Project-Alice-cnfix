@@ -229,21 +229,30 @@ MOD_NAT_LIST
 constexpr inline uint32_t count = MOD_NAT_LIST_COUNT;
 } // namespace national_mod_offsets
 
-// restores values after loading a save
+// 加载存档后恢复修饰器值
 void repopulate_modifier_effects(sys::state& state);
 
+// 更新修饰器效果
 void update_modifier_effects(sys::state& state);
+// 更新单个国家的修饰器
 void update_single_nation_modifiers(sys::state& state, dcon::nation_id n);
 
+// 向国家添加修饰器
 void add_modifier_to_nation(sys::state& state, dcon::nation_id target_nation, dcon::modifier_id mod_id,
 		sys::date expiration); // default construct date for no expiration
+// 向省份添加修饰器
 void add_modifier_to_province(sys::state& state, dcon::province_id target_prov, dcon::modifier_id mod_id,
 		sys::date expiration); // default construct date for no expiration
+// 从国家移除修饰器
 void remove_modifier_from_nation(sys::state& state, dcon::nation_id target_nation, dcon::modifier_id mod_id);
+// 从省份移除修饰器
 void remove_modifier_from_province(sys::state& state, dcon::province_id target_prov, dcon::modifier_id mod_id);
+// 从国家移除过期的修饰器
 void remove_expired_modifiers_from_nation(sys::state& state, dcon::nation_id target_nation);
+// 从省份移除过期的修饰器
 void remove_expired_modifiers_from_province(sys::state& state, dcon::province_id target_prov);
 
+// 切换省份修饰器状态
 void toggle_modifier_from_province(sys::state& state, dcon::province_id target_prov, dcon::modifier_id mod_id, sys::date expiration);
 
 } // namespace sys

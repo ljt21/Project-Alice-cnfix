@@ -100,6 +100,7 @@ void economy_scene_update(sys::state& state);
 
 
 
+// 国家选择场景配置
 inline scene_properties nation_picker() {
 	return scene_properties{
 		.id = scene_id::pick_nation,
@@ -127,6 +128,7 @@ inline scene_properties nation_picker() {
 };
 }
 
+// 基础游戏场景配置
 inline scene_properties basic_game() {
 	return scene_properties{
 		.id = scene_id::in_game_basic,
@@ -157,6 +159,7 @@ inline scene_properties basic_game() {
 	};
 }
 
+// 作战计划编辑器场景配置
 inline scene_properties battleplan_editor() { return scene_properties{
 		.id = scene_id::in_game_military,
 
@@ -182,6 +185,7 @@ inline scene_properties battleplan_editor() { return scene_properties{
 	};
 }
 
+// 作战计划编辑器添加军队场景配置
 inline scene_properties battleplan_editor_add_army() {
 	return scene_properties{
 		.id = scene_id::in_game_military_selector,
@@ -210,6 +214,7 @@ inline scene_properties battleplan_editor_add_army() {
 	};
 }
 
+// 经济查看器场景配置
 inline scene_properties economy_viewer_scene() {
 	return scene_properties{
 		.id = scene_id::in_game_economy_viewer,
@@ -235,6 +240,7 @@ inline scene_properties economy_viewer_scene() {
 	};
 }
 
+// 州战争目标选择器场景配置
 inline scene_properties state_wargoal_selector() {
 	return scene_properties{
 		.id = scene_id::in_game_state_selector,
@@ -256,6 +262,7 @@ inline scene_properties state_wargoal_selector() {
 	};
 }
 
+// 国家身份选择器场景配置
 inline scene_properties national_identity_selector() {
 	return scene_properties{
 		.id = scene_id::in_game_national_identity_selector,
@@ -277,6 +284,7 @@ inline scene_properties national_identity_selector() {
 	};
 }
 
+// 结束画面场景配置
 inline scene_properties end_screen() {
 	return scene_properties{
 		.id = scene_id::end_screen,

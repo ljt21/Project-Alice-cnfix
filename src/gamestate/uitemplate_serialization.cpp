@@ -4,6 +4,7 @@
 
 namespace template_project {
 
+// 从序列化缓冲区中读取并解析UI模板项目数据
 project bytes_to_project(serialization::in_buffer& buffer) {
 	project result;
 	auto header_section = buffer.read_section();

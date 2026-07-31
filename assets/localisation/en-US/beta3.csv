@@ -1,0 +1,25 @@
+#Powered_by_ParaTranz
+COLONIAL_RANGE;Colonial Range: ?G+$VAL$?W
+MODIFIER_LOCAL_SHIP_BUILD;Local Ship Build Time
+CB_ALLOWED_ANNEX;Allow Annexation
+CB_ALLOWED_ADD_TO_SPHERE;Add to Sphere of Influence
+CB_ALLOWED_RELEASE_PUPPET;Release Puppet State
+CB_ALLOWED_STATUS_QUO;Status Quo
+CB_ALLOWED_TRANSFER_PROVINCES;Cede Territory
+CB_ALLOWED_PRESTIGE;Reduce Prestige
+CB_ALLOWED_CONCESSION;Concede Defeat
+MAINTENANCE_DESC;Maintenance Required:
+MISSING_MAINTENANCE;Factory output drops to ?R$PERC$?W when lacking maintenance materials
+PROCEED;Agree
+ENDGAME_HEADLINE;Endgame
+ENDGAME_DESC;The pivotal century has passed, we have entered modern society,\nhow will your nation face this world that has become completely different?
+NEEDS_BOUGHT;Estimated Daily Needs:
+TOTAL_NEEDS_BOUGHT;Estimated Needs Cost:
+TOTAL_SOLD_FOR;Yesterday we produced $NUM$ units of ?Y$GOOD$?W and sold them for $CASH$?!
+COULDNT_AFFORD;Factory lacked sufficient funds to purchase all inputs yesterday
+INPUT_LACKING;Not enough ?Y$GOOD$?W on the market to meet factory input demand
+OUTPUT_WASTED;$NUM$ out of $PRODUCED$ units of ?Y$GOOD$?W were not sold yesterday
+TRADE_CONFIRM_DESC;Setting manual trade means we may end up purchasing materials with loans
+BUDGET_TAX_EFFICIENCY;Tax Efficiency: ?Y$VALUE$%?W
+BUDGET_TAX_EFFECT;Effective Tax Rate: ?Y$VALUE$%?W
+LEADERSHIP_EFFECT;Leadership: ?G$VALUE$?W\n

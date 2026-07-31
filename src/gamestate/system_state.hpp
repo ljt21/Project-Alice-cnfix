@@ -497,6 +497,7 @@ struct ui_cached_vector {
 	std::mutex resize_mutex;
 	std::vector<T> unsafe_data;
 
+	// 赋值数据，用新值替换整个缓存向量
 	template<typename VAL>
 	void assign_data(VAL value) {
 		resize_mutex.lock();
@@ -504,6 +505,7 @@ struct ui_cached_vector {
 		resize_mutex.unlock();
 	}
 
+	// 设置指定索引位置的元素值
 	template<typename VAL>
 	void set(size_t index, VAL&& value) {
 		resize_mutex.lock();
@@ -512,6 +514,7 @@ struct ui_cached_vector {
 		resize_mutex.unlock();
 	}
 
+	// 在向量末尾添加元素
 	template<typename VAL>
 	void push_back(VAL&& value) {
 		resize_mutex.lock();
@@ -519,18 +522,21 @@ struct ui_cached_vector {
 		resize_mutex.unlock();
 	}
 
+	// 调整向量大小
 	void resize(size_t new_size) {
 		resize_mutex.lock();
 		unsafe_data.resize(new_size);
 		resize_mutex.unlock();
 	}
 
+	// 清空向量
 	void clear() {
 		resize_mutex.lock();
 		unsafe_data.clear();
 		resize_mutex.unlock();
 	}
 
+	// 获取向量大小（非阻塞尝试）
 	std::optional<size_t> size() {
 		if(resize_mutex.try_lock()) {
 			auto val = unsafe_data.size();
@@ -540,6 +546,7 @@ struct ui_cached_vector {
 		return { };
 	}
 
+	// 获取指定索引的元素（非阻塞尝试）
 	std::optional<T> operator[](int index) {
 		if (index < 0) {
 			return { };
@@ -565,17 +572,20 @@ struct ui_cache_slot {
 	std::atomic<bool> update_requested = false;
 	std::mutex update_mutex;
 	bool update_completed = true;
+	// 重置进度状态
 	void reset_progress() {
 		return;
 	}
+	// 更新缓存数据
 	cache_response update(sys::state& state) {
 		return cache_response::ready;
 	}
-	// can be used outside of cache thread
+	// 请求更新缓存（可在缓存线程外部使用）
 	void request_update() {
 		update_requested.store(true);
 	}
 
+	// 访问缓存数据（空实现，供子类重写）
 	template<typename F>
 	void access(F&){ }
 };
@@ -589,10 +599,12 @@ struct commodity_per_nation_cache_slot : ui_cache_slot {
 	ui_cached_vector<float> consumption_volume{};
 	ui_cached_vector<float> production_volume{};
 
+	// 重置进度状态
 	void reset_progress() {
 		update_completed = false;
 		progress = 0;
 	}
+	// 更新商品-国家缓存数据
 	cache_response update(sys::state& state);
 };
 
@@ -602,9 +614,11 @@ struct nation_per_nation_cache_slot : ui_cache_slot {
 	ui_cached_vector<float> export_value{};
 	ui_cached_vector<float> import_value{};
 
+	// 重置进度状态
 	void reset_progress() {
 		update_completed = false;
 	}
+	// 更新国家-国家缓存数据
 	cache_response update(sys::state& state);
 };
 
@@ -615,10 +629,12 @@ struct nation_per_commodity_cache_slot : ui_cache_slot {
 	ui_cached_vector<float> import_volume{};
 	ui_cached_vector<float> export_volume{};
 
+	// 重置进度状态
 	void reset_progress() {
 		update_completed = false;
 		progress = 0;
 	}
+	// 更新国家-商品缓存数据
 	cache_response update(sys::state& state);
 };
 
@@ -631,10 +647,12 @@ struct commodity_per_province_cache_slot : ui_cache_slot {
 	ui_cached_vector<dcon::province_id> sorted_by_consumption{ };
 	ui_cached_vector<dcon::province_id> sorted_by_production{ };
 
+	// 重置进度状态
 	void reset_progress() {
 		update_completed = false;
 		progress = 0;
 	}
+	// 更新商品-省份缓存数据
 	cache_response update(sys::state& state);
 };
 
@@ -646,10 +664,12 @@ struct per_province_cache_slot : ui_cache_slot {
 	ui_cached_vector<dcon::province_id> sorted_by_gdp{ };
 	ui_cached_vector<dcon::province_id> sorted_by_gdp_per_capita{ };
 
+	// 重置进度状态
 	void reset_progress() {
 		update_completed = false;
 		progress = 0;
 	}
+	// 更新省份缓存数据
 	cache_response update(sys::state& state);
 };
 
@@ -661,11 +681,13 @@ struct per_nation_cache_slot : ui_cache_slot {
 	ui_cached_vector<float> national_gdp{};
 	ui_cached_vector<float> sphere_gdp{};
 
+	// 重置进度状态
 	void reset_progress() {
 		update_completed = false;
 		progress = 0;
 		progress_sphere = 0;
 	}
+	// 更新国家缓存数据
 	cache_response update(sys::state& state);
 };
 
@@ -686,8 +708,10 @@ struct ui_cache {
 
 	float delay;
 
+	// 更新UI状态标志
 	void update_ui(sys::state& state);
 
+	// 设置当前选中的商品并请求更新
 	void set_commodity(const sys::state& state, dcon::commodity_id cid) {
 		if(commodity == cid) return;
 		commodity = cid;
@@ -697,6 +721,7 @@ struct ui_cache {
 		commodity_per_province.request_update();
 	};
 
+	// 设置当前选中的国家并请求更新
 	void set_nation(const sys::state& state, dcon::nation_id nid) {
 		if(nation == nid) return;
 		nation = nid;
@@ -706,6 +731,7 @@ struct ui_cache {
 		nation_per_commodity.request_update();
 	};
 
+	// 请求所有缓存槽更新
 	void request_update() {
 		commodity_per_nation.request_update();
 		commodity_per_province.request_update();
@@ -715,9 +741,11 @@ struct ui_cache {
 		per_nation.request_update();
 	}
 
+	// 更新单个缓存槽
 	template<typename SLOT>
 	void update_slot(sys::state& state, SLOT& slot, bool& updates_running);
 
+	// 处理缓存更新的主循环
 	void process_update(sys::state& state);
 };
 
@@ -873,6 +901,7 @@ struct alignas(64) state {
 	uint32_t game_seed = 0; // do *not* alter this value, ever
 	float inflation = 0.999f; // to compensate for some of money generation which will happen anyway
 	std::vector<player_data> player_data_cache;
+	// 查找指定国家的玩家数据缓存
 	player_data* find_player_data_cache(dcon::nation_id n) {
 		for(auto& c : player_data_cache) {
 			if(c.nation == n)
@@ -1002,75 +1031,129 @@ struct alignas(64) state {
 
 	// the following functions will be invoked by the window subsystem
 
-	void on_create(); // called once after the window is created and opengl is ready
+	// 窗口创建完成后的初始化（窗口创建且OpenGL就绪后调用一次）
+	void on_create();
+	// 鼠标右键按下事件
 	void on_rbutton_down(int32_t x, int32_t y, key_modifiers mod);
+	// 鼠标中键按下事件
 	void on_mbutton_down(int32_t x, int32_t y, key_modifiers mod);
+	// 鼠标左键按下事件
 	void on_lbutton_down(int32_t x, int32_t y, key_modifiers mod);
+	// 鼠标右键释放事件
 	void on_rbutton_up(int32_t x, int32_t y, key_modifiers mod);
+	// 鼠标中键释放事件
 	void on_mbutton_up(int32_t x, int32_t y, key_modifiers mod);
+	// 鼠标左键释放事件
 	void on_lbutton_up(int32_t x, int32_t y, key_modifiers mod);
+	// 鼠标移动事件
 	void on_mouse_move(int32_t x, int32_t y, key_modifiers mod);
-	void on_mouse_drag(int32_t x, int32_t y, key_modifiers mod); // called when the left button is held down
-	void on_drag_finished(int32_t x, int32_t y, key_modifiers mod); // called when the left button is released after one or more drag events
+	// 鼠标拖动事件（左键按下时调用）
+	void on_mouse_drag(int32_t x, int32_t y, key_modifiers mod);
+	// 拖动结束事件（左键在一次或多次拖动后释放时调用）
+	void on_drag_finished(int32_t x, int32_t y, key_modifiers mod);
+	// 窗口大小改变事件
 	void on_resize(int32_t x, int32_t y, window::window_state win_state);
+	// 键盘按下事件
 	void on_key_down(virtual_key keycode, key_modifiers mod);
+	// 键盘释放事件
 	void on_key_up(virtual_key keycode, key_modifiers mod);
-	void on_text(char32_t c); // c is a win1250 codepage value
+	// 文本输入事件（c为win1250代码页值）
+	void on_text(char32_t c);
 
+	// 过滤文本编辑相关的鼠标事件
 	bool filter_tso_mouse_events(int32_t x, int32_t y, uint32_t buttons);
+	// 传递编辑命令
 	void pass_edit_command(ui::edit_command command, sys::key_modifiers mod);
+	// 发送编辑框鼠标移动事件
 	bool send_edit_mouse_move(int32_t x, int32_t y, bool extend_selection);
+	// 详细文本鼠标测试
 	text_mouse_test_result detailed_text_mouse_test(int32_t x, int32_t y);
-	void render(); // called to render the frame may (and should) delay returning until the frame is rendered, including waiting for vsync
+	// 渲染帧（可能并且应该延迟返回直到帧渲染完成，包括等待垂直同步）
+	void render();
+	// 启动日志线程
 	std::thread start_logger_thread();
 
+	// 执行单步游戏逻辑更新
 	void single_game_tick();
-	// this function runs the internal logic of the game. It will return *only* after a quit notification is sent to it
+	// 游戏主循环（仅在收到退出通知后返回）
 	void game_loop();
 
+	// 推送日志消息（右值引用版本）
 	void push_log_message(std::string&& str);
+	// 推送日志消息（常量引用版本）
 	void push_log_message(const std::string& str);
+	// 刷新所有待处理的日志消息
 	void flush_pending_log_messages();
 
+	// 获取存档校验和
 	sys::checksum_key get_save_checksum();
-	sys::checksum_key get_mp_state_checksum(); // gets the checksum of the ENTIRE multiplayer state which is not strictly local
+	// 获取多人游戏状态校验和（获取整个非严格本地的多人游戏状态的校验和）
+	sys::checksum_key get_mp_state_checksum();
+	// 获取剧本校验和
 	checksum_key get_scenario_checksum();
+	// 调试：输出存档不同步转储
 	void debug_save_oos_dump();
+	// 调试：输出剧本不同步转储
 	void debug_scenario_oos_dump();
 
+	// 开始州选择模式
 	void start_state_selection(state_selection_data& data);
+	// 开始民族身份选择模式
 	void start_national_identity_selection(national_identity_selection_data& data);
+	// 通过省份选择民族身份
 	void national_identity_select(dcon::province_id prov);
+	// 选择民族身份
 	void national_identity_select(dcon::national_identity_id ni);
 
+	// 选择州定义
 	void state_select(dcon::state_definition_id sdef);
 
 	// the following function are for interacting with the string pool
 
+	// 将文本键转换为字符串视图
 	std::string_view to_string_view(dcon::text_key tag) const;
+	// 将本地化标签转换为字符串视图
 	std::string_view locale_string_view(uint32_t tag) const;
+	// 检查文本键是否已本地化
 	bool key_is_localized(dcon::text_key tag) const;
+	// 检查字符串键是否已本地化
 	bool key_is_localized(std::string_view key) const;
+	// 查找文本键
 	dcon::text_key lookup_key(std::string_view text) const;
 
+	// 重置本地化字符串池
 	void reset_locale_pool();
+	// 加载本地化字符串
 	void load_locale_strings(std::string_view locale_name);
 
+	// 添加win1252编码的文本键（常量引用版本）
 	dcon::text_key add_key_win1252(std::string const& text);
+	// 添加win1252编码的文本键（字符串视图版本）
 	dcon::text_key add_key_win1252(std::string_view text);
+	// 添加utf8编码的文本键（常量引用版本）
 	dcon::text_key add_key_utf8(std::string const& text);
+	// 添加utf8编码的文本键（字符串视图版本）
 	dcon::text_key add_key_utf8(std::string_view text);
+	// 添加win1252编码的本地化数据（常量引用版本）
 	uint32_t add_locale_data_win1252(std::string const& text);
+	// 添加win1252编码的本地化数据（字符串视图版本）
 	uint32_t add_locale_data_win1252(std::string_view text);
+	// 添加utf8编码的本地化数据（常量引用版本）
 	uint32_t add_locale_data_utf8(std::string const& text);
+	// 添加utf8编码的本地化数据（字符串视图版本）
 	uint32_t add_locale_data_utf8(std::string_view text);
 
-	dcon::unit_name_id add_unit_name(std::string_view text);       // returns the newly added text
-	std::string_view to_string_view(dcon::unit_name_id tag) const; // takes a stored tag and give you the text
+	// 添加单位名称（返回新添加的文本ID）
+	dcon::unit_name_id add_unit_name(std::string_view text);
+	// 将单位名称ID转换为字符串视图（获取存储的标签对应的文本）
+	std::string_view to_string_view(dcon::unit_name_id tag) const;
 
+	// 提交触发器数据
 	dcon::trigger_key commit_trigger_data(std::vector<uint16_t> data);
+	// 提交效果数据
 	dcon::effect_key commit_effect_data(std::vector<uint16_t> data);
 
+	// 构造函数
 	state() : untrans_key_to_text_sequence(0, text::vector_backed_ci_hash(key_data), text::vector_backed_ci_eq(key_data)), locale_key_to_text_sequence(0, text::vector_backed_ci_hash(key_data), text::vector_backed_ci_eq(key_data)), current_scene(game_scene::nation_picker()), singleplayer_commands(4096), new_n_event(1024), new_f_n_event(1024), new_p_event(1024), new_f_p_event(1024), new_requests(256), new_messages(2048), naval_battle_reports(256), land_battle_reports(256), error_windows(256), pending_log_messages(256) {
 
 
@@ -1078,37 +1161,57 @@ struct alignas(64) state {
 		logger_thread = start_logger_thread(); // create logger thread to handle incoming log message asynchronously
 	}
 
+	// 析构函数
 	~state() {
 		quit_signaled.store(true, std::memory_order::release);
 		logger_thread.join(); // wait for logger thread to quit after signalling
 	}
 
+	// 保存用户设置
 	void save_user_settings() const;
+	// 加载用户设置
 	void load_user_settings();
+	// 加载游戏规则设置
 	void load_gamerule_settings();
+	// 保存游戏规则设置
 	void save_gamerule_settings() const;
+	// 更新UI缩放比例
 	void update_ui_scale(float new_scale);
 
-	void load_scenario_data(parsers::error_handler& err, sys::year_month_day bookmark_date);   // loads all scenario files other than map data
-	void fill_unsaved_data();    // reconstructs derived values that are not directly saved after a save has been loaded
-	void on_scenario_load(); // called when the scenario file is loaded (not when saves are loaded)
-	void preload(); // clears data that will be later reconstructed from saved values
+	// 加载剧本数据（加载除地图数据外的所有剧本文件）
+	void load_scenario_data(parsers::error_handler& err, sys::year_month_day bookmark_date);
+	// 填充未保存数据（加载存档后重建不直接保存的派生值）
+	void fill_unsaved_data();
+	// 剧本加载完成后的回调（剧本文件加载时调用，而非存档加载时）
+	void on_scenario_load();
+	// 预加载数据（清除稍后将从保存值重建的数据）
+	void preload();
+	// 清除未保存数据
 	void clear_unsaved_data();
 
+	// 控制台日志输出
 	void console_log(std::string_view message);
+	// Lua通知消息
 	void lua_notification(std::string message);
+	// 记录玩家国家
 	void log_player_nations();
+	// 打开外交界面
 	void open_diplomacy(dcon::nation_id target);
 
+	// 获取编辑框X坐标
 	int get_edit_x();
+	// 获取编辑框Y坐标
 	int get_edit_y();
 
+	// 检查陆军是否被选中
 	bool is_selected(dcon::army_id a) {
 		return std::find(selected_armies.begin(), selected_armies.end(), a) != selected_armies.end();
 	}
+	// 检查海军是否被选中
 	bool is_selected(dcon::navy_id a) {
 		return std::find(selected_navies.begin(), selected_navies.end(), a) != selected_navies.end();
 	}
+	// 选中陆军
 	void select(dcon::army_id a) {
 		set_selected_province(dcon::province_id{});
 
@@ -1120,6 +1223,7 @@ struct alignas(64) state {
 			ui_state.selected_army_order = military::special_army_order::none;
 		}
 	}
+	// 选中海军
 	void select(dcon::navy_id a) {
 		set_selected_province(dcon::province_id{});
 
@@ -1128,6 +1232,7 @@ struct alignas(64) state {
 			game_state_updated.store(true, std::memory_order_release);
 		}
 	}
+	// 取消选中陆军
 	void deselect(dcon::army_id a) {
 		for(size_t i = selected_armies.size(); i-- > 0;) {
 			if(selected_armies[i] == a) {
@@ -1141,6 +1246,7 @@ struct alignas(64) state {
 			}
 		}
 	}
+	// 取消选中海军
 	void deselect(dcon::navy_id a) {
 		for(size_t i = selected_navies.size(); i-- > 0;) {
 			if(selected_navies[i] == a) {
@@ -1152,34 +1258,62 @@ struct alignas(64) state {
 		}
 	}
 
+	// 设置选中的省份
 	void set_selected_province(dcon::province_id prov_id);
+	// 设置本地玩家国家
 	void set_local_player_nation(dcon::nation_id value);
 
+	// 创建新的陆军集团
 	void new_army_group(dcon::province_id hq);
+	// 删除陆军集团
 	void delete_army_group(dcon::automated_army_group_id group);
+	// 切换指定港口状态
 	void toggle_designated_port(dcon::automated_army_group_id group, dcon::province_id position);
+	// 切换防御阵地状态
 	void toggle_defensive_position(dcon::automated_army_group_id group, dcon::province_id position);
+	// 切换控制执行阵地状态
 	void toggle_enforce_control_position(dcon::automated_army_group_id group, dcon::province_id position);
+	// 更新陆军和舰队
 	void update_armies_and_fleets(dcon::automated_army_group_id group);
+	// 重置团的命令
 	void regiment_reset_order(dcon::regiment_automation_data_id regiment);
+	// 重新计算陆军集团分配
 	bool army_group_recalculate_distribution(dcon::automated_army_group_id group, std::vector<float>& regiments_distribution);
+	// 更新陆军集团任务
 	void army_group_update_tasks(dcon::automated_army_group_id group);
+	// 获取登陆用港口
 	dcon::province_id get_port_for_landing(dcon::automated_army_group_id group, dcon::province_id target);
+	// 分配陆军集团任务
 	void army_group_distribute_tasks(dcon::automated_army_group_id group);
+	// 获取陆军集团可用补给量
 	float army_group_available_supply(dcon::automated_army_group_id group, dcon::province_id province);
+	// 查找可用的渡轮起点
 	dcon::province_id find_available_ferry_origin(dcon::automated_army_group_id group, dcon::regiment_automation_data_id regiment);
+	// 移动到可用港口
 	bool move_to_available_port(dcon::automated_army_group_id group, dcon::regiment_automation_data_id regiment);
+	// 从陆军集团移除海军
 	void remove_navy_from_army_group(dcon::automated_army_group_id selected_group, dcon::navy_id navy_to_delete);
+	// 更新陆军集团团状态
 	void army_group_update_regiment_status(dcon::automated_army_group_id group);
+	// 向陆军集团添加团
 	void army_group_add_regiment(dcon::automated_army_group_id group, dcon::regiment_id id);
+	// 从陆军集团移除团
 	void remove_regiment_from_army_group(dcon::automated_army_group_id selected_group, dcon::regiment_id selected_regiment);
+	// 从所有陆军集团移除团
 	void remove_regiment_from_all_army_groups(dcon::regiment_id regiment_to_delete);
+	// 清理移除陆军后的陆军集团
 	void remove_army_army_group_clean(dcon::automated_army_group_id group, dcon::army_id army_to_delete);
+	// 向陆军集团添加陆军
 	void add_army_to_army_group(dcon::automated_army_group_id selected_group, dcon::army_id selected_army);
+	// 向陆军集团添加海军
 	void add_navy_to_army_group(dcon::automated_army_group_id selected_group, dcon::navy_id selected_navy);
+	// 智能选择陆军集团
 	void smart_select_army_group(dcon::automated_army_group_id selected_group);
+	// 选择陆军集团
 	void select_army_group(dcon::automated_army_group_id selected_group);
+	// 取消选择陆军集团
 	void deselect_army_group();
+	// 填充省份至补给上限
 	dcon::regiment_automation_data_id fill_province_up_to_supply_limit(
 		dcon::automated_army_group_id group_id,
 		dcon::province_id target,
@@ -1187,18 +1321,21 @@ struct alignas(64) state {
 		float overestimate_supply_limit,
 		bool ignore_enemy_regiments_in_supply_calculations
 	);
+	// 填充省份
 	dcon::regiment_automation_data_id fill_province(
 		dcon::automated_army_group_id group_id,
 		dcon::province_id target,
 		std::vector<float>& regiments_expectation_ideal
 	);
 
+	// 填充相连省份向量
 	void fill_vector_of_connected_provinces(
 		dcon::province_id p1,
 		bool is_land,
 		std::vector<dcon::province_id> & provinces
 	);
 
+	// 按模板构建陆军
 	void build_up_to_template_land(
 		macro_builder_template const& target_template,
 		dcon::province_id target_province,
@@ -1206,12 +1343,18 @@ struct alignas(64) state {
 		std::array<uint8_t, sys::macro_builder_template::max_types>& current_distribution
 	);
 };
+// 从选中列表中移除团
 void selected_regiments_remove(sys::state& state, dcon::regiment_id reg);
+// 添加团到选中列表
 void selected_regiments_add(sys::state& state, dcon::regiment_id reg);
+// 清空选中团列表
 void selected_regiments_clear(sys::state& state);
 
+// 从选中列表中移除舰船
 void selected_ships_remove(sys::state& state, dcon::ship_id ship);
+// 添加舰船到选中列表
 void selected_ships_add(sys::state& state, dcon::ship_id sh);
+// 清空选中舰船列表
 void selected_ships_clear(sys::state& state);
 
 } // namespace sys

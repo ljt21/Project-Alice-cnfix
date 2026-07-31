@@ -1,0 +1,683 @@
+#Powered_by_ParaTranz
+MULTI_SEL_DESC;?GSHIFT + Left-Click?! to select multiple units
+SM_DETAILS;Details
+DISBAND_ALL;Disband all selected units
+DISBAND_ALL_TITLE;Disband All Units
+DISBAND_ALL_DESC;Are you sure you want to?Rdisband?Y$NUM$?! units?
+DATE_DIFF_A;$Y$ years, $M$ months and $D$ days
+DATE_DIFF_B;$M$ months and $D$ days
+DATE_DIFF_C;$D$ days
+torpedo_attacks;Torpedo Attack
+TORPEDO_ATTACK;Torpedo Attack
+TORPEDO_ATTACK_DESC;Torpedo attacks deal extra damage to large ships
+NAVAL_COMBAT_STACK_PENALTY_DESC;Due to poor communication between fleets, ships have difficulty finding targets,?Ysuffering?R$PEN$%?Ycoordination penalty. The number of our ships and potential targets specifically affects this.?!
+BP_TAB_CURRENT;Current Plans
+BP_TAB_HISTORICAL;Historical Plans
+BP_TOOL_COLOR_RED;Red
+BP_TOOL_COLOR_GREEN;Green
+BP_TOOL_COLOR_BLUE;Blue
+BP_TOOL_COLOR_YELLOW;Yellow
+BP_TOOL_ARROW_SLIM;Thin Arrow
+BP_TOOL_ARROW_MEDIUM_1;Medium Arrow 1
+BP_TOOL_ARROW_MEDIUM_2;Medium Arrow 2
+BP_TOOL_ARROW_MEDIUM_3;Medium Arrow 3
+BP_TOOL_ARROW_THICK;Thick Arrow
+BP_TOOL_BORDER_1;Border Type 1
+BP_TOOL_BORDER_2;Border Type 2
+BP_TOOL_BORDER_3;Border Type 3
+BP_TOOL_BORDER_4;Border Type 4
+BP_TOOL_BORDER_5;Border Type 5
+BP_TOOL_ICON_AIRPLANE;Airplane Icon
+BP_TOOL_ICON_TANK;Tank Icon
+BP_TOOL_ICON_BOMB_1;Small Bomb Icon
+BP_TOOL_ICON_BOMB_2;Large Bomb Icon
+BP_SAVE_PLAN_CONFIRM;Save Plan
+BP_SAVE_PLAN_CANCEL;Cancel
+BP_SAVE_PLAN_PROMPT;Plan already exists!\nAre you sure you want to overwrite?
+BP_DELETE_SAVED_PLAN_PROMPT;Are you sure you want to delete the saved plan?
+BP_DELETE_CURRENT_PLAN_PROMPT;Are you sure you want to delete the current plan?
+BP_SHARED_WITH;Shared via:
+BP_NEW_PLAN;New Plan
+BP_TOOLTIP_TAB_CURRENT;List of existing battle plans
+BP_TOOLTIP_TAB_HISTORICAL;List of historical plans\nClick?YEnter?!to add selected to your existing plans
+BP_TOOLTIP_TAB_SAVED;List of saved plans\nClick?YEnter?!to add selected to your existing plans
+BP_TOOLTIP_NEW_PLAN;Create new plan
+BP_TOOLTIP_REMOVE_PLAN;Delete selected plan
+BP_TOOLTIP_SHARE_PLAN;Control whether to?Yshare?!the selected plan with your allies
+BP_TOOLTIP_SAVE_PLAN;Save selected plan to file
+BP_TOOLTIP_RENAME_PLAN;Rename selected plan
+BP_TOOLTIP_IMPORT_PLAN;Add selected plan to your existing plans
+BP_TOOLTIP_TOOL_SELECT;Click on objects to select
+BP_TOOLTIP_TOOL_ARROW;Select arrow type and draw on map with?YLeft-Click?!\nHold?YShift?!?YLeft-Click?!to replace arrows
+BP_TOOLTIP_TOOL_BORDER;Select border type and draw on map with?YLeft-Click?!
+BP_TOOLTIP_TOOL_ICON;Select icon type and draw on map with?YLeft-Click?!
+BP_TOOLTIP_TOOL_COLOR;Select an existing color to draw arrows or icons
+BP_TOOLTIP_TOOL_TEXT;Add text annotations on the map\nIf no object is selected, create a new annotation\nIf an arrow is selected, annotate along the arrow\nIf an annotation is already selected, modify it\n?YShift?!?YMouse Wheel?!to adjust text direction\n?YCtrl?!?YMouse Wheel?!to adjust text size
+BP_TOOLTIP_TOOL_ERASE;Delete selected objects
+BP_TOOLTIP_VISIBILITY;Control whether the plan is visible on the map
+MILITARY_SPENDINGS_LAND;?YArmy?!Spending:
+MILITARY_SPENDINGS_NAVAL;?YNavy?!Spending:
+MILITARY_SPENDINGS_PROJECTS;?YConstruction?!Spending:
+STOCKPILE_COST_ESTIMATED;Our?Yestimated?!daily stockpile spending:
+STOCKPILE_COST_ACTUAL;Today we?Yactually?!spent on stockpiles:
+NAVAL_COMBAT_DETAILS_APPROACH;Distance to?Y$WHO$?!:?Y$DIST$?!
+NAVAL_COMBAT_DETAILS_DESTROYED;Sunk by?R$WHO$?Y?!
+NAVAL_COMBAT_DETAILS_DISENGAGED;This unit has attempted to disengage and is not currently in combat
+NAVAL_COMBAT_DETAILS_RETREAT;This unit is retreating
+NAVAL_COMBAT_DETAILS_SEEKING;Seeking best target
+NAVAL_COMBAT_DETAILS_SHOOTING;Firing at?Y$WHO$?!\n— Damage to Organization?G$ORG$?!\n— Damage to Strength?Y$STR$?!
+NAVAL_COMBAT_DETAILS_FILTERING;Click?GLeft-Click?!to show all ships targeting this vessel
+MAPMODE_NAVAL_TOOLTIP_LEVEL;Naval base level?G$LVL$?!
+MAPMODE_NAVAL_TOOLTIP_NO_BASE;No naval base in this region
+MAPMODE_NAVAL_TOOLTIP_CAP;The?YNaval Supply Throughput?!?G$CAP$?!for this province totals?G$TOT$?!
+MAPMODE_NAVAL_TOOLTIP_IN_OTHER;This region has a naval base in?Y$PROV$?!
+MAPMODE_NAVAL_TOOLTIP_UNDER_CON;A naval base is under construction here
+NAVAL_SUPPLY_PENALTY_DESC;?R$PEN$%?!penalty from?YNaval Supply Throughput?!
+COMBAT_LEADER_MOD_ATTACK;Leader Attack
+COMBAT_LEADER_MOD_DEFENSE;Leader Defense
+OCCUPATION_SCORE_ATTACKER;Attacker:
+OCCUPATION_SCORE_DEFENDER;Defender:
+BLOCKADE_SCORE_ATTACKER;Attacker Blockade:
+BLOCKADE_SCORE_DEFENDER;Defender Blockade:
+TICKING_WARSCORE_HEAD;?YTime Advantage?!becomes?Y$VAL$?!
+TICKING_WARSCORE_DESC_SCORE;Currently $VAL$ (daily change $CHANGE$)
+TICKING_WARSCORE_DESC_SCORE_MAX;Currently $VAL$ (maximum)
+TICKING_WARSCORE_DESC_SCORE_SHORT;$VAL$ (daily $CHANGE$)
+TICKING_WARSCORE_DESC_SCORE_MAX_SHORT;$VAL$ (maximum)
+CB_DESTROY_FORTS;Destroy Forts
+CB_DESTROY_NAVAL_BASES;Destroy Naval Bases
+po_destroy_forts;Destroy all forts in $STATE$
+po_destroy_naval_bases;Destroy all naval bases in $STATE$
+ALL_CORE_PROVINCES;All regions with core provinces
+ALL_SATES;All Regions
+dismantle_forts_desc;Dismantle forts and naval bases
+dismantle_forts;Dismantle Military Installations
+dismantle_forts_short;Dismantle all military installations in $STATE$
+dismantle_forts_setup;Dismantle forts and naval bases in $STATE$
+liberate_country_desc;Liberate an?Yentire country?Wfrom its oppressors
+liberate_country;Liberate Country
+liberate_country_short;$THIRD$ gains $STATE$
+liberate_country_setup;$RECIPIENT$ returns $STATE$ to $THIRD$
+FIRE_RANGE;Fire Range
+EVASION;Evasion
+SORT_BY;Sort By:
+STANCE;Stance
+STR_ORG;Strength/Organization
+SORT_BY_TYPE_DESC;Sort by ship?Ytype?!
+SORT_BY_STANCE_DESC;Sort by ship's?Ycurrent action?!
+SORT_BY_STR_ORG_DESC;Sort by ship's?Yaverage strength and organization?!
+TARGETED_BY;Targeted by:
+MAY_NOT_RETREAT_NAVAL;It is neither possible nor honorable to retreat from battle before we have a full understanding of our chances
+REMAINING_NAVAL_RETREAT;We need to approach?Y$OPT$?!to gauge our chances before we can retreat voluntarily
+NAVAL_COMBAT_STATUS_APPROACH;Engaging
+NAVAL_COMBAT_STATUS_SEEKING;Seeking Target
+NAVAL_COMBAT_STATUS_FIRING;Damage?G$ORG$?!?R$STR$?!
+NAVAL_COMBAT_STATUS_RETREAT;Retreating
+NAVAL_COMBAT_STATUS_DISENGAGED;Disengaged
+SUPPLY_LOAD;Supply Load
+SUPPLY_LOAD_STATUS_DESC_BASIC;Our total?YNaval Port?!?YSupply Throughput?!is $TOT$\nAll our ships require $REQ$ in total
+SUPPLY_LOAD_STATUS_DESC_PENALTY;Due to supply shortage, our ships suffer a $PEN$ penalty
+SUPPLY_LOAD_STATUS_DESC_HINT;Consider disbanding some ships if no naval base is established
+SUPPLY_LOAD_STATUS_DESC_UPCOMING_PENALTY;New ships are under construction which will exceed the supply limit by $EXC$
+SUPPLY_LOAD_STATUS_DESC_DETAILED_LIST;The following report lists supply throughput requirements:
+SHIP_BUILD_MIN_BASE_LEVEL;Requires a naval base of level?Y$LVL$?!or above
+SHIP_BUILD_LIMIT_PER_BASE;Each port can support a maximum of?Y$LIM$?!such ships
+SHIP_BUILD_LIMIT_PER_BASE_HINT;?RConsider building more naval bases of level?G$LVL$?Rand above?!
+SHIP_BUILD_LIMIT_MAX;?Y(Max: $LIM$)?!
+BUILDING_ONE_PER_STATE;One per region
+DIPLOMACY_CRISIS_INFO;Crisis
+CRISIS_CANT_DECLARE_WAR;If you are involved in a crisis, you cannot declare war or be declared upon
+HAS_FLASHPOINT;Has Flashpoint
+HAS_NO_FLASHPOINT;No Flashpoint
+TENSION_LESS_THAN;Flashpoint tension below
+TENSION_MORE_THAN;Flashpoint tension above
+CRISIS_TEMPERATURE_LESS_THAN;Crisis temperature below
+CRISIS_TEMPERATURE_MORE_THAN;Crisis temperature above
+FLASHPOINT_TENSION_EFFECT;$DIRECTION$$VALUE$ flashpoint tension\n
+diplomatic_focus;Diplomacy
+increase_tension;Increase Tension
+increase_tension_focus_desc;Increases flashpoint tension by?Y$VAL$?W%monthly
+NOT_A_FLASHPOINT;?RNot a Flashpoint?!
+MAPMODE_21;Crisis
+MAPMODE_22;Navy
+FLASHPOINT_TENSION;Flashpoint Tension:?Y$VALUE$?!
+EXECUTING_HISTORY;Executing History...
+CRISIS_TEMPERATURE;Crisis Temperature:?R$VALUE$%?!
+HAS_CRISIS;There is a crisis occurring here
+HAS_NO_CRISIS;No crisis occurring here
+CRISIS_TEMPERATURE_EFFECT;$DIRECTION$$VALUE$ crisis temperature\n
+TRIGGER_STATE;Location
+BACKERS_LABEL;Backers:
+SUPPORT_SIDE;Support This Side
+ON_THE_FENCE_LABEL;On the Fence:
+vacuum_tube;Vacuum Tube
+vacuum_tube_desc;A vacuum tube is a device that allows electric current to pass through a vacuum. Through the "Edison effect", electrons flow from the cathode to the anode within the tube. By adding a grid, it can become a vacuum triode. Vacuum tubes have been widely used in radio, telephone, television, radar, and early computers.
+tulls_seed_drill;Jethro Tull Seed Drill
+tulls_seed_drill_desc;For centuries, farmers sowed grain by hand, walking and burying seeds in the soil or scattering them broadly. The problem with this method was that seeds were not evenly distributed, so most were wasted. Jethro Tull invented a horse-drawn seed drill that used a box to hold seeds and a reed to scatter them. As the animal walked across the field, seeds were evenly scattered into the soil.
+rotherham_plough;Rotherham Plough
+rotherham_plough_desc;The Rotherham plough, also known as the Yorkshire plough, was improved by Disney and Joseph from a Dutch "fashion" plough. It used wood to secure all parts: the ploughshare, shovel, and board... It was lighter than traditional ploughs and more suitable for animal traction.
+telephone_switchboard;Telephone Switchboard
+telephone_switchboard_desc;A telephone switchboard is a system composed of electrical components used to connect telephones. The telecommunications switchboard was invented in 1877 by a Hungarian working for Edison. In 1881, telephone switchboards were first used for commercial purposes on the US East Coast and Western Europe. Switchboards included hundreds of slots where employees manually plugged and unplugged lines to connect callers. In 1891, Almon Brown patented the automatic telephone switchboard.
+BRZ_2446;Minas Gerais
+CLM_2259;Cauca
+ANN_1371;Tonkin
+ANN_1374;Annam
+ANN_1383;Cochinchina
+LUA_1356;Laos
+SIA_1392;Bangkok
+SIA_1355;Chiang Mai
+SIA_1358;Nakhon Ratchasima
+ENG_1384;Malaya
+ENG_1343;Tenasserim
+BUR_1339;Kachin
+BUR_1334;Shan State
+BUR_1330;Pegu
+NEP_1327;Himalaya
+TIB_1591;Tibet
+ENG_1247;Bihar
+ENG_1261;Orissa
+ENG_1236;United Provinces
+PAN_1227;Punjab
+PAN_1224;Kashmir
+KAL_1221;Baluchistan
+SIN_1288;Sindh
+ENG_1291;Gujarat
+ENG_1264;Rajputana
+ENG_1275;Central Provinces
+NAG_1277;Nagpur
+ENG_1305;Orissa
+HYD_1283;Hyderabad
+ENG_1297;Bombay
+ENG_1304;Madras
+MYS_1314;Mysore
+ENG_1317;Travancore
+ATJ_1405;Aceh
+NET_1398;Sumatra
+NET_1423;Borneo
+NET_1449;Maluku Islands
+NET_1451;Western New Guinea
+BAL_1438;Sunda Islands
+BRU_1394;North Borneo
+PER_1141;Larestan-Hormuz
+PER_1148;Khorasan
+PER_1138;Stan Province
+PER_1135;Fars-Kerman
+PER_1127;Isfahan
+PER_1116;Gilan-Mazandaran
+PER_1121;Ajam
+PER_1112;Tabriz
+PER_1122;Luristan
+AFG_1214;Western Afghanistan
+AFG_1217;Eastern Afghanistan
+RUS_1196;Turkestan
+KHI_1191;Uzbekistan
+BUK_1207;Tajikistan
+KOK_1190;Kyrgyzstan
+RUS_1182;Uralsk
+RUS_1184;Astana
+RUS_1185;Kazakhstan
+CHI_1532;Inner Mongolia
+CHI_1578;Sichuan
+CHI_1581;Chongqing
+CHI_1494;Chaozhou
+CHI_1550;Jiangxi
+CHI_1487;Fujian
+CHI_1611;Zhejiang
+CHI_1473;Southern Anhui
+CHI_1516;Eastern Hubei
+CHI_1523;Western Hubei
+CHI_1513;Henan
+CHI_1472;Northern Anhui
+CHI_1476;Jiangsu
+CHI_1539;Suzhou
+CHI_1563;Shandong
+CHI_1614;Southern Zhili
+CHI_1618;Northern Zhili
+CHI_1553;Manchuria
+CHI_1082;Outer Manchuria
+CHI_1086;Sakhalin
+KOR_1624;Seoul
+KOR_1635;Busan
+KOR_1627;Sariwon
+KOR_1619;Pyongyang
+JAP_1660;Kyushu
+JAP_1640;China-Shikoku
+JAP_1655;Kinki
+JAP_1675;Chubu
+JAP_1649;Kanto
+JAP_1654;Bonin Islands
+JAP_1672;Tohoku
+JAP_1088;Hokkaido
+RUS_2685;Ural
+RUS_1065;Ob
+RUS_1064;Tobolsk
+RUS_1469;Tomsk
+RUS_2615;Upper Yeniseysk
+RUS_1070;Lower Yeniseysk
+RUS_1075;Irkutsk
+RUS_1079;Transbaikal
+RUS_2694;Central Siberia
+RUS_1069;Western Yakutsk
+RUS_2653;Northern Siberia
+RUS_1071;Yakutsk
+RUS_1072;Okhotsk
+RUS_2668;Northern Yakutsk
+RUS_2618;Upper Okhotsk
+RUS_2621;Inner Chukotka
+RUS_1074;Kamchatka
+RUS_2590;Chukotka Coast
+TUR_885;Kars
+TUR_884;Trabzon
+TUR_889;Diyarbakir
+TUR_876;Ankara
+TUR_873;Konya
+TUR_881;Kastamonu
+TUR_869;Aydin
+TUR_863;Kurdistan
+TUR_923;Mosul
+TUR_931;Baghdad
+TUR_935;Basra
+EGY_897;Aleppo
+EGY_910;Transjordan
+EGY_903;Syria
+NEJ_1156;Hail
+NEJ_1157;Najd
+EGY_1746;Sinai
+EGY_1750;Lower Egypt
+EGY_1762;Middle Egypt
+EGY_1771;Upper Egypt
+EGY_1753;Mersa Matruh
+EGY_1758;Egyptian Desert
+EGY_1834;Dongola
+EGY_1827;Sudan
+ENG_1843;Equatorial Guinea
+ENG_1848;Eritrea
+ETH_1854;Tigray
+ETH_1864;Amhara
+ETH_1867;Oromia
+ALD_1708;Constantine
+FRA_1700;Algiers
+ALD_1704;Tlemcen
+MOR_1688;Larache
+MOR_1686;Fez
+MOR_1693;Morocco
+FRA_1803;Timbuktu
+FRA_1798;Eastern Mali
+FRA_1801;Western Mali
+FRA_1901;Volta
+FRA_1808;Outer Hausa
+FRA_1923;Yoruba
+FRA_1927;Hausa
+FRA_1939;Eastern Hausa
+FRA_1930;Benin
+FRA_1931;Niger
+FRA_1937;Nigeria
+FRA_1816;Bornu
+ENG_1825;Chad
+ENG_1818;Wadai
+FRA_1965;Ubangi
+ENG_2029;Zanzibar
+ENG_2034;Tanganyika
+ENG_2039;Lindi
+ENG_2016;Kazembe
+POR_2053;Zambezi
+POR_2049;Maputo
+ZUL_2113;Zululand
+ENG_2078;Hereroland
+ENG_2132;South Atlantic Islands
+ENG_2125;Indian Ocean Islands
+MAD_2117;Southern Madagascar
+MAD_2121;Northern Madagascar
+sioux_nation_title;Sioux
+sioux_nation_name;Sioux
+sioux_nation_desc;The Sioux people rise up against American settlers invading their homeland. Outraged by the betrayal of promises by American officials, they will fight Western colonists to the end!
+sioux_nation_army;Sioux Warmongers
+apache_title;Apache
+apache_name;Apache
+apache_desc;The Apache people rise up against American settlers invading their homeland. Outraged by the betrayal of promises by American officials, they will fight Western colonists to the end!
+apache_army;Apache Warmongers
+EVTNAME160001;Taiping Rebellion
+EVTDESC160001;The Taiping have launched a massive rebellion!
+EVTOPTA160001;Suppress them!
+EVTOPTB160001;Drive out the Tartars, restore China!
+EVTNAME160502;Anti-Manchu Sentiment
+EVTDESC160502;Sire, our ministers have noticed that recently there has been growing discontent and even hostility toward our dynasty among the people. The shame brought by foreign devils invading our country has caused some to lose hope in the court and resist us. How shall we respond?
+EVTOPTA160502;Slaughter them.
+EVTOPTB160502;No time to deal with these rebels.
+EVTNAME90902;China Disintegrates
+EVTDESC90902;China has split.
+EVTOPTA90902;Freedom!
+EVTNAME90040;Indian Mutiny
+EVTDESC90040;Indians have mutinied!
+EVTOPTA90040;This is troublesome.
+CRISIS_DESCRIPTION_LIBERATION;Liberation of $COUNTRY$ Crisis
+CRISIS_DESCRIPTION_RECLAIM;Legitimate Territorial Claims of $COUNTRY$ Crisis
+CRISIS_ALREADY_TAKEN_SIDE;Side Already Chosen
+CRISIS_WAITING_ON_BACKER;Awaiting Great Power Support
+MUST_BE_CRISIS_SIDE_LEADER;Must be a side leader in the crisis
+CRISIS_OFFERTITLE;Trade for Support
+CRISIS_OFFER_OFFER;$ACTOR$ will?Y$WARGOAL$?!to get another nation to join their side in the current crisis
+CRISIS_OFFER_WE_ACCEPT_SETUP;When our nation accepts joining a side in the crisis
+CRISIS_OFFER_WE_ACCEPT_HEADER;Foreign Minister's Report
+CRISIS_OFFER_WE_ACCEPT_1;$MONARCHTITLE$
+CRISIS_OFFER_WE_ACCEPT_2;Our nation has joined $ACTOR$'s side in the current crisis with the following demands:
+CRISIS_OFFER_WE_ACCEPT_3;$WARGOAL$
+CRISIS_OFFER_WE_ACCEPT_4;*
+CRISIS_OFFER_WE_ACCEPT_5;*
+CRISIS_OFFER_WE_ACCEPT_6;*
+CRISIS_OFFER_WE_ACCEPT_BTN1;OK
+CRISIS_OFFER_WE_ACCEPT_BTN2;OK
+CRISIS_OFFER_WE_ACCEPT_BTN3;View
+CRISIS_OFFER_WE_ACCEPT_LOG;Our nation has joined the current crisis.
+CRISIS_OFFER_THEY_ACCEPT_SETUP;When another nation accepts joining our side in the crisis
+CRISIS_OFFER_THEY_ACCEPT_HEADER;Foreign Minister's Report
+CRISIS_OFFER_THEY_ACCEPT_1;$MONARCHTITLE$
+CRISIS_OFFER_THEY_ACCEPT_2;$RECIPIENT$ has joined our side in the current crisis with the following demands
+CRISIS_OFFER_THEY_ACCEPT_3;$WARGOAL$
+CRISIS_OFFER_THEY_ACCEPT_4;*
+CRISIS_OFFER_THEY_ACCEPT_5;*
+CRISIS_OFFER_THEY_ACCEPT_6;*
+CRISIS_OFFER_THEY_ACCEPT_BTN1;OK
+CRISIS_OFFER_THEY_ACCEPT_BTN2;OK
+CRISIS_OFFER_THEY_ACCEPT_BTN3;View
+CRISIS_OFFER_THEY_ACCEPT_LOG;$RECIPIENT$ has joined our side in the crisis.
+CRISIS_OFFER_OTHER_ACCEPT_SETUP;When another nation accepts joining a side in the crisis
+CRISIS_OFFER_OTHER_ACCEPT_HEADER;Foreign Minister's Report
+CRISIS_OFFER_OTHER_ACCEPT_1;$MONARCHTITLE$
+CRISIS_OFFER_OTHER_ACCEPT_2;Trouble is brewing
+CRISIS_OFFER_OTHER_ACCEPT_3;It appears $RECIPIENT$
+CRISIS_OFFER_OTHER_ACCEPT_4;has decided to join the current crisis
+CRISIS_OFFER_OTHER_ACCEPT_5;They will stand with $ACTOR$
+CRISIS_OFFER_OTHER_ACCEPT_6;*
+CRISIS_OFFER_OTHER_ACCEPT_BTN1;OK
+CRISIS_OFFER_OTHER_ACCEPT_BTN2;OK
+CRISIS_OFFER_OTHER_ACCEPT_BTN3;View
+CRISIS_OFFER_OTHER_ACCEPT_LOG;$RECIPIENT$ has joined the current crisis.
+CRISIS_OFFER_WE_DECLINE_SETUP;When our nation refuses to join a side in the crisis
+CRISIS_OFFER_WE_DECLINE_HEADER;Foreign Minister's Report
+CRISIS_OFFER_WE_DECLINE_1;$MONARCHTITLE$
+CRISIS_OFFER_WE_DECLINE_2;Our nation has refused to join $ACTOR$'s side in the current crisis
+CRISIS_OFFER_WE_DECLINE_3;*
+CRISIS_OFFER_WE_DECLINE_4;*
+CRISIS_OFFER_WE_DECLINE_5;*
+CRISIS_OFFER_WE_DECLINE_6;*
+CRISIS_OFFER_WE_DECLINE_BTN1;OK
+CRISIS_OFFER_WE_DECLINE_BTN2;OK
+CRISIS_OFFER_WE_DECLINE_BTN3;View
+CRISIS_OFFER_WE_DECLINE_LOG;Our nation has refused to join the current crisis.
+CRISIS_OFFER_THEY_DECLINE_SETUP;When another nation refuses to join our side in the crisis
+CRISIS_OFFER_THEY_DECLINE_HEADER;Foreign Minister's Report
+CRISIS_OFFER_THEY_DECLINE_1;$MONARCHTITLE$
+CRISIS_OFFER_THEY_DECLINE_2;$RECIPIENT$ has refused to join negotiations on the current crisis
+CRISIS_OFFER_THEY_DECLINE_3;*
+CRISIS_OFFER_THEY_DECLINE_4;*
+CRISIS_OFFER_THEY_DECLINE_5;*
+CRISIS_OFFER_THEY_DECLINE_6;*
+CRISIS_OFFER_THEY_DECLINE_BTN1;OK
+CRISIS_OFFER_THEY_DECLINE_BTN2;OK
+CRISIS_OFFER_THEY_DECLINE_BTN3;View
+CRISIS_OFFER_THEY_DECLINE_LOG;$RECIPIENT$ has refused to join the current crisis.
+CRISIS_OFFER_OTHER_DECLINE_SETUP;When another nation refuses to join a side in the crisis
+CRISIS_OFFER_OTHER_DECLINE_HEADER;Foreign Minister's Report
+CRISIS_OFFER_OTHER_DECLINE_1;$MONARCHTITLE$
+CRISIS_OFFER_OTHER_DECLINE_2;Things do not yet seem to be at the point of escalation
+CRISIS_OFFER_OTHER_DECLINE_3;It appears $RECIPIENT$
+CRISIS_OFFER_OTHER_DECLINE_4;has refused to join the current crisis
+CRISIS_OFFER_OTHER_DECLINE_5;on the side of $ACTOR$
+CRISIS_OFFER_OTHER_DECLINE_6;*
+CRISIS_OFFER_OTHER_DECLINE_BTN1;OK
+CRISIS_OFFER_OTHER_DECLINE_BTN2;OK
+CRISIS_OFFER_OTHER_DECLINE_BTN3;View
+CRISIS_OFFER_OTHER_DECLINE_LOG;$RECIPIENT$ has refused to join the current crisis.
+BACK_CRISISTITLE;Support Nation in Crisis
+BACK_CRISIS_OFFER;$ACTOR$ requests our support for their side in the current crisis
+BACK_CRISIS_WE_ACCEPT_SETUP;When our nation accepts supporting a side in the crisis
+BACK_CRISIS_WE_ACCEPT_HEADER;Foreign Minister's Report
+BACK_CRISIS_WE_ACCEPT_1;$MONARCHTITLE$
+BACK_CRISIS_WE_ACCEPT_2;Our nation has decided to support $ACTOR$ in the current crisis
+BACK_CRISIS_WE_ACCEPT_3;*
+BACK_CRISIS_WE_ACCEPT_4;*
+BACK_CRISIS_WE_ACCEPT_5;*
+BACK_CRISIS_WE_ACCEPT_6;*
+BACK_CRISIS_WE_ACCEPT_BTN1;OK
+BACK_CRISIS_WE_ACCEPT_BTN2;OK
+BACK_CRISIS_WE_ACCEPT_BTN3;View
+BACK_CRISIS_WE_ACCEPT_LOG;Our nation supports a side in the current crisis.
+BACK_CRISIS_THEY_ACCEPT_SETUP;When another nation accepts supporting our side in the crisis
+BACK_CRISIS_THEY_ACCEPT_HEADER;Foreign Minister's Report
+BACK_CRISIS_THEY_ACCEPT_1;$MONARCHTITLE$
+BACK_CRISIS_THEY_ACCEPT_2;$RECIPIENT$ has decided to support our side in the current crisis
+BACK_CRISIS_THEY_ACCEPT_3;*
+BACK_CRISIS_THEY_ACCEPT_4;*
+BACK_CRISIS_THEY_ACCEPT_5;*
+BACK_CRISIS_THEY_ACCEPT_6;*
+BACK_CRISIS_THEY_ACCEPT_BTN1;OK
+BACK_CRISIS_THEY_ACCEPT_BTN2;OK
+BACK_CRISIS_THEY_ACCEPT_BTN3;View
+BACK_CRISIS_THEY_ACCEPT_LOG;$RECIPIENT$ supports our side in the crisis.
+BACK_CRISIS_OTHER_ACCEPT_SETUP;When another nation supports a different side in the crisis
+BACK_CRISIS_OTHER_ACCEPT_HEADER;Foreign Minister's Report
+BACK_CRISIS_OTHER_ACCEPT_1;$MONARCHTITLE$
+BACK_CRISIS_OTHER_ACCEPT_2;Trouble is brewing
+BACK_CRISIS_OTHER_ACCEPT_3;It appears $RECIPIENT$
+BACK_CRISIS_OTHER_ACCEPT_4;has decided to support $ACTOR$ in the current crisis
+BACK_CRISIS_OTHER_ACCEPT_5;*
+BACK_CRISIS_OTHER_ACCEPT_6;*
+BACK_CRISIS_OTHER_ACCEPT_BTN1;OK
+BACK_CRISIS_OTHER_ACCEPT_BTN2;OK
+BACK_CRISIS_OTHER_ACCEPT_BTN3;View
+BACK_CRISIS_OTHER_ACCEPT_LOG;$RECIPIENT$ has joined the current crisis.
+BACK_CRISIS_WE_DECLINE_SETUP;When our nation refuses to support a side in the crisis
+BACK_CRISIS_WE_DECLINE_HEADER;Foreign Minister's Report
+BACK_CRISIS_WE_DECLINE_1;$MONARCHTITLE$
+BACK_CRISIS_WE_DECLINE_2;Our nation has refused to support $ACTOR$ in the current crisis
+BACK_CRISIS_WE_DECLINE_3;*
+BACK_CRISIS_WE_DECLINE_4;*
+BACK_CRISIS_WE_DECLINE_5;*
+BACK_CRISIS_WE_DECLINE_6;*
+BACK_CRISIS_WE_DECLINE_BTN1;OK
+BACK_CRISIS_WE_DECLINE_BTN2;OK
+BACK_CRISIS_WE_DECLINE_BTN3;View
+BACK_CRISIS_WE_DECLINE_LOG;Our nation has refused to join the current crisis.
+BACK_CRISIS_THEY_DECLINE_SETUP;When another nation refuses to support our side in the crisis
+BACK_CRISIS_THEY_DECLINE_HEADER;Foreign Minister's Report
+BACK_CRISIS_THEY_DECLINE_1;$MONARCHTITLE$
+BACK_CRISIS_THEY_DECLINE_2;$RECIPIENT$ has refused to support our side in the crisis
+BACK_CRISIS_THEY_DECLINE_3;*
+BACK_CRISIS_THEY_DECLINE_4;*
+BACK_CRISIS_THEY_DECLINE_5;*
+BACK_CRISIS_THEY_DECLINE_6;*
+BACK_CRISIS_THEY_DECLINE_BTN1;OK
+BACK_CRISIS_THEY_DECLINE_BTN2;OK
+BACK_CRISIS_THEY_DECLINE_BTN3;View
+BACK_CRISIS_THEY_DECLINE_LOG;$RECIPIENT$ has refused to support $ACTOR$ in the current crisis.
+BACK_CRISIS_OTHER_DECLINE_SETUP;When another nation refuses a side in the crisis
+BACK_CRISIS_OTHER_DECLINE_HEADER;Foreign Minister's Report
+BACK_CRISIS_OTHER_DECLINE_1;$MONARCHTITLE$
+BACK_CRISIS_OTHER_DECLINE_2;Things do not yet seem to be at the point of escalation
+BACK_CRISIS_OTHER_DECLINE_3;It appears $RECIPIENT$
+BACK_CRISIS_OTHER_DECLINE_4;has refused to support $ACTOR$ in the current crisis
+BACK_CRISIS_OTHER_DECLINE_5;*
+BACK_CRISIS_OTHER_DECLINE_6;*
+BACK_CRISIS_OTHER_DECLINE_BTN1;OK
+BACK_CRISIS_OTHER_DECLINE_BTN2;OK
+BACK_CRISIS_OTHER_DECLINE_BTN3;View
+BACK_CRISIS_OTHER_DECLINE_LOG;$RECIPIENT$ has refused to support $ACTOR$ in the current crisis
+CRISIS_PROGRESS_DESC;When this progress bar reaches its maximum, diplomatic efforts will fail and the crisis will escalate into war.
+CRISIS_WAITING_DESC;At least one side in the crisis is awaiting support from the Great Powers.
+EFFECT_CRISIS_INTEREST;$COUNTRY$ declares interest in the current crisis
+EVTNAME20000;An International Crisis is Brewing!
+EVTDESC20000;As a responsible great power, our nation is expected to play an active role in international affairs.
+EVTOPTA20000;Yes, we are interested in this crisis
+EVTOPTB20000;This does not concern us
+CRISIS_BACK_DOWN;Propose Solution
+CRISISOFFERDESC;$COUNTRY$ proposes to resolve the current crisis on the basis of our demands:
+CRISISDEMANDDESC;$COUNTRY$ demands that we resolve the current crisis on the basis of its terms:
+crisis_free_peoples;Liberate People
+crisis_free_peoples_short;$THIRD$ gains $STATE$
+crisis_free_peoples_setup;$RECIPIENT$ returns $STATE$ to $THIRD$
+CRISIS_BACK_DOWN_WE_ACCEPT_SETUP;When we accept a proposal from another party in the crisis
+CRISIS_BACK_DOWN_WE_ACCEPT_HEADER;$MONARCHTITLE$
+CRISIS_BACK_DOWN_WE_ACCEPT_1;$ACTOR$
+CRISIS_BACK_DOWN_WE_ACCEPT_2;From $ACTOR$
+CRISIS_BACK_DOWN_WE_ACCEPT_3;A proposal to resolve the current crisis has been accepted by our nation
+CRISIS_BACK_DOWN_WE_ACCEPT_4;Its terms are as follows::
+CRISIS_BACK_DOWN_WE_ACCEPT_5;$TERMS$
+CRISIS_BACK_DOWN_WE_ACCEPT_6;*
+CRISIS_BACK_DOWN_WE_ACCEPT_LOG;Our nation has accepted $ACTOR$'s proposal to resolve the current crisis
+CRISIS_BACK_DOWN_WE_ACCEPT_BTN1;Excellent!
+CRISIS_BACK_DOWN_WE_ACCEPT_BTN2;Excellent!
+CRISIS_BACK_DOWN_WE_ACCEPT_BTN3;View
+CRISIS_BACK_DOWN_WE_ACCEPT_MAP;Peace!
+CRISIS_BACK_DOWN_THEY_ACCEPT_SETUP;When another nation accepts your proposal to resolve the crisis
+CRISIS_BACK_DOWN_THEY_ACCEPT_HEADER;$MONARCHTITLE$
+CRISIS_BACK_DOWN_THEY_ACCEPT_1;$RECIPIENT$
+CRISIS_BACK_DOWN_THEY_ACCEPT_2;$RECIPIENT$
+CRISIS_BACK_DOWN_THEY_ACCEPT_3;has accepted our proposal to resolve the current crisis
+CRISIS_BACK_DOWN_THEY_ACCEPT_4;*
+CRISIS_BACK_DOWN_THEY_ACCEPT_5;*
+CRISIS_BACK_DOWN_THEY_ACCEPT_6;Terms: $TERMS$
+CRISIS_BACK_DOWN_THEY_ACCEPT_LOG;$RECIPIENT$ has accepted our peace proposal
+CRISIS_BACK_DOWN_THEY_ACCEPT_BTN1;Excellent!
+CRISIS_BACK_DOWN_THEY_ACCEPT_BTN2;Excellent!
+CRISIS_BACK_DOWN_THEY_ACCEPT_BTN3;View
+CRISIS_BACK_DOWN_THEY_ACCEPT_MAP;*
+CRISIS_BACK_DOWN_OTHER_ACCEPT_SETUP;When another nation accepts a proposal to resolve the crisis
+CRISIS_BACK_DOWN_OTHER_ACCEPT_HEADER;$MONARCHTITLE$
+CRISIS_BACK_DOWN_OTHER_ACCEPT_1;$RECIPIENT$
+CRISIS_BACK_DOWN_OTHER_ACCEPT_2;$RECIPIENT$
+CRISIS_BACK_DOWN_OTHER_ACCEPT_3;has accepted the proposal from $ACTOR$
+CRISIS_BACK_DOWN_OTHER_ACCEPT_4;to resolve the crisis
+CRISIS_BACK_DOWN_OTHER_ACCEPT_5;*
+CRISIS_BACK_DOWN_OTHER_ACCEPT_6;Terms: $TERMS$
+CRISIS_BACK_DOWN_OTHER_ACCEPT_LOG;$RECIPIENT$ has accepted $ACTOR$'s peace proposal
+CRISIS_BACK_DOWN_OTHER_ACCEPT_BTN1;Excellent!
+CRISIS_BACK_DOWN_OTHER_ACCEPT_BTN2;Excellent!
+CRISIS_BACK_DOWN_OTHER_ACCEPT_BTN3;View
+CRISIS_BACK_DOWN_OTHER_ACCEPT_MAP;*
+CRISIS_BACK_DOWN_WE_DECLINE_SETUP;When our nation refuses a crisis resolution proposal
+CRISIS_BACK_DOWN_WE_DECLINE_HEADER;$MONARCHTITLE$
+CRISIS_BACK_DOWN_WE_DECLINE_1;$ACTOR$
+CRISIS_BACK_DOWN_WE_DECLINE_2;From $ACTOR$
+CRISIS_BACK_DOWN_WE_DECLINE_3;peace proposal has been rejected by us
+CRISIS_BACK_DOWN_WE_DECLINE_4;Its terms are as follows::
+CRISIS_BACK_DOWN_WE_DECLINE_5;$TERMS$
+CRISIS_BACK_DOWN_WE_DECLINE_6;*
+CRISIS_BACK_DOWN_WE_DECLINE_LOG;We have rejected $ACTOR$'s proposal to resolve the crisis
+CRISIS_BACK_DOWN_WE_DECLINE_BTN1;Excellent!
+CRISIS_BACK_DOWN_WE_DECLINE_BTN2;Excellent!
+CRISIS_BACK_DOWN_WE_DECLINE_BTN3;View
+CRISIS_BACK_DOWN_WE_DECLINE_MAP;*
+CRISIS_BACK_DOWN_THEY_DECLINE_SETUP;When another nation refuses your proposal to resolve the crisis
+CRISIS_BACK_DOWN_THEY_DECLINE_HEADER;$MONARCHTITLE$
+CRISIS_BACK_DOWN_THEY_DECLINE_1;$RECIPIENT$
+CRISIS_BACK_DOWN_THEY_DECLINE_2;$RECIPIENT$
+CRISIS_BACK_DOWN_THEY_DECLINE_3;has refused our proposal to resolve the crisis
+CRISIS_BACK_DOWN_THEY_DECLINE_4;*
+CRISIS_BACK_DOWN_THEY_DECLINE_5;*
+CRISIS_BACK_DOWN_THEY_DECLINE_6;*
+CRISIS_BACK_DOWN_THEY_DECLINE_LOG;$RECIPIENT$ has refused our crisis resolution proposal
+CRISIS_BACK_DOWN_THEY_DECLINE_BTN1;Excellent!
+CRISIS_BACK_DOWN_THEY_DECLINE_BTN2;Excellent!
+CRISIS_BACK_DOWN_THEY_DECLINE_BTN3;View
+CRISIS_BACK_DOWN_THEY_DECLINE_MAP;*
+CRISIS_BACK_DOWN_OTHER_DECLINE_SETUP;When another nation refuses a crisis resolution proposal
+CRISIS_BACK_DOWN_OTHER_DECLINE_HEADER;$MONARCHTITLE$
+CRISIS_BACK_DOWN_OTHER_DECLINE_1;$RECIPIENT$
+CRISIS_BACK_DOWN_OTHER_DECLINE_2;$RECIPIENT$
+CRISIS_BACK_DOWN_OTHER_DECLINE_3;has refused the proposal from $ACTOR$
+CRISIS_BACK_DOWN_OTHER_DECLINE_4;to resolve the crisis
+CRISIS_BACK_DOWN_OTHER_DECLINE_5;*
+CRISIS_BACK_DOWN_OTHER_DECLINE_6;*
+CRISIS_BACK_DOWN_OTHER_DECLINE_LOG;$RECIPIENT$ has refused $ACTOR$'s crisis resolution proposal
+CRISIS_BACK_DOWN_OTHER_DECLINE_BTN1;Excellent!
+CRISIS_BACK_DOWN_OTHER_DECLINE_BTN2;Excellent!
+CRISIS_BACK_DOWN_OTHER_DECLINE_BTN3;View
+CRISIS_BACK_DOWN_OTHER_DECLINE_MAP
+CRISIS_BACK_DOWN_DI;Crisis Resolution Proposal
+CRISIS_OFFER_DI;Invitation to Join a Side in the Crisis
+CRISIS_BACK_DOWNTITLE;Crisis
+OFFER_CRISIS_PEACE;Offer Concessions
+DEMAND_CRISIS_PEACE;Demand Concessions
+COLONIAL_POINTS;Colonial Power
+COLONIAL_POINTS_TECH;Colonial Power Points
+CRISIS_TITLE_COUNTRY;$COUNTRY_ADJ$ Crisis
+CRISIS_DESCRIPTION_INFLUENCE;Contest for Control of $COUNTRY$
+NAVAL_SORT_LABEL;Sort By:
+NAVAL_SORT_TYPE;Type
+NAVAL_SORT_STANCE;Stance
+NAVAL_SORT_STR_ORG;Strength/Organization
+battleship;Battleship
+UNCOLONIZED_WITHDRAW;Withdraw
+UNCOLONIZED_INVEST_LVL1;Expedition
+UNCOLONIZED_INVEST_LVL2;Pioneer
+UNCOLONIZED_INVEST_LVL3;Outpost
+UNCOLONIZED_INVEST_LVL4;Settlement
+UNCOLONIZED_INVEST_LVL5;Garrison Post
+UNCOLONIZED_DO_INVEST_LVL1;Send Expedition
+UNCOLONIZED_DO_INVEST_LVL2;Send Pioneers
+UNCOLONIZED_DO_INVEST_LVL3;Build Outpost
+UNCOLONIZED_DO_INVEST_LVL4;Establish Settlement
+UNCOLONIZED_DO_INVEST_LVL5;Strengthen Garrison
+CB_TENSION;Casus Belli:?Y$VAL$?!
+TENSION_FROM_ACTIVE_CRISIS;Active Crisis:?Y$VAL$?!
+AT_WAR_TENSION_DECAY;$COUNTRY$ is at war:?Y$VAL$?!
+TRIGGER_FLASHPOINT_TAG;Flashpoint Attacker
+CRISIS_NO_SIDE_PICKED_SETUP;When our nation refuses to support a side in the crisis
+CRISIS_NO_SIDE_PICKED_HEADER;*
+CRISIS_NO_SIDE_PICKED_1;Diplomatic Hesitation
+CRISIS_NO_SIDE_PICKED_2;Due to our failure to act as actively as expected
+CRISIS_NO_SIDE_PICKED_3;Our nation's prestige has decreased by?R$PENALTY$?!
+CRISIS_NO_SIDE_PICKED_4;From now on, we must actively participate in international politics if we do not want to risk being underestimated
+CRISIS_NO_SIDE_PICKED_5;*
+CRISIS_NO_SIDE_PICKED_6;*
+CRISIS_NO_SIDE_PICKED_LOG;We failed to act before the current crisis ended
+CRISIS_NO_SIDE_PICKED_BTN1;OK
+CRISIS_STARTED_SETUP;An International Crisis Begins
+CRISIS_STARTED_HEADER;$MONARCHTITLE$
+CRISIS_STARTED_1;International Crisis
+CRISIS_STARTED_2;An international crisis caused by diplomatic tension has broken out in
+CRISIS_STARTED_3;$CRISISTARGET$
+CRISIS_STARTED_4;We need not worry; this will be resolved in a civilized manner
+CRISIS_STARTED_5;*
+CRISIS_STARTED_6;*
+CRISIS_STARTED_LOG;A new crisis has begun
+CRISIS_STARTED_BTN1;OK
+CRISIS_BECAME_WAR_SETUP;A Crisis Has Escalated to War
+CRISIS_BECAME_WAR_HEADER;$MONARCHTITLE$
+CRISIS_BECAME_WAR_1;International Crisis
+CRISIS_BECAME_WAR_2;Diplomatic negotiations under the current crisis have failed
+CRISIS_BECAME_WAR_3;It seems the battlefield will decide who is right
+CRISIS_BECAME_WAR_4;*
+CRISIS_BECAME_WAR_5;*
+CRISIS_BECAME_WAR_6;*
+CRISIS_BECAME_WAR_LOG;A crisis has escalated to war
+CRISIS_BECAME_WAR_BTN1;OK
+IS_IN_CRISIS;Involved in a Crisis
+IS_NOT_IN_CRISIS;Not Involved in a Crisis
+BACK_CRISIS_DI;Proposal to Support a Nation in Crisis
+CRISIS_NOBODY_BACKED_SETUP;When no nation intervenes in the crisis
+CRISIS_NOBODY_BACKED_HEADER;$MONARCHTITLE$
+CRISIS_NOBODY_BACKED_1;The crisis has been averted for now
+CRISIS_NOBODY_BACKED_2;This crisis occurred in
+CRISIS_NOBODY_BACKED_3;?Y$CRISISTARGET$?!
+CRISIS_NOBODY_BACKED_4;It did not draw international attention at this time
+CRISIS_NOBODY_BACKED_5;*
+CRISIS_NOBODY_BACKED_6;*
+CRISIS_NOBODY_BACKED_LOG;No nation intervened in the current crisis
+CRISIS_NOBODY_BACKED_BTN1;OK
+BP_TOOL_ICON_INFANTRY;Infantry Icon
+BP_TOOL_ICON_COMBAT;Combat Icon
+BP_TOOL_ICON_CAVALRY;Cavalry Icon
+BP_TOOL_ICON_ARTILLERY;Artillery Icon
+BP_TOOL_ICON_NAVAL;Naval Base Icon
+BP_TOOL_ICON_INVASION;Invasion Icon
+BP_TOOL_ICON_WOODEN_SHIP;Warship Icon
+BP_TOOL_ICON_IRONCLAD;Ironclad Icon
+BP_TOOL_ICON_INDUSTRY;Factory Icon
+BP_TOOL_ICON_COLONY;Colony Icon
+BP_TOOL_ICON_WARGOAL_1;War Goal Icon
+BP_TOOL_ICON_WARGOAL_2;War Goal Icon
+TAKE_SIDE_PENALTY;Prestige penalty for not supporting any side:?R$VAL$?!
+NO_CALL_ALLY_CRISIS;Cannot call allies to join a crisis war before the World Wars are enabled
+PRODUCTION_BONUS;$BON$ bonus from:

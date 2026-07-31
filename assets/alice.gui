@@ -11,13 +11,40 @@ guiTypes = {
 	guiButtonType = {
 		name = "gamerules_button"
 		extends = "lobby"
-		position = { x = 280 y = -60 }
+		position = { x = 400 y = -60 }
 		quadTextureSprite ="GFX_button_standard_144"	
 		buttonText = "alice_gamerules_btn_text"
 		buttonFont = "vic_18_black"
 		Orientation = "LOWER_LEFT"
 	}
 	
+	windowType = {
+		name = "show_all_saves_setting_container"
+		extends = "lobby"
+		position = {  0 -410 }
+		size = { 212 32 }
+		Orientation = "LOWER_LEFT"
+		
+		iconType = {
+			name = "background"
+			position = { 0 0 }
+			spriteType = "GFX_frontend_scenario_entry"
+			
+		}
+		checkboxType = {
+			name = "show_all_saves_checkbox"
+			position = { 6 6 }
+			quadTextureSprite = "GFX_checkbox_default"
+		}
+		instantTextBoxType = {
+			name = "show_all_saves_label"
+			position = { -48 7 }
+			font = "vic_18_black"
+			text = "alice_show_all_saves_text"
+			maxsize = { 212 32 }
+			format = right
+		}
+	}
 	
 	instantTextBoxType = { 
 			name = "state_location_name"
@@ -1198,6 +1225,22 @@ guiTypes = {
 				delayedTooltipText = ""
 				buttonText = "MENU_BAR_SAVE"
 				buttonFont = "vic_18_black"
+			}
+			checkboxType = {
+				name = "show_all_saves_checkbox"
+				position = { x = 49 y = 329}
+				quadTextureSprite = "GFX_checkbox_default"
+				buttonText = ""
+			}
+			instantTextBoxType= {
+				position = {x = 29 y = 349 }
+				name = "show_all_saves_label"
+				font = "Arial12"
+				maxWidth = 208
+				maxHeight = 18
+				borderSize = {x = 0 y = 0}	
+				text = "alice_show_all_saves_text"	
+				format = left
 			}
 			
 			guiButtonType = {

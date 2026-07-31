@@ -1,0 +1,22 @@
+unit_experience;Unit Experience
+modifier_farm_rgo_size;Agricultural Size
+modifier_mine_rgo_size;Mining Size
+method_research;Specialization Points
+Profit;Profit
+Good;Good
+Employed;Employed
+Subsistence;Subsistence
+province_percentage;Local Proportion
+mapmode_tooltip_factory_size;Factory Size:
+stockpile_market;Market Stockpile
+price_market;Market Price
+market_name;Market Name
+price_nation;National Average Price
+trade_in;Trade Imports
+trade_out;Trade Exports
+trade_balance;Trade Balance
+consumption;Goods Consumption
+stockpiles;Goods Stockpile
+Max;Max
+sell_stockpile;Stockpile Sold
+sell_stockpile_label;Stockpile Sold Label

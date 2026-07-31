@@ -1,0 +1,392 @@
+#Powered_by_ParaTranz
+UNIT_BUILD_TIME_IW;$VAL$ days:
+SUPPLY_OWNER;Province owner:
+SUPPLY_ALLIED;Ally:
+SUPPLY_ACCESS;Military access:
+SUPPLY_CONTROLLER;Controlled by:
+SUPPLY_CONTROLLER_ALLIANCE;Controlled by alliance:
+SUPPLY_SIEGE;Siege:
+SUPPLY_CORE;Core:
+fascist_uh;Fascists support expanding social reforms and eliminating political reforms, and will oppose any reforms if the ruling party is not fascist
+reactionary_uh;Reactionaries always attempt to overturn reforms, reversing both political and social reforms
+conservative_uh;Conservatives tend to maintain the status quo, but may turn to support reforms when struggle is intense
+socialist_uh;Socialists want to see new social reform laws, but may turn to support political reforms when struggle is intense
+communist_uh;Communists want to enact social reform laws, but want to see political reforms reversed
+liberal_uh;Liberals want to enact new political reform laws, but will also support social reforms when struggle is intense
+anarcho_liberal_uh;Anarcho-liberals want to see social reforms reversed and will not support any new reforms of any kind
+RP_ACCUMULATED;We have accumulated ?Y$VAL$?W unused research points
+WEGAINCB_SETUP;When our nation gains a casus belli
+WEGAINCB_HEADER;$MONARCHTITLE$
+WEGAINCB_1;Casus Belli
+WEGAINCB_2;We have gained
+WEGAINCB_3;against $ENEMY$
+WEGAINCB_4;casus belli
+WEGAINCB_5;"$CASUS$"
+WEGAINCB_6;$DESC$
+WEGAINCB_LOG;Our nation has gained a casus belli against $ENEMY$: "$CASUS$".
+WEGAINCB_BTN1;Good
+WEGAINCB_BTN2;Good
+WEGAINCB_BTN3;View
+WEGAINCB_MAP;*
+NORMAL_WAR_FREE_NAME;$ORDER$$FIRST$ War of Liberation of $COUNTRY$
+AGRESSION_WAR_FREE_NAME;$ORDER$$FIRST$ Support of $COUNTRY$
+NORMAL_WAR_COLONIAL_NAME;$ORDER$$FIRST$ Colonial Conquest of $STATE$
+AGRESSION_WAR_COLONIAL_NAME;$ORDER$$FIRST$ Colonial War of $STATE$
+NORMAL_WAR_TAKE_NAME;$ORDER$$FIRST$ Conquest of $STATE$
+AGRESSION_WAR_TAKE_NAME;$ORDER$$FIRST$ War of $STATE$
+NORMAL_WAR_TAKE_CORE_NAME;$ORDER$$FIRST$ Liberation of $STATE$
+AGRESSION_WAR_TAKE_CORE_NAME;$ORDER$$FIRST$ Aggression against $STATE$
+NORMAL_WAR_TAKE_SPHERE_NAME;$ORDER$ War against $COUNTRY$
+AGRESSION_WAR_TAKE_SPHERE_NAME;$ORDER$ War in $COUNTRY_ADJ$ $FIRST$ - $SECOND$
+NORMAL_WAR_ADD_SPHERE_NAME;$ORDER$ War of Subjugation of $SECOND$
+AGRESSION_WAR_ADD_SPHERE_NAME;$ORDER$ War of Subjugation of $SECOND$
+NORMAL_CIVIL_WAR_NAME;$ORDER$$FIRST$ Civil War
+AGRESSION_CIVIL_WAR_NAME;$ORDER$$FIRST$ Civil War
+NORMAL_WAR_CONQUEST_NAME;$ORDER$ War of Conquest of $SECOND$
+AGRESSION_WAR_CONQUEST_NAME;$ORDER$$FIRST$ War of Aggression against $SECOND$
+ADJ_FORT_EXTRA_ATTR;?R+$VAL$%?W from nearby enemy fort
+IS_NOT_ACCEPTED_CULTURE_POP;Not an accepted culture\n
+IS_ACCEPTED_CULTURE_POP;Is an accepted culture\n
+IS_NOT_PRIMARY_CULTURE_POP;Not ?Y$NAME$?W\n
+IS_PRIMARY_CULTURE_POP;Is ?Y$NAME$?W\n
+NEW_CORE_EFFECT_TAG2;$TAG$ will gain core of ?Y$NEW$?W\n
+digin;Trench
+terrain;Terrain
+crossing;Crossing
+total_occupation;Occupied home provinces
+total_blockaded;Blockaded home ports
+PW_SLAVE_STATE;Slave State
+CURR_REL_TT;Our current relations
+great_power;Great Power
+second_power;Secondary Power
+civ_nation;Civilized Nation
+unciv_nation;Uncivilized Nation
+REB_TYPE_SIZE;?YRebel Support?W
+REB_TYPE_POWER;?YRebel Strength?W
+PRODUCTION_MUST_PORT_ONLY;Can only be produced at ports\n
+POPULATION_CHANGED_BY;Population changed by
+COMBAT_LEADER_MOD;Leader
+POLITICS_CANNOT_SET_RULING_PARTY_IN_ELECTION;Cannot change ruling party during election
+IS_NOT_OVERSEAS;Not overseas
+IS_OVERSEAS;Is overseas
+SHIP_SUB_NAME;$HOME$ No. $NUM$ $TYPE$
+FOLLOWING_HAVE_CLAIMS;The following nations have claims here:
+COUNTRY_IS_NOT_CULTURE;The primary culture is not
+COUNTRY_IS_CULTURE;The primary culture is
+NO_ASSIM_NOW;No assimilation currently
+MODIFIER_LOCAL_REPAIR;Ship repair speed
+BADBOY_DRO_1;Monthly infamy change:\n
+REGIMENT_SIZE;Current strength: ?Y$SIZE$?W\n
+CURRENT_MORALE;Organization: ?Y$SIZE$?W, max $MAX$\n
+SUPPLY_COST;Supply cost
+ALL_CORE_PROVINCE_THAT;In all core provinces
+BREAKCOUNTRY_SETUP;When rebel factions enforce their demands in our nation
+BREAKCOUNTRY_HEADER;Report from $CAPITAL$
+BREAKCOUNTRY_1;$FACTION$ has triumphed!
+BREAKCOUNTRY_2;$MONARCHTITLE$, $FACTION$ has enforced their demands!
+BREAKCOUNTRY_3;We have no choice but to accept!
+BREAKCOUNTRY_4;$EFFECTS$
+BREAKCOUNTRY_5;*
+BREAKCOUNTRY_6;*
+BREAKCOUNTRY_LOG;$FACTION$ enforced their demands!
+BREAKCOUNTRY_BTN1;Terrible!
+BREAKCOUNTRY_BTN2;Terrible!
+BREAKCOUNTRY_BTN3;View
+BREAKCOUNTRY_MAP;*
+BREAKCOUNTRYOTHER_SETUP;When rebels enforce their demands in another nation
+BREAKCOUNTRYOTHER_HEADER;Report from the Ambassador
+BREAKCOUNTRYOTHER_1;$OTHER$
+BREAKCOUNTRYOTHER_2;$FACTION$ has succeeded in
+BREAKCOUNTRYOTHER_3;enforcing their demands in $OTHER$
+BREAKCOUNTRYOTHER_4;$EFFECTS$
+BREAKCOUNTRYOTHER_5;*
+BREAKCOUNTRYOTHER_6;*
+BREAKCOUNTRYOTHER_LOG;$FACTION$ has enforced their demands in $OTHER$!
+BREAKCOUNTRYOTHER_BTN1;OK
+BREAKCOUNTRYOTHER_BTN2;OK
+BREAKCOUNTRYOTHER_BTN3;View
+BREAKCOUNTRYOTHER_MAP;*
+INVENTION_SETUP;When you have gained an invention
+INVENTION_HEADER;Report
+INVENTION_1;Major Discovery!
+INVENTION_2;Our scientists have discovered
+INVENTION_3;$INVENTION$
+INVENTION_4;$DESC$
+INVENTION_5;Its effect is:
+INVENTION_6;$EFFECT$
+INVENTION_LOG;We have discovered how $INVENTION$ works.
+INVENTION_BTN1;OK
+INVENTION_BTN2;OK
+INVENTION_BTN3;View
+INVENTION_MAP;*
+revanchism;Revanchism
+plurality;Plurality
+TOPBAR_LEADERSHIP_GAIN_TOOLTIP;We gain ?Y$CURR$?W leadership from our officer corps each month
+UW_AASIGN;Auto-assign leaders
+ATTR_SAFE_RANGE;Fleets suffer no attrition when within supply ship range and near coast
+TECHNOLOGYVIEW_HAVE_NOT_YEAR;This technology cannot be researched before ?Y$YEAR$?W
+ENCOURAGEMENT_FOR;Encouragement for
+IS_NOT_PRIMARY_CULTURE;?Y$NAME$?W is not the primary culture\n
+IS_PRIMARY_CULTURE;?Y$NAME$?W is the primary culture\n
+IS_NOT_ACCEPTED_CULTURE2;?Y$NAME$?W is not an accepted culture\n
+IS_ACCEPTED_CULTURE2;?Y$NAME$?W is an accepted culture\n
+ALL_COUNTRIES_EFF;All nations
+ALL_COUNTRIES_THAT_EFF;All nations
+GETTING_ONLY_NEEDS;Only getting $NEED$: ?Y$VAL$%?W
+tutorial_chapter_introduction;End of introduction
+tutorial_end_of_chapter;End of tutorial chapter
+ISSUE_MOVE_EFFECT;?Y$PERCENTAGE$%?W of manpower migrated from ?YSource?W to ?YDestination?W
+ADD_WARGOAL_EFFECT;When we add this war goal, we will gain:
+ADD_WARGOAL_SUCCESS;When we achieve this war goal, we will gain:
+ADD_WARGOAL_FAILURE;When we fail to achieve this war goal, we will gain:
+WARDIALOG_TRUCE;Truce:
+WARDIALOG_NOCB;No casus belli:
+DIPLOMACY_INFAMY2;Infamy: $VALUE$
+DIPLOMACY_PRESTIGE2;Prestige: $VALUE$
+DIPLOMACY_MILITANCY2;Militancy: $VALUE$
+REMOVE_DIPLOMACY_WARDIALOG_ALLIES;?Y$COUNTRY$?W has the following allies:
+REMOVE_DIPLOMACY_WARDIALOG_NUM_ALLIES;?Y$COUNTRY$?W has ?Y$NUM$?W allies
+DIPLOMACY_WAR_HASTRUCE;?RWe have a truce with ?Y$COUNTRY$?R until ?Y$DATE$?R. Declaring war on them will deal a great blow to our international prestige
+REMOVE_DIPLOMACY_DAILYINFLULENCE_GAIN;We gain ?Y$NUM$?W influence in ?Y$COUNTRY$? each day
+tutorial_chapter_budget_victoria;End of intermediate finance tutorial
+NO_RELEASEABLE_NATIONS;We have no nations to grant sovereignty to
+DIPLOMACY_CALL_ALLIES_NOT_LEADER;We are not the leader of this war and cannot call allies to join
+LEDGER_NEXT;Next page
+LEDGER_PREV;Previous page
+MEC_544;Schleswig-Holstein
+COUNTRYALERT_CanIncreaseOpinion;We can ?Yincrease opinion?W or bring other nations into our ?Ysphere of influence?W:
+COUNTRYALERT_NO_CanIncreaseOpinion;We cannot increase opinion or bring other nations into our ?Ysphere of influence?W
+COLONY_SUCCESS_LOG;We have successfully colonized $TARGET$
+COLONY_FAIL_LOG;$OTHER$ has already colonized $TARGET$ before us
+american_cultures;Latin American
+CANT_USE_LAST_WAR_GOALS;Selecting this war goal will end this war and reach a peace agreement with the war leader
+tut_6a_13;To develop Belgium's industrial production we need more industrial workers,\nclick the craftsman icon to set this focus.
+DEN_251;Iceland and Greenland
+CANCELALLIANCE_THEY_ACCEPT_BTN2;OK
+CANCELALLIANCE_THEY_ACCEPT_BTN3;View
+tut_1b_19;Now let's manually assign our leaders, select your division in Spa.
+TOPBAR_DEC_SPEED;Decrease speed
+fort;Fort
+fort_short;Fort
+IS_GREAT_NATION;Is a Great Power
+NO_DEMOTION;No demotion this month
+NO_PROMOTION;No promotion this month
+INCREASEOPINION_THEY_ACCEPT_MAP;Opinion increased
+INCREASEOPINION_WE_ACCEPT_MAP;Opinion increased
+DECREASEOPINION_THEY_ACCEPT_MAP;Opinion decreased
+DECREASEOPINION_WE_ACCEPT_MAP;Opinion decreased
+ADDTOSPHERE_THEY_ACCEPT_MAP;Brought into sphere of influence
+ADDTOSPHERE_WE_ACCEPT_MAP;Brought into sphere of influence
+REMOVEFROMSPHERE_THEY_ACCEPT_MAP;Removed from sphere of influence
+REMOVEFROMSPHERE_WE_ACCEPT_MAP;Removed from sphere of influence
+INCREASERELATION_THEY_ACCEPT_MAP;Relations improved
+INCREASERELATION_WE_ACCEPT_MAP;Relations improved
+DECREASERELATION_THEY_ACCEPT_MAP;Relations decreased
+DECREASERELATION_WE_ACCEPT_MAP;Relations decreased
+WETARGET_DISCREDIT_MAP;Discredit!
+WETARGET_EXPELADVISORS_MAP;Expel advisors!
+WETARGET_BANEMBASSY_MAP;Ban embassy!
+WETARGET_DECREASEOPINION_MAP;Opinion increased!
+WETARGET_REMOVEFROMSPHERE_MAP;Removed from sphere of influence!
+womens_suffrage_movement;Women's suffrage movement
+WAR_GOOD_RELATION;Good relations (?Y$REL$?W) and average consciousness (?Y$CON$?W):
+make_slave;Create Slave State
+make_free;Create Free State
+POP_OTHER_CULT;Other
+BLOCKADED_PEACE;Blockaded
+PRODUCTION_DESTROY_FACTORY_BECAUSE_TOOLTIP;We can destroy this factory for the following reasons:\n
+PRODUCTION_NOT_DESTROY_FACTORY_BECAUSE_TOOLTIP;Reasons why we cannot destroy this factory:\n
+RULE_DESTROY_FACTORY;Destroy factory
+INCREASE_RELATION_MAX;We cannot improve relations further with
+DECREASE_RELATION_MAX;We cannot decrease relations further with
+BANKRUPTCY_SETUP;When our nation goes bankrupt
+BANKRUPTCY_HEADER;$MESSENGER$
+BANKRUPTCY_1;Bankruptcy!
+BANKRUPTCY_2;We have been forced to declare bankruptcy.
+BANKRUPTCY_3;All our debts have been cleared,
+BANKRUPTCY_4;but this has caused great anxiety among our people
+BANKRUPTCY_5;and we have lost tremendous prestige in the eyes of the world.
+BANKRUPTCY_6;Future loans offered to us by banks will carry higher interest rates.
+BANKRUPTCY_LOG;Our nation has gone bankrupt.
+BANKRUPTCY_BTN1;This is very bad
+THEY_BANKRUPTCY_SETUP;When another nation has gone bankrupt
+THEY_BANKRUPTCY_HEADER;$MESSENGER$
+THEY_BANKRUPTCY_1;Bankruptcy!
+THEY_BANKRUPTCY_2;$COUNTRY$
+THEY_BANKRUPTCY_3;has been forced to declare bankruptcy.
+THEY_BANKRUPTCY_4;*
+THEY_BANKRUPTCY_5;*
+THEY_BANKRUPTCY_6;*
+THEY_BANKRUPTCY_LOG;$COUNTRY$ has gone bankrupt.
+THEY_BANKRUPTCY_BTN1;OK
+LIT_CHANGE;Monthly change
+precious_metal_desc;Precious metals are not sold like ordinary goods but are directly converted into money.
+DIPLOMACY_CANNOT_SET_PRIO_BANNED;We cannot influence this nation after our embassy has been banned
+PROV1723;Balboa
+PROV353;Osel
+MILITARY_MOBILIZE;Mobilize our armed forces
+MILITARY_MOBILIZE_DESC;In addition to our standing army, our nation can also mobilize additional resources for conscription during wartime. By issuing a mobilization order, our conscripted troops will begin to gather at major population centers and prepare for total war. Although mobilization is necessary to defeat a powerful enemy, we must still be cautious about its impact on the national economy.
+MILITARY_DEMOBILIZE;Demobilize our armed forces
+MILITARY_DEMOBILIZE_DESC;By issuing a demobilization order, our conscripted troops will leave the battlefield and return home. Although the homeland has been greatly devastated by war and will take a long time to recover, we must first ensure victory in this war before we can sheathe our swords.
+BE_TECH;Technology:
+BE_INVENT;Invention:
+TOPBAR_DIPLOPOINTS_GAIN;We gain ?Y$VALUE$?W diplomacy points each month
+TOPBAR_DIPLOPOINTS_BASEGAIN;Base gain: ?Y$VALUE$?W diplomacy points
+MOBILISE;Mobilize
+DEMOBILISE;Demobilize
+THE_WORLD_IN;The world in $YEAR$
+TECHNOLOGY_ACTIVATION_YEAR;Activation year:
+TECHNOLOGY_RESEARCH_POINTS;Research points:
+tut_8c_12;In Victoria II you must set a war goal every time you start a war.\nYou can only set those war goals that you can see on the right side of the war declaration window.\nPlease note that only these war goals are the benefits you can obtain when achieving peace.\nClick the war display interface to confirm the war goal.
+tut_6b_14;Now click Next to continue.
+tut_8a_7;To try to become allies with Britain, we need to conduct a diplomatic action.\nDiplomatic actions can do everything from forming alliances to declaring war.\nTo complete a diplomatic action we need diplomacy points,\nwhich accumulate each month. Note the diplomacy button at the top,\nbelow it you can see we now have some points,\nproposing an alliance action requires more than one diplomacy point.\nPlease click the propose alliance action and click the "Agree" button to propose an alliance to Britain.
+TEMP_NEXT;Next
+BUDGET_EXPORTS;Stock sold: ?Y$VAL$?W
+BUDGET_IMPORTS;Stock bought: ?Y$VAL$?W
+bad_debter;Bad Debtor
+bad_debter_desc;Due to the abnormal history of your nation's economy, banks will charge higher interest on your loans
+MUST_NEGOTIATE_WITH_WAR_LEADER;When we are not leading this war we can only negotiate with the enemy's ?YWar Leader?W
+BAD_ADJ;of Baden
+WAR_LEADER;?YWar Leader?W
+MUST_NEGOTIATE_WITH_WAR_LEADER_NO_LEFTOVER_WARGOALS;After achieving peace with ?Y$COUNTRY$?W, we must negotiate with the enemy ?YWar Leader?W to end the war
+WARGOAL_DEMAND;?Y$COUNTRY$?W demands from ?Y$ENEMY$?W
+POP_DETAILS_PROMOTIONS;Promotions:
+POP_DETAILS_DEMOTIONS;Demotions:
+NO_WAR_SPHERE_LEADER;Cannot wage war against sphere leader
+EVTNAME15310;Floating University
+GO_TO_DIPLOMACY;Open diplomatic action
+PROVINCE_CONTROL_DAYS_LATER_THAN;Province control has not changed in ?Y$DAYS$?W days\n
+PROVINCE_CONTROL_DAYS;Province control changed ?Y$DAYS$?W days ago\n
+ENFORCE_DEMANDS_TRIGGER;If the following conditions are met, the rebellion will succeed:
+tut_1a_40;When you see the movement arrow, unpause the game to continue.
+EVTNAME15060;First Agricultural Bank
+POLITICS_REFORMS;Reforms
+POLITICS_RELEASE_NATIONS;Release Nations
+MILITARY_LEADER_NAME_TOOLTIP;?Y$NAME$?W is the commander of ?Y$ARMY$?W, stationed at ?Y$LOCATION$?W
+hms_government;Parliamentary Constitutional Monarchy
+EVTNAME19310;Mandate of Heaven
+EVTDESC19310;"Mandate of Heaven" is a Chinese philosophical concept, similar to the Western concept of "Divine Right of Kings", historically used both to legitimize and inspire monarchical power. With our nation's recent promotion to great power status, the people are once again confident that our government carries the mandate from heaven.
+EVTOPTA19310;Excellent!
+EVTNAME19320;Empire of the Sun
+EVTDESC19320;Japan, the land of the rising sun. Many years have passed since the black ships of foreigners first appeared on our shores. Our nation has awakened to powers greater than itself and striven forward. With our recent promotion to great power status, the tide of fate has turned. From now on, let the winds drive back and shatter those foreign waves that dare to splash the sacred shores of Great Japan!
+EVTOPTA19320;Long live!
+form_union_nation_title;Establish $CULTURE_GROUP_UNION$
+form_union_nation_desc;Our dominant position among our brother peoples places us in a position to rebuild $CULTURE_GROUP_UNION$.
+BE_SECOND_RANK;Secondary Power
+COUNTRYALERT_HasUnemployedWorkers;The following regions have unemployed factory workers:
+REMOVE_TOPBAR_POPULATION;Our current adult male population is $CURR$\nOur adult male population now changes by about $CHANGE$ per month
+TOPBAR_POPULATION_VISUAL;Our total population is $CURR$
+BUILD_COLONIAL;Non-colonial region
+EVTNAME60080;The Road to Serfdom
+EVTDESC60080;Recently a grim feeling has crept over you — $COUNTRY$ is becoming silent. Where once free exchanges of opinions and ideas could be heard, from street corners and bus stations to bars and universities, now only the sound of silence echoes. The conclusion has become clearer than ever: $COUNTRY_ADJ$'s democratic traditions have been overthrown. In $COUNTRY$, at least, government of the people, by the people, and for the people has perished from the earth.
+EVTOPTA60080;Mwahahaha!
+EVTNAME14210_sub;They all say "Give peace a chance!"
+EVTNAME14040;Love and War
+REL_SPHERE_OF_INFLUENCE;Dominant power
+status_quo_short;Status Quo
+TOTAL_AMOUNT_OF_SHIPS;Total ships: $COUNT$
+LESS_AMOUNT_OF_SHIPS;Total ships more than: $COUNT$
+tut_3a_21b;Obtain a loan by clicking the Apply for Loan button, drag the slider until you are satisfied with the amount and then click the "OK" button.
+REVANCHISM_EXPLANATION;Revanchism is the desire to recover lost national territories. Like love, war, and peace, our people can make greater sacrifices to recover our sacred territories.
+EVTNAME14120_sub;Religious policy debate in local elections
+tut_8c_10;However, even if your status declines it is not too late, you will get a timely warning and then try to solve this problem. One way to avoid such disasters, of course, is war. Either start a war to increase your own prestige, or lower another nation's prestige. Let's talk about war. Find France and declare war. First press the "Declare War" button, select a war goal and click the "Agree" button.
+BE_GREAT_POWER;Great Power
+DIPLOMACY_GREATNATION_STATUS;Great Power
+WE_NO_LONGER_GREAT_POWER_2;and lost Great Power status
+THEY_NO_LONGER_GREAT_POWER_3;and lost Great Power status
+WE_BECAME_GREAT_POWER_2;and is now regarded as a Great Power!
+SERVER_LOST_DESC;Host has been lost. You can save the game or choose to continue and close this window. To continue the game you must exit and reconnect to the host.
+MODIFIER_GLOBAL_POP_MILITANCY_MODIFIER;Mass militancy
+MODIFIER_GLOBAL_POP_CONSCIOUSNESS_MODIFIER;Mass consciousness
+global_liberal_agitation;Liberal Agitation
+desc_global_liberal_agitation;Agitators are talking loudly about the cause of liberalism and revolution.
+EDU_DESC;Education spending pays for clergy to produce research points.
+ADM_DESC;Administrative spending enables bureaucracy to function and maintain a healthy bureaucratic system, thereby improving tax efficiency and reducing crime rates.
+COMBATEND_INITIAL;Initial strength
+COMBATEND_CASUALTIES;Casualties
+COMBATEND_SURVIVORS;Survivors
+cavours_diplomacy_title;Cavour's Diplomacy
+cavours_diplomacy_desc;Camillo Paolo Filippo Giulio Benso, Count of Cavour, Prime Minister of the Kingdom of Sardinia, was a leading figure in the Italian unification movement. His diplomatic efforts are often credited with securing the reliable aid of Napoleon III of France against Austria in the Second Italian War of Independence.
+EVTNAME36898;Coronation of Queen Victoria
+EVTDESC36898;On June 28, 1838, Princess Alexandrina Victoria of the House of Hanover ascended the throne of the United Kingdom of Great Britain and Ireland as "Queen Victoria". Her reign, which would last until the 20th century with only a few years to spare, would later be remembered as the absolute pinnacle of the British Empire — the empire where the sun never sets. As the last British monarch of the House of Hanover, her accession also marked the end of the personal union between Britain and Hanover. Today, the joyful crowds in London escort the young Queen Victoria to her official residence at Buckingham Palace.
+EVTOPTA36898;Queen Victoria!
+RELEASE_VASSAL_EFFECT;Release ?Y$TARGET$?W\n
+EVTDESC15310;She pushes her way through the city, the shadows of those around her like $COUNTRY_ADJ$ soldiers, the glowing bell tower of the church glaring at her like a vicious infected yellow eye. She is late, but the lesson continues. In $PROVINCENAME$, an underground university has formed, offering higher education in defiance of academic prohibitions against minority languages.
+EVTNAME11100;$FROMCOUNTRY_ADJ$ Parliament
+EVTDESC11100;A wave of liberal nationalism rising within the greater $CULTURE_GROUP_UNION$ has overthrown the government of $FROMCOUNTRY$. A parliament convened by liberal revolutionaries, including representatives from across the $CULTURE_GROUP_UNION$, has decreed that the time has come to unite the entire nation under one banner. This parliament is willing to offer us a crown of $CULTURE_GROUP_UNION$ union. We can accept this coronation, but doing so will cause international alarm, and we must also reward these revolutionaries politically.
+EVTOPTA11100;Hooray!
+EVTOPTB11100;We do not accept the crown of pariahs.
+IS_IN_A_SPHERE;In a sphere of influence
+EVTNAME16070;Fire Eaters
+EVTDESC16070;"Stilled, forever, are all the disturbing questions about our unique institutions."\n\nHis words are gentle, but contain an inner flame of righteous indignation, directed at anyone and anything he sees as threatening slavery. The "Fire Eaters," radical slavery agitators, have appeared in $PROVINCENAME$.
+EVTOPTA16070;All men are created equal...
+EVTOPTB16070;Amen!
+PROVINCEVIEW_SUPPLY_LIMIT;Supply limit:
+PRODUCTION_COST_REOPEN;Reopening cost: ?Y$VAL$?W
+EVTNAME11102;Long live $CULTURE_GROUP_UNION$!
+EVTDESC11102;Across $COUNTRY$, jubilant crowds wave the flag of $CULTURE_GROUP_UNION$ and celebrate in the streets. At this moment the government in $CAPITAL$ announces that the entire $CULTURE_GROUP_UNION$ has been united under the $COUNTRY_ADJ$ flag. "For too long we have allowed the schemes and intrigues of foreign powers to set the course of our nation. Today, and forever — here, our ancient homeland — we establish a more perfect union. Long live $CULTURE_GROUP_UNION$!"
+EVTOPTA11102;Long live!
+NAVALATTACKTHEM_HEADER;Report from the Minister of the Navy
+NAVALATTACKUS_HEADER;Report from the Minister of the Navy
+SIEGEUS_SETUP;When enemy forces begin to occupy our provinces
+SIEGEUS_HEADER;$MESSENGER$
+SIEGEUS_1;Our provinces are beginning to be occupied
+SIEGEUS_2;$MONARCHTITLE$,
+SIEGEUS_3;$PROV$ is being occupied
+SIEGEUS_4;Do not worry!
+SIEGEUS_5;$ATTACKER$'s forces
+SIEGEUS_6;will soon be driven out by our forces.
+SIEGEUS_LOG;$PROV$ is beginning to be occupied.
+SIEGEUS_BTN1;OK
+SIEGEUS_BTN2;OK
+SIEGEUS_BTN3;View
+SIEGEUS_MAP;*
+SIEGETHEM_SETUP;When our nation begins to occupy an enemy province
+SIEGETHEM_HEADER;$MESSENGER$
+SIEGETHEM_1;Their province is beginning to be occupied
+SIEGETHEM_2;$MONARCHTITLE$, we begin occupation of the following province:
+SIEGETHEM_3;$PROV$
+SIEGETHEM_4;It won't be long before our forces take it
+SIEGETHEM_5;from the hands of $DEFENDER$
+SIEGETHEM_6;They can only look forward to our civilized government.
+SIEGETHEM_LOG;We begin to occupy $PROV$.
+SIEGETHEM_BTN1;OK
+SIEGETHEM_BTN2;OK
+SIEGETHEM_BTN3;View
+SIEGETHEM_MAP;*
+chief_of_army;Minister of the Army
+chief_of_navy;Minister of the Navy
+chief_of_staff;Minister of War
+SPHERE_LEADER;Sphere Leader
+CONFIRM_INTERVENTION;Intervene!
+CONFIRM_INTERVENTION_DESC;Do you want to intervene in $WAR$?
+CHAT_NONE_TIP;Filter chat messages
+CHAT_ALLIES_TIP;Chat only with allies
+CHAT_ENEMIES_TIP;Chat only with enemies
+CHAT_ALL_TIP;Chat with everyone
+CHAT_FILTER;Click to set whether to receive certain chat messages
+UV_NO_MORALE;Cannot move due to too low organization. Current organization is ?Y$ORG$?W, movement requires ?Y$NEED$?W.
+UV_NO_STRENGHT;Cannot move due to too low strength. Current strength is ?Y$STR$?W, movement requires ?Y$NEED$?W.
+tut_7a_6b;Below is an "Auto" checkbox.\nSelecting "Auto" will automatically set your trade rules to purchase the materials your army needs.
+tut_1a_4;The Netherlands is massing on our border, we must repel them.\nThe first thing we need to do is select a unit.\nTo select a unit, click on the unit in Brussels.
+CONT_AI;Replace with AI
+CONT_CONTINUE;Continue (no AI)
+ASKMILITARYACCESS_THEY_ACCEPT_6;After the treaty takes effect our troops can move freely within their territory.
+ASKMILITARYACCESS_THEY_DECLINE_6;Why they cannot see the benefit of letting our troops be stationed on the streets of their capital is a mystery.
+DISBAND_UNIT_DRO;Disbanding a brigade will remove it from the game, which will reduce the total supply your nation spends on maintenance.
+residency_desc;Only pops belonging to the primary culture have the right to vote.
+limited_citizenship_desc;Only pops belonging to the primary culture and accepted cultures have the right to vote.
+small_arms_production_desc;With advances in weapon design including breech-loading, mechanization, semi-automatic and other technologies, the industrial output of small arms developed greatly in the 19th century.
+ammunition_production_desc;The design and production of basic munitions achieved tremendous progress in the 19th century. Advanced weapon design — from muzzle-loading to breech-loading to semi-automatic and machine guns — naturally required corresponding ammunition design and production.
+explosives_production_desc;The Victorian era witnessed tremendous progress in humanity's ability to research explosives. At the beginning of the era it was only slightly more advanced than ordinary black powder, but by the end came the birth of plastic explosives and nitroglycerin.
+artillery_production_desc;The 19th century Industrial Revolution truly affected all areas of human endeavor, and artillery production was no exception. Bronze cannons that originally required long hours of molding became industrialized and precise in the hands of industrial geniuses like Alfred Krupp or Hiram Maxim.
+PO_PD_70;You have won a devastating victory and can expect to achieve many war goals when peace is made.
+PO_PD_40;You have won a total victory and can achieve at least one major war goal when peace is made.
+PO_PD_10;You have won a victory. The enemy will likely agree to an unconditional armistice when peace is made, or a limited war goal can be achieved.
+PO_PD_NEG_25;The enemy has won a victory, we should consider offering them a limited war goal in exchange for peace.
+PO_PD_NEG_60;The enemy has won a total victory, we should consider offering them at least one major war goal.
+PO_PD_NEG_99;The enemy has won a devastating victory, we can expect them to demand many war goals during peace negotiations.
+TOPBAR_AT_WAR_WITH;At war with ?Y$COUNTRY$?W
+tut_7a_8a;Note this icon with "Buy" text below it, followed by a slider.\nThis means if you move the slider to a certain stock value, the game will try to buy trade goods until reaching the number you need.
+EVTOPTA17000;No one approves here
+EVTOPTB17000;If only someone here supported this idea...

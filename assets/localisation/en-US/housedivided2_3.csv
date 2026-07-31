@@ -1,0 +1,152 @@
+#Powered_by_ParaTranz
+GREAT_WARS_ENABLED_DESC;Great wars can be fought
+GREAT_WARS_DISABLED_DESC;Great wars cannot be fought yet
+GREAT_WARS_ENABLE_DESC;Wars can escalate into Great Wars!
+GREAT_WAR_NAME;$ORDER$ Great War
+GW_DISCOVERED_SETUP;When great wars can be fought
+GW_DISCOVERED_HEADER;Great wars can be fought!
+GW_DISCOVERED_1;Great wars can be fought!
+GW_DISCOVERED_2;From now on,
+GW_DISCOVERED_3;Every war with at least two great powers on each side
+GW_DISCOVERED_4;will escalate into
+GW_DISCOVERED_5;?YGreat War?!
+GW_DISCOVERED_6;*
+GW_DISCOVERED_BTN1;OK
+GW_DISCOVERED_BTN2;OK
+GW_DISCOVERED_BTN3;Go to
+GW_DISCOVERED_LOG;Great wars can be fought
+WAR_GAIN_GW_STATUS_SETUP;When our war becomes a Great War
+WAR_GAIN_GW_STATUS_HEADER;Great War!
+WAR_GAIN_GW_STATUS_1;$WAR$
+WAR_GAIN_GW_STATUS_2;has become a
+WAR_GAIN_GW_STATUS_3;?YGreat War?!
+WAR_GAIN_GW_STATUS_4;*
+WAR_GAIN_GW_STATUS_5;*
+WAR_GAIN_GW_STATUS_6;*
+WAR_GAIN_GW_STATUS_BTN1;OK
+WAR_GAIN_GW_STATUS_BTN2;OK
+WAR_GAIN_GW_STATUS_BTN3;Go to
+WAR_GAIN_GW_STATUS_LOG;$WAR$ has become a ?YGreat War?!
+WAR_LOST_GW_STATUS_SETUP;When our war is no longer a Great War
+WAR_LOST_GW_STATUS_HEADER;No longer a Great War!
+WAR_LOST_GW_STATUS_1;$WAR$
+WAR_LOST_GW_STATUS_2;is no longer a
+WAR_LOST_GW_STATUS_3;Great War.
+WAR_LOST_GW_STATUS_4;*
+WAR_LOST_GW_STATUS_5;*
+WAR_LOST_GW_STATUS_6;*
+WAR_LOST_GW_STATUS_BTN1;OK
+WAR_LOST_GW_STATUS_BTN2;OK
+WAR_LOST_GW_STATUS_BTN3;Go to
+WAR_LOST_GW_STATUS_LOG;$WAR$ is no longer a ?YGreat War?!
+GW_INTERVENE_MIN_RELATIONS;Our relations with ?Y$TARGET$?! must be at least ?G$MIN$?! Currently ?Y$VAL$?!
+GW_INTERVENE_MAX_EXHAUSTION;Our war exhaustion must not exceed ?G$MAX$?! Currently ?Y$VAL$?!
+great_war_penalty_cb;Exit Great War
+great_war_penalty_cb_desc;Force another ?Ynation?! to disarm and pay us reparations
+great_war_penalty_cb_setup;Disarm $RECIPIENT$ and make them pay reparations
+great_war_penalty_cb_short;Exit Great War
+GREAT_WAR_OBLIGATORY_CB_DESC;Mandatory Great War casus belli against all enemies:
+GREAT_WAR_CB_JUSTIFY_COST_DESC;Infamy cost reduced by ?G$PERC$%?! due to being in a ?YGreat War?!
+GREAT_WAR_CB_CONSTRUCTION_SPEED_DESC;At war with ?Y$TARGET$?! in a Great War
+fascist_focus_short;?YFascist?! Focus
+reactionary_focus_short;?YReactionary?! Focus
+conservative_focus_short;?YConservative?! Focus
+socialist_focus_short;?YSocialist?! Focus
+communist_focus_short;?YCommunist?! Focus
+liberal_focus_short;?YLiberal?! Focus
+anarcho_liberal_focus_short;?YAnarcho-Liberal?! Focus
+automation_focus_short;Automotive Manufacturing
+electrical_focus_short;Electrical Industry
+chemical_focus_short;Chemical Industry
+shipping_focus_short;Shipbuilding
+textile_focus_short;Textile Industry
+wood_focus_short;Forestry
+basic_industry_focus_short;Basic Industry
+armaments_focus_short;Armaments Industry
+consumer_focus_short;Consumer Goods Industry
+WAR_GOAL_SUCCESS_PRESTIGE_CHANGE;If this war goal is achieved, we will gain $PRES$ prestige.
+WAR_GOAL_FAILURE_PRESTIGE_CHANGE;If this war goal fails, we will lose $PRES$ prestige.
+POP_INTERNAL_MIGRATION;?Y$NUM$?! pops want to migrate to another province
+POP_EXTERNAL_MIGRATION;?Y$NUM$?! pops want to migrate to another country
+POP_COLONIAL_MIGRATION;?Y$NUM$?! pops want to migrate to the colonies
+INVESTED_IN_US_SETUP;When a country invests in our nation
+INVESTED_IN_US_HEADER;Foreign Investment
+INVESTED_IN_US_1;$ICOUNTRY$ invests in our nation!
+INVESTED_IN_US_2;$INVESTED_IN_US_MESSAGE$
+INVESTED_IN_US_3;*
+INVESTED_IN_US_4;*
+INVESTED_IN_US_5;*
+INVESTED_IN_US_6;*
+INVESTED_IN_US_BTN1;OK
+INVESTED_IN_US_BTN2;OK
+INVESTED_IN_US_BTN3;Go to
+INVESTED_IN_US_LOG;?Y$ICOUNTRY$?! invests in our nation: $INVESTED_IN_US_MESSAGE$
+INVESTED_IN_US_BUILD;Invest $IAMOUNT$ in $ILOCATION$ to build $INAME$
+INVESTED_IN_US_OPEN;Invest $IAMOUNT$ in $ILOCATION$ to reopen $INAME$
+INVESTED_IN_US_UPGRADE;Invest $IAMOUNT$ in $ILOCATION$ to upgrade $INAME$
+INVESTED_IN_US_UNKNOWN;Invest $IAMOUNT$ in our nation
+MODIFY_RELATION_EFFECT;Relations between ?Y$SOURCE$?! and ?Y$TARGET$?! changed by $VALUE$
+PRODUCTION_EXPAND_FACTORY_SHORTCUT_TOOLTIP;?GCtrl-click?! to upgrade all similar factories\n?GShift-click?! to upgrade all factories
+EVTNAME19355;Great War
+EVTDESC19355;National pride across the world has grown so strong that the people of each great power wish only to see the utter destruction of another. From now on, wars with at least two great powers on each side will become Great Wars!
+EVTOPTA19355;God save us
+AGRESSION_WAR_INDEPENDENCE_NAME;$ORDER$ $FIRST$ War of Independence
+BYE;Belarus
+BYE_ADJ;Belarusian
+UBD;United Baltic Duchy
+UBD_ADJ;Baltic
+UBD_conservative;Conservatives
+UBD_liberal;Liberals
+UBD_reactionary;Reactionaries
+UBD_anarcho_liberals;Anarcho-Liberals
+UBD_socialist;Socialists
+UBD_communist;Bolsheviks
+UBD_fascist;National Socialists
+BYE_conservative;Conservatives
+BYE_liberal;Liberals
+BYE_reactionary;Reactionaries
+BYE_anarcho_liberals;Anarcho-Liberals
+BYE_socialist;Belarusian Socialist Congress
+BYE_communist;Bolsheviks
+BYE_fascist;National Socialists
+PLC;Poland-Lithuania
+PLC_ADJ;Polish-Lithuanian
+PLC_conservative;National Democrats
+PLC_liberal;Patriotic Party
+PLC_reactionary;Targowica Confederation
+PLC_anarcho_liberal;Radical Party
+PLC_socialist;Socialist Party
+PLC_communist;Social Democratic Party
+PLC_fascist;National Party
+ARA;Arabia
+ARA_ADJ;Arab
+ARA_conservative;Conservatives
+ARA_liberal;Liberals
+ARA_reactionary;Reactionaries
+ARA_anarcho_liberals;Anarcho-Liberals
+ARA_socialist;Socialists
+ARA_communist;Communists
+ARA_fascist;National Socialists
+GCO;Gran Colombia
+GCO_ADJ;Gran Colombian
+form_gran_colombia_title;Form Gran Colombia
+form_gran_colombia_desc;Gran Colombia was a political federation in South America formed after Simón Bolívar liberated Colombia, Venezuela, and Ecuador. The federation dissolved in 1831. If we rebuild Gran Colombia, we can reunite the peoples of the northern Andes.
+GCO_conservative;Centralist Party
+GCO_conservative_2;New Centralist Party
+GCO_liberal;Federalist Party
+GCO_liberal_2;New Federalist Party
+GCO_liberal_3;Autonomist Party
+GCO_anarcho_liberal;Radical Party
+GCO_reactionary;Traditionalist Party
+GCO_socialist;Social Revolutionary Party
+GCO_communist;Communist Party
+GCO_fascist;Fascist Party
+arab;Arab
+form_arabia_title;Form Arabia
+form_arabia_desc;Brothers, freedom has come! We have won the battle for the destiny of our nation! The Arab people are marching toward greatness!
+IS_EMPTY;No controller
+IS_NOT_EMPTY;Has controller
+EVTNAME111011928;Form Arabia
+EVTDESC111011928;The Arab League has finally been established after war and negotiation. Shall we join?
+EVTOPTA111011928;Of course!
+EVTOPTB111011928;Never!

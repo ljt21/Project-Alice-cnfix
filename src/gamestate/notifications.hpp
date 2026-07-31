@@ -17,7 +17,9 @@ struct message {
 	// if province_source is defined, it will go to said province instead
 };
 
+// 发布通知消息
 void post(sys::state& state, message&& m);
+// 判断国家是否为玩家感兴趣的国家
 bool nation_is_interesting(sys::state& state, dcon::nation_id n);
 
 } // namespace notification

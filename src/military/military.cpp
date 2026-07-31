@@ -2555,17 +2555,9 @@ static std::string get_current_locale_name(sys::state& state) {
 	return std::string(state.user_settings.locale);
 }
 
-// 调试日志开关：定义 CNFIX_LOG 启用详细日志
-// #define CNFIX_LOG
-
-#ifdef CNFIX_LOG
-#define CNLOG(state, msg) state.push_log_message(msg)
-#else
-#define CNLOG(state, msg) ((void)0)
-#endif
-
 // 根据当前语言生成军队名称
-static std::string generate_army_name(std::string const& locale_str, int32_t count) {
+static std::string generate_army_name(sys::state& state, int32_t count) {
+	std::string locale_str = get_current_locale_name(state);
 	if(locale_str == "zh-CN" || locale_str == "zh-TW") {
 		return "第" + to_chinese_numeral(count) + "军";
 	} else if(locale_str == "jp-JP") {
@@ -2582,7 +2574,8 @@ static std::string generate_army_name(std::string const& locale_str, int32_t cou
 }
 
 // 根据当前语言生成海军名称
-static std::string generate_navy_name(std::string const& locale_str, int32_t count) {
+static std::string generate_navy_name(sys::state& state, int32_t count) {
+	std::string locale_str = get_current_locale_name(state);
 	if(locale_str == "zh-CN" || locale_str == "zh-TW") {
 		return "第" + to_chinese_numeral(count) + "舰队";
 	} else if(locale_str == "jp-JP") {
@@ -2599,7 +2592,8 @@ static std::string generate_navy_name(std::string const& locale_str, int32_t cou
 }
 
 // 根据当前语言生成叛军名称
-static std::string generate_rebel_name(std::string const& locale_str) {
+static std::string generate_rebel_name(sys::state& state) {
+	std::string locale_str = get_current_locale_name(state);
 	if(locale_str == "zh-CN" || locale_str == "zh-TW") {
 		return "叛军";
 	} else if(locale_str == "jp-JP") {
@@ -2618,17 +2612,17 @@ static std::string generate_rebel_name(std::string const& locale_str) {
 // 为自动生成的军队设置名称：基于该国已有军队数量自动编号
 void set_auto_army_name(sys::state& state, dcon::army_id a, dcon::nation_id n) {
 	auto count = count_armies(state, n) + 1;
-	auto const locale_str = get_current_locale_name(state);
-	std::string name = generate_army_name(locale_str, count);
-	CNLOG(state, std::string("[cnfix] set_auto_army_name called: army_id=")
+	std::string name = generate_army_name(state, count);
+	// 诊断日志：记录函数调用、当前 locale 和生成的名称
+	state.push_log_message(std::string("[cnfix] set_auto_army_name called: army_id=")
 		+ std::to_string(a.index()) + ", nation_id=" + std::to_string(n.index())
 		+ ", count=" + std::to_string(count)
-		+ ", locale=" + locale_str
+		+ ", locale=" + get_current_locale_name(state)
 		+ ", name=" + name);
 	// 防御性检查：若生成的名称为空（不应发生），使用备用名称
 	if(name.empty()) {
 		name = "Army " + std::to_string(count);
-		CNLOG(state, std::string("[cnfix] WARNING: generated army name was empty, using fallback"));
+		state.push_log_message(std::string("[cnfix] WARNING: generated army name was empty, using fallback"));
 	}
 	state.world.army_set_name(a, state.add_unit_name(name));
 }
@@ -2636,33 +2630,33 @@ void set_auto_army_name(sys::state& state, dcon::army_id a, dcon::nation_id n) {
 // 为自动生成的海军设置名称：基于该国已有海军数量自动编号
 void set_auto_navy_name(sys::state& state, dcon::navy_id v, dcon::nation_id n) {
 	auto count = count_navies(state, n) + 1;
-	auto const locale_str = get_current_locale_name(state);
-	std::string name = generate_navy_name(locale_str, count);
-	CNLOG(state, std::string("[cnfix] set_auto_navy_name called: navy_id=")
+	std::string name = generate_navy_name(state, count);
+	// 诊断日志：记录函数调用、当前 locale 和生成的名称
+	state.push_log_message(std::string("[cnfix] set_auto_navy_name called: navy_id=")
 		+ std::to_string(v.index()) + ", nation_id=" + std::to_string(n.index())
 		+ ", count=" + std::to_string(count)
-		+ ", locale=" + locale_str
+		+ ", locale=" + get_current_locale_name(state)
 		+ ", name=" + name);
 	// 防御性检查：若生成的名称为空（不应发生），使用备用名称
 	if(name.empty()) {
 		name = "Fleet " + std::to_string(count);
-		CNLOG(state, std::string("[cnfix] WARNING: generated navy name was empty, using fallback"));
+		state.push_log_message(std::string("[cnfix] WARNING: generated navy name was empty, using fallback"));
 	}
 	state.world.navy_set_name(v, state.add_unit_name(name));
 }
 
 // 为自动生成的叛军设置名称
 void set_auto_rebel_name(sys::state& state, dcon::army_id a) {
-	auto const locale_str = get_current_locale_name(state);
-	std::string name = generate_rebel_name(locale_str);
-	CNLOG(state, std::string("[cnfix] set_auto_rebel_name called: army_id=")
+	std::string name = generate_rebel_name(state);
+	// 诊断日志：记录函数调用和生成的名称
+	state.push_log_message(std::string("[cnfix] set_auto_rebel_name called: army_id=")
 		+ std::to_string(a.index())
-		+ ", locale=" + locale_str
+		+ ", locale=" + get_current_locale_name(state)
 		+ ", name=" + name);
 	// 防御性检查：若生成的名称为空（不应发生），使用备用名称
 	if(name.empty()) {
 		name = "Rebels";
-		CNLOG(state, std::string("[cnfix] WARNING: generated rebel name was empty, using fallback"));
+		state.push_log_message(std::string("[cnfix] WARNING: generated rebel name was empty, using fallback"));
 	}
 	state.world.army_set_name(a, state.add_unit_name(name));
 }
@@ -2833,7 +2827,11 @@ static int32_t count_ships_of_type(sys::state& state, dcon::nation_id n, dcon::u
 }
 
 // 为旅/团生成名称
-static std::string generate_regiment_name(std::string const& locale_str, int32_t count, std::string const& unit_type_name) {
+static std::string generate_regiment_name(sys::state& state, dcon::nation_id n, dcon::unit_type_id t) {
+	auto count = count_regiments_of_type(state, n, t) + 1;
+	auto unit_type_name = get_unit_type_name(state, t);
+	std::string locale_str = get_current_locale_name(state);
+	
 	if(locale_str == "zh-CN" || locale_str == "zh-TW") {
 		return "第" + to_chinese_numeral(count) + unit_type_name + "旅";
 	} else if(locale_str == "jp-JP") {
@@ -2846,7 +2844,11 @@ static std::string generate_regiment_name(std::string const& locale_str, int32_t
 }
 
 // 为舰船生成名称
-static std::string generate_ship_name(std::string const& locale_str, int32_t count, std::string const& unit_type_name) {
+static std::string generate_ship_name(sys::state& state, dcon::nation_id n, dcon::unit_type_id t) {
+	auto count = count_ships_of_type(state, n, t) + 1;
+	auto unit_type_name = get_unit_type_name(state, t);
+	std::string locale_str = get_current_locale_name(state);
+	
 	if(locale_str == "zh-CN" || locale_str == "zh-TW") {
 		return "第" + to_chinese_numeral(count) + unit_type_name;
 	} else if(locale_str == "jp-JP") {
@@ -2860,39 +2862,46 @@ static std::string generate_ship_name(std::string const& locale_str, int32_t cou
 
 // 语言切换时重新生成所有单位名称
 void rename_all_units(sys::state& state) {
-	auto const locale_str = get_current_locale_name(state);
-	CNLOG(state, std::string("[cnfix] rename_all_units called, locale=") + locale_str);
+	state.push_log_message(std::string("[cnfix] rename_all_units called, locale=") + get_current_locale_name(state));
 	
-	// 重新生成所有军队名称：按国家分别递增编号，避免全部同名
-	state.world.for_each_nation([&](dcon::nation_id n) {
-		int32_t count = 0;
-		for(auto army : state.world.nation_get_army_control(n)) {
-			++count;
-			std::string name = generate_army_name(locale_str, count);
-			state.world.army_set_name(army.get_army().id, state.add_unit_name(name));
-		}
+	// 重新生成所有军队名称
+	state.world.for_each_army([&](dcon::army_id army_id) {
+		auto n = state.world.army_get_controller_from_army_control(army_id);
+		std::string name = generate_army_name(state, count_armies(state, n));
+		state.world.army_set_name(army_id, state.add_unit_name(name));
 	});
 	
-	// 重新生成所有海军名称：按国家分别递增编号，避免全部同名
-	state.world.for_each_nation([&](dcon::nation_id n) {
-		int32_t count = 0;
-		for(auto navy : state.world.nation_get_navy_control(n)) {
-			++count;
-			std::string name = generate_navy_name(locale_str, count);
-			state.world.navy_set_name(navy.get_navy().id, state.add_unit_name(name));
-		}
+	// 重新生成所有海军名称
+	state.world.for_each_navy([&](dcon::navy_id navy_id) {
+		auto n = state.world.navy_get_controller_from_navy_control(navy_id);
+		std::string name = generate_navy_name(state, count_navies(state, n));
+		state.world.navy_set_name(navy_id, state.add_unit_name(name));
 	});
 	
 	// 重新生成所有旅/团名称（按国家和类型分组计数）
 	state.world.for_each_nation([&](dcon::nation_id n) {
 		std::unordered_map<uint32_t, int32_t> current_counts;
+		
+		// 重新命名旅/团
 		for(auto army : state.world.nation_get_army_control(n)) {
 			for(auto membership : army.get_army().get_army_membership()) {
 				auto reg = membership.get_regiment();
 				auto type = reg.get_type();
-				auto count = ++current_counts[uint32_t(type.index())];
+				current_counts[uint32_t(type.index())]++;
+				auto count = current_counts[uint32_t(type.index())];
 				auto unit_type_name = get_unit_type_name(state, type);
-				std::string name = generate_regiment_name(locale_str, count, unit_type_name);
+				std::string locale_str = get_current_locale_name(state);
+				std::string name;
+				
+				if(locale_str == "zh-CN" || locale_str == "zh-TW") {
+					name = "第" + to_chinese_numeral(count) + unit_type_name + "旅";
+				} else if(locale_str == "jp-JP") {
+					name = "第" + std::to_string(count) + "旅団";
+				} else if(locale_str == "ko-SK") {
+					name = "제" + std::to_string(count) + "여단";
+				} else {
+					name = std::to_string(count) + " " + unit_type_name;
+				}
 				state.world.regiment_set_name(reg.id, state.add_unit_name(name));
 			}
 		}
@@ -2901,31 +2910,42 @@ void rename_all_units(sys::state& state) {
 	// 重新生成所有舰船名称（按国家和类型分组计数）
 	state.world.for_each_nation([&](dcon::nation_id n) {
 		std::unordered_map<uint32_t, int32_t> current_counts;
+		
+		// 重新命名舰船
 		for(auto navy : state.world.nation_get_navy_control(n)) {
 			for(auto membership : navy.get_navy().get_navy_membership()) {
 				auto shp = membership.get_ship();
 				auto type = shp.get_type();
-				auto count = ++current_counts[uint32_t(type.index())];
+				current_counts[uint32_t(type.index())]++;
+				auto count = current_counts[uint32_t(type.index())];
 				auto unit_type_name = get_unit_type_name(state, type);
-				std::string name = generate_ship_name(locale_str, count, unit_type_name);
+				std::string locale_str = get_current_locale_name(state);
+				std::string name;
+				
+				if(locale_str == "zh-CN" || locale_str == "zh-TW") {
+					name = "第" + to_chinese_numeral(count) + unit_type_name;
+				} else if(locale_str == "jp-JP") {
+					name = "第" + std::to_string(count) + unit_type_name;
+				} else if(locale_str == "ko-SK") {
+					name = "제" + std::to_string(count) + unit_type_name;
+				} else {
+					name = std::to_string(count) + " " + unit_type_name;
+				}
 				state.world.ship_set_name(shp.id, state.add_unit_name(name));
 			}
 		}
 	});
 	
-	CNLOG(state, std::string("[cnfix] rename_all_units completed"));
+	state.push_log_message(std::string("[cnfix] rename_all_units completed"));
 }
 
 dcon::regiment_id create_new_regiment(sys::state& state, dcon::nation_id n, dcon::unit_type_id t) {
 	auto reg = fatten(state.world, state.world.create_regiment());
 	reg.set_type(t);
 	// 为自动生成的旅/团设置名称
-	auto const locale_str = get_current_locale_name(state);
-	auto const count = count_regiments_of_type(state, n, t) + 1;
-	auto const unit_type_name = get_unit_type_name(state, t);
-	std::string name = generate_regiment_name(locale_str, count, unit_type_name);
+	std::string name = generate_regiment_name(state, n, t);
 	state.world.regiment_set_name(reg.id, state.add_unit_name(name));
-	CNLOG(state, std::string("[cnfix] create_new_regiment: name=") + name);
+	state.push_log_message(std::string("[cnfix] create_new_regiment: name=") + name);
 	auto exp = state.world.nation_get_modifier_values(n, sys::national_mod_offsets::land_unit_start_experience) / 100.f;
 	exp += state.world.nation_get_modifier_values(n, sys::national_mod_offsets::regular_experience_level) / 100.f;
 	reg.set_experience(std::clamp(exp, 0.f, 1.f));
@@ -2937,12 +2957,9 @@ dcon::ship_id create_new_ship(sys::state& state, dcon::nation_id n, dcon::unit_t
 	auto shp = fatten(state.world, state.world.create_ship());
 	shp.set_type(t);
 	// 为自动生成的舰船设置名称
-	auto const locale_str = get_current_locale_name(state);
-	auto const count = count_ships_of_type(state, n, t) + 1;
-	auto const unit_type_name = get_unit_type_name(state, t);
-	std::string name = generate_ship_name(locale_str, count, unit_type_name);
+	std::string name = generate_ship_name(state, n, t);
 	state.world.ship_set_name(shp.id, state.add_unit_name(name));
-	CNLOG(state, std::string("[cnfix] create_new_ship: name=") + name);
+	state.push_log_message(std::string("[cnfix] create_new_ship: name=") + name);
 	auto exp = state.world.nation_get_modifier_values(n, sys::national_mod_offsets::naval_unit_start_experience) / 100.f;
 	exp += state.world.nation_get_modifier_values(n, sys::national_mod_offsets::regular_experience_level) / 100.f;
 	shp.set_experience(std::clamp(exp, 0.f, 1.f));

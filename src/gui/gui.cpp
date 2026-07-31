@@ -1168,7 +1168,7 @@ void unit_counter_window::on_update(sys::state& state) noexcept {
 
 		if(strength != strength_cache[prov.index()]) {
 			strength_cache[prov.index()] = strength;
-			auto pretty = text::prettify(int32_t(strength));
+			auto pretty = text::prettify(int64_t(strength));
 
 			layout.contents.clear();
 			layout_small.contents.clear();
@@ -1222,7 +1222,7 @@ void unit_counter_window::on_update(sys::state& state) noexcept {
 
 		if(strength != strength_right_cache[prov.index()]) {
 			strength_right_cache[prov.index()] = strength;
-			auto pretty = text::prettify(int32_t(strength));
+			auto pretty = text::prettify(int64_t(strength));
 
 			layout.contents.clear();
 			layout_small.contents.clear();
@@ -1272,7 +1272,7 @@ void unit_counter_window::on_update(sys::state& state) noexcept {
 
 			if(loss != cached) {
 				cached = loss;
-				auto pretty = text::prettify(int32_t(loss));
+				auto pretty = text::prettify(int64_t(loss));
 
 				layout.contents.clear();
 				layout.number_of_lines = 0;
@@ -1299,7 +1299,7 @@ void unit_counter_window::on_update(sys::state& state) noexcept {
 
 			if(loss != cached) {
 				cached = loss;
-				auto pretty = text::prettify(int32_t(loss));
+				auto pretty = text::prettify(int64_t(loss));
 
 				layout.contents.clear();
 				layout.number_of_lines = 0;

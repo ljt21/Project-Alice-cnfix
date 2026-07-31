@@ -1,0 +1,82 @@
+#Powered_by_ParaTranz
+GIVE_UNIT_COMMAND_BUTTON;Command Unit
+GIVE_UNIT_COMMANDTITLE;Command Unit
+GIVE_UNIT_COMMAND_DESC;When a puppet nation fights alongside its overlord, the puppet will hand over command of its units to the overlord.
+GIVE_UNIT_COMMAND_OK;Request your puppet nation to hand over command of their units.
+GIVE_UNIT_COMMAND_CANT_CONTROL;You can only command units of your ?Ypuppet nation?! when you are fighting together.
+GIVE_UNIT_COMMAND_ALREADY_CONTROL;You are already commanding their units.
+CANCEL_UNIT_COMMAND_BUTTON;Return Units
+CANCEL_UNIT_COMMANDTITLE;Return Units
+CANCEL_UNIT_COMMAND_DESC;Return Units
+CANCEL_UNIT_COMMAND_OK;Return their units to them.
+CANCEL_UNIT_COMMAND_NOT_IN_CONTROL;You cannot command this unit.
+cut_down_to_size_boxer_setup;Force China to pay for the crimes of the Boxers.
+cut_down_to_size_boxer_short;Force China to pay for the crimes of the Boxers.
+LACK_OF_MAINTENANCE_GOODS;Lack of Maintenance Goods
+AIREASON_TOO_MANY_CRISIS_WARGOALS;Add War Goals
+AIREASON_NOT_OVERLORD;Not our overlord
+EVTNAME36230;Purchase Polar Bears
+EVTDESC36230;Jan Mayen has proposed to buy all our polar bears at a good price. They promise to treat these noble creatures with respect.
+EVTOPTA36230;Excellent!
+EVTOPTB36230;Never
+EVTNAME36231;Purchase Polar Bears - Denmark Accepts
+EVTDESC36231;Denmark has agreed to sell all its polar bears to us.
+EVTOPTA36231;Wonderful!
+EVTNAME36232;Purchase Polar Bears - Denmark Refuses
+EVTDESC36232;Denmark refuses to sell all its polar bears to us.
+EVTOPTA36232;Oh no!
+the_greenland_purchase_title;Purchase Polar Bears
+the_greenland_purchase_desc;One thing that has long troubled the great people of Jan Mayen is that all the polar bears in the world are not united under one flag. We should approach Denmark to see if they would be willing to part with their bears.
+bears;Bears
+polar_bears;Polar Bears
+INFLUENCE_SPHERE_NEIGHBOUR;Adjacent Sphere Members
+col_liferate_techs;Researching the following technologies can help improve local living conditions:
+unite_moldavia_wallachia_title;Moldavia and Wallachia United!
+unite_moldavia_wallachia_desc;Moldavia and Wallachia have united to form Romania!
+SOIS_HAS_REBELS_WARNING;Rebels have risen up against our sphere members: ?Y$LIST$?!
+ALLIANCE_INVALID_GPS_IN_CRISIS;An alliance cannot be established between ?Ytwo great powers?! when a ?Ycrisis?! is in progress.
+BP_TOOL_ARROW_MEDIUM_1_DASHED;Medium Dashed Arrow 1
+BP_TOOL_ARROW_MEDIUM_2_DASHED;Medium Dashed Arrow 2
+BP_TOOL_ARROW_MEDIUM_3_DASHED;Medium Dashed Arrow 3
+BP_TOOL_ARROW_THICK_DASHED;Thick Dashed Arrow
+BP_TOOL_ARROW_SLIM_DASHED;Slim Dashed Arrow
+BP_OPEN_TOOLTIP;Enable/disable battle plan editing.
+BP_TOGGLE_TOOLTIP;Show/hide existing battle plans.
+EVTOPTC23212;A colonized comet must make a good satellite!
+liberate_liberia_title;Liberate Liberia
+liberate_liberia_desc;Governor Joseph Jenkins Roberts has declared the independence of the Republic of Liberia. Britain, which operates the adjacent Sierra Leone region, regards the Liberian Federation and its founding organization, the American Colonization Society, as "thieves" and does not recognize their ability to exercise sovereignty. Therefore, formal independence proceedings are considered urgently needed. Although approved by the US government, formal diplomatic recognition from the new republic's Congress has been delayed due to civil war.
+liberian_constitution_title;Liberian Constitution
+liberian_constitution_desc;Liberia, once a trivial colony, has grown strong enough in recent years to pursue its ideal of becoming a free, autonomous, and independent nation. A draft of a new constitution has been prepared for a referendum. The constitution guarantees basic civil rights and establishes separation of powers similar to the US Constitution, representing a true separation of this newly independent nation from the US government and organizations.
+liberian_research_boost;Liberian Research Boost
+desc_liberian_research_boost;We are enjoying the benefits of independence; our new nation is moving toward modernization faster than ever before.
+form_scandinavia_NEWS_LONG;The Nordic nations have united to form the Scandinavian national state. A crowd composed mainly of blond-haired, blue-eyed men and women filled Stockholm's Central Square at 5 p.m. on Wednesday, as previously requested, and they orderly voiced their approval of the new political environment. Handshakes, respectful applause, and nods of approval marked the evening, and order remained impeccable. At 9 p.m., the crowd gradually dispersed, accepting the government's strict request. Police reported that a man who had shouted "Long live Scandinavia" outside his home was acquitted.
+form_scandinavia_NEWS_MEDIUM;The Nordic nations have united to form the Scandinavian national state. A crowd composed mainly of blond-haired, blue-eyed men and women filled Stockholm's Central Square at 5 p.m. on Wednesday, as previously requested, and they orderly voiced their approval of the new political environment.
+form_scandinavia_NEWS_SHORT;The Nordic nations have united to form the Scandinavian national state. A group of citizens politely expressed their approval of the new political environment through speeches and nods.
+form_germany_NEWS_LONG;The peoples of the German lands have finally been united once again. At the celebrations in Berlin on Monday, the proclamation of national unity was followed by frantic shouts and deafening cheers. Since the rise of German nationalism in the era of Napoleon, many statesmen have regarded German unification as inevitable. However, a fear is spreading among diplomats that this colossus may overturn the balance of power on the continent. If the newly born Germany challenges the current security order, its population and industrial strength would be enough to trigger a war of unprecedented scale in Europe.
+form_germany_NEWS_MEDIUM;The German people have been united. At the celebrations in Berlin on Monday, the proclamation of national unity was followed by frantic shouts and deafening cheers. A spreading fear holds that this colossus may overturn the balance of power on the continent and trigger a war of unprecedented scale.
+form_germany_NEWS_SHORT;The peoples of the German lands have finally been united once again. At a grand celebration in Berlin over the weekend, the proclamation of national unity was followed by frantic shouts and deafening cheers.
+form_italy_NEWS_LONG;Italy has been unified. The people rise in cheers, proclaiming the birth of the new nation. In a jubilant frenzy, politicians and high officials cater to the people's wishes, praising the unification of the new nation. Some worry that Italy may attempt to seize lands considered rightfully belonging to Italians, though educated voices say the new nation lacks the strength to threaten its neighbors. "We will take back our lands! Long live Italy!" a man declared on a scroll of newspaper.
+form_italy_NEWS_MEDIUM;Italy has been unified. The people rise in cheers, proclaiming the birth of the new nation. In a jubilant frenzy, politicians and high officials cater to the people's wishes, praising the unification of the new nation. Some worry that Italy may attempt to seize lands considered rightfully belonging to Italians, though educated voices say the new nation lacks the strength to threaten its neighbors. "We will take back our lands! Long live Italy!" a man declared on a scroll of newspaper.
+form_italy_NEWS_SHORT;Italy has finally been unified. "Italians will take back what is rightfully theirs! Long live Italy!" a bearded man said yesterday through a scroll of newspaper.
+the_meiji_restoration_NEWS_LONG;The penetration of Western influence into Japan has reached a climax with a series of recent events. Centuries of feudalism collapsed in the blink of an eye, and the Emperor regained power in Tokyo. On Wednesday, after the Shogun was ousted, an era known as "Meiji" — heralding social, political, and economic transformation — was inaugurated. Under enlightened governance, a bright future awaits the Land of the Rising Sun. Though some express fear that the newly born Japan may eventually challenge European interests in Asia.
+the_meiji_restoration_NEWS_MEDIUM;The penetration of Western influence into Japan has reached a climax with a series of recent events. Centuries of feudalism collapsed in the blink of an eye, the Emperor regained power in Tokyo, and the Meiji era began. Some express fear that the newly born Japan may eventually challenge European interests in Asia.
+the_meiji_restoration_NEWS_SHORT;The penetration of Western influence into Japan has reached a climax with a series of recent events. Centuries of feudalism collapsed in the blink of an eye, the Emperor regained power in Tokyo, and the Meiji era began.
+kiel_canal_NEWS_LONG;The combination of commercial and naval interests has prompted $TAG0_0$ to consider building an artificial waterway connecting the Baltic Sea and the North Sea, so that ships no longer need to circle the Jutland Peninsula through the rough ocean. The 61-mile canal is expected to soon become one of the busiest artificial waterways in the world.
+kiel_canal_NEWS_MEDIUM;The 61-mile Kiel Canal is expected to soon become one of the busiest artificial waterways in the world. The project provides new impetus to commerce and demonstrates that a nation's strength can be achieved through manufacturing, trade, and engineering, rather than war and conquest.
+kiel_canal_NEWS_SHORT;The 61-mile Kiel Canal is expected to soon become one of the busiest artificial waterways in the world. The project provides new impetus to commerce for all coastal nations.
+suez_canal_NEWS_LONG;This is a day of triumph for $TAG0_0$, as for the first time in history a ship has successfully passed through the newly opened canal across the Isthmus of Suez. The 102-mile-long, 26-foot-deep Suez Canal is a true modern engineering miracle, expected to soon become one of the busiest waterways in the world, which will drive down shipping costs and benefit global commerce. "Tolls will never cover maintenance costs; the route around Africa will remain dominant," declared skeptics, seeking to diminish the significance of this development.
+suez_canal_NEWS_MEDIUM;This is a day of triumph for $TAG0_0$, as for the first time in history a ship has successfully passed through the newly opened canal across the Isthmus of Suez. The 102-mile-long, 26-foot-deep Suez Canal is a true modern engineering miracle, expected to soon become one of the busiest waterways in the world.
+suez_canal_NEWS_SHORT;This is a day of triumph for $TAG0_0$, as for the first time in history a ship has successfully passed through the newly opened 102-mile-long, 26-foot-deep canal across the Isthmus of Suez.
+panama_canal_NEWS_LONG;The opening of the canal across the Isthmus of Panama brings a proud day for $TAG0_0$. The canal, 48 miles in length, is in fact a lock waterway 85 feet above sea level, with some of the most intricate locks at both ends. Built in one of the most unhealthy regions in the world, the canal is a milestone not only of modern engineering but also of modern medicine. The Panama Canal is expected to soon become a hub of international maritime trade, and experts also say it will provide its controllers with a significant strategic advantage in wartime.
+panama_canal_NEWS_MEDIUM;The opening of the canal across the Isthmus of Panama brings a proud day for $TAG0_0$. The canal, 48 miles in length, is in fact a lock waterway 85 feet above sea level. The Panama Canal, built in one of the most unhealthy regions in the world, is a milestone of modern engineering as well as medicine.
+panama_canal_NEWS_SHORT;The opening of the canal across the Isthmus of Panama brings a proud day for $TAG0_0$. The canal, 48 miles in length, is in fact a lock waterway 85 feet above sea level, with some of the most intricate locks at both ends.
+empress_of_india_NEWS_LONG;After the conclusion of the "Imperial Durbar" in Delhi, a royal proclamation was read at the foot of the memorial column in Trafalgar Square, announcing that Queen Victoria was granted the title "Empress of India." No ruler in India had received the imperial crown since the Mughal Emperor was deposed by the British East India Company. After the company's power was dissolved, a view spread widely that the Queen's superiority over the Indian princes should be confirmed in the form of an imperial title. Prime Minister Benjamin Disraeli is believed to be the architect of this idea.
+empress_of_india_NEWS_MEDIUM;After the conclusion of the "Imperial Durbar" in Delhi, a royal proclamation was read at the foot of the memorial column in Trafalgar Square, announcing that Queen Victoria was granted the title "Empress of India." The imperial title confirmed the Queen's superiority over many Indian princes.
+empress_of_india_NEWS_SHORT;After the formal "Imperial Durbar" in Delhi concluded, a royal proclamation was read at the foot of the memorial column in Trafalgar Square, announcing that Queen Victoria was granted the title "Empress of India."
+COUNTRYALERT_ColonialGood_invest;?GWe can invest in our ?Y$REGION$ colony?!
+aar_fake1_title;Masked Vigilante
+aar_fake1;Recently, there have been some vigilante activities against crime in our capital, initiated by a fellow wearing a cat costume who calls himself "Cat-Man" and goes around dealing with criminals.
+aar_fake2_title;Gauss Passes Away
+aar_fake2;Yesterday, the famous German mathematician Carl Friedrich Gauss passed away. Mathematicians will remember him forever. He called mathematics the "Queen of the Sciences."
+aar_fake3_title;Responsible Government!
+aar_fake3;In 1848, the first responsible government in British North America was established in Nova Scotia, led by James Uniacke and Joseph Howe.
