@@ -1,0 +1,54 @@
+name: Build Project Alice (Windows)
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:  # 允许手动触发
+
+# 取消正在运行的旧工作流（避免队列堆积）
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CMAKE_GENERATOR: Ninja
+  CMAKE_BUILD_TYPE: Release
+
+jobs:
+  # ==================== Windows 编译 ====================
+  build-windows:
+    name: Build Windows (x64-release-windows-avx512)
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install Ninja
+        run: choco install ninja -y
+
+      - name: Configure CMake
+        run: |
+          cmake --preset=x64-release-windows-avx512
+        working-directory: ${{ github.workspace }}
+
+      - name: Build
+        run: |
+          cmake --build out/build/x64-release-windows-avx512 --config Release -j$env:NUMBER_OF_PROCESSORS
+        working-directory: ${{ github.workspace }}
+
+      - name: Upload Windows binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: alice-windows-x64-avx512
+          path: |
+            ${{ github.workspace }}\out\install\x64-release-windows-avx512\bin\ProjectAlice.exe
+            ${{ github.workspace }}\out\install\x64-release-windows-avx512\bin\launch_alice.exe
+          retention-days: 7
